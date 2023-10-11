@@ -1,0 +1,177 @@
+\documentclass[12pt, a4paper, oneside]{book}
+\usepackage{fontspec}
+%\setmainfont{Arial}[ItalicFont={Arial Italic}]
+%\setmainfont{Gill Sans MT}[ItalicFont={Gill Sans MT Italic}]
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.5cm, bindingoffset=1cm]{geometry}
+\linespread{1.5}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{csquotes}
+\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[table]{xcolor}
+\usepackage{indentfirst}
+\setlength{\parindent}{0cm}
+\usepackage[italian]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{wrapfig}
+\usepackage{url}
+\lstset{showstringspaces=false}
+
+%TABELLE
+\usepackage{booktabs} % Per le linee orizzontali di alta qualità
+\usepackage{tabularx} % Per tabelle di larghezza fissa con colonne espandibili
+\definecolor{headercolor}{gray}{0.9} % Imposta il colore dell'intestazione a grigio
+\usepackage{array}
+\setlength{\arrayrulewidth}{0.3mm}
+
+\usepackage{eurosym} %simbolo Euro
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\chaptername
+    \ \thechapter.\ #1}{}}
+\fancyhf{}
+\fancyhead[L]{\textsl{\leftmark}}
+\fancyhead[R]{\textsl{IS- Problem Statement}}
+\fancyfoot[C]{\thepage}
+
+
+\title{Problem Statement - IS}
+\author{Chiara Coscarelli, Angelo Fiorillo, Marco Santoriello, Fabio Sessa}
+\date{Ottobre 2023}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \LARGE{\uppercase{Università degli Studi di Salerno}}\\
+            \vspace{5mm}
+            %Dipartimento
+            \uppercase{\normalsize Dipartimento di Informatica}\\
+        \end{center}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.3\textwidth]{img/logo_unisa.png}
+        \end{figure}
+
+        \begin{center}
+            %Corso di Laurea
+            \normalsize{ Corso di Laurea in informatica }\\
+            \vspace{5mm}
+            %Titolo
+            {\LARGE{\bf Problem Statement - iSnapGaming }}\\
+            \vspace{10mm}
+        \end{center}
+
+        \vspace{15mm}
+        \noindent
+        \begin{minipage}[t]{0.47\textwidth}
+        %Relatore
+        {\large{ Docente:\\\bf  Prof. Andrea De Lucia}}
+            \vspace{12mm}\\
+        \end{minipage}
+        \hfill
+        \begin{minipage}[t]{0.4\textwidth}\raggedright
+        %Candidato
+        {\large{Componenti: \\ \bf Chiara Coscarelli\\Angelo Fiorillo\\Marco Santoriello\\Fabio Sessa}}
+        \end{minipage}
+
+        \vspace{20mm}
+
+        \vspace{50mm}
+        %Anno Accademico
+        \centering{\large \uppercase{ Anno Accademico 2023/2024 }}
+
+    \end{titlepage}
+    \newpage
+%MEMBRI DEL PROGETTO
+    \begin{center}
+    {\LARGE{Membri del progetto}}
+    \end{center}
+    \begin{center}
+        \begin{tabular}{|c|c|m{8cm}|}
+            \hline
+            \cellcolor{lightgray} \textbf{Nome} & \cellcolor{lightgray} \textbf{Matricola} & \cellcolor{lightgray} \textbf{E-mail}\\ \hline
+            Coscarelli  Chiara & 0512113869 & c.coscarelli1@studenti.unisa.it\\ \hline
+            Fiorillo Angelo & 0512105739 & a.fiorillo9@studenti.unisa.it\\ \hline
+            Santoriello Marco &  0512114100 & m.santoriello37@studenti.unisa.it\\ \hline
+            Sessa Fabio & 0512114634 & f.sessa30@studenti.unisa.it\\ \hline
+        \end{tabular}
+    \end{center}
+
+    \begin{center}
+    {\LARGE{Revision History}}
+    \end{center}
+
+    %TABELLA REVISION HISTORY
+    \begin{center}
+        \begin{tabular}{|c|c|m{8cm}|m{3.5cm}|}
+            \hline
+            \cellcolor{lightgray} \textbf{Data} & \cellcolor{lightgray} \textbf{Versione} & \cellcolor{lightgray} \textbf{Descrizione} & \cellcolor{lightgray} \textbf{Autore}\\ \hline
+            09/10/2023 & 1.00 & Impostazione documento e descrizione del problema & Marco Santoriello\\ \hline
+            10/10/2023 & 1.01 & Aggiunta di alcuni scenari & Marco Santoriello\\ \hline
+            DATA & 1.02 & DESCRIZIONE & TUO NOME\\ \hline
+            DATA & 1.03 & DESCRIZIONE & TUO NOME\\ \hline
+            DATA & 1.04 & DESCRIZIONE & TUO NOME\\ \hline
+        \end{tabular}
+    \end{center}
+
+
+
+
+
+    \setcounter{tocdepth}{3} %IMPOSTO LIVELLO PROFONDITA' INDICE
+
+    \tableofcontents
+
+    \chapter*{Problem Statement}
+%La seguente istruzione aggiunge il capitolo all'indice, siccome il comando
+%con la star * non inserisce il numero del capitolo/sezione ma non mostra
+%%nemmeno la sezione nell'indice
+    \addcontentsline{toc}{chapter}{\protect\numberline{}Problem Statement}
+    \section*{Problem}
+    \addcontentsline{toc}{section}{\protect\numberline{}Problem}
+    iSnapGaming nasce come un e-commerce specializzato nella vendita di videogiochi. Non ha una sede fisica, dunque l'unica entrata del business è rappresentata esclusivamente dalla piattaforma di vendite online.
+
+    \section*{Scenarios}
+    \addcontentsline{toc}{section}{\protect\numberline{}Scenarios}
+    \subsection*{Sxx: Acquisto cliente loggato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente loggato}
+    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, clicca sul pulsante per accedere al suo account e viene reindirizzato alla pagina di \textit{login}. A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: mypw123) e lo conferma cliccando sul pulsante preposto. A questo punto, viene rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
+    Clicca successivamente sull'icona del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
+    Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, clicca sul pulsante "Checkout", che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, clicca su "Termina Acquisto".\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+
+    \subsection*{Sxx: Acquisto cliente non loggato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non loggato}
+    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione presente nella barra di navigazione, alla pagina del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, clicca sul pulsante per effettuare il check-out e, non essendo loggato, viene reindirizzato sulla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato sulla \textit{Home page}. Da qui, accede nuovamente al carrello e clicca sul pulsante di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, clicca su "Termina Acquisto".\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+
+    \subsection*{Sxx: Acquisto cliente non registrato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non registrato}
+    L'utente Luca Neri accede alla piattaforma dal suo browser per la prima volta, avendone sentito parlare da alcuni conoscenti, entrando nella pagina principale. In particolare, rimane colpito da un videogioco presente tra i \textit{featured-products} e decide di acquistarlo. Dunque, per prima cosa, aggiunge il prodotto al carrello e si reca sulla pagina dedicata al carrello. Clicca sul pulsante \textit{check-out}, ma, non avendo ancora un account, il sito lo reindirizza alla pagina di registrazione, dove compila i vari campi necessari alla registrazione: \textit{Nome: Luca}, \textit{Cognome: Neri}, \textit{Data di nascita: 27/05/1998}, \textit{Codice Fiscale: LCUNRE98E27F205X}, \textit{Username: nlucas98}, \textit{Indirizzo e-mail: lneri98@gmail.com} e \textit{Password: LaMiaPasswordUnsafe}. Infine, clicca su \textit{Registrati}. La registrazione termina con successo, e l'utente viene riportato sulla \textit{Home page}. Da qui, accede nuovamente alla pagina del carrello, prosegue al check-out e viene rimandato alla schermata per ultimare il pagamento.\\
+    Compila i vari campi: \textit{Via: Via Piave}, \textit{Civico: 21}, \textit{Città: Voghera}, \textit{Provincia: PV}, \textit{Stato: Italia}, \textit{Cellulare: 327 352 3770}, \textit{Numero di carta: 5333756908563312}, \textit{Scadenza: 12/24}, \textit{CVV: 550}. Infine, clicca su "Termina Acquisto".\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+
+    \subsection*{Sxx: Modifica di un prodotto}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Modifica di un prodotto}
+    Il \textit{gestore dei prodotti} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login ed accede alla pagina del catalogo. Da qui, entra nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sul pulsante di modifica del prodotto, dato che vuole farlo apparire come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, il campo \textit{Disponibile}, e lo imposta su \textit{No}. Clicca sul pulsante di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+    \subsection*{Sxx: Aggiunta di un nuovo gestore degli ordini}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di un nuovo gestore degli ordini}
+    L'\textit{admin}, cioè l'amministratore dell'intero sistema, Francesco Bianchi, accede al suo account e viene rimandato sulla HomePage. Da qui, clicca sull'opzione \textit{Aggungi Nuovo} del menù \textit{Utenti}. Gli compare la pagina che permette di inserire un nuovo utente. Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B}, \textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: latuapassword} e, infine, clicca su \textit{Aggiungi}.
+
+    %COPIARE ED INCOLLARE IL SEGUENTE BLOCCO DI ISTRUZIONI - INSERIRE NOME SCENARIO NEI DUE APPOSITI CAMPI.
+    \subsection*{Sxx: INSERISCI NOME SCENARIO}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: INSERISCI NOME SCENARIO}
+        Descrivi qui il tuo scenario.
+
+
+
+
+\end{document}
