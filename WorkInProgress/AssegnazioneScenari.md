@@ -17,7 +17,7 @@
 * Modifica prodotti
 * Aggiunta gestore
 ### Angelo
-* Aggiornamento stato ordine
-* Ricerca prodotti
-* Visualizzazione prodotti
+* Aggiornamento stato ordine 
+* Ricerca prodotti [ok]
+* Visualizzazione prodotti [ok]
 
