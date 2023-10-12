@@ -10,3 +10,13 @@
 - gestore ordini
 - gestore recensioni
 - cliente
+
+**Videogioco**
+- ID
+- Nome
+- Prezzo
+- Quantità
+- PEGI (Enum: tre, sette, dodici, sedici, diciotto)
+- AnnoProduzione
+- Disponibile
+- Produttore? (Riferimento a entita' software house?)
