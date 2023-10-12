@@ -115,15 +115,11 @@
             \hline
             \cellcolor{lightgray} \textbf{Data} & \cellcolor{lightgray} \textbf{Versione} & \cellcolor{lightgray} \textbf{Descrizione} & \cellcolor{lightgray} \textbf{Autore}\\ \hline
             09/10/2023 & 1.00 & Impostazione documento e descrizione del problema & Marco Santoriello\\ \hline
-            10/10/2023 & 1.01 & Aggiunta di alcuni scenari & Marco Santoriello\\ \hline
+            10/10/2023 & 1.01 & Aggiunta degli scenari Sxx, Sxx & Marco Santoriello\\ \hline
             11/10/2023 & 1.02 & Aggiunta di alcuni scenari & Fabio Sessa\\ \hline
-<<<<<<< HEAD
-            11/10/2023 & 1.03 & Aggiunta scenario ricerca prodotti & Angelo Fiorillo\\ \hline
-            DATA & 1.03 & DESCRIZIONE & TUO NOME\\ \hline
-=======
             11/10/2023 & 1.03 & Aggiunta di alcuni scenari & Chiara Coscarelli\\ \hline
->>>>>>> 21b828dbbf38a5ce7564bf39e7cc3606fefc988f
-            DATA & 1.04 & DESCRIZIONE & TUO NOME\\ \hline
+            11/10/2023 & 1.04 & Aggiunta scenario ricerca prodotti & Angelo Fiorillo\\ \hline
+            DATA & 1.05 & DESCRIZIONE & TUO NOME\\ \hline
         \end{tabular}
     \end{center}
 
@@ -148,86 +144,69 @@
     \addcontentsline{toc}{section}{\protect\numberline{}Scenarios}
     \subsection*{Sxx: Acquisto cliente loggato}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente loggato}
-    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, clicca sul pulsante per accedere al suo account e viene reindirizzato alla pagina di \textit{login}. A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: mypw123) e lo conferma cliccando sul pulsante preposto. A questo punto, viene rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
-    Clicca successivamente sull'icona del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
-    Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, clicca sul pulsante "Checkout", che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, clicca su "Termina Acquisto".\\
-    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, clicca sul pulsante per accedere al suo account e viene reindirizzato alla pagina di \textit{login}. A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: MyPassWord1!) e lo conferma cliccando sull'opzione preposta. A questo punto, viene rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
+    Clicca successivamente sulla funzionalità del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
+    Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, seleziona l'opzione di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
     \subsection*{Sxx: Acquisto cliente non loggato}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non loggato}
-    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione presente nella barra di navigazione, alla pagina del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, clicca sul pulsante per effettuare il check-out e, non essendo loggato, viene reindirizzato sulla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato sulla \textit{Home page}. Da qui, accede nuovamente al carrello e clicca sul pulsante di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, clicca su "Termina Acquisto".\\
-    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+    L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione presente nella barra di navigazione, alla pagina del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, seleziona la funzionalità per effettuare il check-out e, non essendo loggato, viene reindirizzato alla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato sulla \textit{Home page}. Da qui, accede nuovamente al carrello e seleziona l'opzione di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
     \subsection*{Sxx: Acquisto cliente non registrato}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non registrato}
-    L'utente Luca Neri accede alla piattaforma dal suo browser per la prima volta, avendone sentito parlare da alcuni conoscenti, entrando nella pagina principale. In particolare, rimane colpito da un videogioco presente tra i \textit{featured-products} e decide di acquistarlo. Dunque, per prima cosa, aggiunge il prodotto al carrello e si reca sulla pagina dedicata al carrello. Clicca sul pulsante \textit{check-out}, ma, non avendo ancora un account, il sito lo reindirizza alla pagina di registrazione, dove compila i vari campi necessari alla registrazione: \textit{Nome: Luca}, \textit{Cognome: Neri}, \textit{Data di nascita: 27/05/1998}, \textit{Codice Fiscale: LCUNRE98E27F205X}, \textit{Username: nlucas98}, \textit{Indirizzo e-mail: lneri98@gmail.com} e \textit{Password: LaMiaPasswordUnsafe}. Infine, clicca su \textit{Registrati}. La registrazione termina con successo, e l'utente viene riportato sulla \textit{Home page}. Da qui, accede nuovamente alla pagina del carrello, prosegue al check-out e viene rimandato alla schermata per ultimare il pagamento.\\
-    Compila i vari campi: \textit{Via: Via Piave}, \textit{Civico: 21}, \textit{Città: Voghera}, \textit{Provincia: PV}, \textit{Stato: Italia}, \textit{Cellulare: 327 352 3770}, \textit{Numero di carta: 5333756908563312}, \textit{Scadenza: 12/24}, \textit{CVV: 550}. Infine, clicca su "Termina Acquisto".\\
-    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento e svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove mostrerà il riepilogo dell'ordine, con il relativo codice.
+    L'utente Luca Neri accede alla piattaforma dal suo browser per la prima volta, avendone sentito parlare da alcuni conoscenti, entrando nella pagina principale. In particolare, rimane colpito da un videogioco presente tra i \textit{featured-products} e decide di acquistarlo. Dunque, per prima cosa, aggiunge il prodotto al carrello e si reca sulla pagina dedicata al carrello. Seleziona l'opzione di \textit{check-out}, ma, non avendo ancora un account, il sito lo reindirizza alla pagina di registrazione, dove compila i vari campi necessari alla registrazione: \textit{Nome: Luca}, \textit{Cognome: Neri}, \textit{Data di nascita: 27/05/1998}, \textit{Codice Fiscale: LCUNRE98E27F205X}, \textit{Username: nlucas98}, \textit{Indirizzo e-mail: lneri98@gmail.com} e \textit{Password: LaMiaPasswordSafe1!}. Infine, clicca su \textit{Registrati}. La registrazione termina con successo, e l'utente viene riportato sulla \textit{Home page}. Da qui, accede nuovamente alla pagina del carrello, prosegue al check-out e viene rimandato alla schermata per ultimare il pagamento.\\
+    Compila i vari campi: \textit{Via: Via Piave}, \textit{Civico: 21}, \textit{Città: Voghera}, \textit{Provincia: PV}, \textit{Stato: Italia}, \textit{Cellulare: 327 352 3770}, \textit{Numero di carta: 5333756908563312}, \textit{Scadenza: 12/24}, \textit{CVV: 550}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+    L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
     \subsection*{Sxx: Modifica di un prodotto}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Modifica di un prodotto}
-    Il \textit{gestore dei prodotti} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login ed accede alla pagina del catalogo. Da qui, entra nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sul pulsante di modifica del prodotto, dato che vuole farlo apparire come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, il campo \textit{Disponibile}, e lo imposta su \textit{No}. Clicca sul pulsante di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+    Il \textit{gestore dei prodotti} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login ed accede alla pagina del catalogo. Da qui, entra nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sull'opzione che consente di modificare il prodotto, dato che vuole farlo apparire come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, il campo \textit{Disponibile}, e lo imposta su \textit{No}. Clicca sul pulsante di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+
     \subsection*{Sxx: Aggiunta di un nuovo gestore degli ordini}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di un nuovo gestore degli ordini}
-    L'\textit{admin}, cioè l'amministratore dell'intero sistema, Francesco Bianchi, accede al suo account e viene rimandato sulla HomePage. Da qui, clicca sull'opzione \textit{Aggungi Nuovo} del menù \textit{Utenti}. Gli compare la pagina che permette di inserire un nuovo utente. Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B}, \textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: latuapassword} e, infine, clicca su \textit{Aggiungi}.
+    L'\textit{admin}, cioè l'amministratore dell'intero sistema, Francesco Bianchi, accede al suo account e viene rimandato sulla HomePage. Da qui, seleziona l'opzione \textit{Aggungi Nuovo} da un menu dedicato. Gli compare la pagina che permette di inserire un nuovo utente. Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B}, \textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: latuapassword} e, infine, seleziona la funzionalità che permette di confermare l'aggiunta.
 
     \subsection*{Sxx: Aggiunta di un prodotto}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di un prodotto}
-    Il gestore dei prodotti Mario Rossi deve aggiungere il gioco Cyberpunk 2077 al catalogo.
-    Il gestore effettua l'accesso selezionando la sezione di autenticazione dove inserisce i dati: Email: mrossi02@gmail.com, Password: Mari0rossi!
-    Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione
-    Aggiungi Prodotto che lo porta alla schermata dedicata. Il gestore inserisce le seguenti informazioni:
-    ID: x123P, Nome: Cyberpunk 2077, Produttore: CD Projekt RED, Piattaforma: PS5, Prezzo: 49.99, Quantità: 250, Categoria: Action RPG, PEGI: 18,
-    Anno di Produtzione: 2020. Il gestore invia le informazioni e il sistema avverte che l'operazione di aggiunta
-    è stata eseguita con successo.
+    Il Gestore dei Prodotti Luca Bianchi accede alla pagina di accesso tramite il bottone di "Login" situato sulla barra di navigazione per effettuare l'autenticazione, ed inserisce le proprie credenziali, ossia Email: lbianchi02@gmail.com e Password: Lucab1anchi!
+    Se l'autenticazione va a buon fine, il Gestore viene reindirizzato alla pagina principale e può accedere tramite un bottone "Gestione catalogo" situato sulla barra di navigazione.
+    Accedendo alla sezione della gestione dei prodotti, viene visualizzata la pagina contenente un bottone "Aggiungi prodotto" seguito da una visualizzazione di quelli che sono i prodotti presenti sul sito.
+    Da qui, cliccando il bottone "Aggiungi prodotto", compila i seguenti campi: Codice: X123P, Nome: Assassin's Creed Mirage, Produttore: Ubisoft, Piattaforma: PS5, Categoria: Avventura, Prezzo: 69.99, Quantità: 300, Immagine: *scelta immagine da parte del Gestore*.
+    Infine, il Gestore clicca il pulsante “Aggiungi”, il prodotto viene aggiunto al catalogo e viene reindirizzato alla pagina del prodotto.
 
     \subsection*{Sxx: Rimozione di un prodotto}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Rimozione di un prodotto}
-    Il gestore dei prodotti Mario Rossi deve rimuovere Cyberpunk 2077 dal catalogo. Il gestore effettua l'accesso
-    selezionando la sezione di autenticazione dove inserisce i dati: Email: mrossi02@gmail.com, Password: Mari0rossi!
-    Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione del Catalogo.
-    Il gestore utilizza la funzionalità della ricerca per categoria dei prodotti e seleziona "Action RPG".
-    Il gestore trova Cyberpunk 2077 e accede all'area riservata ai dettagli. Il gestore seleziona la funzionalità
-    che lo permette di eliminare definitivamente il prodotto dal catalogo. Il sistema avverte il gestore
-    che l'operazione è avvenuta con successo.
+    Il Gestore dei Prodotti Luca Bianchi accede alla pagina di accesso tramite il bottone di "Login" situato sulla barra di navigazione per effettuare l'autenticazione, ed inserisce le proprie credenziali, ossia Email: lbianchi02@gmail.com e Password: Lucab1anchi!
+    Se l'autenticazione va a buon fine, il Gestore viene reindirizzato alla pagina principale e può accedere tramite un bottone "Gestione catalogo" situato sulla barra di navigazione.
+    Accedendo alla sezione della gestione dei prodotti, viene visualizzata la pagina contenente un bottone "Aggiungi prodotto" (che in questo scenario non ci interessa) seguito da una visualizzazione di quelli che sono i prodotti presenti sul sito.
+    Cliccando sul prodotto Assassin's Creed Mirage, il Gestore viene indirizzato alle caretteristiche specifiche del prodotto, con la possibilità di rimuoverlo tramite un bottone "Rimuovi". Il Gestore usa la funzione di rimozione del prodotto cliccando su quel bottone; il prodotto viene rimosso e il Gestore viene reindirizzato alla pagina di gestione catalogo aggiornata.
 
     \subsection*{Sxx: Aggiunta di una recensione}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di una recensione}
-    L'utente Marco Marroni ha un obiettivo ben preciso: recensire il gioco Assassin's Creed Mirage che ha appena acquistato.
-    Prima di tutto, si autentica al sistema inserendo le proprie credenziali, ovvero Email: mmarroni02@gmail.com, Password: Marc0marroni!
-    Il sistema avverte l'utente che l'autenticazione è andata a buon fine, dato che ha inserito i dati correttamente.
-    L'utente passa alla sezione del catalogo dove utilizza la funzionalità dei filtri per categoria. L'utente seleziona
-    "Avventura" e sfoglia tutti i giochi filtrati per la categoria "Avventura" finché non trova Assassin's Creed Mirage,
-    che è il gioco che vuole recensire. L'utente seleziona la funzionalità che lo porta alla schermata apposita
-    dedicata ai dettagli del gioco, dove è possibile fare la recensione. L'utente nota che al momento non sono presenti
-    altre recensioni. L'utente inserisce la propria recensione nella sezione apposita inserendo il seguente messaggio:
-    "Il prodotto è arrivato in condizioni perfette e lo consiglio a tutti gli appassionati!".
-    L'utente utilizza la funzionalità che permette l'invio della recensione. Successivamente,
-    il sistema avverte l'utente di attendere che la pubblicazione della sua recensione sia approvata da un Gestore delle Recensioni.
+    L'utente Marco Marroni accede alla pagina principale della piattaforma, clicca sul pulsante per accedere al suo account e viene reindirizzato alla pagina di login. A questo punto inserisce le proprie credenziali, ossia Email: mmarroni02@gmail.com, Password Marc0marroni!
+    Se i dati inseriti sono corretti e l'autenticazione va a buon fine, l'utente viene reindirizzato alla pagina principale.
+    Dopodiché, cerca all'interno del catalogo il prodotto di cui vuol fare la recensione, clicca sul prodotto Assassin's Creed Mirage e viene indirizzato alla pagina che contiene le specifiche del prodotto. In questa schermata può trovare in fondo alla pagina le recensioni di altri utenti (se ce ne sono) e un campo testo dove può inserire la propria recensione. In questo caso inserisce: "Davvero ottimo gioco! Consigliato a tutti gli appassionati!". Clicca sul bottone di "Invio" e attende che un Gestore delle Recensioni accetti di rendere visibile la recensione a tutti gli utenti.
 
+    \subsection*{Sxx: Operazione accetta/rifiuta recensione}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Operazione accetta/rifiuta recensione}
+    Il Gestore delle Recensioni Davide Verdi accede alla pagina di accesso tramite il bottone di "Login" situato nella barra di navigazione per effettuare l'autenticazione, ed inserisce le proprie credenziali, ossia Email: dverdi02@gmail.com Password: David3verdi!
+    Se l'autenticazione va a buon fine, il Gestore viene reindirizzato alla pagina principale e può accedere tramite un bottone "Gestione recensioni" situato sulla barra di navigazione.
+    Il Gestore accede alla schermata apposita, e verranno mostrate tutte le recensioni (che sono in stato di "attesa") sui prodotti, scritte dagli utenti. Infatti, appare una tabella che riassume l'elenco di tutte le recensioni effettuate dai clienti e per ciascuna recensione, se rispetta un linguaggio consono e privo di contenuti offensivi, il Gestore (tramite apposito bottone) può accettare di renderla visibile. Altrimenti, può rifiutare la richiesta.
+    Indipendemente dalla scelta, la recensione non è più visibile tra quelle da accettare/rifiutare.
 
-    \subsection*{Sxx: Approvazione recensione}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Approvazione recensione}
-    Il gestore delle recensioni Luca Verdi, in una normale giornata di lavoro, deve controllare le varie richieste
-    di recensioni (effettuate dagli utenti) che deve approvare e rendere pubbliche.
-    Prima di tutto, il gestore si autentica al sistema inserendo le proprie credenziali,
-    ovvero Email: lverdi02@gmail.com, Password: Lucaverd1!
-    Il sistema avverte il gestore che l'autenticazione va a buon fine. Dopodiché, il gestore accede alla schermata
-    Gestione Recensioni per visualizzare l'elenco di tutte le richieste di recensione. Il gestore nota che in cima alla
-    lista è presente una recensione dell'utente Marco Marroni riferita al gioco Assassin's Creed Mirage,
-    con il seguente messaggio: "Il prodotto è arrivato in condizioni perfette e lo consiglio a tutti gli appassionati!".
-    Il gestore capisce che il testo è privo di contenuti offensivi e decide di approvare la pubblicazione della recensione.
-    Il sistema avverte il gestore che la pubblicazione è avvenuta con successo.
-
+    Nella schermata di gestione delle recensioni, vengono elencate in una tabella tutte le recensioni dei prodotti che sono in stato "in attesa" da parte degli utenti. Per ciascuna recensione, il gestore può decidere se approvarla o meno, verificando se rispetta un linguaggio appropriato e non contiene contenuti offensivi. Questa azione può essere eseguita tramite un apposito bottone.
+    Indipendentemente dalla scelta effettuata, la recensione non sarà più visibile tra quelle da accettare o rifiutare.
 
     \subsection*{Sxx: Registrazione}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Registrazione}
-     L'utente Luca Neri accede al sito web cliccando sul pulsante "Login" situato in alto a destra della pagina principale.
+     L'\textit{utente} Luca Neri accede al sito web cliccando sul pulsante "Login" situato in alto a destra della pagina principale.
      Una volta cliccato il pulsante, Luca viene reindirizzato alla pagina di login del sito.
      Una volta qui, l'utente fa clic sul pulsante "Registrati Ora". Fatto ciò, viene immediatamente reindirizzato alla pagina di registrazione.
      Su questa pagina, Luca compila attentamente tutti i campi necessari. Nei campi obbligatori, Luca inserisce le seguenti informazioni:
-     Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X,
-      Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordUnsafe.
+     \textit{Nome: Luca}, \textit{Cognome: Neri}, \textit{Data di nascita: 27/05/1998}, \textit{Codice Fiscale: LCUNRE98E27F205X},
+      \textit{Username: nlucas98}, \textit{E-mail: lneri98@gmail.com} e \textit{Password: Wy3TSUc!}.
      La registrazione termina con successo, e l’utente viene riportato sulla Home page.
 
     \subsection*{Sxx: Login Cliente}
@@ -245,7 +224,7 @@
     A questo punto, si apre un menù a tendina dal quale il cliente seleziona l'opzione "Visualizza Account".
     Il sistema reindirizza Luca alla pagina del suo account, dove sono visualizzati i dettagli del suo profilo
     (Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
-     Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordUnsafe).
+     Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!).
     Sulla pagina del suo account, il cliente individua e fa clic sull'opzione "Modifica Dati Account".
     Viene presentato un modulo di modifica dati account che include un campo per la modifica della password.
     Il cliente inserisce la sua nuova password:Gatto23 nel campo "Nuova Password" e la conferma nel campo "Conferma Password".
@@ -277,20 +256,25 @@
     \subsection*{Sxx: Visualizzazione prodotti}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Visualizzazione prodotti}
     Francesco effettua l'accesso al sistema con autenticazione inserisce ione le sue credenziali d'accesso, username :
-     "francesco@libero.it" e password "a_bbb2" ed effettua il "Login". Il sistema rileva un'eccezione, segnalando con un
+     "francesco@libero.it" e password "a-bbb2" ed effettua il "Login". Il sistema rileva un'eccezione, segnalando con un
     messaggio di errore "utente non riconosciuto" e reindirizza Francesco alla pagina d'autenticazione. Francesco ripete
     il processo di autenticazione con meticolosità, prestando particolare attenzione alle specificità maiuscole/minuscole
-    nella password (modificandola in "A_bbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema riconosce
+    nella password (modificandola in "A-bbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema riconosce
     Francesco come utente valido e lo indirizza alla homepage di iSnapGames, dove lo accoglie con un messaggio di benvenuto.
     Francesco seleziona la funzionalità "I Miei Ordini," selezionando l'appropriato pulsante e in risposta, il sistema
     fornisce tabella che espone tutti gli ordini registrati nel sistema. Ogni riga della tabella contiene il numero
     d'ordine, una breve descrizione, il costo totale e lo stato corrente dell'ordine.
-        - #0567 	Ghostrunner 2 	40.98	consegnato
-        - #1678		GT7...		    95.49	in lavorazione
-    Francesco seleziona l'ordine #1678 per esaminare in dettaglio l'ordine ed il  sistema visualizza una seconda tabella
+    \begin{itemize}
+        \item [-] \#0567 Ghostrunner 2 	\officialeuro 40.98	consegnato
+        \item [-] \#1678 GT7... \officialeuro 95.49	in lavorazione
+    \end{itemize}
+    Francesco seleziona l'ordine \#1678 per esaminare in dettaglio l'ordine ed il  sistema visualizza una seconda tabella
     che mostra quantità, nomi e prezzi di ciascun articolo dell'ordine:
-    	- 1	GT7				            35.50
-    	- 1	Assassin's Creed Mirage		59.99
+    \begin{itemize}
+        \setlength\itemsep{.05cm}
+        \item [-] 1	GT7 \officialeuro 35.50
+        \item [-] 1Assassin's Creed Mirage	\officialeuro 59.99
+    \end{itemize}
     Alla conclusione della sua sessione d'interazione con iSnapGames, Francesco seleziona la funzione
     "Logout". In risposta, il sistema lo congeda riportandolo alla homepage generica di iSnapGames.
 
