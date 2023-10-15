@@ -119,7 +119,7 @@
             11/10/2023 & 1.02 & Aggiunta di alcuni scenari & Fabio Sessa\\ \hline
             11/10/2023 & 1.03 & Aggiunta di alcuni scenari & Chiara Coscarelli\\ \hline
             11/10/2023 & 1.04 & Aggiunta scenario ricerca prodotti & Angelo Fiorillo\\ \hline
-            DATA & 1.05 & DESCRIZIONE & TUO NOME\\ \hline
+            15/10/2023 & 1.05 & Aggiunta scenario gestione account e stato ordine & Angelo Fiorillo\\ \hline
         \end{tabular}
     \end{center}
 
@@ -246,11 +246,10 @@
     \subsection*{Sxx: Ricerca prodotti}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Ricerca prodotti}
 
-    Il cliente Francesco accede alla homepage iSnapGame, dove troviamo una vetrina di videogiochi in vendita.
+    Il cliente Francesco accede alla homepage iSnapGaming, dove troviamo una vetrina di videogiochi in vendita.
     Francesco ha un obiettivo specifico: trovare un gioco di simulazione. Per fare ciò si dirige verso il filtro di
-    ricerca, che è facilmente accessibile tramite un pulsante situato nella barra di navigazione dell'applicazione.
-    Una volta attivato il filtro, il sistema ci mostra una lista di categorie tra cui scegliere. Francesco seleziona la
-    categoria "simulazione" e conferma la scelta premendo il pulsante "Applica filtro". Il sistema risponde
+    ricerca. Una volta attivato il filtro, il sistema ci mostra una lista di categorie tra cui scegliere. Francesco
+    seleziona la categoria "simulazione" e conferma la scelta premendo il pulsante "Applica filtro". Il sistema risponde
     immediatamente, aggiornando la pagina e mostrando un elenco di giochi appartenenti alla categoria "simulazione".
     Il sistema ha mostrato troppi videogames e Francesco non riesce a individuare il gioco che desidera tra le opzioni
     visualizzate. A questo punto, decide di utilizzare la funzione di ricerca dell'applicazione. Questa funzione di
@@ -260,19 +259,19 @@
     Curioso di saperne di più sul gioco, Francesco clicca sulla sua immagine di copertina. In risposta, il sistema
     mostra ulteriori dettagli, tra cui l'età consigliata, le dimensioni del prodotto, la data di uscita e molto altro.
     Dopo aver esaminato attentamente le informazioni, decide di procedere all'acquisto e aggiunge il gioco al suo
-    carrello virtuale utilizzando il pulsante "Aggiungi al carrello". Tuttavia, la sessione di shopping non finisce qui.
-    Soddisfatto dell'acquisto, Francesco decide di tornare alla homepage per esplorare ulteriori prodotti e vedere cosa
-    altro l'applicazione ha da offrire.
+    carrello virtuale utilizzando la funzionalità  "Aggiungi al carrello". Tuttavia, la sessione di shopping non finisce
+    qui. Soddisfatto dell'acquisto, Francesco decide di tornare alla homepage per esplorare ulteriori prodotti e vedere
+    cosa altro l'applicazione ha da offrire.
 
     \subsection*{Sxx: Visualizzazione prodotti}
     \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Visualizzazione prodotti}
-    Francesco effettua l'accesso al sistema con autenticazione inserisce ione le sue credenziali d'accesso, username :
-     "francesco@libero.it" e password "a-bbb2" ed effettua il "Login". Il sistema rileva un'eccezione, segnalando con un
+    Francesco effettua l'accesso al sistema con autenticazione inserisce  le sue credenziali d'accesso, username :
+     "francesco@libero.it" e password "aaaabbb2" ed effettua il "Login". Il sistema rileva un'eccezione, segnalando con un
     messaggio di errore "utente non riconosciuto" e reindirizza Francesco alla pagina d'autenticazione. Francesco ripete
     il processo di autenticazione con meticolosità, prestando particolare attenzione alle specificità maiuscole/minuscole
-    nella password (modificandola in "A-bbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema riconosce
-    Francesco come utente valido e lo indirizza alla homepage di iSnapGames, dove lo accoglie con un messaggio di benvenuto.
-    Francesco seleziona la funzionalità "I Miei Ordini," selezionando l'appropriato pulsante e in risposta, il sistema
+    nella password (modificandola in "aaaAbbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema riconosce
+    Francesco come utente valido e lo indirizza alla homepage di iSnapGaming, dove lo accoglie con un messaggio di benvenuto.
+    Francesco seleziona la funzionalità "I Miei Ordini", selezionando l'appropriato pulsante e in risposta, il sistema
     fornisce tabella che espone tutti gli ordini registrati nel sistema. Ogni riga della tabella contiene il numero
     d'ordine, una breve descrizione, il costo totale e lo stato corrente dell'ordine.
     \begin{itemize}
@@ -287,7 +286,32 @@
         \item [-] 1Assassin's Creed Mirage	\officialeuro 59.99
     \end{itemize}
     Alla conclusione della sua sessione d'interazione con iSnapGames, Francesco seleziona la funzione
-    "Logout". In risposta, il sistema lo congeda riportandolo alla homepage generica di iSnapGames.
+    "Logout". In risposta, il sistema lo congeda riportandolo alla homepage generica di iSnapGaming.
+
+    \subsection*{Sxx: Aggiornamento stato ordine}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiornamento stato ordine}
+    Luca Rossi, il gestore degli ordini, si autentica con successo nel sistema utilizzando le proprie
+    credenziali di accesso. Il sistema lo reindirizza automaticamente alla sezione dedicata alla gestione
+    degli ordini, e elenca tutti gli ordini registrati.
+    Al fine di semplificare il suo lavoro e focalizzarsi sugli ordini "pronti", Luca decide di applicare
+    un filtro tramite l'apposita funzione. La tabella degli ordini viene quindi prontamente aggiornata per
+    visualizzare solo gli ordini con lo stato "pronto". Tra questi ordini, Luca individua l'ordine con numero
+    identificativo #1234, che è stato recentemente spedito. Di conseguenza, Luca modifica lo stato di
+    quest'ordine da "pronto" a "spedito". Luca prosegue il suo lavoro gestionale, aggiornando con successo
+    altri cinque ordini, garantendo così che le informazioni siano sempre aggiornate e accurate.
+    Successivamente, utilizza nuovamente la funzione di filtro per selezionare gli ordini con stato "spedito".
+    Luca riceve la conferma della consegna dell'ordine #4321, il quale transita dallo stato "spedito" a
+    "consegnato". La giornata di lavoro di Luca continua con ulteriori aggiornamenti degli ordini,
+    garantendo che ciascun ordine possa passare attraverso i vari stati possibili, tra cui "in preparazione",
+    "pronto", "spedito" e "consegnato."
+
+    \subsection*{Sxx: Gestione account}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Gestione account}
+    Il cliente Francesco a seguito di un cambio di residenza decide di aggiornare le informazioni su
+    iSnapGaming, effettua l'accesso al sistema tramite autenticazione e  seleziona la funzionalità
+    "modifica Account". Il sistema mostra una form con tutti i dati (nome,cognome, città di residenza,
+    provincia, via, numero civico), Francesco modifica città : Roma, provincia : RO, via: viale Italia,
+    numero civico : 1 e utilizza la funzionalità "aggiorna" per rendere i dati persistenti.
 
     %COPIARE ED INCOLLARE IL SEGUENTE BLOCCO DI ISTRUZIONI - INSERIRE NOME SCENARIO NEI DUE APPOSITI CAMPI.
     \subsection*{Sxx: INSERISCI NOME SCENARIO}
