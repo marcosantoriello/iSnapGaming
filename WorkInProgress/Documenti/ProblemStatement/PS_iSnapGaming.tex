@@ -121,6 +121,7 @@
             11/10/2023 & 0.04 & Aggiunta scenario ricerca prodotti & AF\\ \hline
             15/10/2023 & 0.05 & Aggiunta scenario gestione account e stato ordine & AF\\ \hline
             15/10/2023 & 0.06 & Modifiche di allineamento a scelte comuni & Tutti\\ \hline
+            20/10/2023 & 0.07 & Aggiunta Requisiti non funzionali & Tutti\\ \hline
         \end{tabular}
     \end{center}
 
@@ -150,7 +151,8 @@
         Viene, dunque, rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
         Clicca successivamente sulla funzionalità del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
         Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, seleziona l'opzione di \textit{check-out}, che lo rimanda
-        alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+        alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno},
+        \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
         L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla
         \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
@@ -342,10 +344,30 @@
         provincia, via, numero civico), Francesco modifica città : Roma, provincia : RO, via: viale Italia,
         numero civico : 1 e utilizza la funzionalità "aggiorna" per rendere i dati persistenti.
 
-\section*{Requisiti}
-    \subsection*{Requisiti Funzionali}
+\section*{Requirements}
+\addcontentsline{toc}{section}{\protect\numberline{} Requisiti}
+    \subsection*{Functional requirements}
+    \addcontentsline{toc}{section}{\protect\numberline{} Requisiti Funzionali}
 
-    \subsection*{Requisiti non Funzionali}
+    \subsection*{Non-functional requirements }
+    \addcontentsline{toc}{section}{\protect\numberline{} Requisiti non Funzionali}
+        \subsubsection*{Dependability}
+            \textbf{Security}
+                \begin{itemize}
+                    \item [-] sqlInjection
+                    \item [-] Password crittografate
+                \end{itemize}
+            \textbf{Robustness}
+                \begin{itemize}
+                    \item [-] Gestione delle eccezioni client-side
+                \end{itemize}
+
+        \subsubsection*{Usability}
+            \begin{itemize}
+                \item [-] Design responsive
+                \item [-] Immagini di alta qualità
+                \item [-] Pulsanti ben visibili
+            \end{itemize}
 
 
 

@@ -4,6 +4,7 @@
 * Login cliente
 * Login gestore
 * Registrazione
+* Modifica Password
 ### Fabio
 * Aggiunta prodotto
 * Rimozione prodotto
