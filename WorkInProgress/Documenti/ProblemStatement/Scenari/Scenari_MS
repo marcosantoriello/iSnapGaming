@@ -1,0 +1,52 @@
+ACQUISTO CLIENTE LOGGATO:
+L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, seleziona l'opzione di accesso al suo account e viene reindirizzato alla pagina di \textit{login}.
+A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: MyPassWord11) e lo conferma cliccando sull'opzione preposta.
+Viene, dunque, rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
+Clicca successivamente sulla funzionalità del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
+Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, seleziona l'opzione di \textit{check-out}, che lo rimanda
+alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla
+\textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
+
+ACQUISTO CLIENTE NON LOGGATO:
+L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione, alla pagina
+del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti
+nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, seleziona la funzionalità
+per effettuare il check-out e, non essendo loggato, viene reindirizzato alla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato dove aveva
+interrotto, cioè sulla pagina del carrello.
+Da qui, seleziona l'opzione di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi:
+\textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276},
+\textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene
+reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
+
+ACQUISTO CLIENTE NON REGISTRATO:
+L'utente Luca Neri accede alla piattaforma dal suo browser per la prima volta, avendone sentito parlare da alcuni conoscenti, entrando nella pagina principale.
+In particolare, rimane colpito da un videogioco presente tra i \textit{featured-products} e decide di acquistarlo. Dunque, per prima cosa, aggiunge il prodotto
+al carrello e si reca sulla pagina dedicata al carrello. Seleziona l'opzione di \textit{check-out}, ma, non avendo ancora un account, il sito lo reindirizza alla pagina
+di registrazione, dove compila i vari campi necessari alla registrazione: \textit{Nome: Luca}, \textit{Cognome: Neri}, \textit{Data di nascita: 27/05/1998},
+\textit{Codice Fiscale: LCUNRE98E27F205X}, \textit{Username: nlucas98}, \textit{Indirizzo e-mail: lneri98@gmail.com} e \textit{Password: LaMiaPasswordSafe12}. Infine, clicca
+su \textit{Registrati}. La registrazione termina con successo, e l'utente viene riportato sulla pagina del carrello. L'utente prosegue quindi al check-out e viene rimandato
+alla schermata per ultimare il pagamento.\\
+Compila i vari campi: \textit{Via: Via Piave}, \textit{Civico: 21}, \textit{Città: Voghera}, \textit{Provincia: PV}, \textit{Stato: Italia}, \textit{Cellulare: 327 352 3770},
+\textit{Numero di carta: 5333756908563312}, \textit{Scadenza: 12/24}, \textit{CVV: 550}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page},
+dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
+
+MODIFICA DI UN PRODOTTO:
+Il \textit{gestore del catalogo} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login, assicurandosi
+che l'opzione riportante il ruolo \textit{Gestore Catalogo} sia selezionata, ed accede alla pagina del catalogo. Da qui, entra
+nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sull'opzione che consente di modificare il prodotto, dato che vuole farlo apparire
+come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, l'opzione \textit{Disponibile},
+e la imposta su \textit{No}. Clicca sull'opzione di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+
+AGGIUNTA DI UN NUOVO GESTORE DEGLI ORDINI:
+L'\textit{amministratore dei gestori} Francesco Bianchi, dalla pagina principale, accede al suo account e viene rimandato sulla HomePage.
+Da qui, seleziona l'opzione di aggiunta di un nouvo gestore da un menu dedicato. Viene così portato sulla pagina che permette di inserire un nuovo utente.
+Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B},
+\textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: LaTuaPassword1}, seleziona il ruolo \textit{Gestore Ordini} tra le
+varie opzioni presernti e, infine, seleziona la funzionalità che permette di confermare l'aggiunta. Gli appare, quindi, un messaggio che lo informa circa il successo
+dell'operazione.
+
+
+
