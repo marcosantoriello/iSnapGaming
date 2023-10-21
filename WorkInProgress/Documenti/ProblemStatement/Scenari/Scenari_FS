@@ -1,0 +1,53 @@
+==================================================================================================================================
+AGGIUNTA DI UNA RECENSIONE
+
+        L'utente Marco Marroni ha un obiettivo ben preciso: recensire il gioco Assassin's Creed Mirage che ha appena acquistato.
+        Prima di tutto, si autentica al sistema inserendo le proprie credenziali, ovvero Email: mmarroni, Password: Marc0marroni
+        Il sistema avverte l'utente che l'autenticazione è andata a buon fine, dato che ha inserito i dati correttamente.
+        L'utente accede all'area riservata del proprio account e successivamente utilizza la funzionalità
+        che lo porta nella schermata dell'elenco degli ordini effettuati. La schermata presenta tutti gli ordini,
+        da quelli completati a quelli ancora in spedizione. L'utente trova l'ordine in cui ha acquistato
+        Assassin's Creed Mirage e accede alla sezione che lo permette di inserire la propria recensione
+        in un campo di testo apposito, digitando il seguente messaggio: "Il prodotto è arrivato in condizioni perfette
+        e lo consiglio a tutti gli appassionati!". L'utente utilizza la funzionalità che permette l'invio della recensione.
+        Successivamente, il sistema avverte l'utente di attendere che la pubblicazione della sua recensione sia approvata
+        da un gestore delle recensioni.
+
+==================================================================================================================================
+APPROVAZIONE DI UNA RECENSIONE
+
+        Il gestore delle recensioni Luca Verdi, in una normale giornata di lavoro, deve controllare le varie richieste
+        di recensioni (effettuate dagli utenti) che deve approvare e rendere pubbliche.
+        Prima di tutto, il gestore entra nella sezione dell'autenticazione: inserisce le proprie credenziali, ovvero username: lverdi, Password: Lucaverd1
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore delle recensioni".
+        Il sistema avverte il gestore che l'autenticazione va a buon fine. Dopodiché, il gestore accede alla schermata
+        Gestione Recensioni per visualizzare l'elenco di tutte le richieste di recensione. Il gestore nota che in cima
+        alla lista è presente una recensione dell'utente Marco Marroni riferita al gioco Assassin's Creed Mirage,
+        con il seguente messaggio: "Il prodotto è arrivato in condizioni perfette e lo consiglio a tutti gli appassionati!".
+        Il gestore capisce che il testo è privo di contenuti offensivi e decide di approvare la pubblicazione della recensione.
+        Il sistema avverte il gestore che la pubblicazione è avvenuta con successo.
+
+================================================================================================================================
+AGGIUNTA DI UN PRODOTTO
+
+        Il gestore del catalogo Marco Bianchi deve aggiungere il gioco Cyberpunk 2077 al catalogo. Il gestore
+        effettua l'accesso selezionando la sezione di autenticazione dove inserisce i seguenti dati: username: mbianchi, Password: Mari0bianchi
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore del catalogo".
+        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione
+        Aggiungi Prodotto che lo porta alla schermata dedicata. Il gestore inserisce le seguenti informazioni:
+        ID: x123P, Nome: Cyberpunk 2077, Produttore: CD Projekt RED, Piattaforma: PS5, Prezzo: 49.99, Quantità: 250,
+        Categoria: Action RPG, PEGI: 18, Anno di Produtzione: 2020. Il gestore invia le informazioni
+        e il sistema avverte che l'operazione di aggiunta è stata eseguita con successo.
+
+================================================================================================================================
+RIMOZIONE DI UN PRODOTTO
+
+        Il gestore del catalogo Marco Bianchi deve rimuovere il gioco Cyberpunk 2077 dal catalogo.
+        Il gestore effettua l'accesso selezionando la sezione di autenticazione dove inserisce i dati: username: mbianchi, Password: Mari0bianchi
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore del catalogo".
+        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione del Catalogo.
+        Il gestore utilizza la funzionalità della ricerca per categoria dei prodotti e seleziona "Action RPG". Il gestore
+        trova Cyberpunk 2077 e accede all'area riservata ai dettagli. Il gestore seleziona la funzionalità che lo
+        permette di eliminare definitivamente il prodotto dal catalogo. Il sistema avverte il gestore che l'operazione è avvenuta con successo.
+
+================================================================================================================================
