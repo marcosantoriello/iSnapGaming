@@ -1,0 +1,32 @@
+REGISTRAZIONE:
+L'utente Luca Neri, una volta entrato sulla piattaforma, accede al suo account utilizzando l'apposita funzionalità di "login", che lo
+reindirizza alla pagina di login del sito.
+Una volta qui, l'utente seleziona "Registrati Ora". Fatto ciò, viene immediatamente reindirizzato alla pagina di registrazione.
+Su questa pagina, Luca compila attentamente tutti i campi necessari. Nei campi obbligatori, inserisce le seguenti informazioni:
+Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X,
+ Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
+La registrazione termina con successo, e l’utente viene riportato sulla Home page.
+
+
+
+LOGIN CLIENTE:
+Il cliente Mario Rossi, che si trova nella pagina del catalogo, accede alla pagina di Login selezionando l'apposita funzionalità "Login".
+Su questa pagina, Mario inserisce le sue credenziali: username: marrossi, password: mypw123 e conferma l'accesso.
+L'autenticazione va a buon fine e il cliente viene reindirizzato alla pagina del catalogo,dove aveva interrotto.
+
+
+
+
+MODIFICA PASSWORD:
+
+Il cliente Luca Neri è autenticato e si trova sulla homepage del sito web e desidera cambiare la sua password.
+Su questa pagina, Luca seleziona il pulsante "account".
+A questo punto, si apre un menu a tendina dal quale il cliente sceglie l'opzione "Visualizza Account".
+Il sistema reindirizza Luca alla pagina del suo account, dove sono visualizzati i dettagli del suo profilo
+(Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
+ Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!).
+Sulla pagina del suo account, il cliente individua e seleziona l'opzione "Modifica Dati Account".
+Viene presentato un modulo di modifica dati account che include un campo per la modifica della password.
+Il cliente inserisce la sua nuova password: Luc!Gatto23 nel campo "Nuova Password" e la conferma nel campo "Conferma Password".
+Il sistema verifica la validità della nuova password in base ai criteri di sicurezza stabiliti.
+A questo punto conferma la modifica e visualizza un messaggio che lo informa del successo dell'operazione.
