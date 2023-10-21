@@ -1,0 +1,36 @@
+==================================================================================================================================
+PRIORITA' ALTA
+
+- L'admin dei gestori deve poter aggiungere un nuovo gestore e assegnargli uno o più ruoli
+- L'admin dei gestori deve poter visualizzare le informazioni dei gestori presenti
+- Un qualunque gestore che accede alla sezione del login e vuole autenticarsi, deve selezionare il ruolo di cui fa parte
+- Il gestore del catalogo deve poter effettuare operazioni di aggiunta, modifica e rimozione
+- Il gestore degli ordini deve poter cambiare lo stato di un ordine
+- Il gestore delle recensioni deve poter approvare/rifiutare una richiesta di recensione
+- Il gestore che si autentica e ha più ruoli, deve avere la possibilità di cambiare ruolo
+- L'utente deve poter essere in grado di effettuare una ricerca rapida utilizzando filtri e/o barra di ricerca
+- L'utente non loggato deve poter autenticarsi inserendo le proprie credenziali
+- L'utente deve poter eseguire operazioni di aggiunta e rimozione all'interno del carrello
+- L’utente non loggato può soltanto visualizzare il
+	catalogo, senza poter effettuare acquisti ma può aggiungere prodotti al carrello.
+	Esso deve poter in qualunque momento registrarsi o loggarsi al sito per effettuare l'ordine
+- Il cliente deve poter visualizzare gli ordini effettuati e i relativi dettagli
+
+- Gli ordini hanno i seguenti stati: in preparazione, pronto, spedito, consegnato   (potrebbe non essere un requisito funz)
+
+==================================================================================================================================
+PRIORITA' MEDIA
+
+- Il cliente può recensire un prodotto soltanto dopo averlo acquistato
+
+
+==================================================================================================================================
+PRIORITA' BASSA
+
+- L'utente che ha fatto un tot di acquisti, può far uso di un voucher che gli permette di ottenere uno sconto sul prossimo acquisto
+- L'utente deve poter modificare le informazioni del proprio account
+- Il cliente può visualizzare le recensioni che ha effettuato
+- Il gestore delle recensioni deve poter visualizzare l'elenco di tutte le richieste di recensione
+
+
+==================================================================================================================================
