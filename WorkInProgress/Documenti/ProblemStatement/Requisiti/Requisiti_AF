@@ -1,0 +1,43 @@
+Requisiti
+
+*** funzionali
+	Il sistema deve ...
+	1.  permettere ad un utente di registrarsi;
+	2.  autenticarsi al sistema
+	3.  modificare la password
+	4.  permettere di visualizzare il catalogo
+	5.  permettere di aggiungere un prodotto al carrello
+	6.  permettere di visualizzare il contenuto del carrello
+	7.  permettere di effettuare l'accuisto
+	8.  permettere di visualizzare gli ordini effettuati
+	9.  permettere all'amministratore dei gestori di inserire, modificare e eliminare l'account di un dipendente
+           (gestore catalogo, gestore ordini, gestore recensioni).
+	10. permettere di aggiornare il catalogo, inserendo nuovi prodotti, nuove categorie e modificare la quantità 
+	    di prodotto disponibile
+	11. permettere di aggiornare lo stato di un ordine (in preparazione, pronto alla spedizione, spedito, ricevuto)
+	12. permettere di visualizzare le recensioni
+	13. permettere di rifiutare una recensione
+	14. permettere di verificare i requisiti di pagamento 
+
+***non funzionali
+	sicurezza : Il sistema deve garantire la sicurezza e la protezione dei dati da attacchi SQL injection, 
+	assicurando che tutte le query SQL e i parametri siano correttamente validati e sanificati prima dell'esecuzione.
+
+	sicurezza : Il sistema deve implementare un meccanismo di crittografia forte e irreversibile per 
+	memorizzare le password degli utenti nel database. Le password devono essere gestite in modo che non sia possibile
+	recuperare la password in chiaro dal database. 
+
+	usabilità : Il sistema deve implementare un design responsive, l'interfaccia deve adattarsi in modo fluido a 
+	diverse dimensioni di schermo, consentendo agli utenti di navigare e fare acquisti sia da desktop che da 
+	dispositivi mobili.
+	
+	usabilità : Il sistema deve utilizzare immagini di alta qualità. Le immagini dei prodotti devono essere chiare
+ 	e di alta qualità per consentire agli utenti di esaminare i dettagli del prodotto).
+		
+	usabilità : Il sistema dovrà adottare una specifica palette di colori, definita come un insieme ben preciso 
+	di valori esadecimali nel formato #RRGGBB, al fine di assicurare una chiara distinzione visuale tra le 
+	funzionalità di registrazione, acquisto e le altre funzioni principali dell'applicazione. I colori utilizzati
+	dovrebbero essere selezionati in modo tale da consentire agli utenti di identificare rapidamente e senza 
+	ambiguità ciascuna funzionalità.
+
+
