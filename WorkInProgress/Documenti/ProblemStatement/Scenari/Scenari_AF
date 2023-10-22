@@ -1,0 +1,67 @@
+***SCENARIO : VISIALIZZA ORDINI***
+Francesco effettua l'accesso al sistema con autenticazione inserisce  le sue credenziali d'accesso, username :
+"francesco@libero.it", seleziona il ruolo, inserisce la password "aaaabbb2" ed effettua il "Login". Il sistema non 
+riconosce l'utente, segnala con il messaggio "utente non riconosciuto" e reindirizza Francesco alla pagina d'autenticazione.
+Francesco ripete il processo di autenticazione con meticolosità, prestando particolare attenzione alle specificità 
+maiuscole/minuscole nella password (modificandola in "aaaAbbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema 
+riconosce Francesco come utente valido e lo indirizza alla homepage di iSnapGaming, dove lo accoglie con un messaggio di benvenuto.
+Francesco seleziona la funzionalità "I Miei Ordini", il sistema mostra una tabella che espone tutti gli ordini registrati nel sistema.
+Ogni riga della tabella contiene il numero d'ordine, una breve descrizione, il costo totale e lo stato corrente dell'ordine.
+    \begin{itemize}
+        \item [-] \#0567 Ghostrunner 2 	\officialeuro 40.98	consegnato
+        \item [-] \#1678 GT7... \officialeuro 95.49	in lavorazione
+    \end{itemize}
+    Francesco seleziona l'ordine \#1678 per esaminare in dettaglio l'ordine ed il  sistema visualizza una seconda tabella
+    che mostra quantità, nomi e prezzi di ciascun articolo dell'ordine:
+    \begin{itemize}
+        \setlength\itemsep{.05cm}
+        \item [-] 1	GT7 \officialeuro 35.50
+        \item [-] 1Assassin's Creed Mirage	\officialeuro 59.99
+    \end{itemize}
+Alla conclusione della sua sessione d'interazione con iSnapGames, Francesco seleziona la funzione
+"Logout". In risposta, il sistema lo congeda riportandolo alla homepage generica di iSnapGaming.
+
+***SCENARIO : RICERCA PRODOTTI****
+Il cliente Francesco accede alla homepage iSnapGaming, dove troviamo una vetrina di videogiochi in vendita.
+Francesco ha un obiettivo specifico: trovare un gioco di simulazione. Per fare ciò si dirige verso il filtro di
+ricerca. Una volta attivato il filtro, il sistema ci mostra una lista di categorie tra cui scegliere. Francesco
+seleziona la categoria "simulazione" e conferma la scelta con la funzionalità "Applica filtro". Il sistema risponde
+aggiornando la pagina e mostrando un elenco di giochi appartenenti alla categoria "simulazione".
+Il sistema ha mostrato troppi videogames e Francesco non riesce a individuare il gioco che desidera tra le opzioni
+visualizzate. A questo punto, decide di utilizzare la funzione di "ricerca per nome", digita il nome del gioco
+desiderato: "GT7". Con un semplice tocco su "Cerca", il sistema elabora la richiesta e presenta i risultati.
+Tra questi, Francesco individua il gioco "GT7", visualizzandone l'immagine di copertina, una breve descrizione e il 
+prezzo. Curioso di saperne di più sul gioco, Francesco chiede al sistema ulteriori informazioni tramite la funzionalità 
+preposta "info gioco". In risposta, il sistema mostra ulteriori dettagli, tra cui l'età consigliata, le dimensioni 
+del prodotto, la data di uscita e molto altro. Dopo aver esaminato attentamente le informazioni, decide di procedere 
+all'acquisto e aggiunge il gioco al suo carrello virtuale utilizzando la funzionalità  "Aggiungi al carrello". 
+Tuttavia, la sessione di shopping non finisce qui. Soddisfatto dell'acquisto, Francesco decide di tornare alla homepage 
+per esplorare ulteriori prodotti e vedere cosa altro l'applicazione ha da offrire.
+
+
+*** SCENARIO : AGGIORNAMENTO STATO ORDINI***
+L'amministratore gestori Giovanni ha un nuovo collaboratore assegnato alla gestione ordini. Giovanni ha effettuato
+l'autenticazione al sistema e deve creare le credenziali per Luca. Accede alla funzionalità "gestore ordine", 
+seleziona la funzionalità "crea nuovo gestore" ed il sistema mostra una pagina da compilare. Inserisce :
+	nome : Luca
+	cognome : Rossi
+	email : LucaRossi@gmail.it
+	indirizzo 
+		città : Salerno
+		provincia : SA
+		via : via vernieri 89
+ed effettua la registrazione. Il sistema mostra la password che dovrà utilizzare per l'accesso al sistema, questà
+potrà essere modificata in seguito da Luca che potrà sceglierne una a suo piacimento, sempre rispettando la formattazione
+prevista. Giovanni consegna username e password a Luca Rossi, il nuovo gestore degli ordini, che accede al sistema 
+inserisce le proprie credenziali username : LucaRossi@gmail.it, seleziona il ruolo : gestore ordini ed inserisce la 
+passwor per terminare l'autenticazione. Il sistema lo reindirizza alla sezione dedicata della gestione degli ordini,
+e elenca tutti gli ordini registrati. Al fine di semplificare il suo lavoro e focalizzarsi sugli ordini "pronti", Luca
+decide di applicare un filtro tramite l'apposita funzione. La tabella degli ordini viene quindi prontamente aggiornata
+per visualizzare solo gli ordini con lo stato "pronto". Tra questi ordini, Luca individua l'ordine con numero
+identificativo \#1234, che è stato recentemente spedito. Di conseguenza, Luca modifica lo stato di quest'ordine 
+da "pronto" a "spedito". Luca prosegue il suo lavoro gestionale, aggiornando con successo altri cinque ordini, 
+garantendo così che le informazioni siano sempre aggiornate e accurate. Successivamente, utilizza nuovamente la 
+funzione di filtro per selezionare gli ordini con stato "spedito". Luca riceve la conferma della consegna 
+dell'ordine \#4321, il quale transita dallo stato "spedito" a "consegnato". La giornata di lavoro di Luca continua 
+con ulteriori aggiornamenti degli ordini, garantendo che ciascun ordine possa passare attraverso i vari stati 
+possibili, tra cui "in preparazione","pronto", "spedito" e "consegnato."
