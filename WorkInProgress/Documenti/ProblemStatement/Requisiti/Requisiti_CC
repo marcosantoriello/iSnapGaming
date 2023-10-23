@@ -1,0 +1,7 @@
+- L'utente deve poter modificare la quantità o rimuovere prodotti dal carrello.
+-L'utente deve poter visualizzare lo stato dell' ordine (in attesa, spedito, consegnato, ecc.).
+-L'utente non loggato deve poter visionare il catalogo senza poter effettuare acquisti e usufruire delle funzionalotà del carello.
+-L'utente non loggato deve poter autenticarsi inserendo le proprie credenziali.
+-I gestori possono camniare tipologia di account(e passare a cliente), per poter effettuare acquisti.
+-Il gestore ordini deve poter gestire gli ordini e aggiornare lo stato.
+-Il gestore catalogo deve poter aggiungere prodotti e modificare il catatlogo.
