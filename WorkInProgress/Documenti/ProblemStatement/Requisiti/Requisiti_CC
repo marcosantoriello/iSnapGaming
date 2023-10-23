@@ -5,3 +5,4 @@
 -I gestori possono camniare tipologia di account(e passare a cliente), per poter effettuare acquisti.
 -Il gestore ordini deve poter gestire gli ordini e aggiornare lo stato.
 -Il gestore catalogo deve poter aggiungere prodotti e modificare il catatlogo.
+-Gli utenti devono poter visualizzare lo storico dei loro ordini.
