@@ -6,9 +6,9 @@ PRIORITA' ALTA
 - Un qualunque gestore che accede alla sezione del login e vuole autenticarsi, deve selezionare il ruolo di cui fa parte
 - Il gestore del catalogo deve poter effettuare operazioni di aggiunta, modifica e rimozione
 - Il gestore degli ordini deve poter cambiare lo stato di un ordine
-- Il gestore delle recensioni deve poter approvare/rifiutare una richiesta di recensione
-- Il gestore che si autentica e ha più ruoli, deve avere la possibilità di cambiare ruolo
-- L'utente deve poter essere in grado di effettuare una ricerca rapida utilizzando filtri e/o barra di ricerca
+- Il gestore delle recensioni deve poter approvare/rifiutare una richiesta di recensione [ADD]
+- Il gestore che si autentica e ha più ruoli, deve avere la possibilità di cambiare ruolo [ADD]
+- L'utente deve poter essere in grado di effettuare una ricerca rapida utilizzando filtri e/o barra di ricerca [ADD]
 - L'utente non loggato deve poter autenticarsi inserendo le proprie credenziali
 - L'utente deve poter eseguire operazioni di aggiunta e rimozione all'interno del carrello
 - L’utente non loggato può soltanto visualizzare il
@@ -21,7 +21,7 @@ PRIORITA' ALTA
 ==================================================================================================================================
 PRIORITA' MEDIA
 
-- Il cliente può recensire un prodotto soltanto dopo averlo acquistato
+- Il cliente può recensire un prodotto soltanto dopo averlo acquistato [ADD]
 
 
 ==================================================================================================================================
@@ -29,8 +29,8 @@ PRIORITA' BASSA
 
 - L'utente che ha fatto un tot di acquisti, può far uso di un voucher che gli permette di ottenere uno sconto sul prossimo acquisto
 - L'utente deve poter modificare le informazioni del proprio account
-- Il cliente può visualizzare le recensioni che ha effettuato
-- Il gestore delle recensioni deve poter visualizzare l'elenco di tutte le richieste di recensione
+- Il cliente può visualizzare le recensioni che ha effettuato [ADD]
+- Il gestore delle recensioni deve poter visualizzare l'elenco di tutte le richieste di recensione [ADD]
 
 
 ==================================================================================================================================

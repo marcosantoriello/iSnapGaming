@@ -1,23 +1,25 @@
 REQUISITI FUNZIONALI:
+- Vanno riscritti come: "Il sistema deve consentire a: ", altrimenti stiamo elencando delle funzionalita' non dei requisiti
 - L'utente non loggato o non registrato deve poter aggiungere prodotti al carrello
 - L'utente deve poter modificare la quantità di un prodotto nel carrello
-- L'utente deve poter aggiungere dati di spedizione e di pagamento durante il check-out
-- L'utente deve poter eliminare il proprio account
+- L'utente deve poter aggiungere dati di spedizione e di pagamento durante il check-out [ADD]
+- L'utente deve poter eliminare il proprio account [ADD]
 - L'utente deve poter modificare i propri dati
-- L'utente deve poter visualizzare i propri dati
+- L'utente deve poter visualizzare i propri dati [ADD]
 - L'utente deve poter visualizzare i propri ordini effettuati
 - L'utente deve poter effettuare la ricerca di un prodotto
-- L'amministratore dei gestori deve poter aggiungere una nuova tipologia di gestore
+- L'amministratore dei gestori deve poter aggiungere una nuova tipologia di gestore [NO]
 - L'amministratore dei gestori deve poter aggiungere un qualsiasi gestore
-- L'amministratore dei gestori deve poter eliminare l'account di un qualsiasi gestore
+- L'amministratore dei gestori deve poter eliminare l'account di un qualsiasi gestore [ADD]
 - L'amministratore dei gestori deve poter modificare i dati dell'account di un qualsiasi gestore
-- L'amministratore dei gestori deve poter visualizzare i dati di un qualsiasi gestore
-- L'amministratore dei gestori deve poter visualizzare tutti gli account dei gestori attivi nel sistema
-- Il gestore del catalogo deve poter visualizzare tutti i prodotti presenti nel sistema
-- Il gestore del catologo deve poter aggiungere una nuova categoria di prodotti
-- Il gestore del catalogo deve poter modificare i dati di un prodotto
-- Il gestore del catalogo deve poter rimuovere un prodotto
-- Il gestore degli ordini deve poter visualizzare tutti gli ordini presenti nel sistema
+- L'amministratore dei gestori deve poter visualizzare tutti gli account dei gestori presenti nel sistema [ADD]
+- L'amministratore dei gestori deve poter visualizzare i dati di un qualsiasi gestore [ADD]
+- Il gestore dei prodotti deve poter visualizzare i prodotti per categoria [NO]
+- Il gestore dei prodotti deve poter aggiungere una nuova categoria di prodotti [ADD]
+- Il gestore dei prodotti deve poter modificare i dati di un prodotto
+- Il gestore dei prodotti deve poter rimuovere un prodotto [ADD]
+- Il gestore degli ordini deve poter visualizzare gli ordini effettuati dagli utenti [ADD]
+- Il gestore degli ordini deve poter visualizzare i dettagli di uno specifico ordine [ADD]
 - Il gestore degli ordini deve poter modificare lo stato di un ordine
 - Il gestore delle recensioni deve poter visualizzare tutte le recensioni presenti nel sistema
 - Il gestore delle recensioni deve poter modificare lo stato di una recensione

@@ -1,18 +1,18 @@
 Requisiti
 
 *** funzionali
-	Il sistema deve ...
+	Il sistema deve ... [ADD TUTTI]
 	1.  permettere ad un utente di registrarsi;
 	2.  autenticarsi al sistema
 	3.  modificare la password
-	4.  permettere di visualizzare il catalogo
+	4.  permettere di visualizzare i prodotti
 	5.  permettere di aggiungere un prodotto al carrello
 	6.  permettere di visualizzare il contenuto del carrello
 	7.  permettere di effettuare l'accuisto
 	8.  permettere di visualizzare gli ordini effettuati
 	9.  permettere all'amministratore dei gestori di inserire, modificare e eliminare l'account di un dipendente
-           (gestore catalogo, gestore ordini, gestore recensioni).
-	10. permettere di aggiornare il catalogo, inserendo nuovi prodotti, nuove categorie e modificare la quantità 
+           (gestore prodotti, gestore ordini, gestore recensioni).
+	10. permettere di aggiornare i prodotti, inserendo nuovi prodotti, nuove categorie e modificare la quantità
 	    di prodotto disponibile
 	11. permettere di aggiornare lo stato di un ordine (in preparazione, pronto alla spedizione, spedito, ricevuto)
 	12. permettere di visualizzare le recensioni
