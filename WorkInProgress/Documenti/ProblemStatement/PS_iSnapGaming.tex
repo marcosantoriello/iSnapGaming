@@ -122,7 +122,8 @@
             15/10/2023 & 0.05 & Aggiunta scenario gestione account e stato ordine & AF\\ \hline
             15/10/2023 & 0.06 & Modifiche di allineamento a scelte comuni & Tutti\\ \hline
             20/10/2023 & 0.07 & Aggiunta Requisiti non funzionali & Tutti\\ \hline
-            24/10/2023 & 0.07 & Aggiunta Requisiti funzionali & Tutti\\ \hline
+            24/10/2023 & 0.08 & Aggiunta Requisiti funzionali & Tutti\\ \hline
+            24/10/2023 & 0.09 & Revisione Requisiti non funzionali & Tutti\\ \hline
         \end{tabular}
     \end{center}
 
@@ -475,8 +476,8 @@
         \subsubsection*{Dependability}
             \textbf{Security}
                 \begin{itemize}
-                    \item [-] sqlInjection
-                    \item [-] Password crittografate
+                    \item [-] \textbf{Prevenzione SQL injection}: Il sistema deve garantire la sicurezza e la protezione dei dati da attacchi di tipo SQL injection, assicurando che tutte le query SQL e i parametri siano correttamente validati e sanificati prima dell'esecuzione.
+                    \item [-] \textbf{Crittografia password}: Il sistema deve implementare un meccanismo di crittografia forte e irreversibile per memorizzare le password degli utenti nel database. Le password devono essere gestite in modo che non sia possibile recuperarle in chiaro dal database.
                 \end{itemize}
             \textbf{Robustness}
                 \begin{itemize}
@@ -485,9 +486,9 @@
 
         \subsubsection*{Usability}
             \begin{itemize}
-                \item [-] Design responsive
-                \item [-] Immagini di alta qualità
-                \item [-] Pulsanti ben visibili
+                \item [-] \textbf{Design responsive}: Il sistema deve implementare un design responsive, in modo che l'interfaccia si adatti in maniera fluida a diverse dimensioni dello schermo, consentendo agli utenti di navigare e fare acquisti sia da desktop che da dispositivi mobile.
+                \item [-] \textbf{Immagini di alta qualità}: Il sistema utilizzare immagini chiare e di alta qualità per favorire l'appeal dei prodotti e dell'intera applicazione.
+                \item [-] \textbf{Selezione di colori}: Il sistema deve adottare una specifica palette di colori, definita come un insieme ben preciso di valori esadecimali nel formato \#RRGGBB, al fine di assicurare una chiara distinzione visuale tra le funzionalità di registrazione, acquisto e le altre funzioni principali dell'applicazione. I colori utilizzati dovrebbero essere selezionati in modo tale da consentire agli utenti di identificare rapidamente e senza ambiguità ciascuna funzionalità.
             \end{itemize}
 
 
