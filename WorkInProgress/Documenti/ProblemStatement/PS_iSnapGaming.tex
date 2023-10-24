@@ -115,15 +115,16 @@
             \hline
             \cellcolor{lightgray} \textbf{Data} & \cellcolor{lightgray} \textbf{Versione} & \cellcolor{lightgray} \textbf{Descrizione} & \cellcolor{lightgray} \textbf{Autore}\\ \hline
             09/10/2023 & 0.00 & Impostazione documento e descrizione del problema & MS\\ \hline
-            10/10/2023 & 0.01 & Aggiunta degli scenari Sxx, Sxx & MS\\ \hline
-            11/10/2023 & 0.02 & Aggiunta di alcuni scenari & FS\\ \hline
-            11/10/2023 & 0.03 & Aggiunta di alcuni scenari & CC\\ \hline
-            11/10/2023 & 0.04 & Aggiunta scenario ricerca prodotti & AF\\ \hline
-            15/10/2023 & 0.05 & Aggiunta scenario gestione account e stato ordine & AF\\ \hline
+            10/10/2023 & 0.01 & Aggiunta scenari S04, S06, S08, S09, S10 & MS\\ \hline
+            11/10/2023 & 0.02 & Aggiunta scenari S03, S05, S12, S13 & FS\\ \hline
+            11/10/2023 & 0.03 & Aggiunta scenari S01, S02, S14 & CC\\ \hline
+            11/10/2023 & 0.04 & Aggiunta scenari S07, S16 & AF\\ \hline
+            15/10/2023 & 0.05 & Aggiunta scenario S11 & AF\\ \hline
             15/10/2023 & 0.06 & Modifiche di allineamento a scelte comuni & Tutti\\ \hline
             20/10/2023 & 0.07 & Aggiunta Requisiti non funzionali & Tutti\\ \hline
             24/10/2023 & 0.08 & Aggiunta Requisiti funzionali & Tutti\\ \hline
             24/10/2023 & 0.09 & Revisione Requisiti non funzionali & Tutti\\ \hline
+            24/10/2023 & 0.10 & Ordinamento scenari & MS\\ \hline
         \end{tabular}
     \end{center}
 
@@ -146,33 +147,81 @@
 
     \section*{Scenarios}
     \addcontentsline{toc}{section}{\protect\numberline{}Scenarios}
-    \subsection*{Sxx: Acquisto cliente loggato}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente loggato}
-        L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, seleziona l'opzione di accesso al suo account e viene reindirizzato alla pagina di \textit{login}.
-        A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: MyPassWord11) e lo conferma cliccando sull'opzione preposta.
-        Viene, dunque, rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
-        Clicca successivamente sulla funzionalità del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
-        Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, seleziona l'opzione di \textit{check-out}, che lo rimanda
-        alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno},
-        \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
-        L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla
-        \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
+        \subsection*{S01: Registrazione}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S01: Registrazione}
+         L'utente Luca Neri, una volta entrato sulla piattaforma, accede al suo account utilizzando l'apposita funzionalità di "login", che lo
+         reindirizza alla pagina di login del sito.
+         Una volta qui, l'utente seleziona "Registrati Ora". Fatto ciò, viene immediatamente reindirizzato alla pagina di registrazione.
+         Su questa pagina, Luca compila attentamente tutti i campi necessari. Nei campi obbligatori, inserisce le seguenti informazioni:
+         Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X,
+         Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
+         La registrazione termina con successo, e l’utente viene riportato sulla Home page.
 
-    \subsection*{Sxx: Acquisto cliente non loggato}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non loggato}
-        L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione, alla pagina
-        del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti
-        nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, seleziona la funzionalità
-        per effettuare il check-out e, non essendo loggato, viene reindirizzato alla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato dove aveva
-        interrotto, cioè sulla pagina del carrello.
-        Da qui, seleziona l'opzione di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi:
-        \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276},
-        \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
-        L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene
-        reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
+    \subsection*{S02: Login Cliente}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S02: Login Cliente}
+        Il cliente Mario Rossi, che si trova nella pagina del catalogo, accede alla pagina di Login selezionando l'apposita funzionalità "Login".
+        Su questa pagina, Mario inserisce le sue credenziali: username: marrossi, password: mypw123 e conferma l'accesso.
+        L'autenticazione va a buon fine e il cliente viene reindirizzato alla pagina del catalogo,dove aveva interrotto.
 
-    \subsection*{Sxx: Acquisto cliente non registrato}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Acquisto cliente non registrato}
+    \subsection*{S03: Aggiunta di un prodotto}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S03: Aggiunta di un prodotto}
+        Il gestore del catalogo Marco Bianchi deve aggiungere il gioco Cyberpunk 2077 al catalogo. Il gestore
+        effettua l'accesso selezionando la sezione di autenticazione dove inserisce i seguenti dati: username: mbianchi, Password: Mari0bianchi
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore del catalogo".
+        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione
+        Aggiungi Prodotto che lo porta alla schermata dedicata. Il gestore inserisce le seguenti informazioni:
+        ID: x123P, Nome: Cyberpunk 2077, Produttore: CD Projekt RED, Piattaforma: PS5, Prezzo: 49.99, Quantità: 250,
+        Categoria: Action RPG, PEGI: 18, Anno di Produtzione: 2020. Il gestore invia le informazioni
+        e il sistema avverte che l'operazione di aggiunta è stata eseguita con successo.
+
+    \subsection*{S04: Modifica di un prodotto}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S04: Modifica di un prodotto}
+        Il \textit{gestore dei prodotti} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login, assicurandosi
+        che l'opzione riportante il ruolo \textit{Gestore Catalogo} sia selezionata, ed accede alla pagina del catalogo. Da qui, entra
+        nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sull'opzione che consente di modificare il prodotto, dato che vuole farlo apparire
+        come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, l'opzione \textit{Disponibile},
+        e la imposta su \textit{No}. Clicca sull'opzione di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+
+
+    \subsection*{S05: Rimozione di un prodotto}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S05: Rimozione di un prodotto}
+        Il gestore del catalogo Marco Bianchi deve rimuovere il gioco Cyberpunk 2077 dal catalogo.
+        Il gestore effettua l'accesso selezionando la sezione di autenticazione dove inserisce i dati: username: mbianchi, Password: Mari0bianchi
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore del catalogo".
+        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione del Catalogo.
+        Il gestore utilizza la funzionalità della ricerca per categoria dei prodotti e seleziona "Action RPG". Il gestore
+        trova Cyberpunk 2077 e accede all'area riservata ai dettagli. Il gestore seleziona la funzionalità che lo
+        permette di eliminare definitivamente il prodotto dal catalogo. Il sistema avverte il gestore che l'operazione è avvenuta con successo.
+
+    \subsection*{S06: Aggiunta di un nuovo gestore degli ordini}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S06: Aggiunta di un nuovo gestore degli ordini}
+        L'\textit{amministratore dei gestori} Francesco Bianchi, dalla pagina principale, accede al suo account e viene rimandato sulla HomePage.
+        Da qui, seleziona l'opzione di aggiunta di un nouvo gestore da un menu dedicato. Viene così portato sulla pagina che permette di inserire un nuovo utente.
+        Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B},
+        \textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: LaTuaPassword1}, seleziona il ruolo \textit{Gestore Ordini} tra le
+        varie opzioni presernti e, infine, seleziona la funzionalità che permette di confermare l'aggiunta. Gli appare, quindi, un messaggio che lo informa circa il successo
+        dell'operazione.
+
+    \subsection*{S07: Ricerca prodotti}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S07: Ricerca prodotti}
+        Il cliente Francesco accede alla homepage iSnapGaming, dove troviamo una vetrina di videogiochi in vendita.
+        Francesco ha un obiettivo specifico: trovare un gioco di simulazione. Per fare ciò si dirige verso il filtro di
+        ricerca. Una volta attivato il filtro, il sistema ci mostra una lista di categorie tra cui scegliere. Francesco
+        seleziona la categoria "simulazione" e conferma la scelta con la funzionalità "Applica filtro". Il sistema risponde
+        aggiornando la pagina e mostrando un elenco di giochi appartenenti alla categoria "simulazione".
+        Il sistema ha mostrato troppi videogames e Francesco non riesce a individuare il gioco che desidera tra le opzioni
+        visualizzate. A questo punto, decide di utilizzare la funzione di "ricerca per nome", digita il nome del gioco
+        desiderato: "GT7". Con un semplice tocco su "Cerca", il sistema elabora la richiesta e presenta i risultati.
+        Tra questi, Francesco individua il gioco "GT7", visualizzandone l'immagine di copertina, una breve descrizione e il
+        prezzo. Curioso di saperne di più sul gioco, Francesco chiede al sistema ulteriori informazioni tramite la funzionalità
+        preposta "info gioco". In risposta, il sistema mostra ulteriori dettagli, tra cui l'età consigliata, le dimensioni
+        del prodotto, la data di uscita e molto altro. Dopo aver esaminato attentamente le informazioni, decide di procedere
+        all'acquisto e aggiunge il gioco al suo carrello virtuale utilizzando la funzionalità  "Aggiungi al carrello".
+        Tuttavia, la sessione di shopping non finisce qui. Soddisfatto dell'acquisto, Francesco decide di tornare alla homepage
+        per esplorare ulteriori prodotti e vedere cosa altro l'applicazione ha da offrire.
+
+    \subsection*{S08: Acquisto cliente non registrato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S08: Acquisto cliente non registrato}
          L'utente Luca Neri accede alla piattaforma dal suo browser per la prima volta, avendone sentito parlare da alcuni conoscenti, entrando nella pagina principale.
          In particolare, rimane colpito da un videogioco presente tra i \textit{featured-products} e decide di acquistarlo. Dunque, per prima cosa, aggiunge il prodotto
          al carrello e si reca sulla pagina dedicata al carrello. Seleziona l'opzione di \textit{check-out}, ma, non avendo ancora un account, il sito lo reindirizza alla pagina
@@ -185,46 +234,63 @@
          L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla \textit{thank-you-page},
          dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
-    \subsection*{Sxx: Modifica di un prodotto}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Modifica di un prodotto}
-        Il \textit{gestore del catalogo} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login, assicurandosi
-        che l'opzione riportante il ruolo \textit{Gestore Catalogo} sia selezionata, ed accede alla pagina del catalogo. Da qui, entra
-        nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sull'opzione che consente di modificare il prodotto, dato che vuole farlo apparire
-        come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, l'opzione \textit{Disponibile},
-        e la imposta su \textit{No}. Clicca sull'opzione di salvataggio delle modifiche, e viene reindirizzato alla pagina del prodotto, che presenta la modifica appena effettuata.
+    \subsection*{S09: Acquisto cliente non loggato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S09: Acquisto cliente non loggato}
+        L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma e si porta, attraverso l'apposita opzione, alla pagina
+        del catalogo dalla quale sceglie due videogiochi e li aggiunge al carrello. Si reca, dunque, alla pagina del carrello, dove gli vengono mostrati i due prodotti presenti
+        nel carrello, le opzioni per \textit{modificare la quantità} di ciascun prodotto e il \textit{totale}, che ammonta a \officialeuro 90,00. A questo punto, seleziona la funzionalità
+        per effettuare il check-out e, non essendo loggato, viene reindirizzato alla pagina di \textit{login}. Una volta effettuato l'accesso, viene riportato dove aveva
+        interrotto, cioè sulla pagina del carrello.
+        Da qui, seleziona l'opzione di \textit{check-out}, che lo rimanda alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi:
+        \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276},
+        \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+        L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene
+        reindirizzato alla \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
-    \subsection*{Sxx: Aggiunta di un nuovo gestore degli ordini}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di un nuovo gestore degli ordini}
-        L'\textit{amministratore dei gestori} Francesco Bianchi, dalla pagina principale, accede al suo account e viene rimandato sulla HomePage.
-            Da qui, seleziona l'opzione di aggiunta di un nouvo gestore da un menu dedicato. Viene così portato sulla pagina che permette di inserire un nuovo utente.
-            Compila i vari campi: \textit{Nome: Antonio}, \textit{Cognome: Romano}, \textit{Data di nascita: 15/03/2000}, \textit{Codice Fiscale: RMNNTN00C15H703B},
-            \textit{Username: goRomano}, \textit{Indirizzo e-mail: aRomano27@gmail.com} e \textit{Password: LaTuaPassword1}, seleziona il ruolo \textit{Gestore Ordini} tra le
-            varie opzioni presernti e, infine, seleziona la funzionalità che permette di confermare l'aggiunta. Gli appare, quindi, un messaggio che lo informa circa il successo
-            dell'operazione.
+    \subsection*{S10: Acquisto cliente loggato}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S10: Acquisto cliente loggato}
+        L'utente \textit{Mario Rossi} accede alla pagina principale della piattaforma, seleziona l'opzione di accesso al suo account e viene reindirizzato alla pagina di \textit{login}.
+        A questo punto, compila i campi del form \textit{username} e \textit{password} con i propri dati (username: marrossi, password: MyPassWord11) e lo conferma cliccando sull'opzione preposta.
+        Viene, dunque, rimandato sulla home page, dalla quale sceglie un prodotto tra quelli in evidenza e lo aggiunge al carrello.\\
+        Clicca successivamente sulla funzionalità del carrello e viene portato sulla pagina del carrello, dove \textit{incrementa} la quantità del prodotto da acquistare a 2.\\
+        Sicuro del prodotto, della quantità che intende acquistare ed del prezzo finale, pari a \officialeuro 55, seleziona l'opzione di \textit{check-out}, che lo rimanda
+        alla pagina di inserimento dei dati di spedizione e del metodo di pagamento. Compila i vari campi: \textit{Via: Via Carmine}, \textit{Civico: 57}, \textit{Città: Salerno}, \textit{Provincia: SA}, \textit{Stato: Italia}, \textit{Cellulare: 345 670 9276}, \textit{Numero di carta: 5333547887933563}, \textit{Scadenza: 10/25}, \textit{CVV: 679}. Infine, seleziona l'opzione per terminare l'acquisto.\\
+        L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamento, svuota il carrello dell'utente, il quale viene reindirizzato alla
+        \textit{thank-you-page}, dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
-    \subsection*{Sxx: Aggiunta di un prodotto}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di un prodotto}
-        Il gestore dei prodotti Marco Bianchi deve aggiungere il gioco Cyberpunk 2077 al catalogo. Il gestore
-        effettua l'accesso selezionando la sezione di autenticazione dove inserisce i dati: Email: mbianchi02@gmail.com, Password: Mari0bianchi
-        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione
-        Aggiungi Prodotto che lo porta alla schermata dedicata. Il gestore inserisce le seguenti informazioni:
-        ID: x123P, Nome: Cyberpunk 2077, Produttore: CD Projekt RED, Piattaforma: PS5, Prezzo: 49.99, Quantità: 250,
-        Categoria: Action RPG, PEGI: 18, Anno di Produtzione: 2020. Il gestore invia le informazioni
-        e il sistema avverte che l'operazione di aggiunta è stata eseguita con successo.
+    \subsection*{S11: Aggiornamento stato ordine}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S11: Aggiornamento stato ordine}
+        L'amministratore gestori Giovanni ha un nuovo collaboratore assegnato alla gestione ordini. Giovanni ha effettuato
+        l'autenticazione al sistema e deve creare le credenziali per Luca. Accede alla funzionalità "gestore ordine",
+        seleziona la funzionalità "crea nuovo gestore" ed il sistema mostra una pagina da compilare. Inserisce:
+        \begin{itemize}
+            \item [-] nome: Luca
+            \item [-] cognome: Rossi
+            \item [-] email: lucaRossi@gmail.it
+            \item [-] città: Salerno
+            \item [-] provincia: SA
+            \item [-] via Vernieri, 89
+        \end{itemize}
+        ed effettua la registrazione. Il sistema mostra la password che dovrà utilizzare per l'accesso al sistema, questà
+        potrà essere modificata in seguito da Luca che potrà sceglierne una a suo piacimento, sempre rispettando la formattazione
+        prevista. Giovanni consegna username e password a Luca Rossi, il nuovo gestore degli ordini, che accede al sistema
+        inserisce le proprie credenziali username : LucaRossi@gmail.it, seleziona il ruolo : gestore ordini ed inserisce la
+        passwor per terminare l'autenticazione. Il sistema lo reindirizza alla sezione dedicata della gestione degli ordini,
+        e elenca tutti gli ordini registrati. Al fine di semplificare il suo lavoro e focalizzarsi sugli ordini "pronti", Luca
+        decide di applicare un filtro tramite l'apposita funzione. La tabella degli ordini viene quindi prontamente aggiornata
+        per visualizzare solo gli ordini con lo stato "pronto". Tra questi ordini, Luca individua l'ordine con numero
+        identificativo \#1234, che è stato recentemente spedito. Di conseguenza, Luca modifica lo stato di quest'ordine
+        da "pronto" a "spedito". Luca prosegue il suo lavoro gestionale, aggiornando con successo altri cinque ordini,
+        garantendo così che le informazioni siano sempre aggiornate e accurate. Successivamente, utilizza nuovamente la
+        funzione di filtro per selezionare gli ordini con stato "spedito". Luca riceve la conferma della consegna
+        dell'ordine \#4321, il quale transita dallo stato "spedito" a "consegnato". La giornata di lavoro di Luca continua
+        con ulteriori aggiornamenti degli ordini, garantendo che ciascun ordine possa passare attraverso i vari stati
+        possibili, tra cui "in preparazione","pronto", "spedito" e "consegnato."
 
-    \subsection*{Sxx: Rimozione di un prodotto}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Rimozione di un prodotto}
-        Il gestore dei prodotti Marco Bianchi deve rimuovere il gioco Cyberpunk 2077 dal catalogo.
-        Il gestore effettua l'accesso selezionando la sezione di autenticazione dove inserisce i dati: Email: mbianchi02@gmail.com, Password: Mari0bianchi
-        Il sistema avverte il gestore che l'autenticazione è andata a buon fine. Il gestore accede alla sezione del Catalogo.
-        Il gestore utilizza la funzionalità della ricerca per categoria dei prodotti e seleziona "Action RPG". Il gestore
-        trova Cyberpunk 2077 e accede all'area riservata ai dettagli. Il gestore seleziona la funzionalità che lo
-        permette di eliminare definitivamente il prodotto dal catalogo. Il sistema avverte il gestore che l'operazione è avvenuta con successo.
-
-    \subsection*{Sxx: Aggiunta di una recensione}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiunta di una recensione}
+    \subsection*{S12: Aggiunta di una recensione}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S12: Aggiunta di una recensione}
         L'utente Marco Marroni ha un obiettivo ben preciso: recensire il gioco Assassin's Creed Mirage che ha appena acquistato.
-        Prima di tutto, si autentica al sistema inserendo le proprie credenziali, ovvero Email: mmarroni02@gmail.com, Password: Marc0marroni
+        Prima di tutto, si autentica al sistema inserendo le proprie credenziali, ovvero Email: mmarroni, Password: Marc0marroni
         Il sistema avverte l'utente che l'autenticazione è andata a buon fine, dato che ha inserito i dati correttamente.
         L'utente accede all'area riservata del proprio account e successivamente utilizza la funzionalità
         che lo porta nella schermata dell'elenco degli ordini effettuati. La schermata presenta tutti gli ordini,
@@ -235,11 +301,12 @@
         Successivamente, il sistema avverte l'utente di attendere che la pubblicazione della sua recensione sia approvata
         da un gestore delle recensioni.
 
-    \subsection*{Sxx: Approvazione di una recensione}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Pubblicazione di una recensione}
+    \subsection*{S13: Approvazione di una recensione}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S13: Pubblicazione di una recensione}
         Il gestore delle recensioni Luca Verdi, in una normale giornata di lavoro, deve controllare le varie richieste
         di recensioni (effettuate dagli utenti) che deve approvare e rendere pubbliche.
-        Prima di tutto, il gestore si autentica al sistema inserendo le proprie credenziali, ovvero Email: lverdi02@gmail.com, Password: Lucaverd1
+        Prima di tutto, il gestore entra nella sezione dell'autenticazione: inserisce le proprie credenziali, ovvero username: lverdi, Password: Lucaverd1
+        e dopodiché spunta il ruolo di cui fa parte, ossia "Gestore delle recensioni".
         Il sistema avverte il gestore che l'autenticazione va a buon fine. Dopodiché, il gestore accede alla schermata
         Gestione Recensioni per visualizzare l'elenco di tutte le richieste di recensione. Il gestore nota che in cima
         alla lista è presente una recensione dell'utente Marco Marroni riferita al gioco Assassin's Creed Mirage,
@@ -247,104 +314,43 @@
         Il gestore capisce che il testo è privo di contenuti offensivi e decide di approvare la pubblicazione della recensione.
         Il sistema avverte il gestore che la pubblicazione è avvenuta con successo.
 
-    \subsection*{Sxx: Registrazione}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Registrazione}
-         L'utente Luca Neri, una volta entrato sulla piattaforma, accede al suo account utilizzando l'apposita funzionalità di "login", che lo
-         reindirizza alla pagina di login del sito.
-         Una volta qui, l'utente seleziona "Registrati Ora". Fatto ciò, viene immediatamente reindirizzato alla pagina di registrazione.
-         Su questa pagina, Luca compila attentamente tutti i campi necessari. Nei campi obbligatori, inserisce le seguenti informazioni:
-         Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X,
-         Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe12.
-         La registrazione termina con successo, e l’utente viene riportato sulla Home page.
-
-    \subsection*{Sxx: Login Cliente}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Login Cliente}
-        Il cliente Mario Rossi, che si trova nella pagina del catalogo, accede alla pagina di Login selezionando l'apposita funzionalità "Login".
-        Su questa pagina, Mario inserisce le sue credenziali: username: marrossi, password: MyPassWord11 e conferma l'accesso.
-        L'autenticazione va a buon fine e il cliente viene reindirizzato alla home page del sito.
-
-    \subsection*{Sxx: Modifica Password}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Modifica Password}
+    \subsection*{S14: Modifica Password}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S14: Modifica Password}
         Il cliente Luca Neri è autenticato e si trova sulla homepage del sito web e desidera cambiare la sua password.
         Su questa pagina, Luca seleziona il pulsante "account".
-        A questo punto, il cliente sceglie,  dall' apposito menu l'opzione "Visualizza Account".
+        A questo punto, si apre un menu a tendina dal quale il cliente sceglie l'opzione "Visualizza Account".
         Il sistema reindirizza Luca alla pagina del suo account, dove sono visualizzati i dettagli del suo profilo
-        (Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
-         Indirizzo e-mail: lneri98@gmail.com e Password:  LaMiaPasswordSafe12).
+        Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
+        Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
         Sulla pagina del suo account, il cliente individua e seleziona l'opzione "Modifica Dati Account".
         Viene presentato un modulo di modifica dati account che include un campo per la modifica della password.
-        Il cliente inserisce la sua nuova password: Luc1Gatto23 nel campo "Nuova Password" e la conferma nel campo "Conferma Password".
+        Il cliente inserisce la sua nuova password: Luc!Gatto23 nel campo "Nuova Password" e la conferma nel campo "Conferma Password".
         Il sistema verifica la validità della nuova password in base ai criteri di sicurezza stabiliti.
         A questo punto conferma la modifica e visualizza un messaggio che lo informa del successo dell'operazione.
 
-    \subsection*{Sxx: Ricerca prodotti}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Ricerca prodotti}
-        Il cliente Francesco accede alla homepage iSnapGaming, dove troviamo una vetrina di videogiochi in vendita.
-        Francesco ha un obiettivo specifico: trovare un gioco di simulazione. Per fare ciò si dirige verso il filtro di
-        ricerca. Una volta attivato il filtro, il sistema ci mostra una lista di categorie tra cui scegliere. Francesco
-        seleziona la categoria "simulazione" e conferma la scelta premendo il pulsante "Applica filtro". Il sistema risponde
-        immediatamente, aggiornando la pagina e mostrando un elenco di giochi appartenenti alla categoria "simulazione".
-        Il sistema ha mostrato troppi videogames e Francesco non riesce a individuare il gioco che desidera tra le opzioni
-        visualizzate. A questo punto, decide di utilizzare la funzione di ricerca dell'applicazione. Questa funzione di
-        ricerca è facilmente accessibile tramite la barra di navigazione, ed è qui che digita il nome del gioco
-        desiderato: "GT7". Con un semplice tocco su "Cerca", il sistema elabora la richiesta e presenta i risultati.
-        Tra questi, individuiamo il gioco "GT7", visualizzandone l'immagine di copertina, una breve descrizione e il prezzo.
-        Curioso di saperne di più sul gioco, Francesco clicca sulla sua immagine di copertina. In risposta, il sistema
-        mostra ulteriori dettagli, tra cui l'età consigliata, le dimensioni del prodotto, la data di uscita e molto altro.
-        Dopo aver esaminato attentamente le informazioni, decide di procedere all'acquisto e aggiunge il gioco al suo
-        carrello virtuale utilizzando la funzionalità  "Aggiungi al carrello". Tuttavia, la sessione di shopping non finisce
-        qui. Soddisfatto dell'acquisto, Francesco decide di tornare alla homepage per esplorare ulteriori prodotti e vedere
-        cosa altro l'applicazione ha da offrire.
-
-    \subsection*{Sxx: Visualizzazione prodotti}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Visualizzazione prodotti}
+    \subsection*{S15: Visualizzazione prodotti}
+    \addcontentsline{toc}{subsection}{\protect\numberline{}S15: Visualizzazione prodotti}
         Francesco effettua l'accesso al sistema con autenticazione inserisce  le sue credenziali d'accesso, username :
-         "francesco@libero.it" e password "aaaabbb2" ed effettua il "Login". Il sistema rileva un'eccezione, segnalando con un
-        messaggio di errore "utente non riconosciuto" e reindirizza Francesco alla pagina d'autenticazione. Francesco ripete
-        il processo di autenticazione con meticolosità, prestando particolare attenzione alle specificità maiuscole/minuscole
-        nella password (modificandola in "aaaAbbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema riconosce
-        Francesco come utente valido e lo indirizza alla homepage di iSnapGaming, dove lo accoglie con un messaggio di benvenuto.
-        Francesco seleziona la funzionalità "I Miei Ordini", selezionando l'appropriato pulsante e in risposta, il sistema
-        fornisce tabella che espone tutti gli ordini registrati nel sistema. Ogni riga della tabella contiene il numero
-        d'ordine, una breve descrizione, il costo totale e lo stato corrente dell'ordine.
-        \begin{itemize}
-            \item [-] \#0567 Ghostrunner 2 	\officialeuro 40.98	consegnato
-            \item [-] \#1678 GT7... \officialeuro 95.49	in lavorazione
-        \end{itemize}
-        Francesco seleziona l'ordine \#1678 per esaminare in dettaglio l'ordine ed il  sistema visualizza una seconda tabella
-        che mostra quantità, nomi e prezzi di ciascun articolo dell'ordine:
-        \begin{itemize}
-            \setlength\itemsep{.05cm}
-            \item [-] 1	GT7 \officialeuro 35.50
-            \item [-] 1Assassin's Creed Mirage	\officialeuro 59.99
-        \end{itemize}
+        "francesco@libero.it", seleziona il ruolo, inserisce la password "aaaabbb2" ed effettua il "Login". Il sistema non
+        riconosce l'utente, segnala con il messaggio "utente non riconosciuto" e reindirizza Francesco alla pagina d'autenticazione.
+        Francesco ripete il processo di autenticazione con meticolosità, prestando particolare attenzione alle specificità
+        maiuscole/minuscole nella password (modificandola in "aaaAbbb2"). Questa volta, l'autenticazione ha esito positivo, il sistema
+        riconosce Francesco come utente valido e lo indirizza alla homepage di iSnapGaming, dove lo accoglie con un messaggio di benvenuto.
+        Francesco seleziona la funzionalità "I Miei Ordini", il sistema mostra una tabella che espone tutti gli ordini registrati nel sistema.
+        Ogni riga della tabella contiene il numero d'ordine, una breve descrizione, il costo totale e lo stato corrente dell'ordine.
+            \begin{itemize}
+                \item [-] \#0567 Ghostrunner 2 	\officialeuro 40.98	consegnato
+                \item [-] \#1678 GT7... \officialeuro 95.49	in lavorazione
+            \end{itemize}
+            Francesco seleziona l'ordine \#1678 per esaminare in dettaglio l'ordine ed il  sistema visualizza una seconda tabella
+            che mostra quantità, nomi e prezzi di ciascun articolo dell'ordine:
+            \begin{itemize}
+                \setlength\itemsep{.05cm}
+                \item [-] 1	GT7 \officialeuro 35.50
+                \item [-] 1Assassin's Creed Mirage	\officialeuro 59.99
+            \end{itemize}
         Alla conclusione della sua sessione d'interazione con iSnapGames, Francesco seleziona la funzione
         "Logout". In risposta, il sistema lo congeda riportandolo alla homepage generica di iSnapGaming.
-
-    \subsection*{Sxx: Aggiornamento stato ordine}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Aggiornamento stato ordine}
-        Luca Rossi, il gestore degli ordini, si autentica con successo nel sistema utilizzando le proprie
-        credenziali di accesso. Il sistema lo reindirizza automaticamente alla sezione dedicata alla gestione
-        degli ordini, e elenca tutti gli ordini registrati.
-        Al fine di semplificare il suo lavoro e focalizzarsi sugli ordini "pronti", Luca decide di applicare
-        un filtro tramite l'apposita funzione. La tabella degli ordini viene quindi prontamente aggiornata per
-        visualizzare solo gli ordini con lo stato "pronto". Tra questi ordini, Luca individua l'ordine con numero
-        identificativo \#1234, che è stato recentemente spedito. Di conseguenza, Luca modifica lo stato di
-        quest'ordine da "pronto" a "spedito". Luca prosegue il suo lavoro gestionale, aggiornando con successo
-        altri cinque ordini, garantendo così che le informazioni siano sempre aggiornate e accurate.
-        Successivamente, utilizza nuovamente la funzione di filtro per selezionare gli ordini con stato "spedito".
-        Luca riceve la conferma della consegna dell'ordine \#4321, il quale transita dallo stato "spedito" a
-        "consegnato". La giornata di lavoro di Luca continua con ulteriori aggiornamenti degli ordini,
-        garantendo che ciascun ordine possa passare attraverso i vari stati possibili, tra cui "in preparazione",
-        "pronto", "spedito" e "consegnato."
-
-    \subsection*{Sxx: Gestione account}
-    \addcontentsline{toc}{subsection}{\protect\numberline{}Sxx: Gestione account}
-        Il cliente Francesco a seguito di un cambio di residenza decide di aggiornare le informazioni su
-        iSnapGaming, effettua l'accesso al sistema tramite autenticazione e  seleziona la funzionalità
-        "modifica Account". Il sistema mostra una form con tutti i dati (nome,cognome, città di residenza,
-        provincia, via, numero civico), Francesco modifica città : Roma, provincia : RO, via: viale Italia,
-        numero civico : 1 e utilizza la funzionalità "aggiorna" per rendere i dati persistenti.
 
 \section*{Requirements}
 \addcontentsline{toc}{section}{\protect\numberline{} Requirements}
@@ -481,7 +487,7 @@
                 \end{itemize}
             \textbf{Robustness}
                 \begin{itemize}
-                    \item [-] Gestione delle eccezioni client-side
+                    \item [-] \textbf{Gestione eccezioni}: Gestione delle eccezioni client-side. In caso di eccezioni e dati errati, il sistema dovrà essere in grado di gestirli e non dovrà andare in crash.
                 \end{itemize}
 
         \subsubsection*{Usability}

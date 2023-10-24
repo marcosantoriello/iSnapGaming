@@ -4,7 +4,7 @@ reindirizza alla pagina di login del sito.
 Una volta qui, l'utente seleziona "Registrati Ora". Fatto ciò, viene immediatamente reindirizzato alla pagina di registrazione.
 Su questa pagina, Luca compila attentamente tutti i campi necessari. Nei campi obbligatori, inserisce le seguenti informazioni:
 Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X,
- Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
+Username: nlucas98, Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
 La registrazione termina con successo, e l’utente viene riportato sulla Home page.
 
 
@@ -23,8 +23,8 @@ Il cliente Luca Neri è autenticato e si trova sulla homepage del sito web e des
 Su questa pagina, Luca seleziona il pulsante "account".
 A questo punto, si apre un menu a tendina dal quale il cliente sceglie l'opzione "Visualizza Account".
 Il sistema reindirizza Luca alla pagina del suo account, dove sono visualizzati i dettagli del suo profilo
-(Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
- Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!).
+Nome: Luca, Cognome: Neri, Data di nascita: 27/05/1998, Codice Fiscale: LCUNRE98E27F205X, Username: nlucas98,
+Indirizzo e-mail: lneri98@gmail.com e Password: LaMiaPasswordSafe1!.
 Sulla pagina del suo account, il cliente individua e seleziona l'opzione "Modifica Dati Account".
 Viene presentato un modulo di modifica dati account che include un campo per la modifica della password.
 Il cliente inserisce la sua nuova password: Luc!Gatto23 nel campo "Nuova Password" e la conferma nel campo "Conferma Password".

@@ -34,7 +34,7 @@ L'ordine viene acquisito dal sistema, che, verificati i dati relativi al pagamen
 dove gli verrà mostrato il riepilogo dell'ordine, con il relativo codice.
 
 MODIFICA DI UN PRODOTTO:
-Il \textit{gestore del catalogo} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login, assicurandosi
+Il \textit{gestore dei prodotti} Michele Verdi entra nella piattaforma, si autentica attraverso la schermata di login, assicurandosi
 che l'opzione riportante il ruolo \textit{Gestore Catalogo} sia selezionata, ed accede alla pagina del catalogo. Da qui, entra
 nella pagina del videogioco \textit{Assassin's Creed: Valhalla}, e clicca sull'opzione che consente di modificare il prodotto, dato che vuole farlo apparire
 come \textit{non disponibile}, a causa del ritardo del fornitore che avrebbe dovuto consegnargli le nuove copie. Seleziona, quindi, l'opzione \textit{Disponibile},
