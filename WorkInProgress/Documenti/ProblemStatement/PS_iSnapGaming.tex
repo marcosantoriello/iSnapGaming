@@ -122,6 +122,7 @@
             15/10/2023 & 0.05 & Aggiunta scenario gestione account e stato ordine & AF\\ \hline
             15/10/2023 & 0.06 & Modifiche di allineamento a scelte comuni & Tutti\\ \hline
             20/10/2023 & 0.07 & Aggiunta Requisiti non funzionali & Tutti\\ \hline
+            24/10/2023 & 0.07 & Aggiunta Requisiti funzionali & Tutti\\ \hline
         \end{tabular}
     \end{center}
 
@@ -345,12 +346,132 @@
         numero civico : 1 e utilizza la funzionalità "aggiorna" per rendere i dati persistenti.
 
 \section*{Requirements}
-\addcontentsline{toc}{section}{\protect\numberline{} Requisiti}
+\addcontentsline{toc}{section}{\protect\numberline{} Requirements}
     \subsection*{Functional requirements}
-    \addcontentsline{toc}{section}{\protect\numberline{} Requisiti Funzionali}
+    \addcontentsline{toc}{section}{\protect\numberline{} Functional Requirements}
+        \begin{itemize}
+            \item FR\_1 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Registrazione utente}: il sistema deve consentire all'utente di registrarsi.
+                \end{itemize}
+            \item FR\_2 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Autenticazione utente}: il sistema deve consentire all'utente di autenticarsi.
+                \end{itemize}
+            \item FR\_3 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Modifica dati account}: il sistema deve consentire all'utente di modificare i dati del proprio account.
+                \end{itemize}
+            \item FR\_4 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione dati account}: il sistema deve consentire all'utente di visualizzare i dati relativi al proprio account.
+                \end{itemize}
+            \item FR\_5 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Eliminazione account}: il sistema deve consentire all'utente di eliminare il proprio account.
+                \end{itemize}
+            \item FR\_6 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Ricerca di un prodotto}: il sistema deve consentire all'utente di ricercare un prodotto.
+                \end{itemize}
+            \item FR\_7 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Aggiunta di prodotti al carrello}: il sistema deve consentire all'utente di aggiungere un prodotto al carrello.
+                \end{itemize}
+            \item FR\_8 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione contenuto del carrello}: il sistema deve consentire all'utente di visualizzare il contenuto del carrello.
+                \end{itemize}
+            \item FR\_9 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Modifica quantità prodotti nel carrello}: il sistema deve consentire all'utente di modificare la quantità dei prodotti inseriti nel carrello.
+                \end{itemize}
+            \item FR\_10 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Effettuazione acquisto}: il sistema deve consentire all'utente di effettuare un acquisto.
+                \end{itemize}
+            \item FR\_11 (priorità: bassa)
+               \begin{itemize}
+                   \item \textbf{Inserimento recensione}: il sistema deve consentire all'utente di aggiungere una recensione.
+                \end{itemize}
+            \item FR\_12 (priorità: bassa)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione recensioni}: il sistema deve consentire all'utente di visualizzare le recensioni da lui effettuate.
+                \end{itemize}
+            \item FR\_13 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione storico ordini}: il sistema deve consentire all'utente di visualizzare gli ordini da lui effettuati.
+                \end{itemize}
+            \item FR\_14 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Aggiunta gestori}: il sistema deve consentire all'amministratore dei gestori di aggiungere un nuovo gestore.
+                \end{itemize}
+            \item FR\_15 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione gestori}: il sistema deve consentire all'amministratore dei gestori di visualizzare gli account di ogni gestore.
+                \end{itemize}
+            \item FR\_16 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione dati gestore}: il sistema deve consentire all'amministratore dei gestori di visualizzare i dati dell'account di un gestore.
+                \end{itemize}
+            \item FR\_17 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Modificare dati gestore}: il sistema deve consentire all'amministratore dei gestori di modificare i dati dell'account di un gestore.
+                \end{itemize}
+            \item FR\_18 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Eliminazione account gestore}: il sistema deve consentire all'amministratore dei gestori di eliminare l'account di un gestore.
+                \end{itemize}
+            \item FR\_19 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Cambio ruolo gestore}: il sistema deve consentire ad un gestore di cambiare ruolo.
+                \end{itemize}
+                \newpage
+            \item FR\_20 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Aggiunta di una categoria}: il sistema deve consentire al gestore dei prodotti di aggiungere una nuova categoria.
+                \end{itemize}
+            \item FR\_21 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Aggiunta di un prodotto}: il sistema deve consentire al gestore dei prodotti di inserire un nuovo prodotto.
+                \end{itemize}
+            \item FR\_22 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Modifica di un prodotto}: il sistema deve consentire al gestore dei prodotti di modificare i dati di un prodotto.
+                \end{itemize}
+            \item FR\_23 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Rimuovere un prodotto}: il sistema deve consentire al gestore dei prodotti di rimuovere un prodotto.
+                \end{itemize}
+            \item FR\_24 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione ordini}: il sistema deve consentire al gestore degli ordini di visualizzare gli ordini effettuati dagli utenti.
+                \end{itemize}
+            \item FR\_25 (priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione dettagli ordine}: il sistema deve consentire al gestore degli ordini di visualizzare i dettagli di uno specifico ordine.
+                \end{itemize}
+            \item FR\_26(priorità: alta)
+               \begin{itemize}
+                   \item \textbf{Aggiornamento stato ordine}: il sistema deve consentire al gestore degli ordini di aggiornare lo stato di un ordine.
+                \end{itemize}
+            \item FR\_27 (priorità: bassa)
+               \begin{itemize}
+                   \item \textbf{Visualizzazione recensioni}: il sistema deve consentire al gestore delle recensioni di visualizzare le recensioni inserite dagli utenti.
+                \end{itemize}
+            \item FR\_28 (priorità: bassa)
+               \begin{itemize}
+                   \item \textbf{Aggiornamento stato recensione}: il sistema deve consentire al gestore delle recensioni di aggiornare lo stato di una recensione.
+                \end{itemize}
+            \item FR\_29 (priorità: bassa)
+               \begin{itemize}
+                   \item \textbf{Eliminazione recensione}: il sistema deve consentire al gestore delle recensioni di eliminare una recensione.
+                \end{itemize}
+        \end{itemize} %END REQUISITI FUNZIONALI
+
 
     \subsection*{Non-functional requirements }
-    \addcontentsline{toc}{section}{\protect\numberline{} Requisiti non Funzionali}
+    \addcontentsline{toc}{section}{\protect\numberline{} Non-functional requirements}
         \subsubsection*{Dependability}
             \textbf{Security}
                 \begin{itemize}
