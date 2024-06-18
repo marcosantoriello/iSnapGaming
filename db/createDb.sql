@@ -59,7 +59,7 @@ CREATE TABLE Product(
     quantity int NOT NULL,
     category varchar(30) NOT NULL,
     pegi varchar(10) NOT NULL,
-    relaseDate DATE NOT NULL,
+    releaseDate DATE NOT NULL,
     imagePath varchar(50) NOT NULL,
 
     PRIMARY KEY(id),
