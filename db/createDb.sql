@@ -60,7 +60,7 @@ CREATE TABLE Product(
     category varchar(30) NOT NULL,
     pegi varchar(10) NOT NULL,
     releaseDate DATE NOT NULL,
-    imagePath varchar(50) NOT NULL,
+    imagePath varchar(50),
 
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES CustomerOrder(id)
