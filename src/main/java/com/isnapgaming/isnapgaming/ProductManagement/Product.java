@@ -16,7 +16,7 @@ public class Product {
     private Category category;
     private Pegi pegi;
     private int releaseDate;
-    // private String imagePath;
+    private String imagePath;
 
 
     public Product() {
@@ -25,7 +25,7 @@ public class Product {
         this.pegi = null;
     }
 
-    public static Product makeProduct(String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseDate) {
+    public static Product makeProduct(String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseDate, String imagePath) {
 
         // Checking parameters
         if (name == null) {
@@ -63,6 +63,10 @@ public class Product {
         product.setCategory(category);
         product.setPegi(pegi);
         product.setReleaseDate(releaseDate);
+
+        if (imagePath != null) {
+            product.setImagePath(imagePath);
+        }
 
         return product;
     }
@@ -137,6 +141,14 @@ public class Product {
 
     public void setReleaseDate(int releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     @Override
