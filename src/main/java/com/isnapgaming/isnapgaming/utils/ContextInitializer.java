@@ -26,7 +26,7 @@ public class ContextInitializer implements ServletContextListener {
 
         // Setting Images directory
         try {
-            ImageDAO.setImagesDirectory(tomcatRootDir + "/../Images");
+            ImageDAO.setImagesDirectory(tomcatRootDir + "..\\Images");
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
