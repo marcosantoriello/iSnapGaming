@@ -1,4 +1,4 @@
-DROP DATABASE if exists;
+DROP DATABASE if exists iSnapGaming;
 CREATE DATABASE iSnapGaming;
 USE iSnapGaming;
 
@@ -39,7 +39,7 @@ CREATE TABLE Address(
     FOREIGN KEY(id) REFERENCES User(id) ON DELETE CASCADE
 );
 
-CREATE TABLE Order(
+CREATE TABLE CustomerOrder(
     id int NOT NULL,
     status varchar(30) NOT NULL,
     address varchar(30) NOT NULL,
@@ -63,5 +63,5 @@ CREATE TABLE Product(
     imagePath varchar(50) NOT NULL,
 
     PRIMARY KEY(id),
-    FOREIGN KEY(id) REFERENCES Order(id)
+    FOREIGN KEY(id) REFERENCES CustomerOrder(id)
 );
