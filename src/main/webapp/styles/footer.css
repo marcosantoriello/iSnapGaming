@@ -1,0 +1,22 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altezza minima del 100% della viewport */
+}
+
+.content {
+    flex: 1; /* Flessibile per espandersi e occupare lo spazio rimanente */
+}
+
+footer {
+    background-color: #0B4075;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center; /* Centrato orizzontalmente il contenuto del footer */
+}
