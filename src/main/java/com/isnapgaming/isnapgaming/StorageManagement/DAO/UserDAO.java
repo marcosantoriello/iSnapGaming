@@ -1,17 +1,24 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
 import com.isnapgaming.isnapgaming.StorageManagement.interfaceDS.UserInterface;
+import com.isnapgaming.isnapgaming.UserManagement.Address;
 import com.isnapgaming.isnapgaming.UserManagement.User;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class UserDAO implements UserInterface {
     public static final String TABLE_NAME = "user";
     DataSource dataSource = null;
+
+    public UserDAO(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public int doSave(User user) throws SQLException, IllegalArgumentException {
         if (user == null) {
@@ -149,6 +156,32 @@ public class UserDAO implements UserInterface {
 
         c.close();
         return users;
+    }
+
+    public List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("User ID cannot be negative");
+        }
+
+        List<Address> addresses = new ArrayList<>();
+        Connection c = dataSource.getConnection();
+
+        String query = "SELECT * FROM address WHERE userId = ?";
+        PreparedStatement ps = c.prepareStatement(query);
+
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Address address = new Address();
+            address.setId(rs.getInt("id"));
+            address.setUserId(rs.getInt("userId"));
+            address.setStreet(rs.getString("street"));
+            address.setCity(rs.getString("city"));
+            address.setPostalCode(rs.getInt("postalCode"));
+            addresses.add(address);
+        }
+        return addresses;
     }
 
 }

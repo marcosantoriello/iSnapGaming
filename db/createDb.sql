@@ -30,7 +30,7 @@ CREATE TABLE Customer(
 );
 
 CREATE TABLE Address(
-    id int NOT NULL AUTO_INCREMENT
+    id int NOT NULL AUTO_INCREMENT,
     userId int NOT NULL,
     street varchar(50) NOT NULL,
     city varchar(30) NOT NULL,
