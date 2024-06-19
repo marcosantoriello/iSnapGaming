@@ -24,9 +24,10 @@ CREATE TABLE Manager(
 
 CREATE TABLE Customer(
     id int NOT NULL,
+    userId int NOT NULL,
 
     PRIMARY KEY(id),
-    FOREIGN KEY(id) REFERENCES User(id)
+    FOREIGN KEY(userId) REFERENCES User(id)
 );
 
 CREATE TABLE Address(
