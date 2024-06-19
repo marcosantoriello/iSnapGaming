@@ -11,6 +11,5 @@ public interface UserInterface {
     public User findByKey(int id) throws SQLException, IllegalArgumentException;
     public User findByUsername(String username) throws SQLException, IllegalArgumentException;
     public Set<User> doRetrieveAll() throws SQLException;
-
-    public User login(String username, String password) throws SQLException, IllegalArgumentException;
+    ;
 }

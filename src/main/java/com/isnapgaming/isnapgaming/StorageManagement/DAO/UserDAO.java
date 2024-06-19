@@ -151,10 +151,4 @@ public class UserDAO implements UserInterface {
         return users;
     }
 
-    public User login(String username, String password) throws SQLException, IllegalArgumentException {
-        Connection c = dataSource.getConnection();
-
-        // TO FINISH
-    }
-
 }
