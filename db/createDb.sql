@@ -42,9 +42,10 @@ CREATE TABLE Address(
 );
 
 CREATE TABLE CustomerOrder(
-    id int NOT NULL,
+    id int NOT NULL AUTO_INCREMENT,
+    customerId int NOT NULL,
     status varchar(30) NOT NULL,
-    address varchar(30) NOT NULL,
+    addressId int NOT NULL,
     orderDate DATE NOT NULL,
     totalAmount int NOT NULL,
 
@@ -53,7 +54,7 @@ CREATE TABLE CustomerOrder(
 );
 
 CREATE TABLE Product(
-    id int NOT NULL,
+    id int NOT NULL AUTO_INCREMENT,
     name varchar(30) NOT NULL,
     softwareHouse varchar(30) NOT NULL,
     platform varchar(30) NOT NULL,
