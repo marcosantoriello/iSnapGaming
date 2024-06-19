@@ -17,6 +17,7 @@ CREATE TABLE User(
 CREATE TABLE Manager(
     id int NOT NULL,
     cf varchar(16) NOT NULL,
+    role varchar(20) NOT NULL,
 
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES User(id)
@@ -65,4 +66,12 @@ CREATE TABLE Product(
 
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES CustomerOrder(id)
+);
+
+CREATE TABLE OrderProduct(
+    orderId int NOT NULL,
+    productId int NOT NULL,
+    PRIMARY KEY (orderId, productId),
+    FOREIGN KEY(orderId) REFERENCES CustomerOrder(id),
+    FOREIGN KEY(productId) REFERENCES Product(id)
 );
