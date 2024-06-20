@@ -4,6 +4,7 @@ import com.isnapgaming.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.isnapgaming.UserManagement.Address;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,7 +26,7 @@ public class CustomerOrder {
     private List<Product> products;
 
     public CustomerOrder() {
-
+        this.products = new ArrayList<>();
     }
 
     public int getId() {
