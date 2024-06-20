@@ -17,7 +17,7 @@
 <body>
 <nav class="navbar navbar-light" style="background-color: #0e6ac7 !important; padding: 20px;">
     <a class="navbar-brand" href="index.jsp">
-        <img src="images/logo.png" width="50" height="50" alt="">
+        <img src="app_imgs/logo.png" width="50" height="50" alt="">
     </a>
     <form class="form-inline  justify-content-center">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -26,9 +26,15 @@
         </button>
     </form>
     <div class="ml-auto">
-        <button class="btn btn-outline-info mr-2 button-hover-effect" type="button"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Cart</button>
-        <button class="btn btn-outline-info mr-2 button-hover-effect" type="button"><i class="fas fa-sign-in-alt mr-1 icon-finder"></i> Sign In</button>
-        <button class="btn btn-outline-info mr-2 button-hover-effect" type="button"><i class="fas fa-user-plus mr-1 icon-finder"></i> Sign Up</button>
+        <a href="cart.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
+            <i class="fas fa-shopping-cart mr-1 icon-finder"></i> Cart
+        </a>
+        <a href="login.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
+            <i class="fas fa-sign-in-alt mr-1 icon-finder"></i> Login
+        </a>
+        <a href="signup.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
+            <i class="fas fa-user-plus mr-1 icon-finder"></i> Sign Up
+        </a>
     </div>
 </nav>
 </body>
