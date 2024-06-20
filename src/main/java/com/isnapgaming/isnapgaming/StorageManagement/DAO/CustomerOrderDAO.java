@@ -2,15 +2,14 @@ package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
 import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.StorageManagement.interfaceDS.CustomerOrderInterface;
-import com.isnapgaming.isnapgaming.UserManagement.Address;
+
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerOrderDAO implements CustomerOrderInterface {
+public class CustomerOrderDAO {
 
     private static final String TABLE_NAME = "customerorder";
     private DataSource ds = null;

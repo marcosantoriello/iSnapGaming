@@ -1,6 +1,5 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.StorageManagement.interfaceDS.UserInterface;
 import com.isnapgaming.isnapgaming.UserManagement.Address;
 import com.isnapgaming.isnapgaming.UserManagement.User;
 
@@ -12,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class UserDAO implements UserInterface {
+public class UserDAO {
     public static final String TABLE_NAME = "user";
     DataSource dataSource = null;
 
@@ -166,7 +165,7 @@ public class UserDAO implements UserInterface {
         List<Address> addresses = new ArrayList<>();
         Connection c = dataSource.getConnection();
 
-        String query = "SELECT * FROM address WHERE userId = ?";
+        String query = "SELECT * FROM address WHERE customerId = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
         ps.setInt(1, userId);
@@ -175,7 +174,7 @@ public class UserDAO implements UserInterface {
         while (rs.next()) {
             Address address = new Address();
             address.setId(rs.getInt("id"));
-            address.setUserId(rs.getInt("userId"));
+            address.setCustomerId(rs.getInt("customerId"));
             address.setStreet(rs.getString("street"));
             address.setCity(rs.getString("city"));
             address.setPostalCode(rs.getInt("postalCode"));
