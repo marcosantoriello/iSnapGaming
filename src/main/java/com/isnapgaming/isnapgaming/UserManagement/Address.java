@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Address {
     private int id;
-    private int userId;
+    private int customerId;
     private String street;
     private String city;
     private int postalCode;
@@ -13,7 +13,7 @@ public class Address {
 
     public Address(int id, int userId, String street, String city, int postalCode) {
         this.id = id;
-        this.userId = userId;
+        this.customerId = userId;
         this.street = street;
         this.city = city;
         this.postalCode = postalCode;
@@ -27,12 +27,12 @@ public class Address {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCustomerId() {
+        return customerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public String getStreet() {

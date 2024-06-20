@@ -1,14 +1,13 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.StorageManagement.interfaceDS.ProductInterface;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ProductDAO implements ProductInterface {
+public class ProductDAO {
 
     public static final String TABLE_NAME = "product";
     DataSource dataSource = null;

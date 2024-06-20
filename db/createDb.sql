@@ -32,13 +32,13 @@ CREATE TABLE Customer(
 
 CREATE TABLE Address(
     id int NOT NULL AUTO_INCREMENT,
-    userId int NOT NULL,
+    customerId int NOT NULL,
     street varchar(50) NOT NULL,
     city varchar(30) NOT NULL,
     postalCode varchar(30) NOT NULL,
 
     PRIMARY KEY(id),
-    FOREIGN KEY(userId) REFERENCES User(id) ON DELETE CASCADE
+    FOREIGN KEY(customerId) REFERENCES Customer(id) ON DELETE CASCADE
 );
 
 CREATE TABLE CustomerOrder(

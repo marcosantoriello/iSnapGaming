@@ -1,6 +1,5 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.StorageManagement.interfaceDS.AddressInterface;
 import com.isnapgaming.isnapgaming.UserManagement.Address;
 
 import javax.sql.DataSource;
@@ -8,7 +7,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddressDAO implements AddressInterface {
+public class AddressDAO {
     DataSource dataSource = null;
     private static final String TABLE_NAME = "address";
 
@@ -23,10 +22,10 @@ public class AddressDAO implements AddressInterface {
 
         Connection c = dataSource.getConnection();
 
-        String query = "INSERT INTO " + AddressDAO.TABLE_NAME + " (userId, street, city, postalCode) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO " + AddressDAO.TABLE_NAME + " (customerId, street, city, postalCode) VALUES (?, ?, ?, ?)";
         PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
-        ps.setInt(1, address.getUserId());
+        ps.setInt(1, address.getCustomerId());
         ps.setString(2, address.getStreet());
         ps.setString(3, address.getCity());
         ps.setInt(4, address.getPostalCode());
@@ -50,11 +49,11 @@ public class AddressDAO implements AddressInterface {
 
         Connection c = dataSource.getConnection();
 
-        String query = "UPDATE " + AddressDAO.TABLE_NAME + " SET userId = ?, street = ?, city = ?, postalCode = ? WHERE id = ?";
+        String query = "UPDATE " + AddressDAO.TABLE_NAME + " SET customerId = ?, street = ?, city = ?, postalCode = ? WHERE id = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
         ps.setInt(1, address.getId());
-        ps.setInt(2, address.getUserId());
+        ps.setInt(2, address.getCustomerId());
         ps.setString(3, address.getStreet());
         ps.setString(4, address.getCity());
         ps.setInt(5, address.getPostalCode());
@@ -83,7 +82,7 @@ public class AddressDAO implements AddressInterface {
 
         Address address = new Address();
         address.setId(rs.getInt("id"));
-        address.setUserId(rs.getInt("userId"));
+        address.setCustomerId(rs.getInt("customerId"));
         address.setStreet(rs.getString("street"));
         address.setCity(rs.getString("city"));
         address.setPostalCode(rs.getInt("postalCode"));
@@ -92,25 +91,25 @@ public class AddressDAO implements AddressInterface {
         return address;
     }
 
-    public List<Address> findByUserId(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("UserId cannot be negative");
+    public List<Address> findByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+        if (customerId < 0) {
+            throw new IllegalArgumentException("CustomerId cannot be negative");
         }
 
         List<Address> addresses = new ArrayList<>();
 
         Connection c = dataSource.getConnection();
 
-        String query = "SELECT * FROM " + AddressDAO.TABLE_NAME + " WHERE userId = ?";
+        String query = "SELECT * FROM " + AddressDAO.TABLE_NAME + " WHERE customerId = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
-        ps.setInt(1, userId);
+        ps.setInt(1, customerId);
 
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Address address = new Address();
             address.setId(rs.getInt("id"));
-            address.setUserId(rs.getInt("userId"));
+            address.setCustomerId(rs.getInt("customerId"));
             address.setStreet(rs.getString("street"));
             address.setCity(rs.getString("city"));
             address.setPostalCode(rs.getInt("postalCode"));
