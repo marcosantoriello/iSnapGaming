@@ -50,7 +50,7 @@ public class CustomerDAO {
 
     }
 
-    public Customer doRetrieve(int id) throws SQLException, IllegalArgumentException {
+    public Customer findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
@@ -73,7 +73,7 @@ public class CustomerDAO {
         customer.setProducts(findOrderByCustomerId(id));
         return customer;
     }
-    public List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    private List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
@@ -99,14 +99,14 @@ public class CustomerDAO {
         return addresses;
     }
 
-    public List<CustomerOrder> findOrderByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    private List<CustomerOrder> findOrderByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("User ID must be greater than 0");
         }
 
-        Connection c = ds.getConnection();
+        Connection c = dataSource.getConnection();
 
-        String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE customerId = ?";
+        String query = "SELECT * FROM customerorder WHERE customerId = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
         ps.setInt(1, customerId);
@@ -114,14 +114,15 @@ public class CustomerDAO {
         ResultSet rs = ps.executeQuery();
         List<CustomerOrder> orders = new ArrayList<>();
         while (rs.next()) {
-            AddressDAO addressDAO = new AddressDAO(ds);
+            AddressDAO addressDAO = new AddressDAO(dataSource);
+            CustomerOrderDAO customerOrderDAO = new CustomerOrderDAO(dataSource);
             CustomerOrder order = new CustomerOrder();
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
             order.setAddress(addressDAO.findByKey(rs.getInt("addressId")));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(findProductsByOrderId(order.getId()));
+            order.setProducts(customerOrderDAO.findProductsByOrderId(order.getId()));
             orders.add(order);
         }
 

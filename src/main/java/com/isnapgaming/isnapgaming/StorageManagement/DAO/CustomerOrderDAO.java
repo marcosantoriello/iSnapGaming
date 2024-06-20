@@ -63,7 +63,7 @@ public class CustomerOrderDAO {
         ps.execute();
     }
 
-    private List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
+    public List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
         if (orderId < 0) {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
