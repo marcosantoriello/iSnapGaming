@@ -85,7 +85,7 @@ public class CustomerOrderDAO {
             product.setQuantity(rs.getInt("quantity"));
             product.setCategory(Product.Category.valueOf(rs.getString("category")));
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseDate(rs.getInt("releaseDate"));
+            product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
 

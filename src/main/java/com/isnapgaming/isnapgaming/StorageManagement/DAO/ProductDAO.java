@@ -30,10 +30,10 @@ public class ProductDAO {
         int quantity = product.getQuantity();
         Product.Category category = product.getCategory();
         Product.Pegi pegi = product.getPegi();
-        int relaseDate = product.getReleaseDate();
+        int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
 
-        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (name, softwareHouse, platform, price, quantity, category, pegi, releaseDate, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setString(1, name);
@@ -43,7 +43,7 @@ public class ProductDAO {
         ps.setInt(5, quantity);
         ps.setString(6, category.toString());
         ps.setString(7, pegi.toString());
-        ps.setInt(8, relaseDate);
+        ps.setInt(8, releaseYear);
         ps.setString(9, imagePath);
 
         ps.execute();
@@ -72,10 +72,10 @@ public class ProductDAO {
         int quantity = product.getQuantity();
         Product.Category category = product.getCategory();
         Product.Pegi pegi = product.getPegi();
-        int relaseDate = product.getReleaseDate();
+        int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
 
-        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseDate = ?, imagePath = ? WHERE id = ?";
+        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
         ps.executeUpdate();
@@ -107,7 +107,7 @@ public class ProductDAO {
             product.setQuantity(rs.getInt("quantity"));
             product.setCategory(Product.Category.valueOf(rs.getString("category")));
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseDate(rs.getInt("releaseDate"));
+            product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
         }
 
@@ -142,7 +142,7 @@ public class ProductDAO {
             product.setQuantity(rs.getInt("quantity"));
             product.setCategory(Product.Category.valueOf(rs.getString("category")));
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseDate(rs.getInt("releaseDate"));
+            product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
         }
@@ -151,8 +151,6 @@ public class ProductDAO {
 
         return products;
     }
-
-    // TO-DO: public Set<Product> doRetrieveByOrder(Order order) throws SQLException, IllegalArgumentException;
 
     public Set<Product> doRetrieveAll() throws SQLException {
         Connection c = dataSource.getConnection();
@@ -174,7 +172,7 @@ public class ProductDAO {
             product.setQuantity(rs.getInt("quantity"));
             product.setCategory(Product.Category.valueOf(rs.getString("category")));
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseDate(rs.getInt("releaseDate"));
+            product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
         }

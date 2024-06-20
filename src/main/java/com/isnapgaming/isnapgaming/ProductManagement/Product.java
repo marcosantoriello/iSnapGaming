@@ -15,7 +15,7 @@ public class Product {
     private int quantity;
     private Category category;
     private Pegi pegi;
-    private int releaseDate;
+    private int releaseYear;
     private String imagePath;
 
 
@@ -62,7 +62,7 @@ public class Product {
         product.setQuantity(quantity);
         product.setCategory(category);
         product.setPegi(pegi);
-        product.setReleaseDate(releaseDate);
+        product.setReleaseYear(releaseDate);
 
         if (imagePath != null) {
             product.setImagePath(imagePath);
@@ -135,12 +135,12 @@ public class Product {
         this.pegi = pegi;
     }
 
-    public int getReleaseDate() {
-        return releaseDate;
+    public int getReleaseYear() {
+        return releaseYear;
     }
 
-    public void setReleaseDate(int releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
     }
 
     public String getImagePath() {

@@ -62,11 +62,10 @@ CREATE TABLE Product(
     quantity int NOT NULL,
     category varchar(30) NOT NULL,
     pegi varchar(10) NOT NULL,
-    releaseDate DATE NOT NULL,
+    releaseYear INT NOT NULL,
     imagePath varchar(50),
 
-    PRIMARY KEY(id),
-    FOREIGN KEY(id) REFERENCES CustomerOrder(id)
+    PRIMARY KEY(id)
 );
 
 CREATE TABLE OrderProduct(
