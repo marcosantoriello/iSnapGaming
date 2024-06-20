@@ -35,7 +35,10 @@
         <a href="signup.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-user-plus mr-1 icon-finder"></i> Sign Up
         </a>
-    </div>
+        <!-- con il tag <a> come in questo caso, la servlet viene chiamata solo con il metodo GET-->
+        <a href="/Logout" class="btn btn-danger mr-2 button-hover-effect">
+            <i class="fas fa-light fa-door-open icon-finder"></i> Logout
+        </a></div>
 </nav>
 </body>
 </html>
