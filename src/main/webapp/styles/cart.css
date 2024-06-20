@@ -1,0 +1,27 @@
+.content{
+    background-color: rgb(207, 222, 236);
+    min-height: 100vh;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+        height: 100vh !important;
+    }
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center; /* Allinea al centro orizzontalmente */
+    width: 100%; /* Fa estendere il contenitore per tutta la larghezza */
+}
