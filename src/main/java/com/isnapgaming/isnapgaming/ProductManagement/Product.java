@@ -8,6 +8,7 @@ public class Product {
     public enum Pegi {PEGI3, PEGI7, PEGI12, PEGI16, PEGI18};
 
     private int id;
+    private int prodCode;
     private String name;
     private String softwareHouse;
     private Platform platform;
@@ -25,9 +26,12 @@ public class Product {
         this.pegi = null;
     }
 
-    public static Product makeProduct(String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseDate, String imagePath) {
+    public static Product makeProduct(int prodCode, String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseYear, String imagePath) {
 
         // Checking parameters
+        if (prodCode == 0) {
+            throw new IllegalArgumentException("Code cannot be 0");
+        }
         if (name == null) {
             throw new IllegalArgumentException("Name cannot be null");
         }
@@ -49,7 +53,7 @@ public class Product {
         if (pegi == null) {
             throw new IllegalArgumentException("Pegi cannot be null");
         }
-        if (releaseDate < 0) {
+        if (releaseYear < 0) {
             throw new IllegalArgumentException("Release Date cannot be negative");
         }
 
@@ -62,13 +66,21 @@ public class Product {
         product.setQuantity(quantity);
         product.setCategory(category);
         product.setPegi(pegi);
-        product.setReleaseYear(releaseDate);
+        product.setReleaseYear(releaseYear);
 
         if (imagePath != null) {
             product.setImagePath(imagePath);
         }
 
         return product;
+    }
+
+    public int getProdCode() {
+        return prodCode;
+    }
+
+    public void setProdCode(int prodCode) {
+        this.prodCode = prodCode;
     }
 
     public int getId() {

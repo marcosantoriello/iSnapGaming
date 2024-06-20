@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.AddressDAO;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.ProductDAO;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.UserDAO;
+import com.isnapgaming.isnapgaming.StorageManagement.DAO.*;
+import com.isnapgaming.isnapgaming.UserManagement.Address;
+import com.isnapgaming.isnapgaming.UserManagement.Customer;
 import com.isnapgaming.isnapgaming.UserManagement.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -31,9 +31,7 @@ public class TestPopolamento extends HttpServlet {
         out.println("<p> Inizio del popolamento di prova... </p>");
 
         // Creazione DataSource necessari
-        ProductDAO productDAO = new ProductDAO(ds);
         UserDAO userDAO = new UserDAO(ds);
-        AddressDAO addressDAO = new AddressDAO(ds);
         CustomerOrder customerOrder = new CustomerOrder();
 
         try {
@@ -64,8 +62,22 @@ public class TestPopolamento extends HttpServlet {
             out.println("<p> User 2: " + retrievedUser2.getUsername() + "</p>");
 
 
+            // Customers
+            Customer customer1 = new Customer();
+            customer1.setUsername("customer1@gmail.com");
+            customer1.setPassword("password3");
+            customer1.setFirstName("Luca");
+            customer1.setLastName("Rossi");
+            customer1.setDateOfBirth(LocalDate.of(2001, 2, 3));
+            System.out.println("Persisting customer...");
+            CustomerDAO customerDAO = new CustomerDAO(ds);
+            int customerId = customerDAO.doSave(customer1);
+            customer1.setId(customerId);
+            System.out.println("Customer ID: " + customer1.getId());
+
             // Prodotti
             Product product1 = new Product();
+            product1.setProdCode(663);
             product1.setName("Fortnite");
             product1.setSoftwareHouse("Epic Games");
             product1.setPlatform(Product.Platform.PC);
@@ -77,6 +89,7 @@ public class TestPopolamento extends HttpServlet {
             product1.setImagePath("N/A");
 
             Product product2 = new Product();
+            product2.setProdCode(664);
             product2.setName("Hell Let Loose");
             product2.setSoftwareHouse("Team17 Digital Ltd");
             product2.setPlatform(Product.Platform.PC);
@@ -93,10 +106,25 @@ public class TestPopolamento extends HttpServlet {
 
             System.out.println("Product 1 ID: " + prod1Id);
             System.out.println("Product 2 ID: " + prod2Id);
-
             // Ordini
+            CustomerOrder order1 = new CustomerOrder();
+            order1.setCustomerId(customer1.getId());
+            order1.setStatus(CustomerOrder.Status.DELIVERED);
+            order1.setAddress("Via Roma, Roma, 12345");
+            order1.setOrderDate(LocalDate.of(2024, 6, 20));
+            order1.addProduct(product1);
+            order1.addProduct(product2);
+            order1.setTotalAmount(order1.calculateTotalAmount());
 
+            CustomerOrderDAO orderDAO = new CustomerOrderDAO(ds);
+            int orderId = orderDAO.doSave(order1);
 
+            System.out.println("Order ID: " + orderId);
+
+            CustomerOrder retrievedOrder = orderDAO.findByKey(orderId);
+            for (Product p : retrievedOrder.getProducts()) {
+                System.out.println("Product: " + p.getName());
+            }
 
 
 

@@ -38,16 +38,8 @@ public class CustomerDAO {
         ps.setInt(1, id);
         ps.execute();
 
-        ResultSet rs = ps.getGeneratedKeys();
-
-        if (!rs.next()) {
-            throw new SQLException("Error: no generated keys. The Customer has not been saved.");
-        }
-        int customerId = rs.getInt(1);
-
         c.close();
-        return customerId;
-
+        return id;
     }
 
     public Customer findByKey(int id) throws SQLException, IllegalArgumentException {
@@ -120,7 +112,7 @@ public class CustomerDAO {
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(addressDAO.findByKey(rs.getInt("addressId")));
+            order.setAddress(rs.getString("address"));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
             order.setProducts(customerOrderDAO.findProductsByOrderId(order.getId()));
             orders.add(order);

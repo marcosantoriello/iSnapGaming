@@ -23,6 +23,7 @@ public class ProductDAO {
 
         Connection c = dataSource.getConnection();
 
+        int prodCode = product.getProdCode();
         String name = product.getName();
         String softwareHouse = product.getSoftwareHouse();
         Product.Platform platform = product.getPlatform();
@@ -33,18 +34,19 @@ public class ProductDAO {
         int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
 
-        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
-        ps.setString(1, name);
-        ps.setString(2, softwareHouse);
-        ps.setString(3, platform.toString());
-        ps.setInt(4, price);
-        ps.setInt(5, quantity);
-        ps.setString(6, category.toString());
-        ps.setString(7, pegi.toString());
-        ps.setInt(8, releaseYear);
-        ps.setString(9, imagePath);
+        ps.setInt(1, prodCode);
+        ps.setString(2, name);
+        ps.setString(3, softwareHouse);
+        ps.setString(4, platform.toString());
+        ps.setInt(5, price);
+        ps.setInt(6, quantity);
+        ps.setString(7, category.toString());
+        ps.setString(8, pegi.toString());
+        ps.setInt(9, releaseYear);
+        ps.setString(10, imagePath);
 
         ps.execute();
 
@@ -65,6 +67,7 @@ public class ProductDAO {
 
         Connection c = dataSource.getConnection();
 
+        int prodCode = product.getProdCode();
         String name = product.getName();
         String softwareHouse = product.getSoftwareHouse();
         Product.Platform platform = product.getPlatform();
@@ -75,7 +78,7 @@ public class ProductDAO {
         int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
 
-        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
+        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
         PreparedStatement ps = c.prepareStatement(query);
 
         ps.executeUpdate();
@@ -98,18 +101,52 @@ public class ProductDAO {
 
         ResultSet rs = ps.executeQuery();
 
-        while (rs.next()) {
-            product.setId(rs.getInt("id"));
-            product.setName(rs.getString("name"));
-            product.setSoftwareHouse(rs.getString("softwareHouse"));
-            product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
-            product.setPrice(rs.getInt("price"));
-            product.setQuantity(rs.getInt("quantity"));
-            product.setCategory(Product.Category.valueOf(rs.getString("category")));
-            product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseYear(rs.getInt("releaseYear"));
-            product.setImagePath(rs.getString("imagePath"));
+
+        product.setId(rs.getInt("id"));
+        product.setProdCode(rs.getInt("prodCode"));
+        product.setName(rs.getString("name"));
+        product.setSoftwareHouse(rs.getString("softwareHouse"));
+        product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
+        product.setPrice(rs.getInt("price"));
+        product.setQuantity(rs.getInt("quantity"));
+        product.setCategory(Product.Category.valueOf(rs.getString("category")));
+        product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
+        product.setReleaseYear(rs.getInt("releaseYear"));
+        product.setImagePath(rs.getString("imagePath"));
+
+        c.close();
+        return product;
+    }
+
+    public Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
+        if (prodCode < 0) {
+            throw new IllegalArgumentException("Product Code cannot be negative");
         }
+
+        Connection c = dataSource.getConnection();
+
+        String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE prodCode = ?";
+
+        PreparedStatement ps = c.prepareStatement(query);
+        ps.setInt(1, prodCode);
+        ResultSet rs = ps.executeQuery();
+
+        if (!rs.next()) {
+            throw new SQLException("Error: no User found with the given id.");
+        }
+
+        Product product = new Product();
+        product.setId(rs.getInt("id"));
+        product.setProdCode(rs.getInt("prodCode"));
+        product.setName(rs.getString("name"));
+        product.setSoftwareHouse(rs.getString("softwareHouse"));
+        product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
+        product.setPrice(rs.getInt("price"));
+        product.setQuantity(rs.getInt("quantity"));
+        product.setCategory(Product.Category.valueOf(rs.getString("category")));
+        product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
+        product.setReleaseYear(rs.getInt("releaseYear"));
+        product.setImagePath(rs.getString("imagePath"));
 
         c.close();
         return product;
@@ -135,6 +172,7 @@ public class ProductDAO {
             Product product = new Product();
 
             product.setId(rs.getInt("id"));
+            product.setProdCode(rs.getInt("prodCode"));
             product.setName(rs.getString("name"));
             product.setSoftwareHouse(rs.getString("softwareHouse"));
             product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
@@ -165,6 +203,7 @@ public class ProductDAO {
             Product product = new Product();
 
             product.setId(rs.getInt("id"));
+            product.setProdCode(rs.getInt("prodCode"));
             product.setName(rs.getString("name"));
             product.setSoftwareHouse(rs.getString("softwareHouse"));
             product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));

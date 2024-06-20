@@ -110,6 +110,7 @@ public class AddressDAO {
             Address address = new Address();
             address.setId(rs.getInt("id"));
             address.setCustomerId(rs.getInt("customerId"));
+            // I don't set the orderId because customer address is not linked with any order (so it's equal to 0)
             address.setStreet(rs.getString("street"));
             address.setCity(rs.getString("city"));
             address.setPostalCode(rs.getInt("postalCode"));
@@ -119,6 +120,7 @@ public class AddressDAO {
         c.close();
         return addresses;
     }
+
 
     public void doDelete(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {

@@ -22,15 +22,15 @@ public class CustomerOrderDAO {
         if (order == null) {
             throw new IllegalArgumentException("Order cannot be null");
         }
-
+        System.out.println("Persisting order...");
         Connection c = ds.getConnection();
 
-        String sql = "INSERT INTO " + CustomerOrderDAO.TABLE_NAME + " (customerId, status, addressId, orderDate, totalAmount) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO " + CustomerOrderDAO.TABLE_NAME + " (customerId, status, address, orderDate, totalAmount) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, order.getCustomerId());
         ps.setString(2, order.getStatus().toString());
-        ps.setInt(3,order.getAddress().getId());
+        ps.setString(3, order.getAddress());
         ps.setDate(4, java.sql.Date.valueOf(order.getOrderDate()));
         ps.setInt(5, order.getTotalAmount());
 
@@ -42,9 +42,12 @@ public class CustomerOrderDAO {
         }
 
         int customerOrderId = rs.getInt(1);
-
+        System.out.println("Order saved with ID: " + customerOrderId);
+        System.out.println("Persisting order products...");
         for (Product product : order.getProducts()) {
-            saveOrderProduct(order.getId(), product.getId());
+            ProductDAO productDAO = new ProductDAO(ds);
+            Product prod = productDAO.findByProdCode(product.getProdCode());
+            saveOrderProduct(customerOrderId, prod.getId());
         }
 
         c.close();
@@ -78,6 +81,7 @@ public class CustomerOrderDAO {
         while (rs.next()) {
             Product product = new Product();
             product.setId(rs.getInt("id"));
+            product.setProdCode(rs.getInt("prodCode"));
             product.setName(rs.getString("name"));
             product.setSoftwareHouse(rs.getString("softwareHouse"));
             product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
@@ -117,7 +121,7 @@ public class CustomerOrderDAO {
         order.setId(rs.getInt("id"));
         order.setCustomerId(rs.getInt("customerId"));
         order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-        order.setAddress(addressDAO.findByKey(rs.getInt("addressId")));
+        order.setAddress((rs.getString("address"))); // PROBLEMA QUI. ID = 0
         order.setOrderDate(rs.getDate("orderDate").toLocalDate());
         order.setProducts(findProductsByOrderId(order.getId()));
 
@@ -145,7 +149,7 @@ public class CustomerOrderDAO {
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(addressDAO.findByKey(rs.getInt("addressId")));
+            order.setAddress(rs.getString("address"));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
             order.setProducts(findProductsByOrderId(order.getId()));
             orders.add(order);

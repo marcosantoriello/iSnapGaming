@@ -45,16 +45,17 @@ CREATE TABLE CustomerOrder(
     id int NOT NULL AUTO_INCREMENT,
     customerId int NOT NULL,
     status varchar(30) NOT NULL,
-    addressId int NOT NULL,
+    address varchar(50) NOT NULL,
     orderDate DATE NOT NULL,
     totalAmount int NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY(id) REFERENCES Customer(id)
+    FOREIGN KEY(customerId) REFERENCES Customer(id)
 );
 
 CREATE TABLE Product(
     id int NOT NULL AUTO_INCREMENT,
+    prodCode int NOT NULL,
     name varchar(30) NOT NULL,
     softwareHouse varchar(30) NOT NULL,
     platform varchar(30) NOT NULL,

@@ -20,7 +20,7 @@ public class CustomerOrder {
     private int id;
     private int customerId;
     private Status status;
-    private Address address;
+    private String address;
     private LocalDate orderDate;
     private int totalAmount;
     private List<Product> products;
@@ -52,11 +52,12 @@ public class CustomerOrder {
         this.status = status;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address)
+    {
         this.address = address;
     }
 
@@ -82,6 +83,18 @@ public class CustomerOrder {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public void addProduct(Product product) {
+        this.products.add(product);
+    }
+
+    public int calculateTotalAmount() {
+        int total = 0;
+        for (Product product : products) {
+            totalAmount += product.getPrice();
+        }
+        return totalAmount;
     }
 
     @Override

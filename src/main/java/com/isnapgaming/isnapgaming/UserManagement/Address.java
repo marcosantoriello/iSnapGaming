@@ -11,9 +11,8 @@ public class Address {
 
     public Address() {}
 
-    public Address(int id, int userId, String street, String city, int postalCode) {
-        this.id = id;
-        this.customerId = userId;
+    public Address(int customerId, String street, String city, int postalCode) {
+        this.customerId = customerId;
         this.street = street;
         this.city = city;
         this.postalCode = postalCode;
