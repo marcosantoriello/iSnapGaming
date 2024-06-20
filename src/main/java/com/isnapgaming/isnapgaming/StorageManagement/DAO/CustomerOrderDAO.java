@@ -125,36 +125,6 @@ public class CustomerOrderDAO {
         return order;
     }
 
-    public List<CustomerOrder> findByUser(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID must be greater than 0");
-        }
-
-        Connection c = ds.getConnection();
-
-        String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE customerId = ?";
-        PreparedStatement ps = c.prepareStatement(query);
-
-        ps.setInt(1, userId);
-
-        ResultSet rs = ps.executeQuery();
-        List<CustomerOrder> orders = new ArrayList<>();
-        while (rs.next()) {
-            AddressDAO addressDAO = new AddressDAO(ds);
-            CustomerOrder order = new CustomerOrder();
-            order.setId(rs.getInt("id"));
-            order.setCustomerId(rs.getInt("customerId"));
-            order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(addressDAO.findByKey(rs.getInt("addressId")));
-            order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(findProductsByOrderId(order.getId()));
-            orders.add(order);
-        }
-
-        c.close();
-        return orders;
-    }
-
     public List<CustomerOrder> findByStatus(CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
         if (status == null) {
             throw new IllegalArgumentException("Status cannot be null");
