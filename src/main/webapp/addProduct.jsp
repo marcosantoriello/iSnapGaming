@@ -17,10 +17,6 @@
             <h2 class="mb-3" style="text-align: center;">ADD PRODUCT</h2>
             <br/>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="idProduct">ID</label>
-                <input id="idProduct" type="text" name="idProduct" class="form-control" required>
-            </div>
-            <div class="form-group" style="margin: 15px 0;">
                 <label for="nameProduct">Name</label>
                 <input id="nameProduct" type="text" name="nameProduct" class="form-control"  required>
             </div>
@@ -37,7 +33,8 @@
                 <input id="category" type="text" name="category" class="form-control" required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="relaseDateProduct">PEGI</label>
+                <label for="pegiProduct">PEGI</label>
+                <input id="pegiProduct" type="text" name="pegiProduct" class="form-control" required>
             <select class="form-select" aria-label="Default select example">
                 <option selected>select </option>
                 <option value="1">One</option>
@@ -46,8 +43,8 @@
             </select>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="relaseDateProduct">Relase Date</label>
-                <input id="relaseDateProduct" type="date" name="relaseDateProduct" class="form-control" required>
+                <label for="releaseYearProduct">Release Year</label>
+                <input id="releaseYearProduct" type="number" name="releaseYearProduct" class="form-control" required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="quantityProduct">Quantity</label>
