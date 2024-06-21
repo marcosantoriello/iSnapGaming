@@ -31,10 +31,10 @@ public class TestPopolamento extends HttpServlet {
         out.println("<p> Inizio del popolamento di prova... </p>");
 
         // Creazione DataSource necessari
-        UserDAO userDAO = new UserDAO(ds);
-        CustomerOrder customerOrder = new CustomerOrder();
-
         try {
+            UserDAO userDAO = new UserDAO(ds);
+            CustomerOrder customerOrder = new CustomerOrder();
+
             User user1 = new User();
             user1.setUsername("user1@gmail.com");
             user1.setPassword("password1");

@@ -12,10 +12,11 @@ public class User {
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
-    private List<Address> addresses;
+    private List<String> roles;
+    private String currentRole;
 
     public User() {
-        addresses = new ArrayList<>();
+        roles = new ArrayList<>();
     }
 
     public static User makeUser(String username, String password, String firstName, String lastName, LocalDate dateOfBirth, List<Address> addresses) {
@@ -42,9 +43,6 @@ public class User {
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setDateOfBirth(dateOfBirth);
-        if (addresses != null) {
-            user.setAddresses(addresses);
-        }
 
         return user;
     }
@@ -97,17 +95,26 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<Address> getAddresses() {
-        return addresses;
+    public List<String> getRoles() {
+        return roles;
     }
 
-    public void setAddresses(List<Address> addresses) {
-        this.addresses = addresses;
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
     }
 
-    public void addAddress(Address address) {
-        addresses.add(address);
+    public String getCurrentRole() {
+        return currentRole;
     }
+
+    public void setCurrentRole(String currentRole) {
+        this.currentRole = currentRole;
+    }
+
+    public void addRole(String role) {
+        roles.add(role);
+    }
+
 
     @Override
     public boolean equals(Object o) {
