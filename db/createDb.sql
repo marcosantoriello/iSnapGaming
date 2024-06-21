@@ -17,10 +17,21 @@ CREATE TABLE User(
 CREATE TABLE Manager(
     id int NOT NULL,
     cf varchar(16) NOT NULL,
-    role varchar(20) NOT NULL,
 
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES User(id)
+);
+
+CREATE TABLE OrderManager(
+    id int NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES Manager(id)
+);
+
+CREATE TABLE ProductManager(
+    id int NOT NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(id) REFERENCES Manager(id)
 );
 
 CREATE TABLE Customer(

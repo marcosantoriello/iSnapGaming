@@ -1,7 +1,6 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.UserManagement.Address;
-import com.isnapgaming.isnapgaming.UserManagement.User;
+import com.isnapgaming.isnapgaming.UserManagement.*;
 
 import javax.sql.DataSource;
 import java.sql.*;
@@ -14,17 +13,17 @@ import java.util.Set;
 public class UserDAO {
     public static final String TABLE_NAME = "user";
     DataSource dataSource = null;
+    Connection connection = null;
 
-    public UserDAO(DataSource dataSource) {
+    public UserDAO(DataSource dataSource) throws SQLException{
         this.dataSource = dataSource;
+        this.connection = dataSource.getConnection();
     }
 
     public int doSave(User user) throws SQLException, IllegalArgumentException {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
-
-        Connection c = dataSource.getConnection();
 
         String username = user.getUsername();
         String password = user.getPassword();
@@ -33,7 +32,7 @@ public class UserDAO {
         LocalDate dateOfBirth = user.getDateOfBirth();
 
         String query = "INSERT INTO " + UserDAO.TABLE_NAME + " (username, password, firstName, lastName, dateOfBirth) VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setString(1, username);
         ps.setString(2, password);
@@ -49,7 +48,6 @@ public class UserDAO {
         }
         int userId = rs.getInt(1);
 
-        c.close();
         return userId;
     }
 
@@ -57,8 +55,6 @@ public class UserDAO {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
-
-        Connection c = dataSource.getConnection();
 
         int id = user.getId();
         String username = user.getUsername();
@@ -68,7 +64,7 @@ public class UserDAO {
         LocalDate dateOfBirth = user.getDateOfBirth();
 
         String query = "UPDATE " + UserDAO.TABLE_NAME + " SET username = ?, password = ?, firstName = ?, lastName = ?, dateOfBirth = ? WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setString(1, username);
         ps.setString(2, password);
@@ -78,15 +74,72 @@ public class UserDAO {
         ps.setInt(6, id);
 
         ps.execute();
+    }
+    public User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be null or empty");
+        }
 
-        c.close();
+        String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ? AND password = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, username);
+        ps.setString(2, password);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setFirstName(rs.getString("firstName"));
+            user.setLastName(rs.getString("lastName"));
+            user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
+            return user;
+        }
+        return null;
+
+    }
+    // Retrieving all the roles associated with a user
+    public List<String> getUserRoles(int userId) throws SQLException {
+        List<String> userRoles = new ArrayList<>();
+        if (isCustomer(userId)) {
+            userRoles.add("Customer");
+        }
+        if (isOrderManager(userId)) {
+            userRoles.add("OrderManager");
+        }
+        if (isProductManager(userId)) {
+            userRoles.add("ProductManager");
+        }
+        return userRoles;
+    }
+
+    private boolean isCustomer(int userId) throws SQLException {
+        String query = "SELECT * FROM Customer WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    private boolean isOrderManager(int userId) throws SQLException {
+        String query = "SELECT * FROM OrderManager WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
+    }
+
+    private boolean isProductManager(int userId) throws SQLException {
+        String query = "SELECT * FROM ProductManager WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ResultSet rs = ps.executeQuery();
+        return rs.next();
     }
 
     public User findByKey(int id) throws SQLException, IllegalArgumentException {
-        Connection c = dataSource.getConnection();
-
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, id);
 
@@ -103,15 +156,13 @@ public class UserDAO {
         user.setLastName(rs.getString("lastName"));
         user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
 
-        c.close();
         return user;
     }
 
     public User findByUsername(String username) throws SQLException, IllegalArgumentException {
-        Connection c = dataSource.getConnection();
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setString(1, username);
 
@@ -128,15 +179,13 @@ public class UserDAO {
         user.setLastName(rs.getString("lastName"));
         user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
 
-        c.close();
         return user;
     }
 
     public Set<User> doRetrieveAll() throws SQLException {
-        Connection c = dataSource.getConnection();
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME;
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ResultSet rs = ps.executeQuery();
 
@@ -153,7 +202,6 @@ public class UserDAO {
             users.add(user);
         }
 
-        c.close();
         return users;
     }
 
