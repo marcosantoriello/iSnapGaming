@@ -56,6 +56,13 @@ public class Login extends HttpServlet {
             }
 
             session.setAttribute("roles", roles);
+            // TO-DELETE
+            System.out.println("Roles: ");
+            List<String> sess_roles = (List<String>) session.getAttribute("roles");
+            for (String role : sess_roles) {
+                System.out.println(role);
+            }
+
             response.sendRedirect("/roleSelection.jsp");
 
         } else {
