@@ -54,6 +54,18 @@ public class CustomerOrderDAO {
         return customerOrderId;
     }
 
+    public synchronized void updateStatus(int orderId, CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
+        if (orderId < 0) {
+            throw new IllegalArgumentException("Order ID must be greater than 0");
+        }
+        Connection c = ds.getConnection();
+        String query = "UPDATE " + CustomerOrderDAO.TABLE_NAME + " SET status = ? WHERE id = ?";
+        PreparedStatement ps = c.prepareStatement(query);
+        ps.setString(1, status.toString());
+        ps.setInt(2, orderId);
+        ps.execute();
+    }
+
     private synchronized  void saveOrderProduct(int orderId, int productId) throws SQLException, IllegalArgumentException{
         if (orderId < 0 || productId < 0) {
             throw new IllegalArgumentException("Order ID and Product ID must be greater than 0");
@@ -158,5 +170,7 @@ public class CustomerOrderDAO {
         c.close();
         return orders;
     }
+
+    // TODO: Implement doRetrieveAll
 
 }

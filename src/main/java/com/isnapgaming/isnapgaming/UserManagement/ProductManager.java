@@ -33,7 +33,7 @@ public class ProductManager extends Manager{
         return productDAO.findByProdCode(prodCode);
     }
 
-    public synchronized List<Product> getAllProducts(DataSource dataSource) throws SQLException {
+    public List<Product> getAllProducts(DataSource dataSource) throws SQLException {
         ProductDAO productDAO = new ProductDAO(dataSource);
         return productDAO.doRetrieveAll();
     }

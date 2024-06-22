@@ -23,7 +23,7 @@ public class CustomerDAO {
         this.connection = dataSource.getConnection();
     }
 
-    public int doSave(Customer customer) throws SQLException, IllegalArgumentException {
+    public synchronized int doSave(Customer customer) throws SQLException, IllegalArgumentException {
         if (customer == null) {
             throw new IllegalArgumentException("Customer cannot be null");
         }
@@ -40,7 +40,7 @@ public class CustomerDAO {
         return id;
     }
 
-    public Customer findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized Customer findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
@@ -62,7 +62,7 @@ public class CustomerDAO {
         customer.setProducts(findOrderByCustomerId(id));
         return customer;
     }
-    private List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    private synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
@@ -87,7 +87,7 @@ public class CustomerDAO {
         return addresses;
     }
 
-    private List<CustomerOrder> findOrderByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    private synchronized List<CustomerOrder> findOrderByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("User ID must be greater than 0");
         }
