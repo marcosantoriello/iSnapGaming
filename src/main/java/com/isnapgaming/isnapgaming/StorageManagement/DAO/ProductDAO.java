@@ -4,8 +4,9 @@ import com.isnapgaming.isnapgaming.ProductManagement.Product;
 
 import javax.sql.DataSource;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 public class ProductDAO {
 
@@ -152,13 +153,13 @@ public class ProductDAO {
         return product;
     }
 
-    public Set<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
+    public List<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
         if (category == null) {
             throw new IllegalArgumentException("Category cannot be null");
         }
 
         Connection c = dataSource.getConnection();
-        Set<Product> products = new HashSet<>();
+        List<Product> products = new ArrayList<>();
 
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE category = ?";
@@ -190,9 +191,9 @@ public class ProductDAO {
         return products;
     }
 
-    public Set<Product> doRetrieveAll() throws SQLException {
+    public List<Product> doRetrieveAll() throws SQLException {
         Connection c = dataSource.getConnection();
-        Set<Product> products = new HashSet<>();
+        List<Product> products = new ArrayList<>();
 
         String query = "SELECT * FROM "  + ProductDAO.TABLE_NAME;
         PreparedStatement ps = c.prepareStatement(query);
