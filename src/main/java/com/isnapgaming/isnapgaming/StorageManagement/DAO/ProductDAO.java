@@ -5,7 +5,6 @@ import com.isnapgaming.isnapgaming.ProductManagement.Product;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 public class ProductDAO {
@@ -17,7 +16,7 @@ public class ProductDAO {
         this.dataSource = dataSource;
     }
 
-    public int doSave(Product product) throws SQLException, IllegalArgumentException{
+    public synchronized int doSave(Product product) throws SQLException, IllegalArgumentException{
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
@@ -61,7 +60,7 @@ public class ProductDAO {
         return productId;
     }
 
-    public void doUpdate(Product product) throws SQLException, IllegalArgumentException {
+    public synchronized void doUpdate(Product product) throws SQLException, IllegalArgumentException {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
@@ -87,7 +86,7 @@ public class ProductDAO {
         c.close();
     }
 
-    public Product findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized Product findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
         }
@@ -119,7 +118,7 @@ public class ProductDAO {
         return product;
     }
 
-    public Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
+    public synchronized Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
         if (prodCode < 0) {
             throw new IllegalArgumentException("Product Code cannot be negative");
         }
@@ -153,7 +152,7 @@ public class ProductDAO {
         return product;
     }
 
-    public List<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
+    public synchronized List<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
         if (category == null) {
             throw new IllegalArgumentException("Category cannot be null");
         }
@@ -191,7 +190,7 @@ public class ProductDAO {
         return products;
     }
 
-    public List<Product> doRetrieveAll() throws SQLException {
+    public synchronized List<Product> doRetrieveAll() throws SQLException {
         Connection c = dataSource.getConnection();
         List<Product> products = new ArrayList<>();
 

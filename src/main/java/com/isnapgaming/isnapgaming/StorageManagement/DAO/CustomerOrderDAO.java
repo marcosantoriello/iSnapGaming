@@ -18,7 +18,7 @@ public class CustomerOrderDAO {
         this.ds = ds;
     }
 
-    public int doSave(CustomerOrder order) throws SQLException, IllegalArgumentException {
+    public synchronized int doSave(CustomerOrder order) throws SQLException, IllegalArgumentException {
         if (order == null) {
             throw new IllegalArgumentException("Order cannot be null");
         }
@@ -54,7 +54,7 @@ public class CustomerOrderDAO {
         return customerOrderId;
     }
 
-    private void saveOrderProduct(int orderId, int productId) throws SQLException, IllegalArgumentException{
+    private synchronized  void saveOrderProduct(int orderId, int productId) throws SQLException, IllegalArgumentException{
         if (orderId < 0 || productId < 0) {
             throw new IllegalArgumentException("Order ID and Product ID must be greater than 0");
         }
@@ -66,7 +66,7 @@ public class CustomerOrderDAO {
         ps.execute();
     }
 
-    public List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
+    public synchronized List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
         if (orderId < 0) {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
@@ -97,7 +97,7 @@ public class CustomerOrderDAO {
         return products;
     }
 
-    public CustomerOrder findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized CustomerOrder findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("ID must be greater than 0");
         }
@@ -129,7 +129,7 @@ public class CustomerOrderDAO {
         return order;
     }
 
-    public List<CustomerOrder> findByStatus(CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
+    public synchronized List<CustomerOrder> findByStatus(CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
         if (status == null) {
             throw new IllegalArgumentException("Status cannot be null");
         }
