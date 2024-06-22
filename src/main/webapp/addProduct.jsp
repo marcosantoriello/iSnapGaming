@@ -21,30 +21,29 @@
                 <input id="nameProduct" type="text" name="nameProduct" class="form-control"  required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="softwareHouse">Software House</label>
-                <input id="softwareHouse" type="text" name="softwareHouse" class="form-control"  required>
+                <label for="softwareHouseProduct">Software House</label>
+                <input id="softwareHouseProduct" type="text" name="softwareHouseProduct" class="form-control"  required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="platform">Platform</label>
-                <input id="platform" type="text" name="platform" class="form-control" required>
+                <label for="platformProduct">Platform</label>
+                <input id="platformProduct" type="text" name="platformProduct" class="form-control" required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="category">Category</label>
-                <input id="category" type="text" name="category" class="form-control" required>
+                <label for="categoryProduct">Category</label>
+                <input id="categoryProduct" type="text" name="categoryProduct" class="form-control" required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="pegiProduct">PEGI</label>
-                <input id="pegiProduct" type="text" name="pegiProduct" class="form-control" required>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>select </option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+                <label>PEGI</label>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select </option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
             </div>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="releaseYearProduct">Release Year</label>
-                <input id="releaseYearProduct" type="number" name="releaseYearProduct" class="form-control" required>
+                <input id="releaseYearProduct" type="date" name="releaseYearProduct" class="form-control" required>
             </div>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="quantityProduct">Quantity</label>
@@ -59,7 +58,7 @@
                 <input id="imageProduct" type="file" name="imageProduct" class="form-control" required>
             </div>
             <div class="submit-button">
-                <input type="submit" value="Submit" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
+                <input type="submit" value="Add Product" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
             </div>
         </form>
     </div>
