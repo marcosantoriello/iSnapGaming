@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Select Role</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/select-role.css">
+    <link rel="stylesheet" type="text/css" href="styles/roleSelection.css">
 </head>
 <body>
 <%
@@ -18,7 +18,7 @@
 <div class="content">
     <div class="select-role">
         <h2>Select your role</h2>
-        <form>
+        <form action="RoleSelection" method="POST">
             <div class="radio-buttons">
                 <%
                     for(String role: roles){
