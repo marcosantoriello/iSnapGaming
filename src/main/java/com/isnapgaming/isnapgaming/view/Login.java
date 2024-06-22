@@ -58,23 +58,28 @@ public class Login extends HttpServlet {
             session.setAttribute("roles", roles);
             // TO-DELETE
             System.out.println("Roles: ");
-            List<String> sess_roles = (List<String>) session.getAttribute("roles");
-            for (String role : sess_roles) {
+            List<String> userRoles = (List<String>) session.getAttribute("roles");
+            for (String role : userRoles) {
                 System.out.println(role);
             }
 
             //response.sendRedirect("/roleSelection.jsp");
 
 
-            // Controlla il numero di ruoli
-            if (sess_roles.size() >= 2) {
-                // Se il numero di ruoli è maggiore o uguale a 2, reindirizza a roleSelection.jsp
+            // Checking number of roles
+            if (userRoles.size() >= 2) {
+                // If the user has more than one role, the user must choose one
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/roleSelection.jsp");
                 dispatcher.forward(request, response);
-            } else {
-                // Altrimenti, reindirizza a index.jsp
+            } else if (userRoles.get(0).equals("Customer")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
                 dispatcher.forward(request, response);
+            } else if (userRoles.get(0).equals("ProductManager")) {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
+            } else if (userRoles.get(0).equals("OrderManager")) {
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
+            } else {
+                throw new ServletException("Unknown role");
             }
 
         } else {
