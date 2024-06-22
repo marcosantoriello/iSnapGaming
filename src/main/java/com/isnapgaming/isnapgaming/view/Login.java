@@ -63,7 +63,19 @@ public class Login extends HttpServlet {
                 System.out.println(role);
             }
 
-            response.sendRedirect("/roleSelection.jsp");
+            //response.sendRedirect("/roleSelection.jsp");
+
+
+            // Controlla il numero di ruoli
+            if (sess_roles.size() >= 2) {
+                // Se il numero di ruoli è maggiore o uguale a 2, reindirizza a roleSelection.jsp
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/roleSelection.jsp");
+                dispatcher.forward(request, response);
+            } else {
+                // Altrimenti, reindirizza a index.jsp
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+                dispatcher.forward(request, response);
+            }
 
         } else {
             request.setAttribute("error", "Wrong username or password.");
