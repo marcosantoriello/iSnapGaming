@@ -17,7 +17,7 @@
       <h2 class="mb-3" style="text-align: center;">LOGIN</h2>
       <br/>
       <div class="form-group" style="margin: 15px 0;">
-        <label for="email">Username</label>
+        <label for="email">Email</label>
         <input id="email" type="email" name="email" class="form-control" required>
       </div>
       <div class="form-group" style="margin: 15px 0;">
