@@ -19,6 +19,7 @@ public class RoleSelection extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String roleSelected = request.getParameter("role");
+        HttpSession session = request.getSession();
 
         //TO-DELETE
         System.out.println("Ruolo selezionato: " + roleSelected);
@@ -27,16 +28,19 @@ public class RoleSelection extends HttpServlet {
             throw new ServletException("Unknown role");
         }
 
-        if(roleSelected.equals("Customer") ){
+        if (roleSelected.equals("Customer")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+            session.setAttribute("role", "Customer");
             dispatcher.forward(request, response);
-        }else if(roleSelected.equals("ProductManager")){
+        } else if (roleSelected.equals("ProductManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
+            session.setAttribute("role", "ProductManager");
             dispatcher.forward(request, response);
-        }else if(roleSelected.equals("OrderManager")){
+        } else if (roleSelected.equals("OrderManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
+            session.setAttribute("role", "OrderManager");
             dispatcher.forward(request, response);
-        }else {
+        } else {
             throw new ServletException("Unknown role");
         }
     }
