@@ -4,24 +4,24 @@ import com.isnapgaming.isnapgaming.ProductManagement.Product;
 
 import javax.sql.DataSource;
 import java.sql.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProductDAO {
 
     public static final String TABLE_NAME = "product";
     DataSource dataSource = null;
+    Connection connection = null;
 
-    public ProductDAO(DataSource dataSource) {
+    public ProductDAO(DataSource dataSource) throws SQLException {
         this.dataSource = dataSource;
+        connection = dataSource.getConnection();
     }
 
-    public int doSave(Product product) throws SQLException, IllegalArgumentException{
+    public synchronized int doSave(Product product) throws SQLException, IllegalArgumentException{
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
-
-        Connection c = dataSource.getConnection();
 
         int prodCode = product.getProdCode();
         String name = product.getName();
@@ -35,7 +35,7 @@ public class ProductDAO {
         String imagePath = product.getImagePath();
 
         String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, prodCode);
         ps.setString(2, name);
@@ -54,18 +54,13 @@ public class ProductDAO {
         if (!rs.next()) {
             throw new SQLException("Error: no generated keys. The Product has not been saved.");
         }
-        int productId = rs.getInt(1);
-
-        c.close();
-        return productId;
+        return rs.getInt(1);
     }
 
-    public void doUpdate(Product product) throws SQLException, IllegalArgumentException {
+    public synchronized void doUpdate(Product product) throws SQLException, IllegalArgumentException {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
-
-        Connection c = dataSource.getConnection();
 
         int prodCode = product.getProdCode();
         String name = product.getName();
@@ -79,24 +74,20 @@ public class ProductDAO {
         String imagePath = product.getImagePath();
 
         String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.executeUpdate();
-
-        c.close();
     }
 
-    public Product findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized Product findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
         }
 
         Product product = new Product();
 
-        Connection c = dataSource.getConnection();
-
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
@@ -114,20 +105,17 @@ public class ProductDAO {
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
 
-        c.close();
         return product;
     }
 
-    public Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
+    public synchronized Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
         if (prodCode < 0) {
             throw new IllegalArgumentException("Product Code cannot be negative");
         }
 
-        Connection c = dataSource.getConnection();
-
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE prodCode = ?";
 
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, prodCode);
         ResultSet rs = ps.executeQuery();
 
@@ -148,21 +136,18 @@ public class ProductDAO {
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
 
-        c.close();
         return product;
     }
 
-    public Set<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
+    public synchronized List<Product> findByCategory(Product.Category category) throws SQLException, IllegalArgumentException {
         if (category == null) {
             throw new IllegalArgumentException("Category cannot be null");
         }
-
-        Connection c = dataSource.getConnection();
-        Set<Product> products = new HashSet<>();
+        List<Product> products = new ArrayList<>();
 
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE category = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setString(1, category.toString());
 
@@ -184,18 +169,14 @@ public class ProductDAO {
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
         }
-
-        c.close();
-
         return products;
     }
 
-    public Set<Product> doRetrieveAll() throws SQLException {
-        Connection c = dataSource.getConnection();
-        Set<Product> products = new HashSet<>();
+    public synchronized List<Product> doRetrieveAll() throws SQLException {
+        List<Product> products = new ArrayList<>();
 
         String query = "SELECT * FROM "  + ProductDAO.TABLE_NAME;
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ResultSet rs = ps.executeQuery();
 
@@ -215,8 +196,6 @@ public class ProductDAO {
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
         }
-
-        c.close();
 
         return products;
     }

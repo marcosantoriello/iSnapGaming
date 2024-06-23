@@ -6,9 +6,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class UserDAO {
     public static final String TABLE_NAME = "user";
@@ -20,7 +18,7 @@ public class UserDAO {
         this.connection = dataSource.getConnection();
     }
 
-    public int doSave(User user) throws SQLException, IllegalArgumentException {
+    public synchronized int doSave(User user) throws SQLException, IllegalArgumentException {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
@@ -51,7 +49,7 @@ public class UserDAO {
         return userId;
     }
 
-    public void doUpdate(User user) throws SQLException, IllegalArgumentException {
+    public synchronized void doUpdate(User user) throws SQLException, IllegalArgumentException {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
@@ -75,7 +73,7 @@ public class UserDAO {
 
         ps.execute();
     }
-    public User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
+    public synchronized User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username cannot be null or empty");
         }
@@ -99,7 +97,7 @@ public class UserDAO {
 
     }
     // Retrieving all the roles associated with a user
-    public List<String> getUserRoles(int userId) throws SQLException {
+    public synchronized List<String> getUserRoles(int userId) throws SQLException {
         List<String> userRoles = new ArrayList<>();
         if (isCustomer(userId)) {
             userRoles.add("Customer");
@@ -137,7 +135,38 @@ public class UserDAO {
         return rs.next();
     }
 
-    public User findByKey(int id) throws SQLException, IllegalArgumentException {
+    // Methods to add a new role to an existing user
+    public synchronized void assignProductManager(int userId) throws SQLException, IllegalArgumentException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("User ID cannot be negative");
+        }
+        String query = "INSERT INTO ProductManager (id) VALUES (?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ps.executeUpdate();
+    }
+
+    public synchronized void assignOrderManager(int userId) throws SQLException, IllegalArgumentException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("User ID cannot be negative");
+        }
+        String query = "INSERT INTO OrderManager (id) VALUES (?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ps.executeUpdate();
+    }
+
+    public synchronized void assignCustomer(int userId) throws SQLException, IllegalArgumentException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("User ID cannot be negative");
+        }
+        String query = "INSERT INTO Customer (id) VALUES (?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, userId);
+        ps.executeUpdate();
+    }
+
+    public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -159,7 +188,7 @@ public class UserDAO {
         return user;
     }
 
-    public User findByUsername(String username) throws SQLException, IllegalArgumentException {
+    public synchronized User findByUsername(String username) throws SQLException, IllegalArgumentException {
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -182,14 +211,14 @@ public class UserDAO {
         return user;
     }
 
-    public Set<User> doRetrieveAll() throws SQLException {
+    public synchronized List<User> doRetrieveAll() throws SQLException {
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(query);
 
         ResultSet rs = ps.executeQuery();
 
-        Set<User> users = new HashSet<>();
+        List<User> users = new ArrayList<>();
         while (rs.next()) {
             User user = new User();
 
@@ -205,7 +234,7 @@ public class UserDAO {
         return users;
     }
 
-    public List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
+    public synchronized List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
         }

@@ -16,7 +16,7 @@ CREATE TABLE User(
 
 CREATE TABLE Manager(
     id int NOT NULL,
-    cf varchar(16) NOT NULL,
+    cf varchar(16),
 
     PRIMARY KEY(id),
     FOREIGN KEY(id) REFERENCES User(id)

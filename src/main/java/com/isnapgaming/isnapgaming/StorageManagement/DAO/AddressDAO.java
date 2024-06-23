@@ -15,7 +15,7 @@ public class AddressDAO {
         this.dataSource = dataSource;
     }
 
-    public int doSave(Address address) throws SQLException, IllegalArgumentException {
+    public synchronized int doSave(Address address) throws SQLException, IllegalArgumentException {
         if (address == null) {
             throw new IllegalArgumentException("Address cannot be null");
         }
@@ -42,7 +42,7 @@ public class AddressDAO {
         return addressId;
     }
 
-    public void doUpdate(Address address) throws SQLException, IllegalArgumentException {
+    public synchronized void doUpdate(Address address) throws SQLException, IllegalArgumentException {
         if (address == null) {
             throw new IllegalArgumentException("Address cannot be null");
         }
@@ -63,7 +63,7 @@ public class AddressDAO {
         c.close();
     }
 
-    public Address findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized Address findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
         }
@@ -91,7 +91,7 @@ public class AddressDAO {
         return address;
     }
 
-    public List<Address> findByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    public synchronized List<Address> findByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("CustomerId cannot be negative");
         }
@@ -122,7 +122,7 @@ public class AddressDAO {
     }
 
 
-    public void doDelete(int id) throws SQLException, IllegalArgumentException {
+    public synchronized void doDelete(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
         }
