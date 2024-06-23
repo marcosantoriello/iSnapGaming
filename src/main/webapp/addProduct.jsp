@@ -17,6 +17,10 @@
             <h2 class="mb-3" style="text-align: center;">ADD PRODUCT</h2>
             <br/>
             <div class="form-group" style="margin: 15px 0;">
+                <label for="productCode">Product Code</label>
+                <input id="productCode" type="text" name="productCode" class="form-control"  required>
+            </div>
+            <div class="form-group" style="margin: 15px 0;">
                 <label for="nameProduct">Name</label>
                 <input id="nameProduct" type="text" name="nameProduct" class="form-control"  required>
             </div>
