@@ -2,6 +2,7 @@ package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
 import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.isnapgaming.UserManagement.Customer;
 
 
 import javax.sql.DataSource;
@@ -12,10 +13,12 @@ import java.util.List;
 public class CustomerOrderDAO {
 
     private static final String TABLE_NAME = "customerorder";
-    private DataSource ds = null;
+    private DataSource dataSource = null;
+    Connection connection = null;
 
-    public CustomerOrderDAO(DataSource ds) {
-        this.ds = ds;
+    public CustomerOrderDAO(DataSource dataSource) throws SQLException{
+        this.dataSource = dataSource;
+        this.connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(CustomerOrder order) throws SQLException, IllegalArgumentException {
@@ -23,10 +26,9 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Order cannot be null");
         }
         System.out.println("Persisting order...");
-        Connection c = ds.getConnection();
 
         String sql = "INSERT INTO " + CustomerOrderDAO.TABLE_NAME + " (customerId, status, address, orderDate, totalAmount) VALUES (?, ?, ?, ?, ?)";
-        PreparedStatement ps = c.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, order.getCustomerId());
         ps.setString(2, order.getStatus().toString());
@@ -45,12 +47,11 @@ public class CustomerOrderDAO {
         System.out.println("Order saved with ID: " + customerOrderId);
         System.out.println("Persisting order products...");
         for (Product product : order.getProducts()) {
-            ProductDAO productDAO = new ProductDAO(ds);
+            ProductDAO productDAO = new ProductDAO(dataSource);
             Product prod = productDAO.findByProdCode(product.getProdCode());
             saveOrderProduct(customerOrderId, prod.getId());
         }
 
-        c.close();
         return customerOrderId;
     }
 
@@ -58,7 +59,7 @@ public class CustomerOrderDAO {
         if (orderId < 0) {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
-        Connection c = ds.getConnection();
+        Connection c = dataSource.getConnection();
         String query = "UPDATE " + CustomerOrderDAO.TABLE_NAME + " SET status = ? WHERE id = ?";
         PreparedStatement ps = c.prepareStatement(query);
         ps.setString(1, status.toString());
@@ -70,9 +71,9 @@ public class CustomerOrderDAO {
         if (orderId < 0 || productId < 0) {
             throw new IllegalArgumentException("Order ID and Product ID must be greater than 0");
         }
-        Connection c = ds.getConnection();
+
         String query = "INSERT INTO orderproduct (orderId, productId) VALUES (?, ?)";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, orderId);
         ps.setInt(2, productId);
         ps.execute();
@@ -82,12 +83,11 @@ public class CustomerOrderDAO {
         if (orderId < 0) {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
-        Connection c = ds.getConnection();
 
         String query = "SELECT p.* FROM Product p JOIN OrderProduct op ON p.id = op.productId WHERE op.orderId = ?";
         List<Product> products = new ArrayList<>();
 
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, orderId);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
@@ -114,10 +114,8 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("ID must be greater than 0");
         }
 
-        Connection c = ds.getConnection();
-
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, id);
 
@@ -126,18 +124,15 @@ public class CustomerOrderDAO {
             throw new SQLException("Error: no order found with ID " + id);
         }
 
-        // Retrieving associated address and products
-        AddressDAO addressDAO = new AddressDAO(ds);
 
         CustomerOrder order = new CustomerOrder();
         order.setId(rs.getInt("id"));
         order.setCustomerId(rs.getInt("customerId"));
         order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-        order.setAddress((rs.getString("address"))); // PROBLEMA QUI. ID = 0
+        order.setAddress((rs.getString("address")));
         order.setOrderDate(rs.getDate("orderDate").toLocalDate());
         order.setProducts(findProductsByOrderId(order.getId()));
 
-        c.close();
         return order;
     }
 
@@ -146,17 +141,14 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Status cannot be null");
         }
 
-        Connection c = ds.getConnection();
-
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE status = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setString(1, status.toString());
 
         ResultSet rs = ps.executeQuery();
         List<CustomerOrder> orders = new ArrayList<>();
         while (rs.next()) {
-            AddressDAO addressDAO = new AddressDAO(ds);
             CustomerOrder order = new CustomerOrder();
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
@@ -167,10 +159,27 @@ public class CustomerOrderDAO {
             orders.add(order);
         }
 
-        c.close();
         return orders;
     }
 
     // TODO: Implement doRetrieveAll
+    public List<CustomerOrder> doRetrieveAll() throws SQLException {
+        String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
+        PreparedStatement ps = connection.prepareStatement(query);
+        ResultSet rs = ps.executeQuery();
+        List<CustomerOrder> orders = new ArrayList<>();
+        while (rs.next()) {
+            CustomerOrder order = new CustomerOrder();
+            order.setId(rs.getInt("id"));
+            order.setCustomerId(rs.getInt("customerId"));
+            order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
+            order.setAddress(rs.getString("address"));
+            order.setOrderDate(rs.getDate("orderDate").toLocalDate());
+            order.setProducts(findProductsByOrderId(order.getId()));
+            orders.add(order);
+        }
+
+        return orders;
+    }
 
 }

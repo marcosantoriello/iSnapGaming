@@ -21,6 +21,7 @@ public class OrderManager extends Manager{
 
     public List<CustomerOrder> getAllProducts(DataSource dataSource) throws SQLException {
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
-        return orderDAO.();
+        return orderDAO.doRetrieveAll();
     }
+
 }
