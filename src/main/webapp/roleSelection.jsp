@@ -8,14 +8,26 @@
     <title>Select Role</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/roleSelection.css">
+
+    <%
+        List<String> roles = (List<String>) session.getAttribute("roles");
+        String error = (String) request.getAttribute("error");
+    %>
+
 </head>
 <body>
-<%
-    List<String> roles = (List<String>) session.getAttribute("roles");
-%>
 <jsp:include page="fragments/header.jsp" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
+    <%
+        if(error != null){
+    %>
+    <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+        Please select a role
+    </div>
+    <%
+        }
+    %>
     <div class="select-role">
         <h2>Select your role</h2>
         <form action="RoleSelection" method="POST">
