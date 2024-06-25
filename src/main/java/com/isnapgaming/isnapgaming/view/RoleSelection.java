@@ -21,10 +21,10 @@ public class RoleSelection extends HttpServlet {
         String roleSelected = request.getParameter("role");
         HttpSession session = request.getSession();
 
-        //TO-DELETE
-        System.out.println("Ruolo selezionato: " + roleSelected);
-
         if (roleSelected == null || roleSelected.isEmpty()) {
+            request.setAttribute("error", "Please select a role");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/roleSelection.jsp");
+            dispatcher.forward(request, response);
             throw new ServletException("Unknown role");
         }
 
