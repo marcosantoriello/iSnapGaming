@@ -11,6 +11,7 @@
     <%
         String role = (String) session.getAttribute("role");
         List<String> userRoles = (List<String>) session.getAttribute("roles");
+        System.out.println("User role " + role);
 
         String currentPage = request.getRequestURI();
     %>
@@ -78,7 +79,7 @@
         </script>
 
         <%
-            }if(!(role == null)){
+            }if(role != null){
         %>
         <a href="Logout" class="btn btn-danger mr-2 button-hover-effect">
             <i class="fas fa-light fa-door-open icon-finder"></i> Logout

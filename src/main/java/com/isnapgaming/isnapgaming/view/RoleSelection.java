@@ -31,15 +31,15 @@ public class RoleSelection extends HttpServlet {
 
         if (roleSelected.equals("Customer")){
             // If the user is a customer, then I take him back to where he was before the login
-            session.setAttribute("currentRole", "Customer");
+            session.setAttribute("role", "Customer");
             response.sendRedirect(redirectUrl);
         } else if (roleSelected.equals("ProductManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
-            session.setAttribute("currentRole", "ProductManager");
+            session.setAttribute("role", "ProductManager");
             dispatcher.forward(request, response);
         } else if (roleSelected.equals("OrderManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
-            session.setAttribute("currentRole", "OrderManager");
+            session.setAttribute("role", "OrderManager");
             dispatcher.forward(request, response);
         } else {
             throw new ServletException("Unknown role");
