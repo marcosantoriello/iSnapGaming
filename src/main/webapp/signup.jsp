@@ -1,6 +1,15 @@
+<%@ page import="com.isnapgaming.isnapgaming.UserManagement.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<%
+    User user = (User) session.getAttribute("User");
+    if (user != null) {
+        response.sendRedirect("index.jsp");
+    }
+%>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,6 +19,63 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
+<script>
+    function checkName(inputText) {
+        var name = /^[A-Za-z]+$/;
+        if (inputText.value.match(name)) {
+            return true;
+        }
+        return false;
+    }
+
+    function checkEmail(inputText) {
+        var email = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (inputText.value.match(email)) {
+            return true;
+        }
+        return false;
+    }
+
+    function checkPassword(inputtxt) {
+        var password = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+        if (inputtxt.value.match(password))
+            return true;
+
+        return false;
+    }
+
+    function validate(obj) {
+        var valid = true;
+
+        var firstName = documet.getElementsByName("firstName")[0];
+        if (!checkName(firstName)) {
+            valid = false;
+            alert("First name must contain only letters");
+            name.focus();
+        }
+
+        var firstName = documet.getElementsByName("lastName")[0];
+        if (!checkName(firstName)) {
+            valid = false;
+            alert("Last name must contain only letters");
+            name.focus();
+        }
+
+        var password = document.getElementsByName("password")[0];
+        if (!checkPassword(password)) {
+            valid = false;
+            alert("Password must contain at least one number, one uppercase and lowercase letter, and at least 8 or more characters");
+            password.focus();
+        }
+
+        var confirmPassword = document.getElementsByName("confirmPassword")[0];
+        if (password.value !== confirmPassword.value) {
+            valid = false;
+            alert("Passwords do not match");
+            confirmPassword.focus();
+        }
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
