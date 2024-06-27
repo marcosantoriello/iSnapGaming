@@ -5,6 +5,6 @@ INSERT INTO ProductManager (id) VALUES (1);
 INSERT INTO OrderManager (id) VALUES (1);
 
 INSERT INTO user (username, password, firstName, lastName, dateOfBirth) VALUES ('pippo@isnapgaming.com', 'tuiyui4y5E', 'Pippo', 'Prova', '1990-01-01');
-INSERT INTO Customer (id) VALUES (1);
-INSERT INTO Manager (id) VALUES (1);
-INSERT INTO ProductManager (id) VALUES (1);
+INSERT INTO Customer (id) VALUES (2);
+INSERT INTO Manager (id) VALUES (2);
+INSERT INTO ProductManager (id) VALUES (2);

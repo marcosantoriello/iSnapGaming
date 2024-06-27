@@ -8,6 +8,9 @@
     if (user != null) {
         response.sendRedirect("index.jsp");
     }
+
+    String returnUrl = (String) request.getParameter("returnurl");
+    session.setAttribute("redirectSignup", returnUrl);
 %>
 
 <html>
@@ -79,7 +82,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-        <form action="SignUp" method="POST">
+        <form action="Signup" method="POST" onsubmit="return validate(this)">
             <h2 class="mb-3" style="text-align: center;">SIGN UP</h2>
             <br/>
             <div class="form-group" style="margin: 15px 0;">

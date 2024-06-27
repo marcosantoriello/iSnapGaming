@@ -67,9 +67,13 @@
         <a href="login.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-sign-in-alt mr-1 icon-finder"></i> Login
         </a>
-        <a href="signup.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
+        <a href="signup.jsp" id="signup-link" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-user-plus mr-1 icon-finder"></i> Sign Up
         </a>
+        <script>
+            document.getElementById('signup-link').href = 'signup.jsp?returnurl=' + encodeURIComponent(window.location.href);
+        </script>
+
         <%
             }if(!(role == null)){
         %>
