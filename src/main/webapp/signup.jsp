@@ -4,13 +4,13 @@
 <!DOCTYPE html>
 
 <%
+    String returnUrl = (String) request.getParameter("returnurl");
     User user = (User) session.getAttribute("User");
     if (user != null) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect(returnUrl);
+    } else {
+        session.setAttribute("redirectSignup", returnUrl);
     }
-
-    String returnUrl = (String) request.getParameter("returnurl");
-    session.setAttribute("redirectSignup", returnUrl);
 %>
 
 <html>

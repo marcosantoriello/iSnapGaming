@@ -1,6 +1,17 @@
+<%@ page import="com.isnapgaming.isnapgaming.UserManagement.User" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+  String returnUrl = (String) request.getParameter("returnurl");
+  User user = (User) session.getAttribute("user");
+  if (user != null) {
+    response.sendRedirect(returnUrl);
+  } else {
+    session.setAttribute("redirectLogin", returnUrl);
+  }
+
+%>
 <html>
   <head>
     <meta charset="UTF-8">

@@ -20,6 +20,7 @@ public class RoleSelection extends HttpServlet {
 
         String roleSelected = request.getParameter("role");
         HttpSession session = request.getSession();
+        String redirectUrl = (String) session.getAttribute("redirectLogin");
 
         if (roleSelected == null || roleSelected.isEmpty()) {
             request.setAttribute("error", "Please select a role");
@@ -29,16 +30,16 @@ public class RoleSelection extends HttpServlet {
         }
 
         if (roleSelected.equals("Customer")){
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-            session.setAttribute("role", "Customer");
-            dispatcher.forward(request, response);
+            // If the user is a customer, then I take him back to where he was before the login
+            session.setAttribute("currentRole", "Customer");
+            response.sendRedirect(redirectUrl);
         } else if (roleSelected.equals("ProductManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
-            session.setAttribute("role", "ProductManager");
+            session.setAttribute("currentRole", "ProductManager");
             dispatcher.forward(request, response);
         } else if (roleSelected.equals("OrderManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
-            session.setAttribute("role", "OrderManager");
+            session.setAttribute("currentRole", "OrderManager");
             dispatcher.forward(request, response);
         } else {
             throw new ServletException("Unknown role");

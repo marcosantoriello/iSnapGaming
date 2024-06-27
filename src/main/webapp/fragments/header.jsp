@@ -64,14 +64,17 @@
         <%
             }if(role == null){
         %>
-        <a href="login.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
+        <a href="login.jsp" id="login" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-sign-in-alt mr-1 icon-finder"></i> Login
         </a>
-        <a href="signup.jsp" id="signup-link" class="btn btn-outline-info mr-2 button-hover-effect">
+        <script>
+            document.getElementById('login').href = 'login.jsp?returnurl=' + encodeURIComponent(window.location.href);
+        </script>
+        <a href="signup.jsp" id="signup" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-user-plus mr-1 icon-finder"></i> Sign Up
         </a>
         <script>
-            document.getElementById('signup-link').href = 'signup.jsp?returnurl=' + encodeURIComponent(window.location.href);
+            document.getElementById('signup').href = 'signup.jsp?returnurl=' + encodeURIComponent(window.location.href);
         </script>
 
         <%

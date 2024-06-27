@@ -25,6 +25,7 @@ public class Login extends HttpServlet {
         }
 
         DataSource dataSource = (DataSource) getServletContext().getAttribute("DataSource");
+        String redirectUrl = (String) request.getSession().getAttribute("redirectLogin");
 
         User user;
         try {
@@ -54,29 +55,19 @@ public class Login extends HttpServlet {
                 e.printStackTrace();
                 throw new ServletException(e);
             }
-
             session.setAttribute("roles", roles);
-            // TO-DELETE
-            System.out.println("Roles: ");
-            List<String> userRoles = (List<String>) session.getAttribute("roles");
-            for (String role : userRoles) {
-                System.out.println(role);
-            }
-
-            //response.sendRedirect("/roleSelection.jsp");
-
 
             // Checking number of roles
-            if (userRoles.size() >= 2) {
+            if (roles.size() >= 2) {
                 // If the user has more than one role, the user must choose one
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/roleSelection.jsp");
                 dispatcher.forward(request, response);
-            } else if (userRoles.get(0).equals("Customer")) {
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
-                dispatcher.forward(request, response);
-            } else if (userRoles.get(0).equals("ProductManager")) {
+            } else if (roles.get(0).equals("Customer")) {
+                // If the user is a customer, then I take him back to where he was before the login
+                response.sendRedirect(redirectUrl);
+            } else if (roles.get(0).equals("ProductManager")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
-            } else if (userRoles.get(0).equals("OrderManager")) {
+            } else if (roles.get(0).equals("OrderManager")) {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
             } else {
                 throw new ServletException("Unknown role");

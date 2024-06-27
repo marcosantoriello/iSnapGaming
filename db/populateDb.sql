@@ -8,3 +8,6 @@ INSERT INTO user (username, password, firstName, lastName, dateOfBirth) VALUES (
 INSERT INTO Customer (id) VALUES (2);
 INSERT INTO Manager (id) VALUES (2);
 INSERT INTO ProductManager (id) VALUES (2);
+
+INSERT INTO user (username, password, firstName, lastName, dateOfBirth) VALUES ('abianchi@gmail.com', 'hvu48gklsll3', 'Antonio', 'Bianchi', '1990-01-01');
+INSERT INTO Customer (id) VALUES (3);
