@@ -26,6 +26,7 @@ public class ProductManager extends Manager{
 
     public  synchronized void removeProduct(Product product, DataSource dataSource) throws SQLException {
         ProductDAO productDAO = new ProductDAO(dataSource);
+        productDAO.doDelete(product);
     }
 
     public synchronized Product getProductByProdCode(int prodCode, DataSource dataSource) throws SQLException {

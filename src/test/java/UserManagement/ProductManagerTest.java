@@ -57,7 +57,7 @@ public class ProductManagerTest {
     @Test
     void addProduct_A1() throws SQLException {
         Product product=new Product();
-        product.setProdCode(1);
+        product.setProdCode(635);
         product.setId(1);
         product.setCategory(Product.Category.ADVENTURE);
         product.setPlatform(Product.Platform.PS4);
@@ -70,7 +70,7 @@ public class ProductManagerTest {
         product.setImagePath("cioa");
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         productManager.addProduct(product,ds);
-        assertEquals(product, productManager.getProductByProdCode(1,ds));
+        assertEquals(product, productManager.getProductByProdCode(635,ds));
 
     }
     @Test
@@ -87,18 +87,17 @@ public class ProductManagerTest {
     @Test
     void removeProduct_A1() throws SQLException {
     Product product= new Product();
-    int id=1;
+    product.setProdCode(635);
 
-    product.setId(1);
     executeSQLScript("src/test/db/createDbForTest.sql", conn);
     productManager.removeProduct(product,ds);
-
+    assertThrows(SQLException.class,()-> productManager.getProductByProdCode(635,ds));
     }
     @Test
     void removeProduct_A2(){
         Product product=null;
         try {
-            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
+            assertThrows(Exception.class,()-> productManager.removeProduct(product,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
