@@ -68,6 +68,7 @@ public class ProductManagerTest {
         product.setQuantity(3);
         product.setReleaseYear(2020);
         product.setImagePath("cioa");
+        product.setAvailable(true);
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         productManager.addProduct(product,ds);
         assertEquals(product, productManager.getProductByProdCode(635,ds));
@@ -86,12 +87,13 @@ public class ProductManagerTest {
 
     @Test
     void removeProduct_A1() throws SQLException {
-    Product product= new Product();
-    product.setProdCode(635);
-
     executeSQLScript("src/test/db/createDbForTest.sql", conn);
+    executeSQLScript("src/test/db/UserManagement/removeProduct_A1.sql", conn);
+
+    Product product = new Product();
+    product = productManager.getProductByProdCode(751, ds);
     productManager.removeProduct(product,ds);
-    assertThrows(SQLException.class,()-> productManager.getProductByProdCode(635,ds));
+    assertFalse(productManager.getProductByProdCode(751,ds).isAvailable());
     }
     @Test
     void removeProduct_A2(){
@@ -102,7 +104,5 @@ public class ProductManagerTest {
             throw new RuntimeException(e);
         }
     }
-
-
 
 }

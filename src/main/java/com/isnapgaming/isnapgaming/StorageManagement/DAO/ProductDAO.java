@@ -33,8 +33,9 @@ public class ProductDAO {
         Product.Pegi pegi = product.getPegi();
         int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
+        boolean available = product.isAvailable();
 
-        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, prodCode);
@@ -47,6 +48,7 @@ public class ProductDAO {
         ps.setString(8, pegi.toString());
         ps.setInt(9, releaseYear);
         ps.setString(10, imagePath);
+        ps.setBoolean(11, available);
 
         ps.execute();
 
@@ -66,19 +68,21 @@ public class ProductDAO {
 
         Connection connection = dataSource.getConnection();
 
-        int prodCode = product.getProdCode();
-        String name = product.getName();
-        String softwareHouse = product.getSoftwareHouse();
-        Product.Platform platform = product.getPlatform();
-        int price = product.getPrice();
-        int quantity = product.getQuantity();
-        Product.Category category = product.getCategory();
-        Product.Pegi pegi = product.getPegi();
-        int releaseYear = product.getReleaseYear();
-        String imagePath = product.getImagePath();
-
-        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
+        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ?, available = ? WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, product.getProdCode());
+        ps.setString(2, product.getName());
+        ps.setString(3, product.getSoftwareHouse());
+        ps.setString(4, product.getPlatform().toString());
+        ps.setInt(5, product.getPrice());
+        ps.setInt(6, product.getQuantity());
+        ps.setString(7, product.getCategory().toString());
+        ps.setString(8, product.getPegi().toString());
+        ps.setInt(9, product.getReleaseYear());
+        ps.setString(10, product.getImagePath());
+        ps.setBoolean(11, product.isAvailable());
+        ps.setInt(12,  product.getId());
+
 
         ps.executeUpdate();
         connection.close();
@@ -110,6 +114,7 @@ public class ProductDAO {
         product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
+        product.setAvailable(rs.getBoolean("available"));
 
         connection.close();
         return product;
@@ -143,6 +148,7 @@ public class ProductDAO {
         product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
+        product.setAvailable(rs.getBoolean("available"));
 
         connection.close();
         return product;
@@ -176,6 +182,7 @@ public class ProductDAO {
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
             product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
+            product.setAvailable(rs.getBoolean("available"));
             products.add(product);
         }
         connection.close();
@@ -205,13 +212,14 @@ public class ProductDAO {
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
             product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
+            product.setAvailable(rs.getBoolean("available"));
             products.add(product);
         }
 
         connection.close();
         return products;
     }
-
+    // TO DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public synchronized void doDelete(Product product) throws SQLException, IllegalArgumentException {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");

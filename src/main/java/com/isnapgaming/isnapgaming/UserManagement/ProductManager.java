@@ -24,11 +24,19 @@ public class ProductManager extends Manager{
         productDAO.doUpdate(product);
     }
 
-    public  synchronized void removeProduct(Product product, DataSource dataSource) throws SQLException {
+    public synchronized Product removeProduct(Product product, DataSource dataSource) throws SQLException {
         ProductDAO productDAO = new ProductDAO(dataSource);
-        productDAO.doDelete(product);
+        product.setAvailable(false);
+        productDAO.doUpdate(product);
+        return product;
     }
 
+    public synchronized Product makeProductAvailable(Product product, DataSource dataSource) throws SQLException {
+        ProductDAO productDAO = new ProductDAO(dataSource);
+        product.setAvailable(true);
+        productDAO.doUpdate(product);
+        return product;
+    }
     public synchronized Product getProductByProdCode(int prodCode, DataSource dataSource) throws SQLException {
         ProductDAO productDAO = new ProductDAO(dataSource);
         return productDAO.findByProdCode(prodCode);
