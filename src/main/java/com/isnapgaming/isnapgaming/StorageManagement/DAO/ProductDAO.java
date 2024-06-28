@@ -54,8 +54,9 @@ public class ProductDAO {
         if (!rs.next()) {
             throw new SQLException("Error: no generated keys. The Product has not been saved.");
         }
+        int id = rs.getInt(1);
         connection.close();
-        return rs.getInt(1);
+        return id;
     }
 
     public synchronized void doUpdate(Product product) throws SQLException, IllegalArgumentException {
