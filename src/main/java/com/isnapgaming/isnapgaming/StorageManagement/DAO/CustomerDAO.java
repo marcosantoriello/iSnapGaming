@@ -60,7 +60,7 @@ public class CustomerDAO {
         customer.setLastName(user.getLastName());
         customer.setDateOfBirth(user.getDateOfBirth());
         customer.setAddresses(findAddressesByCustomerId(id));
-        customer.setProducts(findOrderByCustomerId(id));
+        customer.setOrders(findOrderByCustomerId(id));
 
         connection.close();
         return customer;
