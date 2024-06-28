@@ -85,17 +85,7 @@ public class ProductManagerTest {
 
 
     @Test
-    void removeProduct_A1(){
-        Product product=null;
-        try {
-            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    void removeProduct_A2() throws SQLException {
+    void removeProduct_A1() throws SQLException {
     Product product= new Product();
     int id=1;
 
@@ -103,10 +93,16 @@ public class ProductManagerTest {
     executeSQLScript("src/test/db/createDbForTest.sql", conn);
     productManager.removeProduct(product,ds);
 
-
-
     }
-
+    @Test
+    void removeProduct_A2(){
+        Product product=null;
+        try {
+            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
