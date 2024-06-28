@@ -18,13 +18,13 @@ import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 public class ProductManagerTest {
-    private ProductManager p;
+    private ProductManager productManager;
     private Connection conn;
     private DataSource ds;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
-        p = new ProductManager();
+        productManager = new ProductManager();
 
 
             String[] crendentials = RetrieveCredentials.retrieveCredentials("src/test/credentials.xml");
@@ -55,39 +55,40 @@ public class ProductManagerTest {
         conn.close();
     }
     @Test
-    void addProduct_A1(){
-        Product pd=null;
+    void addProduct_A1() throws SQLException {
+        Product product=new Product();
+        product.setProdCode(1);
+        product.setId(1);
+        product.setCategory(Product.Category.ADVENTURE);
+        product.setPlatform(Product.Platform.PS4);
+        product.setPegi(Product.Pegi.PEGI3);
+        product.setName("fifa");
+        product.setSoftwareHouse("chiara");
+        product.setPrice(20);
+        product.setQuantity(3);
+        product.setReleaseYear(2020);
+        product.setImagePath("cioa");
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        productManager.addProduct(product,ds);
+        assertEquals(product, productManager.getProductByProdCode(1,ds));
+
+    }
+    @Test
+    void addProduct_A2(){
+        Product product=null;
         try {
-            assertThrows(Exception.class,()->p.addProduct(pd,ds));
+            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    @Test
-    void addProduct_A2() throws SQLException {
-        Product pd=new Product();
-        pd.setProdCode(1);
-        pd.setId(1);
-        pd.setCategory(Product.Category.ADVENTURE);
-        pd.setPlatform(Product.Platform.PS4);
-        pd.setPegi(Product.Pegi.PEGI3);
-        pd.setName("fifa");
-        pd.setSoftwareHouse("chiara");
-        pd.setPrice(20);
-        pd.setQuantity(3);
-        pd.setReleaseYear(2020);
-        pd.setImagePath("cioa");
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        p.addProduct(pd,ds);
-        assertEquals(pd,p.getProductByProdCode(1,ds));
 
-    }
     @Test
     void removeProduct_A1(){
-        Product pd=null;
+        Product product=null;
         try {
-            assertThrows(Exception.class,()->p.addProduct(pd,ds));
+            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -95,13 +96,12 @@ public class ProductManagerTest {
 
     @Test
     void removeProduct_A2() throws SQLException {
-    Product pd= new Product();
+    Product product= new Product();
     int id=1;
 
-    Product pd=new Product();
-    pd.setId(1);
+    product.setId(1);
     executeSQLScript("src/test/db/createDbForTest.sql", conn);
-    p.removeProduct(pd,ds);
+    productManager.removeProduct(product,ds);
 
 
 
