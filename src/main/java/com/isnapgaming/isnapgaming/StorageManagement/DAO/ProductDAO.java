@@ -11,17 +11,17 @@ public class ProductDAO {
 
     public static final String TABLE_NAME = "product";
     DataSource dataSource = null;
-    Connection connection = null;
 
     public ProductDAO(DataSource dataSource) throws SQLException {
         this.dataSource = dataSource;
-        connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(Product product) throws SQLException, IllegalArgumentException{
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
+
+        Connection connection = dataSource.getConnection();
 
         int prodCode = product.getProdCode();
         String name = product.getName();
@@ -54,6 +54,7 @@ public class ProductDAO {
         if (!rs.next()) {
             throw new SQLException("Error: no generated keys. The Product has not been saved.");
         }
+        connection.close();
         return rs.getInt(1);
     }
 
@@ -61,6 +62,8 @@ public class ProductDAO {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
+
+        Connection connection = dataSource.getConnection();
 
         int prodCode = product.getProdCode();
         String name = product.getName();
@@ -77,6 +80,7 @@ public class ProductDAO {
         PreparedStatement ps = connection.prepareStatement(query);
 
         ps.executeUpdate();
+        connection.close();
     }
 
     public synchronized Product findByKey(int id) throws SQLException, IllegalArgumentException {
@@ -84,6 +88,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Id cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         Product product = new Product();
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE id = ?";
@@ -105,6 +110,7 @@ public class ProductDAO {
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
 
+        connection.close();
         return product;
     }
 
@@ -113,6 +119,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Product Code cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE prodCode = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
@@ -136,6 +143,7 @@ public class ProductDAO {
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
 
+        connection.close();
         return product;
     }
 
@@ -144,7 +152,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Category cannot be null");
         }
         List<Product> products = new ArrayList<>();
-
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE category = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -169,11 +177,13 @@ public class ProductDAO {
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
         }
+        connection.close();
         return products;
     }
 
     public synchronized List<Product> doRetrieveAll() throws SQLException {
         List<Product> products = new ArrayList<>();
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM "  + ProductDAO.TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(query);
@@ -197,6 +207,7 @@ public class ProductDAO {
             products.add(product);
         }
 
+        connection.close();
         return products;
     }
 }

@@ -20,10 +20,10 @@ public class AddressDAO {
             throw new IllegalArgumentException("Address cannot be null");
         }
 
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
 
         String query = "INSERT INTO " + AddressDAO.TABLE_NAME + " (customerId, street, city, postalCode) VALUES (?, ?, ?, ?)";
-        PreparedStatement ps = c.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, address.getCustomerId());
         ps.setString(2, address.getStreet());
@@ -38,7 +38,7 @@ public class AddressDAO {
         }
         int addressId = rs.getInt(1);
 
-        c.close();
+        connection.close();
         return addressId;
     }
 
@@ -47,10 +47,10 @@ public class AddressDAO {
             throw new IllegalArgumentException("Address cannot be null");
         }
 
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
 
         String query = "UPDATE " + AddressDAO.TABLE_NAME + " SET customerId = ?, street = ?, city = ?, postalCode = ? WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, address.getId());
         ps.setInt(2, address.getCustomerId());
@@ -60,7 +60,7 @@ public class AddressDAO {
 
         ps.execute();
 
-        c.close();
+        connection.close();
     }
 
     public synchronized Address findByKey(int id) throws SQLException, IllegalArgumentException {
@@ -68,10 +68,10 @@ public class AddressDAO {
             throw new IllegalArgumentException("Id cannot be negative");
         }
 
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + AddressDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, id);
 
@@ -87,7 +87,7 @@ public class AddressDAO {
         address.setCity(rs.getString("city"));
         address.setPostalCode(rs.getInt("postalCode"));
 
-        c.close();
+        connection.close();
         return address;
     }
 
@@ -98,10 +98,10 @@ public class AddressDAO {
 
         List<Address> addresses = new ArrayList<>();
 
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + AddressDAO.TABLE_NAME + " WHERE customerId = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, customerId);
 
@@ -117,7 +117,7 @@ public class AddressDAO {
             addresses.add(address);
         }
 
-        c.close();
+        connection.close();
         return addresses;
     }
 
@@ -127,13 +127,13 @@ public class AddressDAO {
             throw new IllegalArgumentException("Id cannot be negative");
         }
 
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
         String query = "DELETE FROM " + AddressDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
 
         ps.setInt(1, id);
         ps.execute();
 
-        c.close();
+        connection.close();
     }
 }
