@@ -4,6 +4,7 @@ import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.isnapgaming.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.isnapgaming.StorageManagement.DAO.UserDAO;
 import com.isnapgaming.isnapgaming.UserManagement.User;
 import jakarta.servlet.RequestDispatcher;
@@ -32,6 +33,7 @@ public class RoleSelection extends HttpServlet {
         if (roleSelected.equals("Customer")){
             // If the user is a customer, then I take him back to where he was before the login
             session.setAttribute("role", "Customer");
+            session.setAttribute("cart", new Cart());
             response.sendRedirect(redirectUrl);
         } else if (roleSelected.equals("ProductManager")){
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
