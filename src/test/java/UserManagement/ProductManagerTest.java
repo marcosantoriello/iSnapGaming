@@ -1,6 +1,7 @@
 package UserManagement;
 
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.isnapgaming.StorageManagement.DAO.ProductDAO;
 import com.isnapgaming.isnapgaming.UserManagement.ProductManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -104,5 +105,72 @@ public class ProductManagerTest {
             throw new RuntimeException(e);
         }
     }
+
+
+    @Test
+    void updateProduct_A1() throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/UserManagement/updateProduct_A1.sql", conn);
+
+        Product product=new Product();
+        product=productManager.getProductByProdCode(635,ds);
+        product.setPrice(7);
+        productManager.updateProduct(product,ds);
+        assertEquals(product.getPrice(), productManager.getProductByProdCode(635,ds).getPrice());
+    }
+    @Test
+    void updateProduct_A2(){
+        Product product=null;
+        try {
+            assertThrows(Exception.class,()-> productManager.updateProduct(product,ds));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void makeProductAvailable_A1()throws SQLException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/UserManagement/makeProductAvailable_A1.sql", conn);
+
+        Product product=new Product();
+        product=productManager.getProductByProdCode(444,ds);
+        product.setAvailable(true);
+        productManager.makeProductAvailable(product,ds);
+        assertEquals(product.isAvailable(), productManager.getProductByProdCode(444,ds).isAvailable());
+    }
+
+    @Test
+    void makeProductAvailable_A2(){
+        Product product=null;
+        try {
+            assertThrows(Exception.class,()-> productManager.makeProductAvailable(product,ds));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void getProductByProdCode_A1()throws SQLException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/UserManagement/getProductByProdCode_A1.sql", conn);
+
+        Product product=new Product();
+        product=productManager.getProductByProdCode(222,ds);
+        productManager.getProductByProdCode(222,ds);
+        assertEquals(product.getProdCode(), productManager.getProductByProdCode(222,ds).getProdCode());
+    }
+
+    @Test
+    void getProductByProdCode_A2(){
+        Product product=null;
+        try {
+            assertThrows(Exception.class,()-> productManager.getProductByProdCode(0,ds));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
 }
