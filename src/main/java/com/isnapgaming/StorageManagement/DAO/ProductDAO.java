@@ -1,6 +1,6 @@
-package com.isnapgaming.isnapgaming.StorageManagement.DAO;
+package com.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.ProductManagement.Product;
 
 import javax.sql.DataSource;
 import java.sql.*;

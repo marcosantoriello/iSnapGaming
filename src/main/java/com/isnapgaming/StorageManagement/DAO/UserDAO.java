@@ -1,6 +1,7 @@
-package com.isnapgaming.isnapgaming.StorageManagement.DAO;
+package com.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.UserManagement.*;
+import com.isnapgaming.UserManagement.Address;
+import com.isnapgaming.UserManagement.User;
 
 import javax.sql.DataSource;
 import java.sql.*;

@@ -1,6 +1,6 @@
-package com.isnapgaming.isnapgaming.OrderManagement;
+package com.isnapgaming.OrderManagement;
 
-import com.isnapgaming.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.ProductManagement.Product;
 
 public class ItemCart {
     private Cart cart;

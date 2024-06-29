@@ -1,12 +1,12 @@
-package com.isnapgaming.isnapgaming.view;
+package com.isnapgaming.view;
 
 import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.isnapgaming.isnapgaming.OrderManagement.Cart;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.UserDAO;
-import com.isnapgaming.isnapgaming.UserManagement.User;
+import com.isnapgaming.StorageManagement.DAO.UserDAO;
+import com.isnapgaming.UserManagement.User;
+import com.isnapgaming.OrderManagement.Cart;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;

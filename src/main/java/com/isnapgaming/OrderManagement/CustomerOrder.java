@@ -1,7 +1,6 @@
-package com.isnapgaming.isnapgaming.OrderManagement;
+package com.isnapgaming.OrderManagement;
 
-import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.UserManagement.Customer;
+import com.isnapgaming.UserManagement.Customer;
 
 import java.time.LocalDate;
 import java.util.List;

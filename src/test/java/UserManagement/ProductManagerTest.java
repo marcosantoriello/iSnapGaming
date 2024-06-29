@@ -1,8 +1,7 @@
 package UserManagement;
 
-import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.ProductDAO;
-import com.isnapgaming.isnapgaming.UserManagement.ProductManager;
+import com.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.UserManagement.ProductManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

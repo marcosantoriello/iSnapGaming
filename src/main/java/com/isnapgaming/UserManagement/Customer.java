@@ -1,6 +1,6 @@
-package com.isnapgaming.isnapgaming.UserManagement;
+package com.isnapgaming.UserManagement;
 
-import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
+import com.isnapgaming.OrderManagement.CustomerOrder;
 
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.isnapgaming.isnapgaming.UserManagement;
+package com.isnapgaming.UserManagement;
 
 public class Manager extends User {
     protected String cf;

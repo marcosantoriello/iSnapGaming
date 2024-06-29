@@ -1,7 +1,7 @@
-package com.isnapgaming.isnapgaming.UserManagement;
+package com.isnapgaming.UserManagement;
 
-import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.CustomerOrderDAO;;
+import com.isnapgaming.OrderManagement.CustomerOrder;
+import com.isnapgaming.StorageManagement.DAO.CustomerOrderDAO;;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;

@@ -1,9 +1,9 @@
-package com.isnapgaming.isnapgaming.StorageManagement.DAO;
+package com.isnapgaming.StorageManagement.DAO;
 
-import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
-import com.isnapgaming.isnapgaming.UserManagement.Address;
-import com.isnapgaming.isnapgaming.UserManagement.Customer;
-import com.isnapgaming.isnapgaming.UserManagement.User;
+import com.isnapgaming.UserManagement.User;
+import com.isnapgaming.OrderManagement.CustomerOrder;
+import com.isnapgaming.UserManagement.Address;
+import com.isnapgaming.UserManagement.Customer;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

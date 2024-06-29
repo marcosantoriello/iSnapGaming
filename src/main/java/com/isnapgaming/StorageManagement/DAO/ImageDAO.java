@@ -1,4 +1,4 @@
-package com.isnapgaming.isnapgaming.StorageManagement.DAO;
+package com.isnapgaming.StorageManagement.DAO;
 
 import java.io.File;
 import java.io.InputStream;

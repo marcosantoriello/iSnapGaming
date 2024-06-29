@@ -1,6 +1,6 @@
-package com.isnapgaming.isnapgaming.utils;
+package com.isnapgaming.utils;
 
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.ImageDAO;
+import com.isnapgaming.StorageManagement.DAO.ImageDAO;
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.ServletContext;

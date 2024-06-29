@@ -1,4 +1,4 @@
-package com.isnapgaming.isnapgaming.ProductManagement;
+package com.isnapgaming.ProductManagement;
 
 import java.util.Objects;
 

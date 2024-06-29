@@ -1,6 +1,4 @@
-package com.isnapgaming.isnapgaming.OrderManagement;
-
-import com.isnapgaming.isnapgaming.ProductManagement.Product;
+package com.isnapgaming.OrderManagement;
 
 public class OrderProduct {
     private int orderId;

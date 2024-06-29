@@ -1,13 +1,11 @@
-package com.isnapgaming.isnapgaming.view;
+package com.isnapgaming.view;
 
 import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
-import com.isnapgaming.isnapgaming.StorageManagement.DAO.CustomerDAO;
-import com.isnapgaming.isnapgaming.UserManagement.Customer;
-import com.isnapgaming.isnapgaming.UserManagement.User;
-import jakarta.servlet.RequestDispatcher;
+import com.isnapgaming.StorageManagement.DAO.CustomerDAO;
+import com.isnapgaming.UserManagement.Customer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
