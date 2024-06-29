@@ -19,7 +19,7 @@ public class User {
         roles = new ArrayList<>();
     }
 
-    public static User makeUser(String username, String password, String firstName, String lastName, LocalDate dateOfBirth, List<Address> addresses) {
+    public static User makeUser(String username, String password, String firstName, String lastName, LocalDate dateOfBirth) {
         // Checking parameters
         if (username == null) {
             throw new IllegalArgumentException("Username cannot be null");
