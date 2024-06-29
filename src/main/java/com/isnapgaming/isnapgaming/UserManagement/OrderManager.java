@@ -14,14 +14,45 @@ public class OrderManager extends Manager{
     }
 
     // Business Logic methods
-    public synchronized void setOrderStatus(CustomerOrder order, CustomerOrder.Status status, DataSource dataSource) throws SQLException {
-        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
-        orderDAO.updateStatus(order.getId(), status);
-    }
-
     public List<CustomerOrder> getAllProducts(DataSource dataSource) throws SQLException {
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         return orderDAO.doRetrieveAll();
+    }
+
+    public void checkProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
+    }
+
+    public void packProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.READY_FOR_SENDING);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
+    }
+
+    public void replaceProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
+    }
+
+    public void contactCourier(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.SHIPPED);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
+    }
+
+    public void restoreOrder(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
+    }
+
+    public void confirmDelivery(CustomerOrder order, DataSource dataSource) throws SQLException {
+        CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
+        order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
+        orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
 }
