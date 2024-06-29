@@ -15,3 +15,4 @@ INSERT INTO Customer (id) VALUES (3);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(751, "Fifa23", "EA Games", "PC", 55, 10, "SPORTS", "PEGI3", 2023, true);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(331, "Hell Let Loose", "Team17 Digital Ltd", "PC", 60, 30, "ACTION", "PEGI16", 2019, true);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(652, "Fortnite", "Epic Games", "PS4", 15, 100, "ACTION", "PEGI12", 2017, true);
+

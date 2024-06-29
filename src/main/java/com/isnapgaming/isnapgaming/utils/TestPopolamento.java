@@ -29,7 +29,7 @@ public class TestPopolamento extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         out.println("<p> Inizio del popolamento di prova... </p>");
-
+        /*
         // Creazione DataSource necessari
         try {
             UserDAO userDAO = new UserDAO(ds);
@@ -135,7 +135,7 @@ public class TestPopolamento extends HttpServlet {
             System.out.println("ARGUMENT ERROR: " + e.getMessage());
             out.println("<p> Errore Argomento: " + e.getMessage() + "</p>");
         }
-
+    */
     }
 
     @Override
