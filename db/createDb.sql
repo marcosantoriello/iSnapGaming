@@ -84,6 +84,8 @@ CREATE TABLE Product(
 CREATE TABLE OrderProduct(
     orderId int NOT NULL,
     productId int NOT NULL,
+    quantity int NOT NULL,
+    price int NOT NULL,
     PRIMARY KEY (orderId, productId),
     FOREIGN KEY(orderId) REFERENCES CustomerOrder(id),
     FOREIGN KEY(productId) REFERENCES Product(id)
