@@ -26,7 +26,23 @@ public class CustomerOrder {
     private List<Product> products;
 
     public CustomerOrder() {
-        this.products = new ArrayList<>();
+        this.id = 0;
+        this.customerId = 0;
+        this.status = Status.TO_BE_MANAGED;
+        this.address = null;
+        this.orderDate = null;
+        this.totalAmount = 0;
+        this.products = null;
+    }
+    public CustomerOrder makeCustomerOrder(int customerId, String address, LocalDate orderDate, List<Product> products) {
+        CustomerOrder order = new CustomerOrder();
+        order.setCustomerId(customerId);
+        order.setStatus(Status.TO_BE_MANAGED);
+        order.setAddress(address);
+        order.setOrderDate(orderDate);
+        order.products = products;
+        order.setTotalAmount(order.calculateTotalAmount());
+        return order;
     }
 
     public int getId() {
@@ -44,6 +60,7 @@ public class CustomerOrder {
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+
     public Status getStatus() {
         return status;
     }
