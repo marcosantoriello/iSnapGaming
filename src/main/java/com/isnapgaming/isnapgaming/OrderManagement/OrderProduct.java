@@ -21,6 +21,10 @@ public class OrderProduct {
         this.price = price;
     }
 
+    public int getTotalPrice() {
+        return price * quantity;
+    }
+
     public int getOrderId() {
         return orderId;
     }

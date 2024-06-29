@@ -106,10 +106,7 @@ public class CustomerOrder {
     }
 
     public int calculateTotalAmount() {
-        int total = 0;
-        for (OrderProduct product : products) {
-            totalAmount += product.getPrice();
-        }
+        totalAmount = products.stream().mapToInt(OrderProduct::getTotalPrice).sum();
         return totalAmount;
     }
 

@@ -158,7 +158,6 @@ public class CustomerOrderDAO {
         return orders;
     }
 
-    // TODO: Implement doRetrieveAll
     public List<CustomerOrder> doRetrieveAll() throws SQLException {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
@@ -193,6 +192,30 @@ public class CustomerOrderDAO {
         }
         connection.close();
         return orders;
+    }
+
+    public List<OrderProduct> findOrderProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException{
+        if (orderId <= 0) {
+            throw new IllegalArgumentException("ID must be greater than 0");
+        }
+
+        Connection connection = dataSource.getConnection();
+        String query = "SELECT * FROM orderproduct WHERE orderId=?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, orderId);
+        ResultSet rs = ps.executeQuery();
+        List<OrderProduct> products = new ArrayList<>();
+        while(rs.next()) {
+            OrderProduct orderProduct = new OrderProduct();
+            orderProduct.setOrderId(rs.getInt("orderId"));
+            orderProduct.setProductId(rs.getInt("productId"));
+            orderProduct.setQuantity(rs.getInt("quantity"));
+            orderProduct.setPrice(rs.getInt("price"));
+            products.add(orderProduct);
+        }
+
+        connection.close();
+        return products;
     }
 
 }
