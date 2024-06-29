@@ -15,6 +15,13 @@ public class Cart {
     }
 
     public void addToCart(Product product, int quantity) {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be greater than 0.");
+        }
+
         for (ItemCart item : items) {
             // If the product is already in the cart I just increment the quantity
             if (item.getProduct().getId() == product.getId()) {
