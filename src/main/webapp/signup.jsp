@@ -66,10 +66,12 @@
                         <label for="city">City</label>
                         <input id="city" type="text" name="city" class="form-control" required>
                     </div>
+                    <span id="errorCity" style="max-width: 209px; font-size: 15px;"></span>
                     <div class="form-group" style="margin: 15px 0;">
                         <label for="postalCode">Postal Code</label>
                         <input id="postalCode" type="text" name="postalCode" class="form-control" required>
                     </div>
+                    <span id="errorPostalCode" style="max-width: 209px; font-size: 15px;"></span>
                     <div class="submit-button">
                         <input type="submit" value="Sign Up" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
                     </div>
