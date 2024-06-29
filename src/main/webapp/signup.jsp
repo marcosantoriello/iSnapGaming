@@ -109,6 +109,18 @@
                 <label for="confirmPassword">Confirm Password</label>
                 <input id="confirmPassword" type="password" name="confirmPassword" class="form-control" required>
             </div>
+            <div class="form-group" style="margin: 15px 0;">
+                <label for="street">Street</label>
+                <input id="street" type="text" name="street" class="form-control" required>
+            </div>
+            <div class="form-group" style="margin: 15px 0;">
+                <label for="city">City</label>
+                <input id="city" type="text" name="city" class="form-control" required>
+            </div>
+            <div class="form-group" style="margin: 15px 0;">
+                <label for="postalCode">Postal Code</label>
+                <input id="postalCode" type="text" name="postalCode" class="form-control" required>
+            </div>
             <div class="submit-button">
                 <input type="submit" value="Sign Up" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
             </div>
