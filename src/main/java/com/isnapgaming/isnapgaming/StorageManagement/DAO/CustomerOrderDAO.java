@@ -14,11 +14,9 @@ public class CustomerOrderDAO {
 
     private static final String TABLE_NAME = "customerorder";
     private DataSource dataSource = null;
-    Connection connection = null;
 
     public CustomerOrderDAO(DataSource dataSource) throws SQLException{
         this.dataSource = dataSource;
-        this.connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(CustomerOrder order) throws SQLException, IllegalArgumentException {
@@ -27,6 +25,7 @@ public class CustomerOrderDAO {
         }
         System.out.println("Persisting order...");
 
+        Connection connection = dataSource.getConnection();
         String sql = "INSERT INTO " + CustomerOrderDAO.TABLE_NAME + " (customerId, status, address, orderDate, totalAmount) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -51,7 +50,7 @@ public class CustomerOrderDAO {
             Product prod = productDAO.findByProdCode(product.getProdCode());
             saveOrderProduct(customerOrderId, prod.getId());
         }
-
+        connection.close();
         return customerOrderId;
     }
 
@@ -59,12 +58,14 @@ public class CustomerOrderDAO {
         if (orderId < 0) {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
-        Connection c = dataSource.getConnection();
+        Connection connection = dataSource.getConnection();
         String query = "UPDATE " + CustomerOrderDAO.TABLE_NAME + " SET status = ? WHERE id = ?";
-        PreparedStatement ps = c.prepareStatement(query);
+        PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, status.toString());
         ps.setInt(2, orderId);
         ps.execute();
+
+        connection.close();
     }
 
     private synchronized  void saveOrderProduct(int orderId, int productId) throws SQLException, IllegalArgumentException{
@@ -72,11 +73,13 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Order ID and Product ID must be greater than 0");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "INSERT INTO orderproduct (orderId, productId) VALUES (?, ?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, orderId);
         ps.setInt(2, productId);
         ps.execute();
+        connection.close();
     }
 
     public synchronized List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
@@ -84,6 +87,7 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Order ID must be greater than 0");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT p.* FROM Product p JOIN OrderProduct op ON p.id = op.productId WHERE op.orderId = ?";
         List<Product> products = new ArrayList<>();
 
@@ -104,8 +108,8 @@ public class CustomerOrderDAO {
             product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
             products.add(product);
-
         }
+        connection.close();
         return products;
     }
 
@@ -114,6 +118,7 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("ID must be greater than 0");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -133,6 +138,7 @@ public class CustomerOrderDAO {
         order.setOrderDate(rs.getDate("orderDate").toLocalDate());
         order.setProducts(findProductsByOrderId(order.getId()));
 
+        connection.close();
         return order;
     }
 
@@ -141,6 +147,7 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Status cannot be null");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE status = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -159,11 +166,13 @@ public class CustomerOrderDAO {
             orders.add(order);
         }
 
+        connection.close();
         return orders;
     }
 
     // TODO: Implement doRetrieveAll
     public List<CustomerOrder> doRetrieveAll() throws SQLException {
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(query);
         ResultSet rs = ps.executeQuery();
@@ -178,7 +187,7 @@ public class CustomerOrderDAO {
             order.setProducts(findProductsByOrderId(order.getId()));
             orders.add(order);
         }
-
+        connection.close();
         return orders;
     }
 

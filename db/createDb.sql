@@ -76,6 +76,7 @@ CREATE TABLE Product(
     pegi varchar(10) NOT NULL,
     releaseYear INT NOT NULL,
     imagePath varchar(50),
+    available BOOLEAN NOT NULL,
 
     PRIMARY KEY(id)
 );

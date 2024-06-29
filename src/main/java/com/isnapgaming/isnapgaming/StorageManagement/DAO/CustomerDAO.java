@@ -15,18 +15,17 @@ import java.util.List;
 
 public class CustomerDAO {
     DataSource dataSource = null;
-    Connection connection = null;
     private static final String TABLE_NAME = "customer";
 
     public CustomerDAO(DataSource dataSource) throws SQLException{
         this.dataSource = dataSource;
-        this.connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(Customer customer) throws SQLException, IllegalArgumentException {
         if (customer == null) {
             throw new IllegalArgumentException("Customer cannot be null");
         }
+        Connection connection = dataSource.getConnection();
         // Saving user fields
         UserDAO userDAO = new UserDAO(dataSource);
         int id = userDAO.doSave(customer);
@@ -37,6 +36,7 @@ public class CustomerDAO {
 
         ps.setInt(1, id);
         ps.execute();
+        connection.close();
         return id;
     }
 
@@ -45,6 +45,7 @@ public class CustomerDAO {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         UserDAO userDAO = new UserDAO(dataSource);
 
         System.out.print("Fetching USER with id=" + id + "...");
@@ -59,7 +60,9 @@ public class CustomerDAO {
         customer.setLastName(user.getLastName());
         customer.setDateOfBirth(user.getDateOfBirth());
         customer.setAddresses(findAddressesByCustomerId(id));
-        customer.setProducts(findOrderByCustomerId(id));
+        customer.setOrders(findOrderByCustomerId(id));
+
+        connection.close();
         return customer;
     }
     private synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
@@ -67,6 +70,7 @@ public class CustomerDAO {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         List<Address> addresses = new ArrayList<>();
 
         String query = "SELECT * FROM address WHERE customerId = ?";
@@ -84,6 +88,7 @@ public class CustomerDAO {
             address.setPostalCode(rs.getInt("postalCode"));
             addresses.add(address);
         }
+        connection.close();
         return addresses;
     }
 
@@ -92,6 +97,7 @@ public class CustomerDAO {
             throw new IllegalArgumentException("User ID must be greater than 0");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM customerorder WHERE customerId = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -112,6 +118,7 @@ public class CustomerDAO {
             orders.add(order);
         }
 
+        connection.close();
         return orders;
     }
 }

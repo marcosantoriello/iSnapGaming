@@ -1,0 +1,1 @@
+INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(751, "Fifa23", "EA Games", "PC", 55, 10, "SPORTS", "PEGI3", 2023, true);

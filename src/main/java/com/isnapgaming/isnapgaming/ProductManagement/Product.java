@@ -18,7 +18,7 @@ public class Product {
     private Pegi pegi;
     private int releaseYear;
     private String imagePath;
-
+    private boolean available;
 
     public Product() {
         this.platform = null;
@@ -26,7 +26,7 @@ public class Product {
         this.pegi = null;
     }
 
-    public static Product makeProduct(int prodCode, String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseYear, String imagePath) {
+    public static Product makeProduct(int prodCode, String name, String softwareHouse, Platform platform, int price, int quantity, Category category, Pegi pegi, int releaseYear, String imagePath, boolean available) {
 
         // Checking parameters
         if (prodCode == 0) {
@@ -67,6 +67,7 @@ public class Product {
         product.setCategory(category);
         product.setPegi(pegi);
         product.setReleaseYear(releaseYear);
+        product.setAvailable(available);
 
         if (imagePath != null) {
             product.setImagePath(imagePath);
@@ -161,6 +162,14 @@ public class Product {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     @Override

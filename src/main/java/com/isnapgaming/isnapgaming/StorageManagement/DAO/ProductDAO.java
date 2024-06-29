@@ -11,17 +11,17 @@ public class ProductDAO {
 
     public static final String TABLE_NAME = "product";
     DataSource dataSource = null;
-    Connection connection = null;
 
     public ProductDAO(DataSource dataSource) throws SQLException {
         this.dataSource = dataSource;
-        connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(Product product) throws SQLException, IllegalArgumentException{
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
+
+        Connection connection = dataSource.getConnection();
 
         int prodCode = product.getProdCode();
         String name = product.getName();
@@ -33,8 +33,9 @@ public class ProductDAO {
         Product.Pegi pegi = product.getPegi();
         int releaseYear = product.getReleaseYear();
         String imagePath = product.getImagePath();
+        boolean available = product.isAvailable();
 
-        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO " + ProductDAO.TABLE_NAME +  " (prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
         ps.setInt(1, prodCode);
@@ -47,6 +48,7 @@ public class ProductDAO {
         ps.setString(8, pegi.toString());
         ps.setInt(9, releaseYear);
         ps.setString(10, imagePath);
+        ps.setBoolean(11, available);
 
         ps.execute();
 
@@ -54,7 +56,9 @@ public class ProductDAO {
         if (!rs.next()) {
             throw new SQLException("Error: no generated keys. The Product has not been saved.");
         }
-        return rs.getInt(1);
+        int id = rs.getInt(1);
+        connection.close();
+        return id;
     }
 
     public synchronized void doUpdate(Product product) throws SQLException, IllegalArgumentException {
@@ -62,21 +66,26 @@ public class ProductDAO {
             throw new IllegalArgumentException("Product cannot be null");
         }
 
-        int prodCode = product.getProdCode();
-        String name = product.getName();
-        String softwareHouse = product.getSoftwareHouse();
-        Product.Platform platform = product.getPlatform();
-        int price = product.getPrice();
-        int quantity = product.getQuantity();
-        Product.Category category = product.getCategory();
-        Product.Pegi pegi = product.getPegi();
-        int releaseYear = product.getReleaseYear();
-        String imagePath = product.getImagePath();
+        Connection connection = dataSource.getConnection();
 
-        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ? WHERE id = ?";
+        String query = "UPDATE " + ProductDAO.TABLE_NAME + " SET prodCode = ?, name = ?, softwareHouse = ?, platform = ?, price = ?, quantity = ?, category = ?, pegi = ?, releaseYear = ?, imagePath = ?, available = ? WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, product.getProdCode());
+        ps.setString(2, product.getName());
+        ps.setString(3, product.getSoftwareHouse());
+        ps.setString(4, product.getPlatform().toString());
+        ps.setInt(5, product.getPrice());
+        ps.setInt(6, product.getQuantity());
+        ps.setString(7, product.getCategory().toString());
+        ps.setString(8, product.getPegi().toString());
+        ps.setInt(9, product.getReleaseYear());
+        ps.setString(10, product.getImagePath());
+        ps.setBoolean(11, product.isAvailable());
+        ps.setInt(12,  product.getId());
+
 
         ps.executeUpdate();
+        connection.close();
     }
 
     public synchronized Product findByKey(int id) throws SQLException, IllegalArgumentException {
@@ -84,6 +93,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Id cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         Product product = new Product();
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE id = ?";
@@ -104,7 +114,9 @@ public class ProductDAO {
         product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
+        product.setAvailable(rs.getBoolean("available"));
 
+        connection.close();
         return product;
     }
 
@@ -113,6 +125,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Product Code cannot be negative");
         }
 
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE prodCode = ?";
 
         PreparedStatement ps = connection.prepareStatement(query);
@@ -120,7 +133,7 @@ public class ProductDAO {
         ResultSet rs = ps.executeQuery();
 
         if (!rs.next()) {
-            throw new SQLException("Error: no User found with the given id.");
+            throw new SQLException("Error: no Product found with the given id.");
         }
 
         Product product = new Product();
@@ -135,7 +148,9 @@ public class ProductDAO {
         product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
         product.setReleaseYear(rs.getInt("releaseYear"));
         product.setImagePath(rs.getString("imagePath"));
+        product.setAvailable(rs.getBoolean("available"));
 
+        connection.close();
         return product;
     }
 
@@ -144,7 +159,7 @@ public class ProductDAO {
             throw new IllegalArgumentException("Category cannot be null");
         }
         List<Product> products = new ArrayList<>();
-
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + ProductDAO.TABLE_NAME + " WHERE category = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -167,13 +182,16 @@ public class ProductDAO {
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
             product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
+            product.setAvailable(rs.getBoolean("available"));
             products.add(product);
         }
+        connection.close();
         return products;
     }
 
     public synchronized List<Product> doRetrieveAll() throws SQLException {
         List<Product> products = new ArrayList<>();
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM "  + ProductDAO.TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(query);
@@ -194,9 +212,24 @@ public class ProductDAO {
             product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
             product.setReleaseYear(rs.getInt("releaseYear"));
             product.setImagePath(rs.getString("imagePath"));
+            product.setAvailable(rs.getBoolean("available"));
             products.add(product);
         }
 
+        connection.close();
         return products;
+    }
+    // TO DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public synchronized void doDelete(Product product) throws SQLException, IllegalArgumentException {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
+        Connection connection = dataSource.getConnection();
+        String query = "DELETE FROM " + ProductDAO.TABLE_NAME + " WHERE id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, product.getId());
+        ps.executeUpdate();
+
+        connection.close();
     }
 }

@@ -7,21 +7,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Customer extends User{
-    private List<CustomerOrder> products;
+    private List<CustomerOrder> orders;
     private List<Address> addresses;
 
     public Customer() {
         super();
-        products = new ArrayList<>();
+        orders = new ArrayList<>();
         addresses = new ArrayList<>();
     }
 
-    public List<CustomerOrder> getProducts() {
-        return products;
+    public List<CustomerOrder> getOrders() {
+        return orders;
     }
 
-    public void setProducts(List<CustomerOrder> products) {
-        this.products = products;
+    public void setOrders(List<CustomerOrder> orders) {
+        this.orders = orders;
     }
 
     public List<Address> getAddresses() {

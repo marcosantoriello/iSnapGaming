@@ -11,17 +11,16 @@ import java.util.List;
 public class UserDAO {
     public static final String TABLE_NAME = "user";
     DataSource dataSource = null;
-    Connection connection = null;
 
     public UserDAO(DataSource dataSource) throws SQLException{
         this.dataSource = dataSource;
-        this.connection = dataSource.getConnection();
     }
 
     public synchronized int doSave(User user) throws SQLException, IllegalArgumentException {
         if (user == null) {
             throw new IllegalArgumentException("User cannot be null");
         }
+        Connection connection = dataSource.getConnection();
 
         String username = user.getUsername();
         String password = user.getPassword();
@@ -46,6 +45,7 @@ public class UserDAO {
         }
         int userId = rs.getInt(1);
 
+        connection.close();
         return userId;
     }
 
@@ -54,6 +54,7 @@ public class UserDAO {
             throw new IllegalArgumentException("User cannot be null");
         }
 
+        Connection connection = dataSource.getConnection();
         int id = user.getId();
         String username = user.getUsername();
         String password = user.getPassword();
@@ -72,11 +73,13 @@ public class UserDAO {
         ps.setInt(6, id);
 
         ps.execute();
+        connection.close();
     }
     public synchronized User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username cannot be null or empty");
         }
+        Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ? AND password = ?";
         PreparedStatement ps = connection.prepareStatement(query);
@@ -93,11 +96,12 @@ public class UserDAO {
             user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
             return user;
         }
+        connection.close();
         return null;
-
     }
     // Retrieving all the roles associated with a user
     public synchronized List<String> getUserRoles(int userId) throws SQLException {
+        Connection connection = dataSource.getConnection();
         List<String> userRoles = new ArrayList<>();
         if (isCustomer(userId)) {
             userRoles.add("Customer");
@@ -108,30 +112,37 @@ public class UserDAO {
         if (isProductManager(userId)) {
             userRoles.add("ProductManager");
         }
+        connection.close();
         return userRoles;
     }
 
     private boolean isCustomer(int userId) throws SQLException {
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM Customer WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        connection.close();
         return rs.next();
     }
 
     private boolean isOrderManager(int userId) throws SQLException {
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM OrderManager WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        connection.close();
         return rs.next();
     }
 
     private boolean isProductManager(int userId) throws SQLException {
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM ProductManager WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        connection.close();
         return rs.next();
     }
 
@@ -140,33 +151,40 @@ public class UserDAO {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
         }
+        Connection connection = dataSource.getConnection();
         String query = "INSERT INTO ProductManager (id) VALUES (?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ps.executeUpdate();
+        connection.close();
     }
 
     public synchronized void assignOrderManager(int userId) throws SQLException, IllegalArgumentException {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
         }
+        Connection connection = dataSource.getConnection();
         String query = "INSERT INTO OrderManager (id) VALUES (?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ps.executeUpdate();
+        connection.close();
     }
 
     public synchronized void assignCustomer(int userId) throws SQLException, IllegalArgumentException {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
         }
+        Connection connection = dataSource.getConnection();
         String query = "INSERT INTO Customer (id) VALUES (?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ps.executeUpdate();
+        connection.close();
     }
 
     public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -185,11 +203,12 @@ public class UserDAO {
         user.setLastName(rs.getString("lastName"));
         user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
 
+        connection.close();
         return user;
     }
 
     public synchronized User findByUsername(String username) throws SQLException, IllegalArgumentException {
-
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -208,11 +227,12 @@ public class UserDAO {
         user.setLastName(rs.getString("lastName"));
         user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
 
+        connection.close();
         return user;
     }
 
     public synchronized List<User> doRetrieveAll() throws SQLException {
-
+        Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME;
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -230,7 +250,7 @@ public class UserDAO {
             user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
             users.add(user);
         }
-
+        connection.close();
         return users;
     }
 
@@ -238,7 +258,7 @@ public class UserDAO {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
         }
-
+        Connection connection = dataSource.getConnection();
         List<Address> addresses = new ArrayList<>();
         Connection c = dataSource.getConnection();
 
@@ -257,7 +277,7 @@ public class UserDAO {
             address.setPostalCode(rs.getInt("postalCode"));
             addresses.add(address);
         }
+        connection.close();
         return addresses;
     }
-
 }
