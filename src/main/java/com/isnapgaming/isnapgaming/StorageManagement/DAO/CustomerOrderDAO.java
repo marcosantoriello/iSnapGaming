@@ -1,6 +1,7 @@
 package com.isnapgaming.isnapgaming.StorageManagement.DAO;
 
 import com.isnapgaming.isnapgaming.OrderManagement.CustomerOrder;
+import com.isnapgaming.isnapgaming.OrderManagement.OrderProduct;
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.isnapgaming.UserManagement.Customer;
 
@@ -24,32 +25,35 @@ public class CustomerOrderDAO {
             throw new IllegalArgumentException("Order cannot be null");
         }
         System.out.println("Persisting order...");
-
         Connection connection = dataSource.getConnection();
+
+        // Persisting CustomerOrder
         String sql = "INSERT INTO " + CustomerOrderDAO.TABLE_NAME + " (customerId, status, address, orderDate, totalAmount) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-
         ps.setInt(1, order.getCustomerId());
         ps.setString(2, order.getStatus().toString());
         ps.setString(3, order.getAddress());
         ps.setDate(4, java.sql.Date.valueOf(order.getOrderDate()));
         ps.setInt(5, order.getTotalAmount());
-
         ps.execute();
-
         ResultSet rs = ps.getGeneratedKeys();
         if (!rs.next()) {
             throw new SQLException("Error: no generated keys. The Order has not been saved.");
         }
-
         int customerOrderId = rs.getInt(1);
-        System.out.println("Order saved with ID: " + customerOrderId);
-        System.out.println("Persisting order products...");
-        for (Product product : order.getProducts()) {
-            ProductDAO productDAO = new ProductDAO(dataSource);
-            Product prod = productDAO.findByProdCode(product.getProdCode());
-            saveOrderProduct(customerOrderId, prod.getId());
+
+        // Persisting OrderProduct
+        String sql2 = "INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (?, ?, ?, ?)";
+        PreparedStatement ps2 = connection.prepareStatement(sql2);
+        for (OrderProduct orderProduct : order.getProducts()) {
+            ps2.setInt(1, orderProduct.getOrderId());
+            ps2.setInt(2, orderProduct.getProductId());
+            ps2.setInt(3, orderProduct.getQuantity());
+            ps2.setInt(4, orderProduct.getPrice());
+            ps2.addBatch();
         }
+        ps2.executeBatch(); // This way the queries to add multiple OrderProducts will be executed all together
+
         connection.close();
         return customerOrderId;
     }
@@ -68,57 +72,14 @@ public class CustomerOrderDAO {
         connection.close();
     }
 
-    private synchronized  void saveOrderProduct(int orderId, int productId) throws SQLException, IllegalArgumentException{
-        if (orderId < 0 || productId < 0) {
-            throw new IllegalArgumentException("Order ID and Product ID must be greater than 0");
-        }
-
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO orderproduct (orderId, productId) VALUES (?, ?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, orderId);
-        ps.setInt(2, productId);
-        ps.execute();
-        connection.close();
-    }
-
-    public synchronized List<Product> findProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException {
-        if (orderId < 0) {
-            throw new IllegalArgumentException("Order ID must be greater than 0");
-        }
-
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT p.* FROM Product p JOIN OrderProduct op ON p.id = op.productId WHERE op.orderId = ?";
-        List<Product> products = new ArrayList<>();
-
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, orderId);
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Product product = new Product();
-            product.setId(rs.getInt("id"));
-            product.setProdCode(rs.getInt("prodCode"));
-            product.setName(rs.getString("name"));
-            product.setSoftwareHouse(rs.getString("softwareHouse"));
-            product.setPlatform(Product.Platform.valueOf(rs.getString("platform")));
-            product.setPrice(rs.getInt("price"));
-            product.setQuantity(rs.getInt("quantity"));
-            product.setCategory(Product.Category.valueOf(rs.getString("category")));
-            product.setPegi(Product.Pegi.valueOf(rs.getString("pegi")));
-            product.setReleaseYear(rs.getInt("releaseYear"));
-            product.setImagePath(rs.getString("imagePath"));
-            products.add(product);
-        }
-        connection.close();
-        return products;
-    }
-
     public synchronized CustomerOrder findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("ID must be greater than 0");
         }
 
         Connection connection = dataSource.getConnection();
+
+        // Retrieving CustomerOrder
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
@@ -128,16 +89,29 @@ public class CustomerOrderDAO {
         if (!rs.next()) {
             throw new SQLException("Error: no order found with ID " + id);
         }
-
-
         CustomerOrder order = new CustomerOrder();
         order.setId(rs.getInt("id"));
         order.setCustomerId(rs.getInt("customerId"));
         order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
         order.setAddress((rs.getString("address")));
         order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-        order.setProducts(findProductsByOrderId(order.getId()));
 
+        // Retrieving OrderProducts
+        String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
+        PreparedStatement ps2 = connection.prepareStatement(query2);
+        ps2.setInt(1, order.getId());
+        ResultSet rs2 = ps.executeQuery();
+        List<OrderProduct> orderProducts = new ArrayList<>();
+
+        while(rs2.next()) {
+            OrderProduct orderProduct = new OrderProduct();
+            orderProduct.setOrderId(rs2.getInt("orderId"));
+            orderProduct.setProductId(rs2.getInt("productId"));
+            orderProduct.setQuantity(rs2.getInt("quantity"));
+            orderProduct.setPrice(rs2.getInt("price"));
+            orderProducts.add(orderProduct);
+        }
+        order.setProducts(orderProducts);
         connection.close();
         return order;
     }
@@ -150,9 +124,7 @@ public class CustomerOrderDAO {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE status = ?";
         PreparedStatement ps = connection.prepareStatement(query);
-
         ps.setString(1, status.toString());
-
         ResultSet rs = ps.executeQuery();
         List<CustomerOrder> orders = new ArrayList<>();
         while (rs.next()) {
@@ -160,9 +132,25 @@ public class CustomerOrderDAO {
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(rs.getString("address"));
+            order.setAddress((rs.getString("address")));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(findProductsByOrderId(order.getId()));
+
+            // Retrieving OrderProducts
+            String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
+            PreparedStatement ps2 = connection.prepareStatement(query2);
+            ps2.setInt(1, order.getId());
+            ResultSet rs2 = ps.executeQuery();
+            List<OrderProduct> orderProducts = new ArrayList<>();
+
+            while(rs2.next()) {
+                OrderProduct orderProduct = new OrderProduct();
+                orderProduct.setOrderId(rs2.getInt("orderId"));
+                orderProduct.setProductId(rs2.getInt("productId"));
+                orderProduct.setQuantity(rs2.getInt("quantity"));
+                orderProduct.setPrice(rs2.getInt("price"));
+                orderProducts.add(orderProduct);
+            }
+            order.setProducts(orderProducts);
             orders.add(order);
         }
 
@@ -170,7 +158,6 @@ public class CustomerOrderDAO {
         return orders;
     }
 
-    // TODO: Implement doRetrieveAll
     public List<CustomerOrder> doRetrieveAll() throws SQLException {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
@@ -182,13 +169,53 @@ public class CustomerOrderDAO {
             order.setId(rs.getInt("id"));
             order.setCustomerId(rs.getInt("customerId"));
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(rs.getString("address"));
+            order.setAddress((rs.getString("address")));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(findProductsByOrderId(order.getId()));
+
+            // Retrieving OrderProducts
+            String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
+            PreparedStatement ps2 = connection.prepareStatement(query2);
+            ps2.setInt(1, order.getId());
+            ResultSet rs2 = ps.executeQuery();
+            List<OrderProduct> orderProducts = new ArrayList<>();
+
+            while(rs2.next()) {
+                OrderProduct orderProduct = new OrderProduct();
+                orderProduct.setOrderId(rs2.getInt("orderId"));
+                orderProduct.setProductId(rs2.getInt("productId"));
+                orderProduct.setQuantity(rs2.getInt("quantity"));
+                orderProduct.setPrice(rs2.getInt("price"));
+                orderProducts.add(orderProduct);
+            }
+            order.setProducts(orderProducts);
             orders.add(order);
         }
         connection.close();
         return orders;
+    }
+
+    public List<OrderProduct> findOrderProductsByOrderId(int orderId) throws SQLException, IllegalArgumentException{
+        if (orderId <= 0) {
+            throw new IllegalArgumentException("ID must be greater than 0");
+        }
+
+        Connection connection = dataSource.getConnection();
+        String query = "SELECT * FROM orderproduct WHERE orderId=?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setInt(1, orderId);
+        ResultSet rs = ps.executeQuery();
+        List<OrderProduct> products = new ArrayList<>();
+        while(rs.next()) {
+            OrderProduct orderProduct = new OrderProduct();
+            orderProduct.setOrderId(rs.getInt("orderId"));
+            orderProduct.setProductId(rs.getInt("productId"));
+            orderProduct.setQuantity(rs.getInt("quantity"));
+            orderProduct.setPrice(rs.getInt("price"));
+            products.add(orderProduct);
+        }
+
+        connection.close();
+        return products;
     }
 
 }

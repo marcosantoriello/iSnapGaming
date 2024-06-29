@@ -1,10 +1,9 @@
 package com.isnapgaming.isnapgaming.OrderManagement;
 
 import com.isnapgaming.isnapgaming.ProductManagement.Product;
-import com.isnapgaming.isnapgaming.UserManagement.Address;
+import com.isnapgaming.isnapgaming.UserManagement.Customer;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -23,7 +22,7 @@ public class CustomerOrder {
     private String address;
     private LocalDate orderDate;
     private int totalAmount;
-    private List<Product> products;
+    private List<OrderProduct> products;
 
     public CustomerOrder() {
         this.id = 0;
@@ -34,7 +33,7 @@ public class CustomerOrder {
         this.totalAmount = 0;
         this.products = null;
     }
-    public CustomerOrder makeCustomerOrder(int customerId, String address, LocalDate orderDate, List<Product> products) {
+    public CustomerOrder makeCustomerOrder(Customer customer, String address, LocalDate orderDate, List<OrderProduct> products) {
         CustomerOrder order = new CustomerOrder();
         order.setCustomerId(customerId);
         order.setStatus(Status.TO_BE_MANAGED);
@@ -94,23 +93,20 @@ public class CustomerOrder {
         this.totalAmount = totalAmount;
     }
 
-    public List<Product> getProducts() {
+    public List<OrderProduct> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<OrderProduct> products) {
         this.products = products;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(OrderProduct product) {
         this.products.add(product);
     }
 
     public int calculateTotalAmount() {
-        int total = 0;
-        for (Product product : products) {
-            totalAmount += product.getPrice();
-        }
+        totalAmount = products.stream().mapToInt(OrderProduct::getTotalPrice).sum();
         return totalAmount;
     }
 

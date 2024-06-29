@@ -114,7 +114,7 @@ public class CustomerDAO {
             order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
             order.setAddress(rs.getString("address"));
             order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(customerOrderDAO.findProductsByOrderId(order.getId()));
+            order.setProducts(customerOrderDAO.findOrderProductsByOrderId(order.getId()));
             orders.add(order);
         }
 
