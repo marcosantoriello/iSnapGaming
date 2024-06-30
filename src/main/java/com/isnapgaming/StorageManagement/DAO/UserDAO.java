@@ -125,7 +125,7 @@ public class UserDAO {
         ResultSet rs = ps.executeQuery();
         boolean result = rs.next();
         connection.close();
-        return result
+        return result;
     }
 
     private boolean isOrderManager(int userId) throws SQLException {
