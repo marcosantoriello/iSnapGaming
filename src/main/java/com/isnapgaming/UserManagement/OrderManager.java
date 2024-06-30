@@ -14,7 +14,7 @@ public class OrderManager extends Manager{
     }
 
     // Business Logic methods
-    public List<CustomerOrder> getAllProducts(DataSource dataSource) throws SQLException {
+    public List<CustomerOrder> getAllCustomerOrders(DataSource dataSource) throws SQLException {
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         return orderDAO.doRetrieveAll();
     }

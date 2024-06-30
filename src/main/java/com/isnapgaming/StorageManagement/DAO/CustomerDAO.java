@@ -60,7 +60,6 @@ public class CustomerDAO {
         customer.setLastName(user.getLastName());
         customer.setDateOfBirth(user.getDateOfBirth());
         customer.setAddresses(findAddressesByCustomerId(id));
-        customer.setOrders(findOrderByCustomerId(id));
 
         connection.close();
         return customer;
@@ -92,33 +91,4 @@ public class CustomerDAO {
         return addresses;
     }
 
-    private synchronized List<CustomerOrder> findOrderByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
-        if (customerId < 0) {
-            throw new IllegalArgumentException("User ID must be greater than 0");
-        }
-
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT * FROM customerorder WHERE customerId = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setInt(1, customerId);
-
-        ResultSet rs = ps.executeQuery();
-        List<CustomerOrder> orders = new ArrayList<>();
-        while (rs.next()) {
-            AddressDAO addressDAO = new AddressDAO(dataSource);
-            CustomerOrderDAO customerOrderDAO = new CustomerOrderDAO(dataSource);
-            CustomerOrder order = new CustomerOrder();
-            order.setId(rs.getInt("id"));
-            order.setCustomerId(rs.getInt("customerId"));
-            order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress(rs.getString("address"));
-            order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            order.setProducts(customerOrderDAO.findOrderProductsByOrderId(order.getId()));
-            orders.add(order);
-        }
-
-        connection.close();
-        return orders;
-    }
 }
