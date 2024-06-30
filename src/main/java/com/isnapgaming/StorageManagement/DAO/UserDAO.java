@@ -50,32 +50,6 @@ public class UserDAO {
         return userId;
     }
 
-    public synchronized void doUpdate(User user) throws SQLException, IllegalArgumentException {
-        if (user == null) {
-            throw new IllegalArgumentException("User cannot be null");
-        }
-
-        Connection connection = dataSource.getConnection();
-        int id = user.getId();
-        String username = user.getUsername();
-        String password = user.getPassword();
-        String firstName = user.getFirstName();
-        String lastName = user.getLastName();
-        LocalDate dateOfBirth = user.getDateOfBirth();
-
-        String query = "UPDATE " + UserDAO.TABLE_NAME + " SET username = ?, password = ?, firstName = ?, lastName = ?, dateOfBirth = ? WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setString(1, username);
-        ps.setString(2, password);
-        ps.setString(3, firstName);
-        ps.setString(4, lastName);
-        ps.setDate(5, java.sql.Date.valueOf(dateOfBirth));
-        ps.setInt(6, id);
-
-        ps.execute();
-        connection.close();
-    }
     public synchronized User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username cannot be null or empty");
