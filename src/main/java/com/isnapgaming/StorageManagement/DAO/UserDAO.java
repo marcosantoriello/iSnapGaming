@@ -172,29 +172,6 @@ public class UserDAO {
         return user;
     }
 
-    public synchronized List<User> doRetrieveAll() throws SQLException {
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT * FROM " + UserDAO.TABLE_NAME;
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ResultSet rs = ps.executeQuery();
-
-        List<User> users = new ArrayList<>();
-        while (rs.next()) {
-            User user = new User();
-
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setFirstName(rs.getString("firstName"));
-            user.setLastName(rs.getString("lastName"));
-            user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
-            users.add(user);
-        }
-        connection.close();
-        return users;
-    }
-
     public synchronized List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
         if (userId < 0) {
             throw new IllegalArgumentException("User ID cannot be negative");
