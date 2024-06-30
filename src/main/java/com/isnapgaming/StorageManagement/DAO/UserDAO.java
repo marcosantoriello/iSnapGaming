@@ -124,43 +124,6 @@ public class UserDAO {
         return result;
     }
 
-    // Methods to add a new role to an existing user
-    public synchronized void assignProductManager(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO ProductManager (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
-    public synchronized void assignOrderManager(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO OrderManager (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
-    public synchronized void assignCustomer(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO Customer (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
     public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
