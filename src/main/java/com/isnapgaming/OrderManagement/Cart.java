@@ -29,12 +29,15 @@ public class Cart {
                 calculateTotalPrice();
                 return;
             }
-            items.add(new ItemCart(this, product, quantity));
-            calculateTotalPrice();
         }
+        items.add(new ItemCart(this, product, quantity));
+        calculateTotalPrice();
     }
 
     public void removeFromCart(Product product) {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
         items.removeIf(item -> item.getProduct().getId() == product.getId());
         calculateTotalPrice();
     }
