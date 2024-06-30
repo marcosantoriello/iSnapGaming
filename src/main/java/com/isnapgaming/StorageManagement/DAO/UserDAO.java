@@ -171,31 +171,4 @@ public class UserDAO {
         connection.close();
         return user;
     }
-
-    public synchronized List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        List<Address> addresses = new ArrayList<>();
-        Connection c = dataSource.getConnection();
-
-        String query = "SELECT * FROM address WHERE customerId = ?";
-        PreparedStatement ps = c.prepareStatement(query);
-
-        ps.setInt(1, userId);
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Address address = new Address();
-            address.setId(rs.getInt("id"));
-            address.setCustomerId(rs.getInt("customerId"));
-            address.setStreet(rs.getString("street"));
-            address.setCity(rs.getString("city"));
-            address.setPostalCode(rs.getInt("postalCode"));
-            addresses.add(address);
-        }
-        connection.close();
-        return addresses;
-    }
 }
