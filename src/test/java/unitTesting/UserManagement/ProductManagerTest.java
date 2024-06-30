@@ -1,4 +1,4 @@
-package UserManagement;
+package unitTesting.UserManagement;
 
 import com.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.UserManagement.ProductManager;
