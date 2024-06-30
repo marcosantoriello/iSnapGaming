@@ -38,8 +38,31 @@ public class Cart {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
-        items.removeIf(item -> item.getProduct().getId() == product.getId());
+        boolean res = items.removeIf(item -> item.getProduct().getId() == product.getId());
+        if (!res) {
+            throw new RuntimeException("No such product found in cart.");
+        }
         calculateTotalPrice();
+    }
+
+    public void decreaseQuantityCart(Product product, int quantity) throws Exception {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be greater than 0.");
+        }
+        for (ItemCart item : items) {
+            if (item.getProduct() == product) {
+                if (quantity > item.getQuantity()) {
+                    throw new Exception("Invalid quantity");
+                }
+                else if (quantity == item.getQuantity()) {
+                    removeFromCart(product);
+                }
+            }
+        }
+
     }
 
     private void calculateTotalPrice() {
