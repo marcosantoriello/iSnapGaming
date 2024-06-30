@@ -123,8 +123,9 @@ public class UserDAO {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        boolean result = rs.next();
         connection.close();
-        return rs.next();
+        return result
     }
 
     private boolean isOrderManager(int userId) throws SQLException {
@@ -133,8 +134,9 @@ public class UserDAO {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        boolean result = rs.next();
         connection.close();
-        return rs.next();
+        return result;
     }
 
     private boolean isProductManager(int userId) throws SQLException {
@@ -143,8 +145,9 @@ public class UserDAO {
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setInt(1, userId);
         ResultSet rs = ps.executeQuery();
+        boolean result = rs.next();
         connection.close();
-        return rs.next();
+        return result;
     }
 
     // Methods to add a new role to an existing user
