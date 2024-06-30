@@ -3,6 +3,7 @@ package com.isnapgaming.OrderManagement;
 import com.isnapgaming.ProductManagement.Product;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Cart {
@@ -45,25 +46,41 @@ public class Cart {
         calculateTotalPrice();
     }
 
-    public void decreaseQuantityCart(Product product, int quantity) throws Exception {
+    public void decreaseQuantityCart(Product product, int quantity) {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be greater than 0.");
         }
-        for (ItemCart item : items) {
+        if (!isProductInCart(product)) {
+            throw new RuntimeException("No such product found in cart.");
+        }
+        Iterator<ItemCart> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            ItemCart item = iterator.next();
             if (item.getProduct() == product) {
                 if (quantity > item.getQuantity()) {
-                    throw new Exception("Invalid quantity");
-                }
-                else if (quantity == item.getQuantity()) {
-                    removeFromCart(product);
+                    throw new RuntimeException("Invalid quantity");
+                } else if (quantity == item.getQuantity()) {
+                    iterator.remove();
+                } else {
+                    item.setQuantity(item.getQuantity() - quantity);
                 }
             }
         }
 
     }
+
+    private boolean isProductInCart(Product product) {
+        for (ItemCart item : items) {
+            if (item.getProduct() == product) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     private void calculateTotalPrice() {
         totalPrice = items.stream().mapToInt(ItemCart::getTotalPrice).sum();

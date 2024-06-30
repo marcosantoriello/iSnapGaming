@@ -31,7 +31,7 @@ public class CartTest {
     @AfterEach
     public void tearDown() {}
 
-    // Add to cart
+    // addToCart
     @Test
     void addToCart_A1_B1_C1() throws IllegalArgumentException{
         int quantity = 1;
@@ -64,7 +64,7 @@ public class CartTest {
         assertEquals(4, cart.getItems().get(0).getQuantity());
     }
 
-    // Remove From Cart
+    // removeFromCart
     @Test
     void removeFromCart_A1_B1() throws IllegalArgumentException, Exception{
         cart.addToCart(product, 1);
@@ -82,5 +82,48 @@ public class CartTest {
     void removeFromCart_A1_B2() {
         RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.removeFromCart(product));
         assertEquals(ex.getMessage(), "No such product found in cart.");
+    }
+
+    // decreaseQuantityCart
+    @Test
+    void decreaseQuantityCart_A1_B1_C1() throws IllegalArgumentException, RuntimeException {
+        cart.addToCart(product, 5);
+
+        cart.decreaseQuantityCart(product, 2);
+        assertEquals(3, cart.getItems().get(0).getQuantity());
+    }
+
+    @Test
+    void decreaseQuantityCart_A2_B1_C1(){
+        cart.addToCart(product, 5);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->cart.decreaseQuantityCart(null, 2));
+        assertEquals(ex.getMessage(), "Product cannot be null");
+    }
+
+    @Test
+    void decreaseQuantityCart_A1_B2_C4(){
+        RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.decreaseQuantityCart(product, 2));
+        assertEquals(ex.getMessage(), "No such product found in cart.");
+    }
+
+    @Test
+    void decreaseQuantityCart_A1_B1_C2(){
+        cart.addToCart(product, 5);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->cart.decreaseQuantityCart(product, -3));
+        assertEquals(ex.getMessage(), "Quantity must be greater than 0.");
+    }
+
+    @Test
+    void decreaseQuantityCart_A1_B1_C4(){
+        cart.addToCart(product, 3);
+        RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.decreaseQuantityCart(product, 5));
+        assertEquals(ex.getMessage(), "Invalid quantity");
+    }
+
+    @Test
+    void decreaseQuantityCart_A1_B1_C3(){
+        cart.addToCart(product, 3);
+        cart.decreaseQuantityCart(product, 3);
+        assertEquals(0, cart.getItems().size());
     }
 }
