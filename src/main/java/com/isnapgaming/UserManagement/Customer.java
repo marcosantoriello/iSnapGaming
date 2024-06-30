@@ -32,5 +32,9 @@ public class Customer extends User{
         this.addresses = addresses;
     }
 
+    public void addOrder(CustomerOrder order) {
+
+    }
+
 
 }

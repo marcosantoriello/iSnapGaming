@@ -23,15 +23,15 @@ public class PaymentAuthorizationService {
 
         boolean check = true;
 
-        if(price <= 0)
-            check = false;
-        if(cvv == null || !cvv.matches("\\d{3}"))
+        if(cardNumber == null || !cardNumber.matches("\\d{4}-\\d{4}-\\d{4}-\\d{4}"))
             check = false;
         if(expiration == null || !expiration.isAfter(LocalDate.now()))
             check = false;
-        if(cardNumber == null || !cardNumber.matches("\\d{4}-\\d{4}-\\d{4}-\\d{4}"))
+        if(cvv == null || !cvv.matches("\\d{3}"))
             check = false;
-
+        if(price <= 0)
+            check = false;
+        
         return check;
     }
 }
