@@ -57,26 +57,30 @@ public class UserDAO {
         Connection connection = dataSource.getConnection();
 
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ? AND password = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, username);
-        ps.setString(2, password);
-        ResultSet rs = ps.executeQuery();
-        if (!rs.next()) {
-            throw new SQLException("No User found with the given credentials");
-        }
 
-        if (rs.next()) {
-            User user = new User();
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setFirstName(rs.getString("firstName"));
-            user.setLastName(rs.getString("lastName"));
-            user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
-            return user;
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
+                return user;
+            } else {
+                throw new SQLException("No User found with the given credentials");
+            }
+        } catch (SQLException e) {
+            throw new SQLException("No User found with the given credentials");
+        } finally {
+            connection.close();
         }
-        connection.close();
-        return null;
     }
     // Retrieving all the roles associated with a user
     public synchronized List<String> getUserRoles(int userId) throws SQLException {
