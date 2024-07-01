@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="com.isnapgaming.ProductManagement.Product" %>
+<%@ page import="com.isnapgaming.OrderManagement.Cart" %>
+<%@ page import="com.isnapgaming.OrderManagement.ItemCart" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +10,9 @@
   <title>Cart</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/carrello.css">
+  <%
+    Cart cart = (Cart) session.getAttribute("cart");
+  %>
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
@@ -25,6 +31,11 @@
                     </div>
                     <hr class="my-4">
                     <!-- la riga del prodotto inizia qui... -->
+                    <%
+                      for(ItemCart p: cart.getItems()){
+                        System.out.println(p.getProduct().getName());
+
+                    %>
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
                         <img
@@ -32,8 +43,8 @@
                                 class="img-fluid rounded-3" alt="Cotton T-shirt">
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
-                        <h6 class="text-muted">Shirt</h6>
-                        <h6 class="mb-0">Cotton T-shirt</h6>
+                        <h5 class="text-muted"><%= p.getProduct().getName() %></h5>
+
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                         <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
@@ -50,12 +61,15 @@
                         </button>
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">€ 44.00</h6>
+                        <h6 class="mb-0"><%= p.getProduct().getPrice() %></h6>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                         <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
                       </div>
                     </div>
+                    <%
+                      }
+                    %>
                     <!-- ... e finisce qui -->
                     <hr class="my-4">
 
@@ -72,7 +86,7 @@
 
                     <div class="d-flex justify-content-between mb-5">
                       <h5 class="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
+                      <h5><%= cart.getTotalPrice() %></h5>
                     </div>
                     <div class="submit-button">
                       <input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>

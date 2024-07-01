@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="com.isnapgaming.ProductManagement.Product" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,21 @@
     <title>Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/product.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var quantityInput = document.getElementById('quantity');
+            var maxQuantity = quantityInput.max;
+
+            quantityInput.addEventListener('input', function() {
+                if (parseInt(quantityInput.value) > parseInt(maxQuantity)) {
+                    quantityInput.value = maxQuantity;
+                }
+            });
+        });
+    </script>
+    <%
+        Product p = (Product) request.getAttribute("product");
+    %>
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
@@ -15,21 +31,35 @@
         <div class="product-left-side">
             <img src="app_imgs/logo.png" alt="Product Image" class="product-img">
             <div class="product-details">
-                <p><strong>Developer:</strong> Software House</p>
-                <p><strong>Platform:</strong> Platform </p>
-                <p><strong>Category:</strong> Category </p>
-                <p><strong>PEGI:</strong> PEGI</p>
-                <p><strong>Release Date:</strong> Release </p>
+                <p><strong>Software House:</strong> <%= p.getSoftwareHouse()%></p>
+                <p><strong>Platform:</strong> <%= p.getPlatform()%> </p>
+                <p><strong>Category:</strong> <%= p.getCategory()%> </p>
+                <p><strong>PEGI:</strong> <%= p.getPegi()%></p>
+                <p><strong>Release Year:</strong> <%= p.getReleaseYear()%> </p>
             </div>
         </div>
-        <div class="product-right-side">
-            <div class="product-title">Product Title</div>
-            <div class="product-quantity" style="text-align: center">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" value="1" style="width: 50px;">
-            </div>
-            <div class="product-price">$49.99</div>
-            <a href="product.jsp" class="btn btn-primary"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a>
+        <div class="product-right-side" style="padding: 100px 30px;">
+            <form action="AddToCart" method="post">
+                <input type="hidden" name="prodCode" value="<%= p.getProdCode() %>">
+                <div class="product-title" style="font-size: 40px;"><%= p.getName()%></div>
+                <div class="product-quantity" style="text-align: center">
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="<%= p.getQuantity() %>" value="1" style="width: 50px;">
+                </div>
+                <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
+                <%
+                    if(p.isAvailable()){
+                %>
+                <button type="submit">Aggiungi al Carrello</button><!--<a href="AddToCart?prodCode=" class="btn btn-primary"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a> -->
+                <%
+                }else{
+                %>
+                <a class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true" style="background-color: #3498db;color: white;border: none; padding: 10px 20px;cursor: pointer;font-size: 16px;"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a>
+                <span style="color: red; text-align: center">Product temporarily unavailable</span>
+                <%
+                    }
+                %>
+            </form>
         </div>
     </div>
 </div>
