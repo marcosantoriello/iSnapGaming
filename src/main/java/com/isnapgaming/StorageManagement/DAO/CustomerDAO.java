@@ -44,27 +44,30 @@ public class CustomerDAO {
         if (id < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
-
         Connection connection = dataSource.getConnection();
-        UserDAO userDAO = new UserDAO(dataSource);
+        try {
+            UserDAO userDAO = new UserDAO(dataSource);
 
-        System.out.print("Fetching USER with id=" + id + "...");
-        User user = userDAO.findByKey(id);
-        System.out.println("Done.");
+            System.out.print("Fetching USER with id=" + id + "...");
+            User user = userDAO.findByKey(id);
+            System.out.println("Done.");
 
-        Customer customer = new Customer();
-        customer.setId(user.getId());
-        customer.setUsername(user.getUsername());
-        customer.setPassword(user.getPassword());
-        customer.setFirstName(user.getFirstName());
-        customer.setLastName(user.getLastName());
-        customer.setDateOfBirth(user.getDateOfBirth());
-        customer.setAddresses(findAddressesByCustomerId(id));
-
-        connection.close();
-        return customer;
+            Customer customer = new Customer();
+            customer.setId(user.getId());
+            customer.setUsername(user.getUsername());
+            customer.setPassword(user.getPassword());
+            customer.setFirstName(user.getFirstName());
+            customer.setLastName(user.getLastName());
+            customer.setDateOfBirth(user.getDateOfBirth());
+            customer.setAddresses(findAddressesByCustomerId(id));
+            return customer;
+        } catch (SQLException e) {
+            throw new SQLException("No Customer found with the given id");
+        } finally {
+            connection.close();
+        }
     }
-    private synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    public synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
