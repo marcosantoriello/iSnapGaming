@@ -5,7 +5,10 @@
 
 <%
     if (session.getAttribute("cart") == null) {
-        session.setAttribute("cart", new Cart());
+        response.sendRedirect(request.getRequestURI() + "../index.jsp");
+    }
+    if (session.getAttribute("role") == null || (!session.getAttribute("role").equals("Customer"))) {
+        response.sendRedirect("http://localhost:8080/iSnapGaming_war/login.jsp");
     }
 %>
 

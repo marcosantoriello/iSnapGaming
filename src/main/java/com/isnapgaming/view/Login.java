@@ -17,6 +17,11 @@ import javax.sql.DataSource;
 @WebServlet(name = "Login", value = "/Login")
 public class Login extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+        dispatcher.forward(request, response);
+    }
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -27,6 +32,9 @@ public class Login extends HttpServlet {
 
         DataSource dataSource = (DataSource) getServletContext().getAttribute("DataSource");
         String redirectUrl = (String) request.getSession().getAttribute("redirectLogin");
+        if (redirectUrl == null) {
+            redirectUrl = "http://localhost:8080/iSnapGaming_war/index.jsp";
+        }
 
         User user;
         try {

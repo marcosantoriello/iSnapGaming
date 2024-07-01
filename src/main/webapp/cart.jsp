@@ -93,7 +93,8 @@
                       <h5><%= cart.getTotalPrice() %>.00 €</h5>
                     </div>
                     <div class="submit-button">
-                      <input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
+                      <button onclick="window.location.href='checkout.jsp'" id="btnCarrello">Checkout</button>
+                      <!--<input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/> -->
                     </div>
                   </div>
                 </div>

@@ -6,7 +6,12 @@
   String returnUrl = (String) request.getParameter("returnurl");
   User user = (User) session.getAttribute("user");
   if (user != null) {
-    response.sendRedirect(returnUrl);
+    if (returnUrl != null) {
+      response.sendRedirect(returnUrl);
+    } else {
+      response.sendRedirect("http://localhost:8080/iSnapGaming_war/index.jsp");
+    }
+
   } else {
     session.setAttribute("redirectLogin", returnUrl);
   }

@@ -23,9 +23,8 @@ import com.isnapgaming.ProductManagement.Product;
 public class AddToCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
