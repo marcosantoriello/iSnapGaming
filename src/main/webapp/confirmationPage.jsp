@@ -14,7 +14,6 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
-<% assert order != null; %>
 <div class="content">
     <h2>Thank you for your order!</h2>
     Your order with id <%=request.getParameter("orderId")%> has been saved.<br/>
