@@ -143,7 +143,6 @@ public class UserDAO {
         }
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
-
         try {
 
             PreparedStatement ps = connection.prepareStatement(query);

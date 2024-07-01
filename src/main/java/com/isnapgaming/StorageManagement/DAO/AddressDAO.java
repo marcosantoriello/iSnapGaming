@@ -56,7 +56,7 @@ public class AddressDAO {
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("Error: no Address found with id " + id);
+            throw new SQLException("No Address found with the given id");
         }
 
         Address address = new Address();
