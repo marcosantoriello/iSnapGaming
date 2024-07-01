@@ -180,4 +180,17 @@ public class ProductDAOTest {
 
         assertEquals("CoD WWII", productDAO.findByCategory(Product.Category.valueOf("SHOOTER")).get(0).getName());
     }
+
+    @Test
+    void doRetrieveAll_PP1() throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        assertEquals(0, productDAO.doRetrieveAll().size());
+    }
+
+    @Test
+    void doRetrieveAll_PP2() throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/doRetrieveAll_PP2.sql", conn);
+        assertEquals(3, productDAO.doRetrieveAll().size());
+    }
 }
