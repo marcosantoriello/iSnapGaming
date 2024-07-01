@@ -86,9 +86,10 @@ public class CartTest {
     // decreaseQuantityCart
     @Test
     void decreaseQuantityCart_A1_B1_C1() throws IllegalArgumentException, RuntimeException {
-        cart.addToCart(product, 5);
-
-        cart.decreaseQuantityCart(product, 2);
+        Product prod2 = new Product();
+        prod2.setProdCode(352);
+        cart.addToCart(prod2, 5);
+        cart.decreaseQuantityCart(prod2, 2);
         assertEquals(3, cart.getItems().get(0).getQuantity());
     }
 
