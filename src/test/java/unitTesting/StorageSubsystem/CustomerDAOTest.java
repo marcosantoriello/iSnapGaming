@@ -32,8 +32,6 @@ public class CustomerDAOTest {
     private CustomerDAO CustomerDAO;
     private Connection conn;
     private DataSource ds;
-    @Mock
-    Address address;
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
 
@@ -71,6 +69,12 @@ public class CustomerDAOTest {
     void doSave_C1()throws SQLException, IllegalArgumentException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         List<Address> addresses=new ArrayList<>();
+        Address address1= new Address();
+        address1.setCustomerId(1);
+        address1.setStreet("statale");
+        address1.setCity("Roma");
+        address1.setPostalCode(10345);
+        addresses.add(address1);
         Customer customer= new Customer();
         customer.setUsername("pio");
         customer.setPassword("password1");
@@ -107,12 +111,39 @@ public class CustomerDAOTest {
     void findByKey_C1_CD2() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
+        SQLException ex = assertThrows(SQLException.class, ()->CustomerDAO.findByKey(5));
+        assertEquals("No Customer found with the given id", ex.getMessage());
     }
 
     @Test
     void findAddressByCustomerId_C1_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD1.sql", conn);
+        // quest è un iserimento di un address fittizio a solo scopo di test
+        Address address1= new Address();
+        address1.setCustomerId(1);
+        address1.setStreet("statale");
+        address1.setCity("Roma");
+        address1.setPostalCode(10345);
+
+        assertEquals(1, CustomerDAO.findByKey(1).getAddresses().get(0).getCustomerId());
 
     }
+
+    @Test
+    void findAddressByCustomerId_C2_CD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.findByKey(-3).getId());
+        assertEquals("Customer ID cannot be negative", ex.getMessage());
+
+    }
+    @Test
+    void findAddressByCustomerId_C1_CD2() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        //executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD2.sql", conn);
+
+
+    }
+
+
 }
