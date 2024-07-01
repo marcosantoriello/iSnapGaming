@@ -159,7 +159,25 @@ public class ProductDAOTest {
 
     // findByCategory
     @Test
-    void findByCategory_C1_CC1() {
+    void findByCategory_C1_CC1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
+        assertEquals(0, productDAO.findByCategory(Product.Category.valueOf("RPG")).size());
+    }
+
+    @Test
+    void findByCategory_C2_CC1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->productDAO.findByCategory(null));
+        assertEquals("Category cannot be null", ex.getMessage());
+    }
+
+    @Test
+    void findByCategory_C1_CC2() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByCategory_C1_CC2.sql", conn);
+
+        assertEquals("CoD WWII", productDAO.findByCategory(Product.Category.valueOf("SHOOTER")).get(0).getName());
     }
 }
