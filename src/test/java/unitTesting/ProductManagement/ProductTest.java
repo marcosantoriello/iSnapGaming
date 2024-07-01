@@ -41,7 +41,7 @@ public class ProductTest {
         assertEquals(category,product.getCategory());
         assertEquals(releaseYear,product.getReleaseYear());
         assertEquals(imagePath,product.getImagePath());
-        assertEquals(imagePath,product.isAvailable());
+        assertEquals(available,product.isAvailable());
     }
 
 
