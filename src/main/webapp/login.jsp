@@ -39,7 +39,7 @@
         }
       %>
       <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-        <form action="Login" method="POST" id="signUpForm" onsubmit="return checkSignUp(this)" style="width: 250px;">
+        <form action="Login" method="POST" id="signUpForm" onsubmit="return checkLogin(this)" style="width: 250px;">
           <h2 class="mb-3" style="text-align: center;">LOGIN</h2>
           <br/>
           <div class="form-group" style="margin: 15px 0;">
