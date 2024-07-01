@@ -1,0 +1,65 @@
+package com.isnapgaming.view;
+
+import java.io.*;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.isnapgaming.StorageManagement.DAO.ProductDAO;
+import com.isnapgaming.StorageManagement.DAO.UserDAO;
+import com.isnapgaming.UserManagement.User;
+import com.isnapgaming.OrderManagement.Cart;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+
+import javax.sql.DataSource;
+
+
+import com.isnapgaming.ProductManagement.Product;
+
+
+@WebServlet(name = "AddToCart", value = "/AddToCart")
+public class AddToCart extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
+        User user = (User) request.getSession().getAttribute("user");
+
+        int quantitySelected = 0;
+        int prodCode = 0;
+
+
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        prodCode = Integer.parseInt(request.getParameter("prodCode"));
+        quantitySelected = Integer.parseInt(request.getParameter("quantitySelected"));
+
+        ProductDAO pDAO = null;
+
+        try {
+                pDAO = new ProductDAO(ds);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        Product product = null;
+
+        try {
+            product = pDAO.findByProdCode(prodCode);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        cart.addToCart(product, quantitySelected);
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+        dispatcher.forward(request, response);
+    }
+}
