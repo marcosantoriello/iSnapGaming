@@ -108,8 +108,21 @@ public class AddressDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerId_C1_CD1.sql", conn);
 
+        assertEquals(1,addressDAO.findByCustomerId(1).size());
 
-
+    }
+    @Test
+    void findByCustomerId_C2_CD1()throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->addressDAO.findByCustomerId(-1));
+        assertEquals(ex.getMessage(), "CustomerId cannot be negative");
+    }
+    @Test
+    void findByCustomerId_C1_CD2()throws SQLException, IllegalArgumentException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerIdC1_CD2.sql", conn);
+        SQLException ex = assertThrows(SQLException.class,()->addressDAO.findByCustomerId(3));
+        assertEquals(ex.getMessage(), "No Address found with the given customerId");
     }
 
 }
