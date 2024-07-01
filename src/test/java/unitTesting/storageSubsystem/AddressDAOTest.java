@@ -64,7 +64,7 @@ public class AddressDAOTest {
     @Test
     void doSave_VA1()throws SQLException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/doSave_VA1.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/doSave_VA1.sql", conn);
         Address address=new Address();
         address.setCustomerId(1);
         address.setStreet("statale");
@@ -85,13 +85,20 @@ public class AddressDAOTest {
     }
 
     @Test
-    void findByKey_VA1()throws SQLException {
+    void findByKey_VA1_VD1()throws SQLException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/findByKey_VA1.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD1.sql", conn);
         assertEquals(1,addressDAO.findByKey(1).getId());
     }
     @Test
-    void findByKey_VA2(){
+    void findByKey_VA2_VD1()throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->addressDAO.findByKey(-1));
+        assertEquals(ex.getMessage(), "Id cannot be negative");
+    }
+    @Test
+    void findByKey_VA1_VD2()throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
     }
 
