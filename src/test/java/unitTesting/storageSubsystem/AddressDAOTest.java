@@ -1,13 +1,10 @@
 package unitTesting.storageSubsystem;
 
-import com.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.StorageManagement.DAO.AddressDAO;
 import com.isnapgaming.UserManagement.Address;
-import com.isnapgaming.UserManagement.ProductManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -121,8 +118,7 @@ public class AddressDAOTest {
     void findByCustomerId_C1_CD2()throws SQLException, IllegalArgumentException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerIdC1_CD2.sql", conn);
-        SQLException ex = assertThrows(SQLException.class,()->addressDAO.findByCustomerId(3));
-        assertEquals(ex.getMessage(), "No Address found with the given customerId");
+        assertEquals(0,addressDAO.findByCustomerId(3).size());
     }
 
 }

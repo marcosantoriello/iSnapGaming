@@ -50,35 +50,9 @@ public class UserDAO {
         return userId;
     }
 
-    public synchronized void doUpdate(User user) throws SQLException, IllegalArgumentException {
-        if (user == null) {
-            throw new IllegalArgumentException("User cannot be null");
-        }
-
-        Connection connection = dataSource.getConnection();
-        int id = user.getId();
-        String username = user.getUsername();
-        String password = user.getPassword();
-        String firstName = user.getFirstName();
-        String lastName = user.getLastName();
-        LocalDate dateOfBirth = user.getDateOfBirth();
-
-        String query = "UPDATE " + UserDAO.TABLE_NAME + " SET username = ?, password = ?, firstName = ?, lastName = ?, dateOfBirth = ? WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setString(1, username);
-        ps.setString(2, password);
-        ps.setString(3, firstName);
-        ps.setString(4, lastName);
-        ps.setDate(5, java.sql.Date.valueOf(dateOfBirth));
-        ps.setInt(6, id);
-
-        ps.execute();
-        connection.close();
-    }
     public synchronized User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty");
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("Cannot have empty username or password");
         }
         Connection connection = dataSource.getConnection();
 
@@ -87,6 +61,10 @@ public class UserDAO {
         ps.setString(1, username);
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
+        if (!rs.next()) {
+            throw new SQLException("No User found with the given credentials");
+        }
+
         if (rs.next()) {
             User user = new User();
             user.setId(rs.getInt("id"));
@@ -102,6 +80,11 @@ public class UserDAO {
     }
     // Retrieving all the roles associated with a user
     public synchronized List<String> getUserRoles(int userId) throws SQLException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("Id cannot be negative");
+        }
+        // Checking if user exists in db or not
+        this.findByKey(userId);
         Connection connection = dataSource.getConnection();
         List<String> userRoles = new ArrayList<>();
         if (isCustomer(userId)) {
@@ -150,53 +133,19 @@ public class UserDAO {
         return result;
     }
 
-    // Methods to add a new role to an existing user
-    public synchronized void assignProductManager(int userId) throws SQLException, IllegalArgumentException {
+    public synchronized User findByKey(int userId) throws SQLException, IllegalArgumentException {
         if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
+            throw new IllegalArgumentException("Id cannot be negative");
         }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO ProductManager (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
-    public synchronized void assignOrderManager(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO OrderManager (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
-    public synchronized void assignCustomer(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "INSERT INTO Customer (id) VALUES (?)";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, userId);
-        ps.executeUpdate();
-        connection.close();
-    }
-
-    public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
-        ps.setInt(1, id);
+        ps.setInt(1, userId);
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("Error: no User found with the given id.");
+            throw new SQLException("No User found with the given id");
         }
 
         User user = new User();
@@ -220,7 +169,7 @@ public class UserDAO {
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("Error: no User found with the given username.");
+            throw new SQLException("No User found with the given username");
         }
 
         User user = new User();
@@ -233,55 +182,5 @@ public class UserDAO {
 
         connection.close();
         return user;
-    }
-
-    public synchronized List<User> doRetrieveAll() throws SQLException {
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT * FROM " + UserDAO.TABLE_NAME;
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ResultSet rs = ps.executeQuery();
-
-        List<User> users = new ArrayList<>();
-        while (rs.next()) {
-            User user = new User();
-
-            user.setId(rs.getInt("id"));
-            user.setUsername(rs.getString("username"));
-            user.setPassword(rs.getString("password"));
-            user.setFirstName(rs.getString("firstName"));
-            user.setLastName(rs.getString("lastName"));
-            user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
-            users.add(user);
-        }
-        connection.close();
-        return users;
-    }
-
-    public synchronized List<Address> findAddressesByUserId(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
-            throw new IllegalArgumentException("User ID cannot be negative");
-        }
-        Connection connection = dataSource.getConnection();
-        List<Address> addresses = new ArrayList<>();
-        Connection c = dataSource.getConnection();
-
-        String query = "SELECT * FROM address WHERE customerId = ?";
-        PreparedStatement ps = c.prepareStatement(query);
-
-        ps.setInt(1, userId);
-        ResultSet rs = ps.executeQuery();
-
-        while (rs.next()) {
-            Address address = new Address();
-            address.setId(rs.getInt("id"));
-            address.setCustomerId(rs.getInt("customerId"));
-            address.setStreet(rs.getString("street"));
-            address.setCity(rs.getString("city"));
-            address.setPostalCode(rs.getInt("postalCode"));
-            addresses.add(address);
-        }
-        connection.close();
-        return addresses;
     }
 }

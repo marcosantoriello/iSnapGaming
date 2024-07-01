@@ -106,9 +106,6 @@ public class AddressDAO {
         ps.setInt(1, customerId);
 
         ResultSet rs = ps.executeQuery();
-        if (!rs.next()) {
-            throw new SQLException("No Address found with the given customerId");
-        }
         while (rs.next()) {
             Address address = new Address();
             address.setId(rs.getInt("id"));
