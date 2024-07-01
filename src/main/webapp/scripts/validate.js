@@ -228,6 +228,7 @@ function checkCheckout(obj) {
     if (!validateExpiredCard()) check = false;
     if (!validateSecurityNumber()) check = false;
 
+    console.log("Result of checkCheckout: ", check);
 
     if (check) obj.submit();
 }
