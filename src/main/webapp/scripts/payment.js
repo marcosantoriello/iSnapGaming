@@ -7,26 +7,16 @@ window.onload = function() {
     let error = document.getElementById("error");
 }
 
-
-
-
-
 function checkData(){
-    let year = document.getElementById("y");
-    let month = document.getElementById("m");
+    let date = document.getElementById("expirationDate");
     let currentDate = new Date();
     if((month.value<=12 && month.value>=0) || (year.value>9999)){
-        let inputDate = new Date(year.value, month.value - 1);
-        if (inputDate < currentDate) {
-            year.style.borderColor = "red";
-            month.style.borderColor = "red";
+        if (date < currentDate) {
             error.innerText = "Expiration date cannot be earlier than today and the format must be MM/YY";
             return false;
         }
 
         else {
-            year.style.borderColor = "green";
-            month.style.borderColor = "green";
             error.innerText = "";
             return true;
         }
@@ -52,15 +42,15 @@ function checkCvv(){
     }
 }
 function  checkNum(){
-    let num=document.getElementById("num");
-    if(!num.value.match(numre)){
-        num.style.borderColor = "red";
-        error.innerText = "The card number must have the format ****-****-****, and consist of only digits.";
+    let cardNumber=document.getElementById("cardNumber");
+    if(!cardNumber.value.match(numre)){
+        cardNumber.style.borderColor = "red";
+        cardNumber.innerText = "The card number must have the format ****-****-****-****, and consist of only digits.";
         return false;
     }
     else {
-        num.style.borderColor = "green";
-        error.innerText = "";
+        cardNumber.style.borderColor = "green";
+        cardNumber.innerText = "";
         return true;
     }
 }
@@ -68,14 +58,13 @@ function  checkNum(){
 
 function send() {
 
-    if(checkCvv() && checkData() && checkInte() && checkNum()) {
+    if(checkCvv() && checkData() && checkNum()) {
         let form = document.getElementById("checkoutForm");
         form.action = "/PayOrder";
         form.submit();
+    } else {
+        event.preventDefault();
     }
-    let form = document.getElementById("checkoutForm");
-    form.action = "/PayOrder";
-    form.submit();
 
 }
 
