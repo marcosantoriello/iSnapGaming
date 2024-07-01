@@ -51,8 +51,8 @@ public class UserDAO {
     }
 
     public synchronized User getUserByUsernameAndPassword(String username, String password) throws SQLException, IllegalArgumentException {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be null or empty");
+        if (username == null || username.isEmpty() || password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("Cannot have empty username or password");
         }
         Connection connection = dataSource.getConnection();
 
@@ -61,6 +61,10 @@ public class UserDAO {
         ps.setString(1, username);
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
+        if (!rs.next()) {
+            throw new SQLException("No User found with the given credentials.");
+        }
+
         if (rs.next()) {
             User user = new User();
             user.setId(rs.getInt("id"));
@@ -76,6 +80,11 @@ public class UserDAO {
     }
     // Retrieving all the roles associated with a user
     public synchronized List<String> getUserRoles(int userId) throws SQLException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("Id cannot be negative");
+        }
+        // Checking if user exists in db or not
+        this.findByKey(userId);
         Connection connection = dataSource.getConnection();
         List<String> userRoles = new ArrayList<>();
         if (isCustomer(userId)) {
@@ -133,7 +142,7 @@ public class UserDAO {
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("Error: no User found with the given id.");
+            throw new SQLException("No User found with the given id");
         }
 
         User user = new User();
@@ -157,7 +166,7 @@ public class UserDAO {
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("Error: no User found with the given username.");
+            throw new SQLException("No User found with the given username");
         }
 
         User user = new User();
