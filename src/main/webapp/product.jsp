@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="com.isnapgaming.ProductManagement.Product" %>
+<%@ page import="com.isnapgaming.OrderManagement.Cart" %>
+
+<%
+    if (session.getAttribute("cart") == null) {
+        session.setAttribute("cart", new Cart());
+    }
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,14 +51,14 @@
                 <input type="hidden" name="prodCode" value="<%= p.getProdCode() %>">
                 <div class="product-title" style="font-size: 40px;"><%= p.getName()%></div>
                 <div class="product-quantity" style="text-align: center">
-                    <label for="quantity">Quantity: </label>
-                    <input type="number" id="quantity" name="quantity" min="1" max="<%= p.getQuantity() %>" value="1" style="width: 50px;">
+                    <label for="quantitySelected">Quantity: </label>
+                    <input type="number" id="quantitySelected" name="quantitySelected" min="1" max="<%= p.getQuantity() %>" value="1" style="width: 50px;">
                 </div>
                 <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
                 <%
                     if(p.isAvailable()){
                 %>
-                <button type="submit">Aggiungi al Carrello</button><!--<a href="AddToCart?prodCode=" class="btn btn-primary"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a> -->
+                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart </button><!--<a href="AddToCart?prodCode=" class="btn btn-primary"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a> -->
                 <%
                 }else{
                 %>

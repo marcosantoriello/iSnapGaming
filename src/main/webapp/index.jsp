@@ -5,11 +5,15 @@
 <%@ page import="com.isnapgaming.StorageManagement.DAO.ProductDAO" %>
 <%@ page import="com.isnapgaming.OrderManagement.Cart" %>
 <%@ page import="java.util.List" %>
+
 <%
-  if (session.getAttribute("cart") == null) {
-    session.setAttribute("cart", new Cart());
-  }
+
+    if (session.getAttribute("cart") == null) {
+      session.setAttribute("cart", new Cart());
+    }
+
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
