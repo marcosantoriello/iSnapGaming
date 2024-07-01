@@ -29,7 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static testing.SQLScript.executeSQLScript;
 
 public class CustomerDAOTest {
-    private CustomerDAO CustomerDAO;
+    private CustomerDAO customerDAO;
     private Connection conn;
     private DataSource ds;
     @BeforeEach
@@ -56,7 +56,7 @@ public class CustomerDAOTest {
             }
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
-        CustomerDAO=new CustomerDAO(ds);
+        customerDAO=new CustomerDAO(ds);
 
     }
 
@@ -83,27 +83,27 @@ public class CustomerDAOTest {
         customer.setDateOfBirth(LocalDate.of(2000,1,1));
         customer.setId(1);
         customer.setAddresses(addresses);
-        assertEquals(1, CustomerDAO.doSave(customer));
+        assertEquals(1, customerDAO.doSave(customer));
     }
 
     @Test
     void doSave_C2() throws SQLException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.doSave(null));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerDAO.doSave(null));
         assertEquals("Customer cannot be null", ex.getMessage());
     }
     @Test
     void findByKey_C1_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findByKey_C1_CD1.sql", conn);
-        Customer customer=CustomerDAO.findByKey(1);
+        Customer customer=customerDAO.findByKey(1);
         assertEquals(1, customer.getId());
     }
     @Test
     void findByKey_C2_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.findByKey(-3));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerDAO.findByKey(-3));
         assertEquals("Customer ID cannot be negative", ex.getMessage());
     }
 
@@ -111,7 +111,7 @@ public class CustomerDAOTest {
     void findByKey_C1_CD2() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
-        SQLException ex = assertThrows(SQLException.class, ()->CustomerDAO.findByKey(5));
+        SQLException ex = assertThrows(SQLException.class, ()->customerDAO.findByKey(5));
         assertEquals("No Customer found with the given id", ex.getMessage());
     }
 
@@ -119,29 +119,27 @@ public class CustomerDAOTest {
     void findAddressByCustomerId_C1_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD1.sql", conn);
-        // quest è un iserimento di un address fittizio a solo scopo di test
         Address address1= new Address();
         address1.setCustomerId(1);
         address1.setStreet("statale");
         address1.setCity("Roma");
         address1.setPostalCode(10345);
 
-        assertEquals(1, CustomerDAO.findByKey(1).getAddresses().get(0).getCustomerId());
+        assertEquals(1, customerDAO.findByKey(1).getAddresses().get(0).getCustomerId());
 
     }
 
     @Test
     void findAddressByCustomerId_C2_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.findByKey(-3).getId());
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerDAO.findByKey(-3).getId());
         assertEquals("Customer ID cannot be negative", ex.getMessage());
 
     }
     @Test
     void findAddressByCustomerId_C1_CD2() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        //executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD2.sql", conn);
-
+        //assertEquals(0, customerDAO.);
 
     }
 

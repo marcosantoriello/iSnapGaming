@@ -67,7 +67,7 @@ public class CustomerDAO {
             connection.close();
         }
     }
-    private synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
+    public synchronized List<Address> findAddressesByCustomerId(int customerId) throws SQLException, IllegalArgumentException {
         if (customerId < 0) {
             throw new IllegalArgumentException("Customer ID cannot be negative");
         }
