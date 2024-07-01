@@ -103,7 +103,7 @@ public class ProductDAOTest {
         assertEquals("Product cannot be null", ex.getMessage());
     }
 
-   // findByKey
+    // findByKey
     @Test
     void findByKey_P1_PD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
