@@ -1,0 +1,1 @@
+INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(252, "CoD WWII", "Activisoin", "PC", 55, 100, "SHOOTER", "PEGI18", 2017, false);

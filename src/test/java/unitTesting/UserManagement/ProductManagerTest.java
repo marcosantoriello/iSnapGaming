@@ -87,13 +87,13 @@ public class ProductManagerTest {
 
     @Test
     void removeProduct_A1() throws SQLException {
-    executeSQLScript("src/test/db/createDbForTest.sql", conn);
-    executeSQLScript("src/test/db/UserManagement/removeProduct_A1.sql", conn);
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/UserManagement/removeProduct_A1.sql", conn);
 
-    Product product = new Product();
-    product = productManager.getProductByProdCode(751, ds);
-    productManager.removeProduct(product,ds);
-    assertFalse(productManager.getProductByProdCode(751,ds).isAvailable());
+        Product product = new Product();
+        product = productManager.getProductByProdCode(751, ds);
+        productManager.removeProduct(product,ds);
+        assertFalse(productManager.getProductByProdCode(751,ds).isAvailable());
     }
     @Test
     void removeProduct_A2(){

@@ -42,27 +42,6 @@ public class AddressDAO {
         return addressId;
     }
 
-    public synchronized void doUpdate(Address address) throws SQLException, IllegalArgumentException {
-        if (address == null) {
-            throw new IllegalArgumentException("Address cannot be null");
-        }
-
-        Connection connection = dataSource.getConnection();
-
-        String query = "UPDATE " + AddressDAO.TABLE_NAME + " SET customerId = ?, street = ?, city = ?, postalCode = ? WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setInt(1, address.getId());
-        ps.setInt(2, address.getCustomerId());
-        ps.setString(3, address.getStreet());
-        ps.setString(4, address.getCity());
-        ps.setInt(5, address.getPostalCode());
-
-        ps.execute();
-
-        connection.close();
-    }
-
     public synchronized Address findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
@@ -119,21 +98,5 @@ public class AddressDAO {
 
         connection.close();
         return addresses;
-    }
-
-
-    public synchronized void doDelete(int id) throws SQLException, IllegalArgumentException {
-        if (id < 0) {
-            throw new IllegalArgumentException("Id cannot be negative");
-        }
-
-        Connection connection = dataSource.getConnection();
-        String query = "DELETE FROM " + AddressDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setInt(1, id);
-        ps.execute();
-
-        connection.close();
     }
 }

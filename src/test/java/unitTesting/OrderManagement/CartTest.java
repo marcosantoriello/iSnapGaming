@@ -13,7 +13,6 @@ import java.security.InvalidParameterException;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static testing.SQLScript.executeSQLScript;
 
 public class CartTest {
     private Cart cart;
