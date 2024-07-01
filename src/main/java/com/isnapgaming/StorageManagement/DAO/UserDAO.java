@@ -62,7 +62,7 @@ public class UserDAO {
         ps.setString(2, password);
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {
-            throw new SQLException("No User found with the given credentials.");
+            throw new SQLException("No User found with the given credentials");
         }
 
         if (rs.next()) {
@@ -133,12 +133,15 @@ public class UserDAO {
         return result;
     }
 
-    public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
+    public synchronized User findByKey(int userId) throws SQLException, IllegalArgumentException {
+        if (userId < 0) {
+            throw new IllegalArgumentException("Id cannot be negative");
+        }
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
         PreparedStatement ps = connection.prepareStatement(query);
 
-        ps.setInt(1, id);
+        ps.setInt(1, userId);
 
         ResultSet rs = ps.executeQuery();
         if (!rs.next()) {

@@ -1,6 +1,8 @@
 package com.isnapgaming.utils;
 
 import java.io.*;
+import java.sql.SQLException;
+import java.util.List;
 
 import com.isnapgaming.StorageManagement.DAO.*;
 import jakarta.servlet.ServletException;
@@ -22,6 +24,17 @@ public class TestPopolamento extends HttpServlet {
 
         PrintWriter out = response.getWriter();
         out.println("<p> Inizio del popolamento di prova... </p>");
+
+        try {
+            UserDAO userDAO = new UserDAO(ds);
+            List<String> roles = userDAO.getUserRoles(10);
+
+            for(String r : roles) {
+                System.out.println(r);
+            }
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
         /*
         // Creazione DataSource necessari
         try {
