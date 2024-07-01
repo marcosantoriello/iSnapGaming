@@ -39,8 +39,6 @@
                     <!-- la riga del prodotto inizia qui... -->
                     <%
                       for(ItemCart p: cart.getItems()){
-                        System.out.println(p.getProduct().getName());
-
                     %>
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
@@ -54,15 +52,15 @@
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                         <a href="UpdateCart?prodCode=<%= p.getProduct().getProdCode()%>&action=decrease" data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                           onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                           <i class="fas fa-minus"></i>
                         </a>
 
                         <input id="form1" min="0" name="quantity" value="<%= p.getQuantity() %>" type="number"
-                               class="form-control form-control-sm" />
+                               class="form-control form-control-sm" style="width: 70px; text-align: center" readonly/>
 
                         <a href="UpdateCart?prodCode=<%= p.getProduct().getProdCode()%>&action=add" data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
-                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                           onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                           <i class="fas fa-plus"></i>
                         </a>
                       </div>
