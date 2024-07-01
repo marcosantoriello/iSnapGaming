@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Product</title>
+        <title>Checkout</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles/product.css">
         <script src="scripts/validate.js"></script>
@@ -22,7 +22,7 @@
             <jsp:include page="fragments/header.jsp" />
                 <div class="content">
                     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-                        <form action="Checkout" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
+                        <form action="Payment" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
                             <h2 class="mb-3" style="text-align: center;">SHIPPING ADDRESS</h2>
                             <div class="form-group" style="margin: 15px 0;">
                                 <label for="streetCustomer">Street</label>
