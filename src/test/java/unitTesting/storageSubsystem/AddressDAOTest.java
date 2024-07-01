@@ -84,10 +84,16 @@ public class AddressDAOTest {
         }
     }
 
+    @Test
+    void findByKey_VA1()throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/findByKey_VA1.sql", conn);
+        assertEquals(1,addressDAO.findByKey(1).getId());
+    }
+    @Test
+    void findByKey_VA2(){
 
     }
-
-
 
 }
 
