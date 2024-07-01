@@ -11,7 +11,13 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="styles/carrello.css">
   <%
+
+    if (session.getAttribute("cart") == null) {
+      session.setAttribute("cart", new Cart());
+    }
+
     Cart cart = (Cart) session.getAttribute("cart");
+
   %>
 </head>
 <body>
@@ -47,31 +53,31 @@
 
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                        <a href="UpdateCart?prodCode=<%= p.getProduct().getProdCode()%>&action=decrease" data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
                                 onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                           <i class="fas fa-minus"></i>
-                        </button>
+                        </a>
 
-                        <input id="form1" min="0" name="quantity" value="1" type="number"
+                        <input id="form1" min="0" name="quantity" value="<%= p.getQuantity() %>" type="number"
                                class="form-control form-control-sm" />
 
-                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                        <a href="UpdateCart?prodCode=<%= p.getProduct().getProdCode()%>&action=add" data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
                                 onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                           <i class="fas fa-plus"></i>
-                        </button>
+                        </a>
                       </div>
                       <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0"><%= p.getProduct().getPrice() %></h6>
+                        <h6 class="mb-0"><%= p.getTotalPrice() %>.00 €</h6>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                        <a href="UpdateCart?prodCode=<%= p.getProduct().getProdCode()%>&action=remove" class="text-muted"><i class="fas fa-times"></i></a>
                       </div>
                     </div>
+                    <hr class="my-4">
                     <%
                       }
                     %>
-                    <!-- ... e finisce qui -->
-                    <hr class="my-4">
+
 
                     <div class="pt-5">
                       <h6 class="mb-0"><a href="index.jsp" class="text-body"><i
@@ -86,7 +92,7 @@
 
                     <div class="d-flex justify-content-between mb-5">
                       <h5 class="text-uppercase">Total price</h5>
-                      <h5><%= cart.getTotalPrice() %></h5>
+                      <h5><%= cart.getTotalPrice() %>.00 €</h5>
                     </div>
                     <div class="submit-button">
                       <input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
