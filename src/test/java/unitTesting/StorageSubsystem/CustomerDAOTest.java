@@ -89,6 +89,30 @@ public class CustomerDAOTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.doSave(null));
         assertEquals("Customer cannot be null", ex.getMessage());
     }
+    @Test
+    void findByKey_C1_CD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findByKey_C1_CD1.sql", conn);
+        Customer customer=CustomerDAO.findByKey(1);
+        assertEquals(1, customer.getId());
+    }
+    @Test
+    void findByKey_C2_CD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->CustomerDAO.findByKey(-3));
+        assertEquals("Customer ID cannot be negative", ex.getMessage());
+    }
 
+    @Test
+    void findByKey_C1_CD2() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
+    }
+
+    @Test
+    void findAddressByCustomerId_C1_CD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD1.sql", conn);
+
+    }
 }
