@@ -58,104 +58,74 @@ public class CustomerOrderDAO {
 
     public synchronized void updateStatus(int orderId, CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
         if (orderId < 0) {
-            throw new IllegalArgumentException("Order ID must be greater than 0");
+            throw new IllegalArgumentException("Id cannot be negative");
+        }
+        if (status == null) {
+            throw new IllegalArgumentException("Status cannot be null");
         }
         Connection connection = dataSource.getConnection();
         String query = "UPDATE " + CustomerOrderDAO.TABLE_NAME + " SET status = ? WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, status.toString());
-        ps.setInt(2, orderId);
-        ps.execute();
-
-        connection.close();
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, status.toString());
+            ps.setInt(2, orderId);
+            ps.execute();
+        } catch (SQLException e) {
+            throw new SQLException("No CustomerOrder found with the given id");
+        } finally {
+            connection.close();
+        }
     }
 
     public synchronized CustomerOrder findByKey(int id) throws SQLException, IllegalArgumentException {
         if (id < 0) {
-            throw new IllegalArgumentException("ID must be greater than 0");
+            throw new IllegalArgumentException("id cannot be negative");
         }
 
         Connection connection = dataSource.getConnection();
 
         // Retrieving CustomerOrder
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
 
-        ps.setInt(1, id);
+            ps.setInt(1, id);
 
-        ResultSet rs = ps.executeQuery();
-        if (!rs.next()) {
-            throw new SQLException("Error: no order found with ID " + id);
-        }
-        CustomerOrder order = new CustomerOrder();
-        order.setId(rs.getInt("id"));
-        order.setCustomerId(rs.getInt("customerId"));
-        order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-        order.setAddress((rs.getString("address")));
-        order.setOrderDate(rs.getDate("orderDate").toLocalDate());
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                CustomerOrder order = new CustomerOrder();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customerId"));
+                order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
+                order.setAddress((rs.getString("address")));
+                order.setOrderDate(rs.getDate("orderDate").toLocalDate());
 
-        // Retrieving OrderProducts
-        String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
-        PreparedStatement ps2 = connection.prepareStatement(query2);
-        ps2.setInt(1, order.getId());
-        ResultSet rs2 = ps.executeQuery();
-        List<OrderProduct> orderProducts = new ArrayList<>();
+                // Retrieving OrderProducts
+                String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
+                PreparedStatement ps2 = connection.prepareStatement(query2);
+                ps2.setInt(1, order.getId());
+                ResultSet rs2 = ps.executeQuery();
+                List<OrderProduct> orderProducts = new ArrayList<>();
 
-        while(rs2.next()) {
-            OrderProduct orderProduct = new OrderProduct();
-            orderProduct.setOrderId(rs2.getInt("orderId"));
-            orderProduct.setProductId(rs2.getInt("productId"));
-            orderProduct.setQuantity(rs2.getInt("quantity"));
-            orderProduct.setPrice(rs2.getInt("price"));
-            orderProducts.add(orderProduct);
-        }
-        order.setProducts(orderProducts);
-        connection.close();
-        return order;
-    }
-
-    public synchronized List<CustomerOrder> findByStatus(CustomerOrder.Status status) throws SQLException, IllegalArgumentException {
-        if (status == null) {
-            throw new IllegalArgumentException("Status cannot be null");
-        }
-
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME + " WHERE status = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setString(1, status.toString());
-        ResultSet rs = ps.executeQuery();
-        List<CustomerOrder> orders = new ArrayList<>();
-        while (rs.next()) {
-            CustomerOrder order = new CustomerOrder();
-            order.setId(rs.getInt("id"));
-            order.setCustomerId(rs.getInt("customerId"));
-            order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress((rs.getString("address")));
-            order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-
-            // Retrieving OrderProducts
-            String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
-            PreparedStatement ps2 = connection.prepareStatement(query2);
-            ps2.setInt(1, order.getId());
-            ResultSet rs2 = ps.executeQuery();
-            List<OrderProduct> orderProducts = new ArrayList<>();
-
-            while(rs2.next()) {
-                OrderProduct orderProduct = new OrderProduct();
-                orderProduct.setOrderId(rs2.getInt("orderId"));
-                orderProduct.setProductId(rs2.getInt("productId"));
-                orderProduct.setQuantity(rs2.getInt("quantity"));
-                orderProduct.setPrice(rs2.getInt("price"));
-                orderProducts.add(orderProduct);
+                while(rs2.next()) {
+                    OrderProduct orderProduct = new OrderProduct();
+                    orderProduct.setOrderId(rs2.getInt("orderId"));
+                    orderProduct.setProductId(rs2.getInt("productId"));
+                    orderProduct.setQuantity(rs2.getInt("quantity"));
+                    orderProduct.setPrice(rs2.getInt("price"));
+                    orderProducts.add(orderProduct);
+                }
+                order.setProducts(orderProducts);
+                return order;
+            } else {
+                throw new SQLException("No CustomerOrder found with the given id");
             }
-            order.setProducts(orderProducts);
-            orders.add(order);
+        } catch (SQLException e) {
+            throw new SQLException(e.getMessage());
+        } finally {
+            connection.close();
         }
-
-        connection.close();
-        return orders;
     }
-
     public List<CustomerOrder> doRetrieveAll() throws SQLException {
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
