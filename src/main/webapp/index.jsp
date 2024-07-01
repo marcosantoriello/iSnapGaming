@@ -1,5 +1,11 @@
+<%@ page import="com.isnapgaming.OrderManagement.Cart" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%
+  if (session.getAttribute("cart") == null) {
+    session.setAttribute("cart", new Cart());
+  }
+%>
 <!DOCTYPE html>
 <html>
 <head>

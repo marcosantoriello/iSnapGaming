@@ -66,7 +66,6 @@ public class Login extends HttpServlet {
             } else if (roles.get(0).equals("Customer")) {
                 // If the user is a customer, then I take him back to where he was before the login
                 session.setAttribute("role", "Customer");
-                session.setAttribute("cart", new Cart());
                 response.sendRedirect(redirectUrl);
             } else if (roles.get(0).equals("ProductManager")) {
                 session.setAttribute("role", "ProductManager");
