@@ -43,7 +43,7 @@ public class CustomerOrderDAO {
         String sql2 = "INSERT INTO orderproduct (orderId, productId, quantity, price) VALUES (?, ?, ?, ?)";
         PreparedStatement ps2 = connection.prepareStatement(sql2);
         for (OrderProduct orderProduct : order.getProducts()) {
-            ps2.setInt(1, orderProduct.getOrderId());
+            ps2.setInt(1, customerOrderId);
             ps2.setInt(2, orderProduct.getProductId());
             ps2.setInt(3, orderProduct.getQuantity());
             ps2.setInt(4, orderProduct.getPrice());

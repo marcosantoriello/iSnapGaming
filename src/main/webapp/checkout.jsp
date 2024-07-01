@@ -20,12 +20,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/product.css">
     <script src="scripts/validate.js"></script>
+
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
 <div class="content">
     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-        <form action="Payment" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
+        <form action="PayOrder" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
             <h2 class="mb-3" style="text-align: center;">SHIPPING ADDRESS</h2>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="streetCustomer">Street</label>
@@ -43,15 +44,15 @@
             <span id="cardNumberError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
-                <label for="expiryDate">Expiry Date</label>
-                <input id="expiryDate" type="date" name="expiryDate" class="form-control" required onChange="return validateExpiredCard()">
+                <label for="expirationDate">Expiry Date</label>
+                <input id="expirationDate" type="date" name="expirationDate" class="form-control" required onChange="return validateExpiredCard()">
             </div>
 
-            <span id="expiryError" style="max-width: 209px; font-size: 15px;"></span>
+            <span id="expirationDateError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
-                <label for="securityNumber">Security Number</label>
-                <input id="securityNumber" type="text" name="securityNumber" class="form-control" required onChange="return validateSecurityNumber()">
+                <label for="cvv">Security Number</label>
+                <input id="cvv" type="text" name="cvv" class="form-control" required onChange="return validateSecurityNumber()">
             </div>
 
             <span id="securityNumberError" style="max-width: 209px; font-size: 15px;"></span>
