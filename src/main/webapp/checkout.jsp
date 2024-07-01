@@ -29,7 +29,7 @@
         <form action="PayOrder" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
             <h2 class="mb-3" style="text-align: center;">SHIPPING ADDRESS</h2>
             <div class="form-group" style="margin: 15px 0;">
-                <label for="streetCustomer">Street</label>
+                <label for="streetCustomer">Address</label>
                 <input id="streetCustomer" type="text" name="streetCustomer" class="form-control" required>
             </div>
             <br/><br/><br/>

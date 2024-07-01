@@ -9,7 +9,6 @@ import com.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderCreation;
 import com.isnapgaming.StorageManagement.DAO.CustomerOrderDAO;
-import com.isnapgaming.UserManagement.Customer;
 import com.isnapgaming.UserManagement.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -58,20 +57,20 @@ public class PayOrder extends HttpServlet {
         } catch (ServletException e) {
             //response.setAttribute("error", e.getMessage());
             //response.sendRedirect("/errorPage.jsp");
-            throw new ServletException(e.getMessage());
+            response.sendRedirect(getServletContext().getContextPath()+"/errorPage.jsp?errorMessage="+e.getMessage());
         }
+        int orderId = 0;
         if (res) {
             DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
             try {
                 CustomerOrderDAO orderDAO = new CustomerOrderDAO(ds);
-                orderDAO.doSave(order);
+                orderId = orderDAO.doSave(order);
             } catch (SQLException e) {
                 e.printStackTrace();
                 throw new ServletException("There was an error in saving your order.");
             }
-
-            //response.sendRedirect("/confirmationPage.jsp");
-            System.out.println("SUCCESS!");
+            session.setAttribute("orderId", orderId);
+            response.sendRedirect(getServletContext().getContextPath()+"/confirmationPage.jsp");
 
         }
 

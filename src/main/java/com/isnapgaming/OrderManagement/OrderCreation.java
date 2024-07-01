@@ -37,7 +37,7 @@ public class OrderCreation {
         PaymentAuthorizationServiceAdapter bank = new PaymentAuthorizationServiceAdapter();
 
         if (!bank.checkPaymentData(cardNumber, expirationDate, cvv, order.getTotalAmount())) {
-            throw new ServletException("An error has occurred while trying to pay. Please, check your data.");
+            throw new ServletException("An error has occurred while trying to pay. The payment has been rejected.");
         }
 
         if (!bank.executePayment(cardNumber, expirationDate, cvv, order.getTotalAmount())) {
