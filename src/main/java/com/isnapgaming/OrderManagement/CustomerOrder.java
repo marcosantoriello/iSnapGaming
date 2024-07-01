@@ -32,7 +32,7 @@ public class CustomerOrder {
         this.totalAmount = 0;
         this.products = null;
     }
-    public CustomerOrder makeCustomerOrder(Customer customer, String address, LocalDate orderDate, List<OrderProduct> products) {
+    public static CustomerOrder makeCustomerOrder(int customerId, String address, LocalDate orderDate, List<OrderProduct> products) {
         CustomerOrder order = new CustomerOrder();
         order.setCustomerId(customerId);
         order.setStatus(Status.TO_BE_MANAGED);
