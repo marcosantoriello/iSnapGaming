@@ -119,27 +119,21 @@ public class CustomerDAOTest {
     void findAddressByCustomerId_C1_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerDAO/findAddressByCustomerId_C1_CD1.sql", conn);
-        Address address1= new Address();
-        address1.setCustomerId(1);
-        address1.setStreet("statale");
-        address1.setCity("Roma");
-        address1.setPostalCode(10345);
 
-        assertEquals(1, customerDAO.findByKey(1).getAddresses().get(0).getCustomerId());
-
+        assertEquals(1, customerDAO.findAddressesByCustomerId(1).get(0).getCustomerId());
     }
 
     @Test
     void findAddressByCustomerId_C2_CD1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerDAO.findByKey(-3).getId());
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerDAO.findAddressesByCustomerId(-3));
         assertEquals("Customer ID cannot be negative", ex.getMessage());
 
     }
     @Test
     void findAddressByCustomerId_C1_CD2() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        //assertEquals(0, customerDAO.);
+        assertEquals(0, customerDAO.findAddressesByCustomerId(5).size());
 
     }
 
