@@ -103,4 +103,63 @@ public class ProductDAOTest {
         assertEquals("Product cannot be null", ex.getMessage());
     }
 
+   // findByKey
+    @Test
+    void findByKey_P1_PD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByKey_P1_PD1.sql", conn);
+
+        Product product = productDAO.findByKey(1);
+        assertEquals(1, product.getId());
+    }
+
+    @Test
+    void findByKey_P2_PD1() throws SQLException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->productDAO.findByKey(-3));
+        assertEquals("Id cannot be negative", ex.getMessage());
+    }
+
+    @Test
+    void findByKey_P1_PD2() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByKey_P1_PD2.sql", conn);
+
+        SQLException ex = assertThrows(SQLException.class, ()->productDAO.findByKey(5));
+        assertEquals("No Product found with the given id.", ex.getMessage());
+    }
+
+    // findByProdCode
+    @Test
+    void findByProdKey_P1_PD1() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByProdCode_P1_PD1.sql", conn);
+
+        Product product = productDAO.findByProdCode(252);
+        assertEquals("CoD WWII", product.getName());
+    }
+
+    @Test
+    void findByProdKey_P2_PD1() throws SQLException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->productDAO.findByProdCode(-3));
+        assertEquals("prodCode cannot be negative", ex.getMessage());
+    }
+
+    @Test
+    void findByProdKey_P1_PD2() throws SQLException, IllegalArgumentException{
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByProdCode_P1_PD2.sql", conn);
+
+        SQLException ex = assertThrows(SQLException.class, ()->productDAO.findByProdCode(5));
+        assertEquals("No Product found with the given prodCode.", ex.getMessage());
+    }
+
+    // findByCategory
+    @Test
+    void findByCategory_C1_CC1() {
+
+    }
 }

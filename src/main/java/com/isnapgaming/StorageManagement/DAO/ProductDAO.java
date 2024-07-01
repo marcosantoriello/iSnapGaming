@@ -101,7 +101,9 @@ public class ProductDAO {
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
-
+        if (!rs.next()) {
+            throw new SQLException("No Product found with the given id.");
+        }
 
         product.setId(rs.getInt("id"));
         product.setProdCode(rs.getInt("prodCode"));
@@ -122,7 +124,7 @@ public class ProductDAO {
 
     public synchronized Product findByProdCode(int prodCode) throws SQLException, IllegalArgumentException {
         if (prodCode < 0) {
-            throw new IllegalArgumentException("Product Code cannot be negative");
+            throw new IllegalArgumentException("prodCode cannot be negative");
         }
 
         Connection connection = dataSource.getConnection();
@@ -133,7 +135,7 @@ public class ProductDAO {
         ResultSet rs = ps.executeQuery();
 
         if (!rs.next()) {
-            throw new SQLException("Error: no Product found with the given id.");
+            throw new SQLException("No Product found with the given prodCode.");
         }
 
         Product product = new Product();
@@ -218,18 +220,5 @@ public class ProductDAO {
 
         connection.close();
         return products;
-    }
-    // TO DELETE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public synchronized void doDelete(Product product) throws SQLException, IllegalArgumentException {
-        if (product == null) {
-            throw new IllegalArgumentException("Product cannot be null");
-        }
-        Connection connection = dataSource.getConnection();
-        String query = "DELETE FROM " + ProductDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-        ps.setInt(1, product.getId());
-        ps.executeUpdate();
-
-        connection.close();
     }
 }
