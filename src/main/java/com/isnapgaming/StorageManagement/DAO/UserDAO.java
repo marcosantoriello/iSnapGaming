@@ -137,54 +137,60 @@ public class UserDAO {
         return result;
     }
 
-    public synchronized User findByKey(int userId) throws SQLException, IllegalArgumentException {
-        if (userId < 0) {
+    public synchronized User findByKey(int id) throws SQLException, IllegalArgumentException {
+        if (id < 0) {
             throw new IllegalArgumentException("Id cannot be negative");
         }
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE id = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
+        try {
 
-        ps.setInt(1, userId);
-
-        ResultSet rs = ps.executeQuery();
-        if (!rs.next()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                User user = new User();
+                user.setId(rs.getInt("id"));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
+                return user;
+            } else {
+                throw new SQLException("No User found with the given id");
+            }
+        } catch (SQLException e) {
             throw new SQLException("No User found with the given id");
+        } finally {
+            connection.close();
         }
-
-        User user = new User();
-        user.setId(rs.getInt("id"));
-        user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password"));
-        user.setFirstName(rs.getString("firstName"));
-        user.setLastName(rs.getString("lastName"));
-        user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
-
-        connection.close();
-        return user;
     }
 
     public synchronized User findByUsername(String username) throws SQLException, IllegalArgumentException {
+        if (username == null) {
+            throw new IllegalArgumentException("Username cannot be null");
+        }
         Connection connection = dataSource.getConnection();
         String query = "SELECT * FROM " + UserDAO.TABLE_NAME + " WHERE username = ?";
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ps.setString(1, username);
-
-        ResultSet rs = ps.executeQuery();
-        if (!rs.next()) {
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            User user = new User();
+            user.setId(rs.getInt("id"));
+            user.setUsername(rs.getString("username"));
+            user.setPassword(rs.getString("password"));
+            user.setFirstName(rs.getString("firstName"));
+            user.setLastName(rs.getString("lastName"));
+            user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
+            return user;
+        } catch(SQLException e) {
             throw new SQLException("No User found with the given username");
+        } finally {
+            connection.close();
         }
 
-        User user = new User();
-        user.setId(rs.getInt("id"));
-        user.setUsername(rs.getString("username"));
-        user.setPassword(rs.getString("password"));
-        user.setFirstName(rs.getString("firstName"));
-        user.setLastName(rs.getString("lastName"));
-        user.setDateOfBirth(rs.getDate("dateOfBirth").toLocalDate());
-
-        connection.close();
-        return user;
     }
 }
