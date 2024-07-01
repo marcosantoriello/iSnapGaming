@@ -46,8 +46,8 @@
                 <p><strong>Release Year:</strong> <%= p.getReleaseYear()%> </p>
             </div>
         </div>
-        <div class="product-right-side" style="padding: 100px 30px;">
-            <form action="AddToCart" method="post">
+            <div class="product-right-side" style="padding: 100px 30px;">
+                <form action="AddToCart" method="post" class="form-product" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;gap: 50px;">
                 <input type="hidden" name="prodCode" value="<%= p.getProdCode() %>">
                 <div class="product-title" style="font-size: 40px;"><%= p.getName()%></div>
                 <div class="product-quantity" style="text-align: center">
@@ -67,8 +67,8 @@
                 <%
                     }
                 %>
-            </form>
-        </div>
+                </form>
+            </div>
     </div>
 </div>
 <jsp:include page="fragments/footer.jsp" />
