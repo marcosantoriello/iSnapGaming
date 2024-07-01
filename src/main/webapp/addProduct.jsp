@@ -31,8 +31,7 @@
             <div class="form-group" style="margin: 15px 0;">
                 <label>Platform</label>
                 <select name="platformProduct" class="form-select" aria-label="Default select example">
-                    <option selected>Select... </option>
-                    <option value="PC">PC</option>
+                    <option value="PC" selected>PC</option>
                     <option value="PS4">PS4</option>
                     <option value="PS5">PS5</option>
                     <option value="XBOX">XBOX</option>
@@ -41,8 +40,7 @@
             <div class="form-group" style="margin: 15px 0;">
                 <label>Category</label>
                 <select name="categoryProduct" class="form-select" aria-label="Default select example">
-                    <option selected>Select... </option>
-                    <option value="ACTION">ACTION</option>
+                    <option value="ACTION" selected>ACTION</option>
                     <option value="ADVENTURE">ADVENTURE</option>
                     <option value="RPG">RPG</option>
                     <option value="STRATEGY">STRATEGY</option>
@@ -56,8 +54,7 @@
             <div class="form-group" style="margin: 15px 0;">
                 <label>PEGI</label>
                 <select name="pegiProduct" class="form-select" aria-label="Default select example">
-                    <option selected>Select... </option>
-                    <option value="PEGI3">PEGI3</option>
+                    <option value="PEGI3" selected>PEGI3 </option>
                     <option value="PEGI7">PEGI7</option>
                     <option value="PEGI12">PEGI12</option>
                     <option value="PEGI16">PEGI16</option>
