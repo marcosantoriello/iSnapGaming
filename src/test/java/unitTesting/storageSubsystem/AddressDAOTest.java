@@ -97,8 +97,16 @@ public class AddressDAOTest {
         assertEquals(ex.getMessage(), "Id cannot be negative");
     }
     @Test
-    void findByKey_VA1_VD2()throws SQLException {
+    void findByKey_VA1_VD2()throws SQLException,IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD2.sql", conn);
+        SQLException ex = assertThrows(SQLException.class,()->addressDAO.findByKey(3));
+        assertEquals(ex.getMessage(), "No Address found with the given id");
+    }
+    @Test
+    void findByCustomerId_C1_CD1()throws SQLException {
+        executeSQLScript("src/test/db/createDbForTest.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD1.sql", conn);
 
     }
 
