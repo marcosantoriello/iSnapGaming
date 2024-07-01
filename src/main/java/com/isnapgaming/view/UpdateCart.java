@@ -51,7 +51,6 @@ public class UpdateCart extends HttpServlet {
             cart.addToCart(product, 1);
 
         }else if("decrease".equals(action)){
-
             cart.decreaseQuantityCart(product, 1);
 
         }else if("remove".equals(action)){

@@ -59,13 +59,15 @@ public class Cart {
         Iterator<ItemCart> iterator = items.iterator();
         while (iterator.hasNext()) {
             ItemCart item = iterator.next();
-            if (item.getProduct() == product) {
+            if (item.getProduct().equals(product)) {
                 if (quantity > item.getQuantity()) {
                     throw new RuntimeException("Invalid quantity");
-                } else if (quantity == item.getQuantity()) {
+            } else if (quantity == item.getQuantity()) {
                     iterator.remove();
+                    calculateTotalPrice();
                 } else {
                     item.setQuantity(item.getQuantity() - quantity);
+                    calculateTotalPrice();
                 }
             }
         }
@@ -74,7 +76,7 @@ public class Cart {
 
     private boolean isProductInCart(Product product) {
         for (ItemCart item : items) {
-            if (item.getProduct() == product) {
+            if (item.getProduct().equals(product)) {
                 return true;
             }
         }
