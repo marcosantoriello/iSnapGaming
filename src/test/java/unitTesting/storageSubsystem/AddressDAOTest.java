@@ -106,7 +106,9 @@ public class AddressDAOTest {
     @Test
     void findByCustomerId_C1_CD1()throws SQLException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD1.sql", conn);
+        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerId_C1_CD1.sql", conn);
+
+
 
     }
 
