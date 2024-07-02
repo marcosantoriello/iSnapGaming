@@ -17,3 +17,9 @@ INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, ca
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(652, "Fortnite", "Epic Games", "PS4", 15, 100, "ACTION", "PEGI12", 2017, true);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(652, "Cod WWII", "Activision", "PC", 30, 75, "SHOOTER", "PEGI18", 2017, true);
 
+INSERT INTO customerorder(customerId, status, address, orderDate, totalAmount) VALUES (3, "TO_BE_MANAGED", "Via Roma", '2024-01-01', 60);
+INSERT INTO orderproduct(orderId, productId, quantity, price) VALUES (1, 1, 3, 20);
+
+INSERT INTO customerorder(customerId, status, address, orderDate, totalAmount) VALUES (3, "TO_BE_MANAGED", "Via Roma", '2024-02-02', 100);
+INSERT INTO orderproduct(orderId, productId, quantity, price) VALUES (2, 1, 1, 50);
+INSERT INTO orderproduct(orderId, productId, quantity, price) VALUES (3, 3, 1, 50);
