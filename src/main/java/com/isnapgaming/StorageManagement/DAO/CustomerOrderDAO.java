@@ -128,43 +128,71 @@ public class CustomerOrderDAO {
             connection.close();
         }
     }
+
     public List<CustomerOrder> doRetrieveAll() throws SQLException {
-        Connection connection = dataSource.getConnection();
-        String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
-        PreparedStatement ps = connection.prepareStatement(query);
-
-        ResultSet rs = ps.executeQuery();
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         List<CustomerOrder> orders = new ArrayList<>();
-        while (rs.next()) {
-            CustomerOrder order = new CustomerOrder();
-            order.setId(rs.getInt("id"));
-            order.setCustomerId(rs.getInt("customerId"));
-            order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
-            order.setAddress((rs.getString("address")));
-            order.setOrderDate(rs.getDate("orderDate").toLocalDate());
-            orders.add(order);
-        }
-        // Retrieving OrderProducts for every order in orders
-        for (CustomerOrder relOrd: orders) {
-            String query2 = "SELECT * FROM orderproduct WHERE orderId = ?";
-            PreparedStatement ps2 = connection.prepareStatement(query2);
-            ps2.setInt(1, relOrd.getId());
-            ResultSet rs2 = ps.executeQuery();
-            List<OrderProduct> orderProducts = new ArrayList<>();
 
-            rs2.next();
-            while(rs2.next()) {
+        try {
+            connection = dataSource.getConnection();
+            String query = "SELECT * FROM " + CustomerOrderDAO.TABLE_NAME;
+            ps = connection.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                CustomerOrder order = new CustomerOrder();
+                order.setId(rs.getInt("id"));
+                order.setCustomerId(rs.getInt("customerId"));
+                order.setStatus(CustomerOrder.Status.valueOf(rs.getString("status")));
+                order.setAddress(rs.getString("address"));
+                order.setOrderDate(rs.getDate("orderDate").toLocalDate());
+                order.setTotalAmount(rs.getInt("totalAmount"));
+                orders.add(order);
+            }
+
+            // Retrieving OrderProducts for each order
+            for (CustomerOrder order : orders) {
+                List<OrderProduct> orderProducts = retrieveOrderProducts(connection, order.getId());
+                order.setProducts(orderProducts);
+            }
+
+        } finally {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
+            if (connection != null) connection.close();
+        }
+
+        return orders;
+    }
+
+    private List<OrderProduct> retrieveOrderProducts(Connection connection, int orderId) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<OrderProduct> orderProducts = new ArrayList<>();
+
+        try {
+            String query = "SELECT * FROM OrderProduct WHERE orderId = ?";
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
                 OrderProduct orderProduct = new OrderProduct();
-                orderProduct.setOrderId(rs2.getInt("orderId"));
-                orderProduct.setProductId(rs2.getInt("productId"));
-                orderProduct.setQuantity(rs2.getInt("quantity"));
-                orderProduct.setPrice(rs2.getInt("price"));
+                orderProduct.setOrderId(rs.getInt("orderId"));
+                orderProduct.setProductId(rs.getInt("productId"));
+                orderProduct.setQuantity(rs.getInt("quantity"));
+                orderProduct.setPrice(rs.getInt("price"));
                 orderProducts.add(orderProduct);
             }
-            relOrd.setProducts(orderProducts);
+
+        } finally {
+            if (rs != null) rs.close();
+            if (ps != null) ps.close();
         }
-        connection.close();
-        return orders;
+
+        return orderProducts;
     }
 
 }
