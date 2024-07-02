@@ -1,12 +1,11 @@
 package com.isnapgaming.utils;
 
-import com.isnapgaming.StorageManagement.DAO.ImageDAO;
+
 import jakarta.servlet.ServletContextListener;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 
-import java.io.File;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,23 +20,8 @@ public class ContextInitializer implements ServletContextListener {
         System.out.println("Initializing Context and DataSource...");
 
         ServletContext context = event.getServletContext();
-        String tomcatRootDir = context.getRealPath("/");
         DataSource dataSource = null;
 
-        // Setting Images directory
-        try {
-            ImageDAO.setImagesDirectory(tomcatRootDir + "..\\Images");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-        File file = new File(ImageDAO.getImagesDirectory());
-        System.out.println(ImageDAO.getImagesDirectory());
-        if(!file.exists() || !file.isDirectory()) {
-            boolean r = file.mkdir();
-            if(! r)
-                throw new RuntimeException("Warning: Images directory not created!");
-        }
 
         try {
             Context initContext = new InitialContext();

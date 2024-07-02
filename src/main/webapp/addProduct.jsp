@@ -8,12 +8,24 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/addProduct.css">
 </head>
+<%
+    String error = (String) request.getAttribute("error");
+%>
 <body>
 <jsp:include page="fragments/header.jsp" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
+    <%
+        if(error != null){
+    %>
+    <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+        <%= error %>
+    </div>
+    <%
+        }
+    %>
     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-        <form action="AddProduct" method="POST">
+        <form action="AddProduct" method="POST" enctype="multipart/form-data">
             <h2 class="mb-3" style="text-align: center;">ADD PRODUCT</h2>
             <br/>
             <div class="form-group" style="margin: 15px 0;">
@@ -75,10 +87,10 @@
             </div>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="imageProduct">Image</label>
-                <input id="imageProduct" type="file" name="imageProduct" class="form-control" required>
+                <input id="imageProduct" type="file" name="imageProduct" class="form-control" accept="image/*" required>
             </div>
             <div class="submit-button">
-                <input type="submit" value="Add Product" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
+                <input type="submit" value="Add Product" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0" accept='image/*'>
             </div>
         </form>
     </div>

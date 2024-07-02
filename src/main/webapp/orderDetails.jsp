@@ -14,7 +14,7 @@
         <div class="content">
             <div class="product">
                 <div class="product-left-side">
-                    <img src="app_imgs/logo.png" alt="Product Image" class="product-img">
+                    <img src="app_imgs/logo/logo.png" alt="Product Image" class="product-img">
                 </div>
                 <div class="product-right-side">
                     <div class="product-title">Product Title</div>

@@ -23,19 +23,19 @@
         if ("ProductManager".equals(role)) {
     %>
     <a class="navbar-brand" href="productManagerDashboard.jsp">
-        <img src="app_imgs/logo.png" width="50" height="50" alt="">
+        <img src="app_imgs/logo/logo.png" width="50" height="50" alt="">
     </a>
     <%
     } else if ("OrderManager".equals(role)) {
     %>
     <a class="navbar-brand" href="orderManagerDashboard.jsp">
-        <img src="app_imgs/logo.png" width="50" height="50" alt="">
+        <img src="app_imgs/logo/logo.png" width="50" height="50" alt="">
     </a>
     <%
     } else {
     %>
     <a class="navbar-brand" href="index.jsp">
-        <img src="app_imgs/logo.png" width="50" height="50" alt="">
+        <img src="app_imgs/logo/logo.png" width="50" height="50" alt="">
     </a>
     <%
         }
