@@ -15,41 +15,62 @@ public class OrderManager extends Manager{
 
     // Business Logic methods
     public List<CustomerOrder> getAllCustomerOrders(DataSource dataSource) throws SQLException {
+        if (dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         return orderDAO.doRetrieveAll();
     }
 
     public void checkProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
     public void packProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.READY_FOR_SENDING);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
     public void replaceProduct(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
     public void contactCourier(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.SHIPPED);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
     public void restoreOrder(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
     public void confirmDelivery(CustomerOrder order, DataSource dataSource) throws SQLException {
+        if (order == null ||dataSource == null) {
+            throw new IllegalArgumentException("Cannot have empty arguments");
+        }
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
         order.setStatus(CustomerOrder.Status.DELIVERED);
         orderDAO.updateStatus(order.getId(), order.getStatus());
