@@ -37,7 +37,7 @@
 <div class="content">
     <div class="product">
         <div class="product-left-side">
-            <img src="app_imgs/logo.png" alt="Product Image" class="product-img">
+            <img src="app_imgs/logo/logo.png" alt="Product Image" class="product-img">
             <div class="product-details">
                 <p><strong>Software House:</strong> <%= p.getSoftwareHouse()%></p>
                 <p><strong>Platform:</strong> <%= p.getPlatform()%> </p>

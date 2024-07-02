@@ -39,7 +39,7 @@
         for(Product p: products){
     %>
     <div class="card" style="width: 18rem;">
-      <img src="app_imgs/logo.png" class="card-img-top" alt="...">
+      <img src="app_imgs/logo/logo.png" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">
           <%= p.getName() %>

@@ -20,35 +20,35 @@
                     <div class="product-list">
                         <div class="product-item">
                             <div class="product-info">
-                                <img src="app_imgs/logo.png" alt="Product Image">
+                                <img src="app_imgs/logo/logo.png" alt="Product Image">
                                 <h3 style="padding: 20px;">Product Name</h3>
                             </div>
                             <a href="#" class="btn btn-secondary">Details</a>
                         </div>
                         <div class="product-item">
                             <div class="product-info">
-                                <img src="app_imgs/logo.png" alt="Product Image">
+                                <img src="app_imgs/logo/logo.png" alt="Product Image">
                                 <h3 style="padding: 20px;">Product Name</h3>
                             </div>
                             <a href="#" class="btn btn-secondary">Details</a>
                         </div>
                         <div class="product-item">
                             <div class="product-info">
-                                <img src="app_imgs/logo.png" alt="Product Image">
+                                <img src="app_imgs/logo/logo.png" alt="Product Image">
                                 <h3 style="padding: 20px;">Product Name</h3>
                             </div>
                             <a href="#" class="btn btn-secondary">Details</a>
                         </div>
                         <div class="product-item">
                             <div class="product-info">
-                                <img src="app_imgs/logo.png" alt="Product Image">
+                                <img src="app_imgs/logo/logo.png" alt="Product Image">
                                 <h3 style="padding: 20px;">Product Name</h3>
                             </div>
                             <a href="#" class="btn btn-secondary">Details</a>
                         </div>
                         <div class="product-item">
                             <div class="product-info">
-                                <img src="app_imgs/logo.png" alt="Product Image">
+                                <img src="app_imgs/logo/logo.png" alt="Product Image">
                                 <h3 style="padding: 20px;">Product Name</h3>
                             </div>
                             <a href="#" class="btn btn-secondary">Details</a>
