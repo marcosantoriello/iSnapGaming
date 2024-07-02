@@ -33,6 +33,19 @@ public class CustomerOrder {
         this.products = null;
     }
     public static CustomerOrder makeCustomerOrder(int customerId, String address, LocalDate orderDate, List<OrderProduct> products) {
+        if (customerId < 0) {
+            throw new IllegalArgumentException("CustomerId cannot be null");
+        }
+        if (address == null) {
+            throw new IllegalArgumentException("Address cannot be null");
+        }
+        if (orderDate == null) {
+            throw new IllegalArgumentException("OrderDate cannot be null");
+        }
+        if (products == null) {
+            throw new IllegalArgumentException("Cannot have an order with no products in it.");
+        }
+
         CustomerOrder order = new CustomerOrder();
         order.setCustomerId(customerId);
         order.setStatus(Status.TO_BE_MANAGED);
