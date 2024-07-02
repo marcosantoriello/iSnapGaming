@@ -30,6 +30,7 @@ import static testing.SQLScript.executeSQLScript;
 
 public class CustomerDAOTest {
     private CustomerDAO customerDAO;
+    private Address address;
     private Connection conn;
     private DataSource ds;
     @BeforeEach
@@ -56,6 +57,7 @@ public class CustomerDAOTest {
             }
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
+        address = Mockito.mock(Address.class);
         customerDAO=new CustomerDAO(ds);
 
     }
@@ -69,12 +71,7 @@ public class CustomerDAOTest {
     void doSave_C1()throws SQLException, IllegalArgumentException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         List<Address> addresses=new ArrayList<>();
-        Address address1= new Address();
-        address1.setCustomerId(1);
-        address1.setStreet("statale");
-        address1.setCity("Roma");
-        address1.setPostalCode(10345);
-        addresses.add(address1);
+        addresses.add(address);
         Customer customer= new Customer();
         customer.setUsername("pio");
         customer.setPassword("password1");
