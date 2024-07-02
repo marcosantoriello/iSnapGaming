@@ -41,10 +41,13 @@
     <div class="card" style="width: 18rem;">
       <img src="ImageServlet?image=<%=p.getProdCode()%>_1.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">
+        <h5 class="card-title" style="text-align: center">
           <%= p.getName() %>
-          <span style="float: right;"><%= p.getPrice() %>.00 €</span>
         </h5>
+        <br>
+        <h6 class="card-title" style="text-align: center">
+          <%= p.getPrice() %>.00 €
+        </h6>
         <div class="d-flex justify-content-center">
           <a href="ProductDetails?prodCode=<%= p.getProdCode() %>" class="btn btn-primary" style="margin: 5% auto; padding: 2% 25%;">View details</a>
         </div>
