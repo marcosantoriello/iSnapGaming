@@ -51,7 +51,7 @@ public class OrderManager extends Manager{
 
     public void confirmDelivery(CustomerOrder order, DataSource dataSource) throws SQLException {
         CustomerOrderDAO orderDAO = new CustomerOrderDAO(dataSource);
-        order.setStatus(CustomerOrder.Status.UNDER_PREPARATION);
+        order.setStatus(CustomerOrder.Status.DELIVERED);
         orderDAO.updateStatus(order.getId(), order.getStatus());
     }
 
