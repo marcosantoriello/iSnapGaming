@@ -8,7 +8,10 @@ import java.time.format.DateTimeFormatter;
 import com.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderCreation;
+import com.isnapgaming.OrderManagement.OrderProduct;
+import com.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.StorageManagement.DAO.CustomerOrderDAO;
+import com.isnapgaming.StorageManagement.DAO.ProductDAO;
 import com.isnapgaming.UserManagement.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -71,6 +74,21 @@ public class PayOrder extends HttpServlet {
             }
             session.setAttribute("cart", new Cart());
             session.setAttribute("orderId", orderId);
+
+            // Decrementing product quantity in database
+            for (OrderProduct orderProduct : order.getProducts()) {
+                try {
+                    ProductDAO productDAO = new ProductDAO(ds);
+                    int quantity = orderProduct.getQuantity();
+                    Product product = productDAO.findByKey(orderProduct.getProductId());
+                    System.out.println();
+                    product.setQuantity(product.getQuantity() - quantity);
+                    productDAO.doUpdate(product);
+                } catch (SQLException e) {
+                    response.sendRedirect(getServletContext().getContextPath()+"/errorPage.jsp?errorMessage="+e.getMessage());
+                }
+
+            }
             response.sendRedirect(getServletContext().getContextPath()+"/confirmationPage.jsp");
 
         }
