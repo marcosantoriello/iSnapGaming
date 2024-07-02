@@ -69,6 +69,7 @@ public class PayOrder extends HttpServlet {
                 e.printStackTrace();
                 throw new ServletException("There was an error in saving your order.");
             }
+            session.setAttribute("cart", new Cart());
             session.setAttribute("orderId", orderId);
             response.sendRedirect(getServletContext().getContextPath()+"/confirmationPage.jsp");
 
