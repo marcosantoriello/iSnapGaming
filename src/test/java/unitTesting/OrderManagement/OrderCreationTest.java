@@ -19,8 +19,8 @@ public class OrderCreationTest {
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
-         cart = Mockito.mock(Cart.class);
-         customer = Mockito.mock(User.class);
+        cart = Mockito.mock(Cart.class);
+        customer = Mockito.mock(User.class);
     }
 
     @Test
@@ -39,19 +39,20 @@ public class OrderCreationTest {
     @Test
     void makeOrder_CA2_CU1_A1() {
         String address = "Via Roma, Salerno, 84084";
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->OrderCreation.makeOrder(null, customer, address));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> OrderCreation.makeOrder(null, customer, address));
         assertEquals("There was an error in creating the order.", ex.getMessage());
     }
 
     @Test
     void makeOrder_CA1_CU2_A1() {
         String address = "Via Roma, Salerno, 84084";
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->OrderCreation.makeOrder(cart, null, address));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> OrderCreation.makeOrder(cart, null, address));
         assertEquals("There was an error in creating the order.", ex.getMessage());
     }
 
     @Test
     void makeOrder_CA1_CU1_A2() {
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->OrderCreation.makeOrder(cart, customer, null));
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, () -> OrderCreation.makeOrder(cart, customer, null));
         assertEquals("There was an error in creating the order.", ex.getMessage());
     }
+}
