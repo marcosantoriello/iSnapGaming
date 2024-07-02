@@ -4,12 +4,12 @@
 <%@ page import="com.isnapgaming.OrderManagement.Cart" %>
 
 <%
-    if (session.getAttribute("cart") == null) {
+    /*if (session.getAttribute("cart") == null) {
         response.sendRedirect(request.getRequestURI() + "../index.jsp");
     }
     if (session.getAttribute("role") == null || (!session.getAttribute("role").equals("Customer"))) {
         response.sendRedirect("http://localhost:8080/iSnapGaming_war/login.jsp");
-    }
+    }*/
 %>
 
 <!DOCTYPE html>
@@ -24,13 +24,14 @@
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
+<script src="scripts/payment.js"></script>
 <div class="content">
     <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
         <form action="PayOrder" method="POST" id="checkoutForm" onsubmit="return checkCheckout(this)" style="width: 250px;">
             <h2 class="mb-3" style="text-align: center;">SHIPPING ADDRESS</h2>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="streetCustomer">Address</label>
-                <input id="streetCustomer" type="text" name="streetCustomer" class="form-control" required>
+                <input id="streetCustomer" type="text" name="streetCustomer" class="form-control" placeholder="Street, City, PostalCode" required onblur="checkNum()">
             </div>
             <br/><br/><br/>
 
@@ -38,27 +39,27 @@
 
             <div class="form-group" style="margin: 15px 0;">
                 <label for="cardNumber">Card Number</label>
-                <input id="cardNumber" type="text" name="cardNumber" class="form-control" required onChange="return validateCard()">
+                <input id="cardNumber" type="text" name="cardNumber" class="form-control" required placeholder="XXXX-XXXX-XXXX-XXXX" onChange="return validateCard()">
             </div>
 
             <span id="cardNumberError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
-                <label for="expirationDate">Expiry Date</label>
-                <input id="expirationDate" type="date" name="expirationDate" class="form-control" required onChange="return validateExpiredCard()">
+                <label for="expirationDate">Expiration Date</label>
+                <input id="expirationDate" type="date" name="expirationDate" class="form-control" required onblur="checkData()">
             </div>
 
             <span id="expirationDateError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
                 <label for="cvv">Security Number</label>
-                <input id="cvv" type="text" name="cvv" class="form-control" required onChange="return validateSecurityNumber()">
+                <input id="cvv" type="text" name="cvv" class="form-control" placeholder="XXX" required onblur="checkCvv()">
             </div>
-
+            <div id="error"> </div>
             <span id="securityNumberError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="submit-button">
-                <input type="submit" value="Pay" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
+                <input type="button" value="Pay" id="submit-button" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0" onclick="send()"/>
             </div>
         </form>
     </div>

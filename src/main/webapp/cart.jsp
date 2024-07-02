@@ -93,8 +93,13 @@
                       <h5><%= cart.getTotalPrice() %>.00 €</h5>
                     </div>
                     <div class="submit-button">
-                      <button onclick="window.location.href='checkout.jsp'" id="btnCarrello">Checkout</button>
-                      <!--<input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/> -->
+                      <%if (session.getAttribute("user") != null) {%>
+                        <button onclick="window.location.href='checkout.jsp'" id="btnCarrello">Checkout</button>
+                        <!--<input type="submit" value="Checkout" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/> -->
+                      <% }
+                        else { %>
+                        <button onclick="window.location.href='login.jsp?returnurl='+ encodeURIComponent(window.location.href)" id="btnCarrello">Checkout</button>
+                      <%}%>
                     </div>
                   </div>
                 </div>
