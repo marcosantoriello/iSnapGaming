@@ -59,7 +59,7 @@
             <span id="securityNumberError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="submit-button">
-                <input type="submit" value="Pay" id="submit-button" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0" onclick="send()"/>
+                <input type="button" value="Pay" id="submit-button" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0" onclick="send()"/>
             </div>
         </form>
     </div>

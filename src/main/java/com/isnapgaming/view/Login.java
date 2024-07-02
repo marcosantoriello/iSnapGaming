@@ -25,7 +25,6 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         if (email == null || email.isEmpty() || password == null || password.isEmpty()) {
             throw new ServletException("Wrong email or password.");
         }
@@ -36,33 +35,29 @@ public class Login extends HttpServlet {
             redirectUrl = "http://localhost:8080/iSnapGaming_war/index.jsp";
         }
 
-        User user;
+        User user = null;
         try {
             UserDAO userDAO = new UserDAO(dataSource);
             user = userDAO.getUserByUsernameAndPassword(email, password);
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw new ServletException("SQL error");
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new ServletException(e);
+            request.setAttribute("error", "Wrong username or password.");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request, response);
         }
 
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 
-            List<String> roles;
+            List<String> roles = null;
             try {
                 UserDAO userDAO = new UserDAO(dataSource);
                 roles = userDAO.getUserRoles(user.getId());
 
             } catch (SQLException e) {
-                e.printStackTrace();
-                throw new ServletException("SQL error");
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw new ServletException(e);
+                request.setAttribute("error", "Wrong username or password.");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+                dispatcher.forward(request, response);
             }
             session.setAttribute("roles", roles);
 
