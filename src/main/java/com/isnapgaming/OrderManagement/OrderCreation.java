@@ -14,7 +14,7 @@ public class OrderCreation {
     }
 
     public static CustomerOrder makeOrder(Cart cart, User customer, String address) {
-        if (cart == null || customer == null) {
+        if (cart == null || customer == null || address == null || address.isEmpty()) {
             throw new IllegalArgumentException("There was an error in creating the order.");
         }
 
