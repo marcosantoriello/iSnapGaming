@@ -30,16 +30,16 @@ public class GetOrderDetails extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        CustomerOrder order = null;
+        CustomerOrder customerOrder = null;
         int orderId = Integer.parseInt(request.getParameter("orderId"));
 
         try {
-            order = coDAO.findByKey(orderId);
+            customerOrder = coDAO.findByKey(orderId);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        request.setAttribute("order", order);
+        request.setAttribute("customerOrder", customerOrder);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateStatus.jsp");
         dispatcher.forward(request, response);
