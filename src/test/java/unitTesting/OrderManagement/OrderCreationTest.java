@@ -55,5 +55,3 @@ public class OrderCreationTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->OrderCreation.makeOrder(cart, customer, null));
         assertEquals("There was an error in creating the order.", ex.getMessage());
     }
-
-}
