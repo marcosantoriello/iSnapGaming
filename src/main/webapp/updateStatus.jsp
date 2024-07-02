@@ -18,13 +18,14 @@
             <div class="content">
                 <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
                     <form action="UpdateStatus" method="POST">
+                        <input type="hidden" id="orderId" name="orderId" value="<%=order.getId()%>">
                         <h2 class="mb-3" style="text-align: center;">UPDATE STATUS</h2>
                         <br/>
                         <div class="form-group" style="margin: 15px 0;">
                             <label>Current State: <%=order.getStatus()%></label>
                         </div>
                         New State
-                        <select class="form-select" aria-label="Default select example">
+                        <select name="newStatus" class="form-select" aria-label="Default select example">
                             <option selected value="UNDER_PREPARATION">UNDER PREPARATION</option>
                             <option value="READY_FOR_SENDING">READY FOR SENDING</option>
                             <option value="SHIPPED">SHIPPED</option>
