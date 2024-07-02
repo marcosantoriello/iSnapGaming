@@ -43,7 +43,7 @@
       <div class="card-body">
         <h5 class="card-title">
           <%= p.getName() %>
-          <span style="float: right;"><%= p.getPrice() %> €</span>
+          <span style="float: right;"><%= p.getPrice() %>.00 €</span>
         </h5>
         <div class="d-flex justify-content-center">
           <a href="ProductDetails?prodCode=<%= p.getProdCode() %>" class="btn btn-primary" style="margin: 5% auto; padding: 2% 25%;">View details</a>
