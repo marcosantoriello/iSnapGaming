@@ -1,31 +1,75 @@
-.content{
+.content {
     background-color: rgb(207, 222, 236);
     min-height: 100vh;
+    width: 100%;
 }
 
 .dashboard-order-manager {
-    width: 400px;
-    height: 400px;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    padding: 10px;
+    display: flex;
     background-color: white;
-    margin: 8% auto;
+    margin: 10% 20% 20% 20%;
+}
 
+.right-dashboard-order-manager {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px); /* Esempio di altezza massima */
+}
+
+.left-dashboard-order-manager {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; / Spaziatura tra i bottoni */
+}
+
+.left-dashboard-order-manager button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.right-dashboard-order-manager {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .order-list {
-    list-style-type: none;
-    padding: 0;
+    display: grid;
+    gap: 20px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.order-info {
+    display: flex;
+    align-items: center;
+}
+
+.order-info h3 {
     margin: 0;
 }
 
-.order-list li {
-    padding: 8px;
-    border-bottom: 1px solid #eee;
+.order-item .btn {
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.order-list li:last-child {
-    border-bottom: none;
+.order-item .btn:hover {
+    background-color: #0056b3;
 }
-
