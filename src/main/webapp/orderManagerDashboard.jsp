@@ -14,7 +14,7 @@
       <div class="content">
         <div class="dashboard-order-manager" style="border-radius: 15px;">
           <div class="left-dashboard-order-manager">
-            <a href="GetOrdersList" class="btn btn-primary btn-lg" style="margin: auto 10%;">Show Orders</a>
+            <a href="GetOrdersList" class="btn btn-primary" style="margin: auto 10%;">Show Orders</a>
           </div>
           <div class="right-dashboard-order-manager">
           </div>

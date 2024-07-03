@@ -27,7 +27,7 @@
 <div class="content">
     <div class="dashboard-order-manager" style="border-radius: 15px;">
         <div class="left-dashboard-order-manager">
-            <a class="btn btn-primary btn-lg disabled" style="margin: auto 10%;">Show Orders</a>
+            <a class="btn btn-primary disabled" style="margin: auto 10%;">Show Orders</a>
         </div>
         <div class="right-dashboard-order-manager">
             <%
@@ -39,7 +39,7 @@
                 <div class="order-info">
                     <h3 style="padding: 20px; width: 220px; text-align: center">Order #<%=co.getId()%></h3>
                 </div>
-                <a href="GetOrderDetails?orderId=<%=co.getId()%>" class="btn btn-primary btn-lg"> Details </a>
+                <a href="GetOrderDetails?orderId=<%=co.getId()%>" class="btn btn-primary"> Details </a>
             </div>
             <%
                         }
