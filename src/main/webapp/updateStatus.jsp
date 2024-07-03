@@ -65,7 +65,7 @@
                         %>
                         <h4 style="color: green">The order was delivered successfully!</h4><br>
                         <h4 class="mb-0">
-                            <a href="orderManagerDashboard.jsp" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to dashboard</a>
+                            <a href="customerOrdersList.jsp" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to dashboard</a>
                         </h4>
                         <%
                             }
