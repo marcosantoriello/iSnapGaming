@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
     <html>
         <head>
@@ -14,7 +14,7 @@
                 <div class="alert alert-danger" role="alert" style="margin: 11% 25%;text-align: center;">
                     <h2>Ops, something went wrong</h2>
                     <br>
-                    <%=request.getParameter("errorMessage")%>
+                    <%= request.getAttribute("jakarta.servlet.error.message") %>
                     <br><br>
                     <h6 class="mb-0"><a href="index.jsp" class="text-body"><i
                             class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
