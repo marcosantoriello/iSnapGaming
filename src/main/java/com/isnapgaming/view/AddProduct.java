@@ -3,7 +3,6 @@ package com.isnapgaming.view;
 import java.io.*;
 import java.sql.SQLException;
 
-import com.isnapgaming.StorageManagement.DAO.ProductDAO;
 import java.nio.file.Files;
 import java.util.UUID;
 
@@ -33,13 +32,12 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DataSource ds = (DataSource) request.getServletContext().getAttribute("DataSource");
-        ProductDAO productDAO = null;
 
         int productCode = Integer.parseInt(request.getParameter("productCode"));
         String nameProduct = request.getParameter("nameProduct");
         String softwareHouseProduct = request.getParameter("softwareHouseProduct");
-        String platformProduct = request.getParameter("platformProduct");
-        String categoryProduct = request.getParameter("categoryProduct");
+        Product.Platform platformProduct = Product.Platform.valueOf(request.getParameter("platformProduct"));
+        Product.Category categoryProduct = Product.Category.valueOf(request.getParameter("categoryProduct"));
         String pegiProduct = request.getParameter("pegiProduct");
         int releaseYearProduct = Integer.parseInt(request.getParameter("releaseYearProduct"));
         int quantityProduct = Integer.parseInt(request.getParameter("quantityProduct"));
@@ -83,17 +81,9 @@ public class AddProduct extends HttpServlet {
 
 
         Product product = new Product();
-        product.setProdCode(productCode);
-        product.setName(nameProduct);
-        product.setSoftwareHouse(softwareHouseProduct);
-        product.setPlatform(Product.Platform.valueOf(platformProduct));
-        product.setCategory(Product.Category.valueOf(categoryProduct));
-        product.setPegi(Product.Pegi.valueOf(pegiProduct));
-        product.setReleaseYear(releaseYearProduct);
-        product.setQuantity(quantityProduct);
-        product.setPrice(priceProduct);
-        product.setImagePath(relativeFilePath);
-        product.setAvailable(true);
+
+        product = Product.makeProduct(productCode, nameProduct, softwareHouseProduct, platformProduct, priceProduct, quantityProduct, categoryProduct, Product.Pegi.valueOf(pegiProduct),
+                            releaseYearProduct, relativeFilePath, true);
 
         ProductManager productManager = new ProductManager();
 
