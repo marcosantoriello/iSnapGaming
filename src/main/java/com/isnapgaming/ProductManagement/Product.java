@@ -59,6 +59,7 @@ public class Product {
 
 
         Product product = new Product();
+        product.setProdCode(prodCode);
         product.setName(name);
         product.setSoftwareHouse(softwareHouse);
         product.setPlatform(platform);
