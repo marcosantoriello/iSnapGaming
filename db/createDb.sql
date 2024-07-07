@@ -75,7 +75,7 @@ CREATE TABLE Product(
     category varchar(30) NOT NULL,
     pegi varchar(10) NOT NULL,
     releaseYear INT NOT NULL,
-    imagePath varchar(50),
+    imagePath varchar(255),
     available BOOLEAN NOT NULL,
 
     PRIMARY KEY(id)
