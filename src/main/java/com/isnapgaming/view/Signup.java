@@ -6,8 +6,11 @@ import java.time.LocalDate;
 
 import com.isnapgaming.StorageManagement.DAO.AddressDAO;
 import com.isnapgaming.StorageManagement.DAO.CustomerDAO;
+import com.isnapgaming.StorageManagement.DAO.UserDAO;
 import com.isnapgaming.UserManagement.Address;
 import com.isnapgaming.UserManagement.Customer;
+import com.isnapgaming.UserManagement.User;
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -33,9 +36,10 @@ public class Signup extends HttpServlet {
         HttpSession session = request.getSession();
         String redirectUrl = (String) session.getAttribute("redirectSignup");
         System.out.println("Redirect URL: " + redirectUrl);
+        boolean exists = false;
 
         if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() || dateOfBirth == null || email == null || email.isEmpty() ||
-                password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty() || street == null || street.isEmpty() || city == null || city.isEmpty() || postalCode < 0) {
+                password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty() || !(password.equals(confirmPassword)) || street == null || street.isEmpty() || city == null || city.isEmpty() || postalCode < 0) {
             throw new ServletException("There was an error in signing up. Please try again.");
         }
 
@@ -51,23 +55,39 @@ public class Signup extends HttpServlet {
 
         Address address;
 
+        // Checking if user already exists
+        UserDAO userDAO = null;
         try {
-            CustomerDAO customerDAO = new CustomerDAO(dataSource);
-            int id = customerDAO.doSave(user);
-            Customer customer = customerDAO.findByKey(id);
-            AddressDAO addressDAO = new AddressDAO(dataSource);
-            address = Address.makeAddress(id, street, city, postalCode);
-            addressDAO.doSave(address);
-            customer.addAddress(address);
+            userDAO = new UserDAO(dataSource);
+            User tempUser = userDAO.findByUsername(user.getUsername());
+            if (user.getUsername().toLowerCase().equals(tempUser.getUsername().toLowerCase())) {
+                exists = true;
+            }
         } catch (SQLException e) {
-            e.printStackTrace();
             throw new ServletException("SQL error");
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new ServletException(e);
         }
-        // redirecting user where he left before the signup
-        response.sendRedirect(redirectUrl);
 
+        if (!exists) {
+            try {
+                CustomerDAO customerDAO = new CustomerDAO(dataSource);
+                int id = customerDAO.doSave(user);
+                Customer customer = customerDAO.findByKey(id);
+                AddressDAO addressDAO = new AddressDAO(dataSource);
+                address = Address.makeAddress(id, street, city, postalCode);
+                addressDAO.doSave(address);
+                customer.addAddress(address);
+            } catch (SQLException e) {
+                e.printStackTrace();
+                throw new ServletException("SQL error");
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new ServletException(e);
+            }
+            // redirecting user where he left before the signup
+            response.sendRedirect(redirectUrl);
+        } else {
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signup.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }
