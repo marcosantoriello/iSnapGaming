@@ -4,7 +4,9 @@ import java.io.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 
+import com.isnapgaming.StorageManagement.DAO.AddressDAO;
 import com.isnapgaming.StorageManagement.DAO.CustomerDAO;
+import com.isnapgaming.UserManagement.Address;
 import com.isnapgaming.UserManagement.Customer;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -24,13 +26,19 @@ public class Signup extends HttpServlet {
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
 
+        String street = request.getParameter("street");
+        String city = request.getParameter("city");
+        int postalCode = Integer.parseInt(request.getParameter("postalCode"));
+
         HttpSession session = request.getSession();
         String redirectUrl = (String) session.getAttribute("redirectSignup");
         System.out.println("Redirect URL: " + redirectUrl);
 
-        if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() || dateOfBirth == null || email == null || email.isEmpty() || password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty()) {
+        if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() || dateOfBirth == null || email == null || email.isEmpty() ||
+                password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty() || street == null || street.isEmpty() || city == null || city.isEmpty() || postalCode < 0) {
             throw new ServletException("There was an error in signing up. Please try again.");
         }
+
 
         DataSource dataSource = (DataSource) getServletContext().getAttribute("DataSource");
 
@@ -41,10 +49,16 @@ public class Signup extends HttpServlet {
         user.setUsername(email);
         user.setPassword(password);
 
+        Address address;
+
         try {
             CustomerDAO customerDAO = new CustomerDAO(dataSource);
             int id = customerDAO.doSave(user);
             Customer customer = customerDAO.findByKey(id);
+            AddressDAO addressDAO = new AddressDAO(dataSource);
+            address = Address.makeAddress(id, street, city, postalCode);
+            addressDAO.doSave(address);
+            customer.addAddress(address);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new ServletException("SQL error");

@@ -59,12 +59,8 @@ public class AddressDAO {
             throw new SQLException("No Address found with the given id");
         }
 
-        Address address = new Address();
+        Address address = new Address(rs.getInt("customerId"), rs.getString("street"), rs.getString("city"), rs.getInt("postalCode"));
         address.setId(rs.getInt("id"));
-        address.setCustomerId(rs.getInt("customerId"));
-        address.setStreet(rs.getString("street"));
-        address.setCity(rs.getString("city"));
-        address.setPostalCode(rs.getInt("postalCode"));
 
         connection.close();
         return address;

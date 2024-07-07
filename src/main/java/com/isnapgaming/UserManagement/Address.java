@@ -11,6 +11,27 @@ public class Address {
 
     public Address() {}
 
+    public static Address makeAddress(int customerId, String street, String city, int postalCode) {
+        if (customerId < 0) {
+            throw new IllegalArgumentException("Customer id cannot be negative");
+        }
+        if (street == null) {
+            throw new IllegalArgumentException("Street cannot be null");
+        }
+        if (city == null) {
+            throw new IllegalArgumentException("City cannot be null");
+        }
+        if (postalCode < 0) {
+            throw new IllegalArgumentException("Postal code cannot be negative");
+        }
+        Address address = new Address();
+        address.setCustomerId(customerId);
+        address.setStreet(street);
+        address.setCity(city);
+        address.setPostalCode(postalCode);
+        return address;
+    }
+
     public Address(int customerId, String street, String city, int postalCode) {
         this.customerId = customerId;
         this.street = street;

@@ -22,4 +22,8 @@ public class Customer extends User{
         this.addresses = addresses;
     }
 
+    public void addAddress(Address address) {
+        this.addresses.add(address);
+    }
+
 }
