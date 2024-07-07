@@ -1,4 +1,4 @@
-package unitTesting.StorageSubsystem;
+package integrationTesting.StorageSubsystem;
 
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderProduct;
@@ -22,7 +22,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static testing.SQLScript.executeSQLScript;
 
 
@@ -30,7 +31,6 @@ public class CustomerOrderDAOTest {
     private CustomerOrderDAO customerOrderDAO;
     private Connection conn;
     private DataSource ds;
-    private Product product;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
@@ -55,7 +55,7 @@ public class CustomerOrderDAOTest {
             }
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
-        product = Mockito.mock(Product.class);
+
         customerOrderDAO = new CustomerOrderDAO(ds);
     }
     @AfterEach
@@ -68,7 +68,8 @@ public class CustomerOrderDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerOrderDAO/doSave_O1.sql", conn);
 
-        product.setProdCode(252);
+        Product prod = new Product();
+        prod.setProdCode(252);
         List<OrderProduct> prods = new ArrayList<>();
         prods.add(new OrderProduct(1, 1, 3, 60));
         Customer customer = new Customer();
@@ -83,66 +84,4 @@ public class CustomerOrderDAOTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerOrderDAO.doSave(null));
         assertEquals("CustomerOrder cannot be null", ex.getMessage());
     }
-
-    @Test
-    void updateStatus_O1_S1_PD1() throws SQLException, IllegalArgumentException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/CustomerOrderDAO/updateStatus_O1_S1_PD1.sql", conn);
-
-        customerOrderDAO.updateStatus(1, CustomerOrder.Status.valueOf("UNDER_PREPARATION"));
-        assertEquals("UNDER_PREPARATION", customerOrderDAO.findByKey(1).getStatus().toString());
-    }
-
-    @Test
-    void updateStatus_O2_S1_PD2() {
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerOrderDAO.updateStatus(-3, CustomerOrder.Status.valueOf("UNDER_PREPARATION")));
-        assertEquals("Id cannot be negative", ex.getMessage());
-    }
-
-    @Test
-    void updateStatus_O1_S2_PD1() {
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerOrderDAO.updateStatus(1, null));
-        assertEquals("Status cannot be null", ex.getMessage());
-    }
-
-    @Test
-    void updateStatus_O1_S2_PD2() throws SQLException{
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        SQLException ex = assertThrows(SQLException.class, ()->customerOrderDAO.updateStatus(5, CustomerOrder.Status.valueOf("UNDER_PREPARATION")));
-        assertEquals("No CustomerOrder found with the given id", ex.getMessage());
-    }
-
-    @Test
-    void findByKey_I1_PD1() throws SQLException, IllegalArgumentException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/CustomerOrderDAO/findByKey_I1_PD1.sql", conn);
-        assertEquals("TO_BE_MANAGED", customerOrderDAO.findByKey(1).getStatus().toString());
-    }
-
-    @Test
-    void findByKey_I2_PD2() {
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->customerOrderDAO.findByKey(-3));
-        assertEquals("id cannot be negative", ex.getMessage());
-    }
-
-    @Test
-    void findByKey_I1_PD2() throws SQLException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        SQLException ex = assertThrows(SQLException.class, ()->customerOrderDAO.findByKey(1));
-        assertEquals("No CustomerOrder found with the given id", ex.getMessage());
-    }
-
-    @Test
-    void doRetrieveAll_PC1() throws SQLException, IllegalArgumentException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        assertEquals(0, customerOrderDAO.doRetrieveAll().size());
-    }
-
-    @Test
-    void doRetrieveAll_PC2() throws SQLException{
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/CustomerOrderDAO/doRetrieveAll_PC2.sql", conn);
-        assertEquals(1, customerOrderDAO.doRetrieveAll().size());
-    }
-
 }

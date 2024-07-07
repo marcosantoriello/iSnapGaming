@@ -2,12 +2,9 @@ package unitTesting.OrderManagement;
 
 import com.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.ProductManagement.Product;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 
 import java.security.InvalidParameterException;
 import java.sql.SQLException;
@@ -16,19 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CartTest {
     private Cart cart;
-
-    @Mock
-    Product product;
+    private Product product;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
         cart = new Cart();
-        MockitoAnnotations.openMocks(this);
+        product = Mockito.mock(Product.class);
         product.setPrice(55);
     }
-
-    @AfterEach
-    public void tearDown() {}
 
     // addToCart
     @Test

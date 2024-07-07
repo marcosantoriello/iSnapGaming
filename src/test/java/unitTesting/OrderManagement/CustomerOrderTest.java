@@ -3,25 +3,18 @@ package unitTesting.OrderManagement;
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderProduct;
 import com.isnapgaming.UserManagement.OrderManager;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
-import testing.RetrieveCredentials;
 
 import javax.sql.DataSource;
 import java.security.InvalidParameterException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static testing.SQLScript.executeSQLScript;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerOrderTest {
