@@ -9,6 +9,8 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import testing.RetrieveCredentials;
+
+import static org.mockito.Mockito.when;
 import static testing.SQLScript.executeSQLScript;
 import javax.sql.DataSource;
 import java.security.InvalidParameterException;
@@ -21,6 +23,7 @@ public class ProductManagerTest {
     private ProductManager productManager;
     private Connection conn;
     private DataSource ds;
+    private Product product;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
@@ -47,7 +50,8 @@ public class ProductManagerTest {
                 return conn;
             }
         };
-        Mockito.when(ds.getConnection()).thenAnswer(getConnection);
+        when(ds.getConnection()).thenAnswer(getConnection);
+
 
     }
     @AfterEach
@@ -56,29 +60,42 @@ public class ProductManagerTest {
     }
     @Test
     void addProduct_A1() throws SQLException {
-        Product product=new Product();
-        product.setProdCode(635);
-        product.setId(1);
-        product.setCategory(Product.Category.ADVENTURE);
-        product.setPlatform(Product.Platform.PS4);
-        product.setPegi(Product.Pegi.PEGI3);
-        product.setName("fifa");
-        product.setSoftwareHouse("chiara");
-        product.setPrice(20);
-        product.setQuantity(3);
-        product.setReleaseYear(2020);
-        product.setImagePath("cioa");
-        product.setAvailable(true);
+        product=Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(635);
+        Mockito.when(product.getId()).thenReturn(1);
+        Mockito.when(product.getCategory()).thenReturn(Product.Category.ADVENTURE);
+        Mockito.when(product.getPlatform()).thenReturn(Product.Platform.PS4);
+        Mockito.when(product.getPegi()).thenReturn(Product.Pegi.PEGI3);
+        Mockito.when(product.getName()).thenReturn("fifa");
+        Mockito.when(product.getSoftwareHouse()).thenReturn("Chiara");
+        Mockito.when(product.getPrice()).thenReturn(20);
+        Mockito.when(product.getQuantity()).thenReturn(3);
+        Mockito.when(product.getReleaseYear()).thenReturn(2020);
+        Mockito.when(product.getImagePath()).thenReturn("cioa");
+        Mockito.when(product.isAvailable()).thenReturn(true);
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
+
         productManager.addProduct(product,ds);
-        assertEquals(product, productManager.getProductByProdCode(635,ds));
+        Product retrieveProduct=productManager.getProductByProdCode(635,ds);
+        assertEquals(product.getProdCode(),retrieveProduct.getProdCode());
+        assertEquals(product.getId(),retrieveProduct.getId());
+        assertEquals(product.getCategory(),retrieveProduct.getCategory());
+        assertEquals(product.getPlatform(),retrieveProduct.getPlatform());
+        assertEquals(product.getPegi(),retrieveProduct.getPegi());
+        assertEquals(product.getName(),retrieveProduct.getName());
+        assertEquals(product.getSoftwareHouse(),retrieveProduct.getSoftwareHouse());
+        assertEquals(product.getPrice(),retrieveProduct.getPrice());
+        assertEquals(product.getQuantity(),retrieveProduct.getQuantity());
+        assertEquals(product.getReleaseYear(),retrieveProduct.getReleaseYear());
+        assertEquals(product.getImagePath(),retrieveProduct.getImagePath());
+        assertEquals(product.isAvailable(),retrieveProduct.isAvailable());
+
 
     }
     @Test
     void addProduct_A2(){
-        Product product=null;
         try {
-            assertThrows(Exception.class,()-> productManager.addProduct(product,ds));
+            assertThrows(Exception.class,()-> productManager.addProduct(null,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
