@@ -3,9 +3,9 @@ const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 const postalCodePattern = /^\d{5}$/;
 const cityPattern = /^[A-Za-z\s]+$/;
+
 const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
 const securityNumberPattern = /^\d{3}$/;
-
 
 const firstNameError = "First name must contain only letters";
 const lastNameError = "Last name must contain only letters";
@@ -16,8 +16,8 @@ const postalCodeError = "Postal code must be composed of exactly 5 numbers";
 const cityError = "The name of the city must be composed of letters and any spaces";
 
 const cardNumberError = "The card format must contain only numbers and in NNNN-NNNN-NNNN-NNNN format";
-const securityNumberError = "The security number must contain only numbers and in NNN format"
-const expiredCardMessage = "You cannot use an expired card"
+const securityNumberError = "The security number must contain only numbers and in NNN format";
+const expiredCardMessage = "You cannot use an expired card";
 
 function validateFormElem(formElem, pattern, span, message) {
     if (formElem.value.match(pattern)) {
@@ -145,13 +145,9 @@ function checkLogin(obj) {
     return check;
 }
 
-
 function validateCard() {
-
     let form = document.getElementById("checkoutForm");
-
     let span = document.getElementById("cardNumberError");
-
     let numCarta = form.cardNumber.value;
 
     if (numCarta.match(cardNumberPattern)) {
@@ -159,9 +155,7 @@ function validateCard() {
         span.style.color = "black";
         span.innerHTML = "";
         return true;
-    }
-
-    else {
+    } else {
         span.classList.add("error");
         span.innerHTML = cardNumberError;
         span.style.color = "red";
@@ -170,12 +164,9 @@ function validateCard() {
 }
 
 function validateExpiredCard() {
-
     let form = document.getElementById("checkoutForm");
-
-    let span = document.getElementById("expiryError");
-
-    let data = form.expiryDate.value;
+    let span = document.getElementById("expirationDateError");
+    let data = form.expirationDate.value;
 
     const today = new Date();
     const dataObj = new Date(data);
@@ -185,9 +176,7 @@ function validateExpiredCard() {
         span.innerHTML = expiredCardMessage;
         span.style.color = "red";
         return false;
-    }
-    else {
-
+    } else {
         span.classList.remove("error");
         span.style.color = "black";
         span.innerHTML = "";
@@ -196,30 +185,22 @@ function validateExpiredCard() {
 }
 
 function validateSecurityNumber() {
-
     let form = document.getElementById("checkoutForm");
-
     let span = document.getElementById("securityNumberError");
-
-    let cvv = form.securityNumber.value;
+    let cvv = form.cvv.value;
 
     if (cvv.match(securityNumberPattern)) {
         span.classList.remove("error");
         span.style.color = "black";
         span.innerHTML = "";
         return true;
-    }
-    else {
+    } else {
         span.classList.add("error");
         span.innerHTML = securityNumberError;
         span.style.color = "red";
         return false;
     }
-
 }
-
-
-
 
 function checkCheckout(obj) {
     let check = true;
@@ -230,5 +211,5 @@ function checkCheckout(obj) {
 
     console.log("Result of checkCheckout: ", check);
 
-    if (check) obj.submit();
+    return check;
 }

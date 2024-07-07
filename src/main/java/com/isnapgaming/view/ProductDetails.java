@@ -52,7 +52,6 @@ public class ProductDetails extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
-
     }
 
     @Override
