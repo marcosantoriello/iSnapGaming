@@ -19,7 +19,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
   <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-    <form action="ProductUpdater" method="POST">
+    <form action="ProductUpdater" method="POST" enctype="multipart/form-data">
       <input type="hidden" id="productId" name="productId" value="<%=p.getId()%>">
       <input type="hidden" id="isAvailable" name="isAvailable" value="true">
       <h2 class="mb-3" style="text-align: center;">UPDATE PRODUCT</h2>
@@ -88,7 +88,8 @@
       </div>
       <div class="form-group" style="margin: 15px 0;">
         <label for="imageProduct">Image</label>
-        <input value="<%= p.getImagePath()%>" id="imageProduct" type="file" name="imageProduct" class="form-control" required>
+        <input id="imageProduct" type="file" name="imageProduct" class="form-control" >
+        <input type="hidden" name="currentImage" value="<%=p.getImagePath()%>" />
       </div>
       <div class="submit-button">
         <input type="submit" value="Update Product" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
