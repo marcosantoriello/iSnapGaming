@@ -26,7 +26,7 @@
       <br/>
       <div class="form-group" style="margin: 15px 0;">
         <label for="productCode">Product Code</label>
-        <input value="<%= p.getProdCode()%>" id="productCode" type="text" name="productCode" class="form-control"  required>
+        <input value="<%= p.getProdCode()%>" id="productCode" type="number" name="productCode" class="form-control"  required>
       </div>
       <div class="form-group" style="margin: 15px 0;">
         <label for="nameProduct">Name</label>
