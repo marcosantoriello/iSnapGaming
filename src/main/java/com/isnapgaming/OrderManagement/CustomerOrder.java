@@ -34,7 +34,7 @@ public class CustomerOrder {
     }
     public static CustomerOrder makeCustomerOrder(int customerId, String address, LocalDate orderDate, List<OrderProduct> products) {
         if (customerId < 0) {
-            throw new IllegalArgumentException("CustomerId cannot be null");
+            throw new IllegalArgumentException("CustomerId cannot be negative");
         }
         if (address == null) {
             throw new IllegalArgumentException("Address cannot be null");
