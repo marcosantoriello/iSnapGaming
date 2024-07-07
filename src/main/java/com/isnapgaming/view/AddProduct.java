@@ -3,9 +3,10 @@ package com.isnapgaming.view;
 import java.io.*;
 import java.sql.SQLException;
 
-import com.isnapgaming.StorageManagement.DAO.ProductDAO;
 import java.nio.file.Files;
 import java.util.UUID;
+
+import com.isnapgaming.UserManagement.ProductManager;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
@@ -20,10 +21,7 @@ import javax.sql.DataSource;
 @WebServlet(name = "AddProduct", value = "/AddProduct")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, maxFileSize = 1024 * 1024 * 10, maxRequestSize = 1024 * 1024 * 50)
 public class AddProduct extends HttpServlet {
-
     private static final String UPLOAD_DIR = "products";
-
-
 
     private boolean isImageFile(Part filePart) {
         String contentType = filePart.getContentType();
@@ -34,13 +32,12 @@ public class AddProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DataSource ds = (DataSource) request.getServletContext().getAttribute("DataSource");
-        ProductDAO productDAO = null;
 
         int productCode = Integer.parseInt(request.getParameter("productCode"));
         String nameProduct = request.getParameter("nameProduct");
         String softwareHouseProduct = request.getParameter("softwareHouseProduct");
-        String platformProduct = request.getParameter("platformProduct");
-        String categoryProduct = request.getParameter("categoryProduct");
+        Product.Platform platformProduct = Product.Platform.valueOf(request.getParameter("platformProduct"));
+        Product.Category categoryProduct = Product.Category.valueOf(request.getParameter("categoryProduct"));
         String pegiProduct = request.getParameter("pegiProduct");
         int releaseYearProduct = Integer.parseInt(request.getParameter("releaseYearProduct"));
         int quantityProduct = Integer.parseInt(request.getParameter("quantityProduct"));
@@ -84,34 +81,21 @@ public class AddProduct extends HttpServlet {
 
 
         Product product = new Product();
-        product.setProdCode(productCode);
-        product.setName(nameProduct);
-        product.setSoftwareHouse(softwareHouseProduct);
-        product.setPlatform(Product.Platform.valueOf(platformProduct));
-        product.setCategory(Product.Category.valueOf(categoryProduct));
-        product.setPegi(Product.Pegi.valueOf(pegiProduct));
-        product.setReleaseYear(releaseYearProduct);
-        product.setQuantity(quantityProduct);
-        product.setPrice(priceProduct);
-        product.setImagePath(relativeFilePath);
-        product.setAvailable(true);
 
+        product = Product.makeProduct(productCode, nameProduct, softwareHouseProduct, platformProduct, priceProduct, quantityProduct, categoryProduct, Product.Pegi.valueOf(pegiProduct),
+                            releaseYearProduct, relativeFilePath, true);
+
+        ProductManager productManager = new ProductManager();
 
         try {
-            productDAO = new ProductDAO(ds);
+            productManager.addProduct(product,ds);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        try {
-            productDAO.doSave(product);
-        } catch (SQLException e) {
-            throw new ServletException("Database update error");
-        }
-
         request.setAttribute("product", product);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
         dispatcher.forward(request, response);
     }
 }
