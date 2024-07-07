@@ -107,16 +107,17 @@ public class ProductManagerTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/UserManagement/removeProduct_A1.sql", conn);
 
-        Product product = new Product();
+        product=Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(751);
+
         product = productManager.getProductByProdCode(751, ds);
         productManager.removeProduct(product,ds);
         assertFalse(productManager.getProductByProdCode(751,ds).isAvailable());
     }
     @Test
     void removeProduct_A2(){
-        Product product=null;
         try {
-            assertThrows(Exception.class,()-> productManager.removeProduct(product,ds));
+            assertThrows(Exception.class,()-> productManager.removeProduct(null,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -128,17 +129,20 @@ public class ProductManagerTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/UserManagement/updateProduct_A1.sql", conn);
 
-        Product product=new Product();
-        product=productManager.getProductByProdCode(635,ds);
-        product.setPrice(7);
+        product=Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(635);
+        //product=productManager.getProductByProdCode(635,ds);
+
+        Mockito.when(product.getPrice()).thenReturn(7);
+
         productManager.updateProduct(product,ds);
-        assertEquals(product.getPrice(), productManager.getProductByProdCode(635,ds).getPrice());
+        Product retrieveProduct=productManager.getProductByProdCode(635,ds);
+        assertEquals(product.getPrice(), retrieveProduct.getPrice());
     }
     @Test
     void updateProduct_A2(){
-        Product product=null;
         try {
-            assertThrows(Exception.class,()-> productManager.updateProduct(product,ds));
+            assertThrows(Exception.class,()-> productManager.updateProduct(null,ds));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
