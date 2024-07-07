@@ -4,6 +4,7 @@
 <%@ page import="com.isnapgaming.ProductManagement.Product" %>
 <%@ page import="com.isnapgaming.StorageManagement.DAO.ProductDAO" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.isnapgaming.UserManagement.ProductManager" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +14,8 @@
     <link rel="stylesheet" type="text/css" href="styles/productManagerDashboard.css">
     <%
         DataSource ds = (DataSource) request.getServletContext().getAttribute("DataSource");
-        ProductDAO pDAO = new ProductDAO(ds);
-        List<Product> products = pDAO.doRetrieveAll();
+        ProductManager productManager = new ProductManager();
+        List<Product> products = productManager.getAllProducts(ds);
     %>
 </head>
 <body>
