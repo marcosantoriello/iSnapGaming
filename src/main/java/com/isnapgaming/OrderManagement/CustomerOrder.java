@@ -114,6 +114,9 @@ public class CustomerOrder {
     }
 
     public void addProduct(OrderProduct product) {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
         this.products.add(product);
     }
 
