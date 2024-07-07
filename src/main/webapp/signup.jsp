@@ -11,6 +11,8 @@
     } else {
         session.setAttribute("redirectSignup", returnUrl);
     }
+    String error = (String) request.getAttribute("error");
+
 %>
 
 <html>
@@ -25,6 +27,15 @@
         <jsp:include page="fragments/header.jsp" />
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
         <div class="content">
+            <%
+                if(error != null){
+            %>
+            <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+                <%=error%>
+            </div>
+            <%
+                }
+            %>
             <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
                 <form action="Signup" method="POST" id="signUpForm" onsubmit="return checkSignUp(this)"  style="width: 250px;">
                     <h2 class="mb-3" style="text-align: center;">SIGN UP</h2>

@@ -38,7 +38,7 @@
         if(error != null){
       %>
       <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
-        Wrong username or password
+        <%=error%>
       </div>
       <%
         }
