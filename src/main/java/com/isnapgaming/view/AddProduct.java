@@ -15,6 +15,7 @@ import jakarta.servlet.http.Part;
 import java.nio.file.Paths;
 
 import  com.isnapgaming.ProductManagement.Product;
+import com.isnapgaming.StorageManagement.DAO.ProductDAO;
 
 import javax.sql.DataSource;
 
@@ -80,22 +81,41 @@ public class AddProduct extends HttpServlet {
         String relativeFilePath = UPLOAD_DIR + File.separator + sanitizedFileName;
 
 
-        Product product = new Product();
+        Product product = Product.makeProduct(productCode, nameProduct, softwareHouseProduct, platformProduct, priceProduct, quantityProduct, categoryProduct, Product.Pegi.valueOf(pegiProduct),
+                releaseYearProduct, relativeFilePath, true);
 
-        product = Product.makeProduct(productCode, nameProduct, softwareHouseProduct, platformProduct, priceProduct, quantityProduct, categoryProduct, Product.Pegi.valueOf(pegiProduct),
-                            releaseYearProduct, relativeFilePath, true);
-
-        ProductManager productManager = new ProductManager();
+        ProductDAO productDAO = null;
+        boolean exists = false;
 
         try {
-            productManager.addProduct(product,ds);
+            productDAO = new ProductDAO(ds);
+            Product tempProduct = productDAO.findByProdCode(product.getProdCode());
+
+            if (tempProduct != null && product.getProdCode() == tempProduct.getProdCode()) {
+                exists = true;
+            }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            // Do nothing
         }
 
-        request.setAttribute("product", product);
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
-        dispatcher.forward(request, response);
+        if(!exists) {
+            ProductManager productManager = new ProductManager();
+
+            try {
+                productManager.addProduct(product, ds);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            request.setAttribute("product", product);
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
+            dispatcher.forward(request, response);
+        }else {
+            request.setAttribute("error", "That product with this code already exists.");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addProduct.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }
