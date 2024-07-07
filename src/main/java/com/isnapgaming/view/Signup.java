@@ -64,7 +64,7 @@ public class Signup extends HttpServlet {
                 exists = true;
             }
         } catch (SQLException e) {
-            throw new ServletException("SQL error");
+            // Do nothing
         }
 
         if (!exists) {
