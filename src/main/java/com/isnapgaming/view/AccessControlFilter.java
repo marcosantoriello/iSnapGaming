@@ -61,7 +61,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                 //Checks for general servlet
                 path.contains("/Logout")  || path.contains("/RoleSelection") || path.contains("/PayOrder") ||
                 //Checks for ProductManager servlet
-                path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") ||
+                path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") || path.contains("/ProductAvailability") ||
                 //Checks for OrderManager servlet
                 path.contains("/GetOrderDetails") || path.contains("GetOrdersList") || path.contains("/UpdateStatus") ||
 
@@ -81,7 +81,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                 //Checks for general servlet
                 path.contains("/RoleSelection") || path.contains("/Login") || path.contains("/Signup") ||
                         //Checks for ProductManager servlet
-                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") ||
+                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") || path.contains("/ProductAvailability") ||
                         //Checks for OrderManager servlet
                         path.contains("/GetOrderDetails") || path.contains("GetOrdersList") || path.contains("/UpdateStatus") ||
 
@@ -123,7 +123,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                 path.contains("Signup") || path.contains("Login") || path.contains("AddToCart") || path.contains("UpdateCart") ||
                         path.contains("PayOrder") || path.contains("ProductDetails") ||
                         //Checks for ProductManager servlet
-                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") ||
+                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") || path.contains("/ProductAvailability") ||
                         //Checks for OrderManager servlet
 
 
@@ -143,7 +143,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                 //Checks for general servlet
                 path.contains("/Login") || path.contains("/Signup") ||
                         //Checks for ProductManager servlet
-                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") ||
+                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") || path.contains("/ProductAvailability") ||
                         //Checks for OrderManager servlet
                         path.contains("/GetOrderDetails") || path.contains("GetOrdersList") || path.contains("/UpdateStatus") ||
 
