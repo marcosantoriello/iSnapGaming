@@ -1,4 +1,4 @@
-package unitTesting.OrderManagement;
+package integrationTesting.OrderManagement;
 
 import com.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.ProductManagement.Product;
@@ -9,7 +9,8 @@ import org.mockito.Mockito;
 import java.security.InvalidParameterException;
 import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CartTest {
     private Cart cart;
@@ -19,16 +20,13 @@ public class CartTest {
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
         cart = new Cart();
-        product = Mockito.mock(Product.class);
-        product2 = Mockito.mock(Product.class);
-        product.setPrice(55);
     }
 
     // addToCart
     @Test
     void addToCart_A1_B1_C1() throws IllegalArgumentException{
         int quantity = 1;
-
+        product = new Product();
         cart.addToCart(product, quantity);
         assertEquals(1, cart.getItems().size());
     }
@@ -44,13 +42,14 @@ public class CartTest {
     @Test
     void addToCart_A1_B2_C1()  {
         int quantity = -3;
-
+        product = new Product();
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->cart.addToCart(product, quantity));
         assertEquals(ex.getMessage(), "Quantity must be greater than 0.");
     }
 
     @Test
     void addToCart_A1_B1_C2() throws IllegalArgumentException {
+        product = new Product();
         cart.addToCart(product, 3);
 
         cart.addToCart(product, 1);
@@ -60,6 +59,7 @@ public class CartTest {
     // removeFromCart
     @Test
     void removeFromCart_A1_B1() throws IllegalArgumentException, Exception{
+        product = new Product();
         cart.addToCart(product, 1);
 
         cart.removeFromCart(product);
@@ -73,6 +73,7 @@ public class CartTest {
 
     @Test
     void removeFromCart_A1_B2() {
+        product = new Product();
         RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.removeFromCart(product));
         assertEquals(ex.getMessage(), "No such product found in cart.");
     }
@@ -80,7 +81,8 @@ public class CartTest {
     // decreaseQuantityCart
     @Test
     void decreaseQuantityCart_A1_B1_C1() throws IllegalArgumentException, RuntimeException {
-        Mockito.when(product2.getProdCode()).thenReturn(352);
+        product2 = new Product();
+        product2.setProdCode(352);
         cart.addToCart(product2, 5);
         cart.decreaseQuantityCart(product2, 2);
         assertEquals(3, cart.getItems().get(0).getQuantity());
@@ -88,6 +90,7 @@ public class CartTest {
 
     @Test
     void decreaseQuantityCart_A2_B1_C1(){
+        product = new Product();
         cart.addToCart(product, 5);
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->cart.decreaseQuantityCart(null, 2));
         assertEquals(ex.getMessage(), "Product cannot be null");
@@ -95,12 +98,14 @@ public class CartTest {
 
     @Test
     void decreaseQuantityCart_A1_B2_C4(){
+        product = new Product();
         RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.decreaseQuantityCart(product, 2));
         assertEquals(ex.getMessage(), "No such product found in cart.");
     }
 
     @Test
     void decreaseQuantityCart_A1_B1_C2(){
+        product = new Product();
         cart.addToCart(product, 5);
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class, ()->cart.decreaseQuantityCart(product, -3));
         assertEquals(ex.getMessage(), "Quantity must be greater than 0.");
@@ -108,6 +113,7 @@ public class CartTest {
 
     @Test
     void decreaseQuantityCart_A1_B1_C4(){
+        product = new Product();
         cart.addToCart(product, 3);
         RuntimeException ex = assertThrows(RuntimeException.class, ()->cart.decreaseQuantityCart(product, 5));
         assertEquals(ex.getMessage(), "Invalid quantity");
@@ -115,6 +121,7 @@ public class CartTest {
 
     @Test
     void decreaseQuantityCart_A1_B1_C3(){
+        product = new Product();
         cart.addToCart(product, 3);
         cart.decreaseQuantityCart(product, 3);
         assertEquals(0, cart.getItems().size());
