@@ -33,6 +33,17 @@
             </div>
             <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
             <a href="ManageProduct?prodCode=<%= p.getProdCode() %>" class="btn btn-warning"><i class="fas fa-solid fa-wrench"></i> Manage</a>
+            <%
+                if(p.isAvailable()){
+            %>
+                <a href="ProductAvailability?action=makeUnavailable&prodCode=<%= p.getProdCode() %>" class="btn btn-danger"> Make unavailable</a>
+            <%
+                }else{
+            %>
+            <a href="ProductAvailability?action=makeAvailable&prodCode=<%= p.getProdCode() %>" class="btn btn-success"> Make available</a>
+            <%
+                }
+            %>
         </div>
     </div>
 </div>
