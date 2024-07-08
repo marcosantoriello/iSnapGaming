@@ -131,13 +131,25 @@ public class ProductManagerTest {
 
         product=Mockito.mock(Product.class);
         Mockito.when(product.getProdCode()).thenReturn(635);
-        //product=productManager.getProductByProdCode(635,ds);
+        Mockito.when(product.getId()).thenReturn(1);
+        Mockito.when(product.getCategory()).thenReturn(Product.Category.SPORTS);
+        Mockito.when(product.getPlatform()).thenReturn(Product.Platform.PC);
+        Mockito.when(product.getPegi()).thenReturn(Product.Pegi.PEGI3);
+        Mockito.when(product.getName()).thenReturn("Fifa23");
+        Mockito.when(product.getSoftwareHouse()).thenReturn("EA Games");
+        Mockito.when(product.getPrice()).thenReturn(55);
+        Mockito.when(product.getQuantity()).thenReturn(10);
+        Mockito.when(product.getReleaseYear()).thenReturn(2023);
+        Mockito.when(product.isAvailable()).thenReturn(true);
 
+        // Field to update
         Mockito.when(product.getPrice()).thenReturn(7);
+        Mockito.when(product.isAvailable()).thenReturn(false);
 
         productManager.updateProduct(product,ds);
         Product retrieveProduct=productManager.getProductByProdCode(635,ds);
-        assertEquals(product.getPrice(), retrieveProduct.getPrice());
+        assertEquals(7, retrieveProduct.getPrice());
+        assertFalse(retrieveProduct.isAvailable());
     }
     @Test
     void updateProduct_A2(){
@@ -153,9 +165,21 @@ public class ProductManagerTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/UserManagement/makeProductAvailable_A1.sql", conn);
 
-        Product product=new Product();
-        product=productManager.getProductByProdCode(444,ds);
-        product.setAvailable(true);
+        product=Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(444);
+        Mockito.when(product.getId()).thenReturn(1);
+        Mockito.when(product.getCategory()).thenReturn(Product.Category.SPORTS);
+        Mockito.when(product.getPlatform()).thenReturn(Product.Platform.PC);
+        Mockito.when(product.getPegi()).thenReturn(Product.Pegi.PEGI3);
+        Mockito.when(product.getName()).thenReturn("Fifa23");
+        Mockito.when(product.getSoftwareHouse()).thenReturn("EA Games");
+        Mockito.when(product.getPrice()).thenReturn(55);
+        Mockito.when(product.getQuantity()).thenReturn(10);
+        Mockito.when(product.getReleaseYear()).thenReturn(2023);
+
+        // Field to update
+        Mockito.when(product.isAvailable()).thenReturn(true);
+
         productManager.makeProductAvailable(product,ds);
         assertEquals(product.isAvailable(), productManager.getProductByProdCode(444,ds).isAvailable());
     }
@@ -175,7 +199,6 @@ public class ProductManagerTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/UserManagement/getProductByProdCode_A1.sql", conn);
 
-        Product product=new Product();
         product=productManager.getProductByProdCode(222,ds);
         productManager.getProductByProdCode(222,ds);
         assertEquals(product.getProdCode(), productManager.getProductByProdCode(222,ds).getProdCode());
@@ -190,7 +213,5 @@ public class ProductManagerTest {
             throw new RuntimeException(e);
         }
     }
-
-
 
 }
