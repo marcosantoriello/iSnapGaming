@@ -23,6 +23,7 @@ public class UserDAOTest {
     private UserDAO userDAO;
     private Connection conn;
     private DataSource ds;
+    private User user;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
@@ -48,6 +49,12 @@ public class UserDAOTest {
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
 
+        user = Mockito.mock(User.class);
+        Mockito.when(user.getUsername()).thenReturn("mrossi@isnapgaming.com");
+        Mockito.when(user.getPassword()).thenReturn("hvweU48gkereflsll3");
+        Mockito.when(user.getFirstName()).thenReturn("Mario");
+        Mockito.when(user.getLastName()).thenReturn("Rossi");
+        Mockito.when(user.getDateOfBirth()).thenReturn(LocalDate.of(1990, 1, 1));
         userDAO = new UserDAO(ds);
     }
 
@@ -60,9 +67,6 @@ public class UserDAOTest {
     @Test
     void doSave_U1() throws SQLException, IllegalArgumentException{
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
-
-        User user = User.makeUser("mrossi@isnapgaming.com", "hvweU48gkereflsll3",
-                "Mario", "Rossi", LocalDate.of(1990, 1, 1));
 
         assertEquals(1, userDAO.doSave(user));
     }
