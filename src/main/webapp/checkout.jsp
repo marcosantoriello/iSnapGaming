@@ -4,8 +4,14 @@
 <%@ page import="com.isnapgaming.OrderManagement.Cart" %>
 
 <%
-    if (session.getAttribute("cart") == null) {
-        response.sendRedirect(request.getRequestURI() + "../index.jsp");
+    Cart cart = (Cart) session.getAttribute("cart");
+    String returnUrl = request.getParameter("returnurl");
+    if (cart == null || cart.getItems().isEmpty()) {
+        if (returnUrl == null) {
+            response.sendRedirect("http://localhost:8080/iSnapGaming_war/index.jsp");
+        } else {
+            response.sendRedirect(returnUrl);
+        }
     }
     if (session.getAttribute("role") == null || (!session.getAttribute("role").equals("Customer"))) {
         response.sendRedirect("http://localhost:8080/iSnapGaming_war/login.jsp");
