@@ -1,11 +1,8 @@
 package unitTesting.ProductManagement;
 
 import com.isnapgaming.ProductManagement.Product;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
+import org.junit.jupiter.api.Test;
 
 import static com.isnapgaming.ProductManagement.Product.Category.RPG;
 import static com.isnapgaming.ProductManagement.Product.Pegi.PEGI18;
@@ -47,7 +44,6 @@ public class ProductTest {
 
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR1_Q1_C1_PE1_RY2_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -64,7 +60,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR1_Q1_C1_PE2_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -82,7 +77,6 @@ public class ProductTest {
 
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR1_Q1_C2_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -99,7 +93,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR1_Q2_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -116,7 +109,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR2_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -133,7 +125,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N1_SH1_PL2_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
@@ -150,7 +141,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N1_SH2_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "";
@@ -167,7 +157,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P1_N2_SH1_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=1001;
         String name= "";
         String softwareHouse= "CD";
@@ -184,7 +173,6 @@ public class ProductTest {
     }
     @Test
     void makeProduct_P2_N1_SH1_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
-        Product product=new Product();
         int prodCode=0;
         String name= "";
         String softwareHouse= "CD";
