@@ -30,6 +30,9 @@ public class CustomerOrderDAOTest {
     private CustomerOrderDAO customerOrderDAO;
     private Connection conn;
     private DataSource ds;
+    private Product product;
+    private OrderProduct orderProduct;
+    private Customer customer;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
@@ -54,8 +57,16 @@ public class CustomerOrderDAOTest {
             }
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
-
+        product = Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(252);
+        orderProduct = Mockito.mock(OrderProduct.class);
+        Mockito.when(orderProduct.getOrderId()).thenReturn(1);
+        Mockito.when(orderProduct.getProductId()).thenReturn(1);
+        Mockito.when(orderProduct.getQuantity()).thenReturn(3);
+        Mockito.when(orderProduct.getPrice()).thenReturn(60);
         customerOrderDAO = new CustomerOrderDAO(ds);
+        customer = Mockito.mock(Customer.class);
+        Mockito.when(customer.getId()).thenReturn(1);
     }
     @AfterEach
     public void tearDown() throws SQLException {
@@ -67,12 +78,8 @@ public class CustomerOrderDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/CustomerOrderDAO/doSave_O1.sql", conn);
 
-        Product prod = new Product();
-        prod.setProdCode(252);
         List<OrderProduct> prods = new ArrayList<>();
-        prods.add(new OrderProduct(1, 1, 3, 60));
-        Customer customer = new Customer();
-        customer.setId(1);
+        prods.add(orderProduct);
 
         CustomerOrder customerOrder = CustomerOrder.makeCustomerOrder(1, "Via Roma", LocalDate.now(), prods);
         assertEquals(1, customerOrderDAO.doSave(customerOrder));

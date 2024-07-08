@@ -1,15 +1,18 @@
-package unitTesting.OrderManagement;
+package integrationTesting.OrderManagement;
 
 import com.isnapgaming.OrderManagement.Cart;
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderCreation;
+import com.isnapgaming.UserManagement.Customer;
 import com.isnapgaming.UserManagement.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.security.InvalidParameterException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class OrderCreationTest {
     Cart cart;
@@ -17,8 +20,8 @@ public class OrderCreationTest {
 
     @BeforeEach
     void setUp() throws InvalidParameterException {
-        cart = Mockito.mock(Cart.class);
-        customer = Mockito.mock(User.class);
+        cart = new Cart();
+        customer = new Customer();
     }
 
     @Test

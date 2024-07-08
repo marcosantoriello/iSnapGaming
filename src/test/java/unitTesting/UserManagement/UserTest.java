@@ -1,12 +1,8 @@
 package unitTesting.UserManagement;
 
-import com.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.UserManagement.User;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -86,7 +82,4 @@ public class UserTest {
         User user;
         assertThrows(Exception.class,()->User.makeUser(username,password,firstName,lastName,dateOfBirth));
     }
-
-
-
 }

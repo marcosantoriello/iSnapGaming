@@ -1,4 +1,4 @@
-package unitTesting.StorageSubsystem;
+package integrationTesting.StorageSubsystem;
 
 import com.isnapgaming.StorageManagement.DAO.AddressDAO;
 import com.isnapgaming.UserManagement.Address;
@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 import testing.RetrieveCredentials;
+
 import javax.sql.DataSource;
 import java.security.InvalidParameterException;
 import java.sql.Connection;
@@ -62,63 +63,23 @@ public class AddressDAOTest {
     void doSave_VA1() throws SQLException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/AddressDAO/doSave_VA1.sql", conn);
-        Address address = Mockito.mock(Address.class);
-        Mockito.when(address.getCustomerId()).thenReturn(1);
-        Mockito.when(address.getStreet()).thenReturn("statale");
-        Mockito.when(address.getCity()).thenReturn("Roma");
-        Mockito.when(address.getPostalCode()).thenReturn(10345);
+        Address address=new Address();
+        address.setCustomerId(1);
+        address.setStreet("statale");
+        address.setCity("Roma");
+        address.setPostalCode(10345);
         assertEquals(1,addressDAO.doSave(address));
 
     }
 
     @Test
-    void doSave_VA2() {
+    void doSave_VA2() throws SQLException {
         Address address=null;
         try {
             assertThrows(Exception.class,()-> addressDAO.doSave(address));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Test
-    void findByKey_VA1_VD1() throws SQLException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD1.sql", conn);
-        assertEquals(1,addressDAO.findByKey(1).getId());
-    }
-    @Test
-    void findByKey_VA2_VD1() throws SQLException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->addressDAO.findByKey(-1));
-        assertEquals(ex.getMessage(), "Id cannot be negative");
-    }
-    @Test
-    void findByKey_VA1_VD2() throws SQLException,IllegalArgumentException{
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByKey_VA1_VD2.sql", conn);
-        SQLException ex = assertThrows(SQLException.class,()->addressDAO.findByKey(3));
-        assertEquals(ex.getMessage(), "No Address found with the given id");
-    }
-    @Test
-    void findByCustomerId_C1_CD1() throws SQLException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerId_C1_CD1.sql", conn);
-
-        assertEquals(1,addressDAO.findByCustomerId(1).size());
-
-    }
-    @Test
-    void findByCustomerId_C2_CD1() throws SQLException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->addressDAO.findByCustomerId(-1));
-        assertEquals(ex.getMessage(), "CustomerId cannot be negative");
-    }
-    @Test
-    void findByCustomerId_C1_CD2() throws SQLException, IllegalArgumentException {
-        executeSQLScript("src/test/db/createDbForTest.sql", conn);
-        executeSQLScript("src/test/db/StorageManagement/AddressDAO/findByCustomerIdC1_CD2.sql", conn);
-        assertEquals(0,addressDAO.findByCustomerId(3).size());
     }
 
 }

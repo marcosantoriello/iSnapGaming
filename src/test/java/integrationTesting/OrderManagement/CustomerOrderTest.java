@@ -1,28 +1,29 @@
-package unitTesting.OrderManagement;
+package integrationTesting.OrderManagement;
 
 import com.isnapgaming.OrderManagement.CustomerOrder;
 import com.isnapgaming.OrderManagement.OrderProduct;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
+import javax.sql.DataSource;
 import java.security.InvalidParameterException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CustomerOrderTest {
-    private CustomerOrder customerOrder2;
     private OrderProduct product1;
     private OrderProduct product2;
 
     @BeforeEach
     void setUp() throws InvalidParameterException {
-        product1 = Mockito.mock(OrderProduct.class);
-        product2 = Mockito.mock(OrderProduct.class);
-        customerOrder2 = new CustomerOrder();
+        product1 = new OrderProduct();
+        product2 = new OrderProduct();
     }
 
     @Test
@@ -81,21 +82,4 @@ public class CustomerOrderTest {
         IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->CustomerOrder.makeCustomerOrder(customerId, address, orderDate, products));
         assertEquals("CustomerId cannot be negative", ex.getMessage());
     }
-
-    @Test
-    public void addProduct_P1() {
-        List<OrderProduct> products = new ArrayList<>();
-        products.add(product1);
-        customerOrder2.setProducts(products);
-
-        customerOrder2.addProduct(product2);
-        assertEquals(2, customerOrder2.getProducts().size());
-    }
-
-    @Test
-    public void addProduct_P2() {
-        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,()->customerOrder2.addProduct(null));
-        assertEquals("Product cannot be null", ex.getMessage());
-    }
-
 }

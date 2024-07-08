@@ -1,15 +1,14 @@
 package unitTesting.StorageSubsystem;
 
 
-import com.isnapgaming.ProductManagement.Product;
 import com.isnapgaming.StorageManagement.DAO.CustomerDAO;
-import com.isnapgaming.StorageManagement.DAO.ProductDAO;
+import com.isnapgaming.StorageManagement.DAO.UserDAO;
 import com.isnapgaming.UserManagement.Address;
 import com.isnapgaming.UserManagement.Customer;
+import com.isnapgaming.UserManagement.User;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
@@ -31,6 +30,8 @@ import static testing.SQLScript.executeSQLScript;
 public class CustomerDAOTest {
     private CustomerDAO customerDAO;
     private Address address;
+    private Customer customer;
+    private UserDAO userDAO;
     private Connection conn;
     private DataSource ds;
     @BeforeEach
@@ -57,9 +58,18 @@ public class CustomerDAOTest {
             }
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
-        address = Mockito.mock(Address.class);
-        customerDAO=new CustomerDAO(ds);
 
+        address = Mockito.mock(Address.class);
+        Mockito.when(address.getCustomerId()).thenReturn(1);
+        Mockito.when(address.getStreet()).thenReturn("Via Roma");
+        Mockito.when(address.getCity()).thenReturn("Salerno");
+        Mockito.when(address.getPostalCode()).thenReturn(84124);
+
+        userDAO = Mockito.mock(UserDAO.class);
+        Mockito.when(userDAO.doSave(Mockito.any(User.class))).thenReturn(1);
+        customer = Mockito.mock(Customer.class);
+
+        customerDAO = new CustomerDAO(ds);
     }
 
     @AfterEach
@@ -72,14 +82,14 @@ public class CustomerDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         List<Address> addresses=new ArrayList<>();
         addresses.add(address);
-        Customer customer= new Customer();
-        customer.setUsername("pio");
-        customer.setPassword("password1");
-        customer.setFirstName("mario");
-        customer.setLastName("Rossi");
-        customer.setDateOfBirth(LocalDate.of(2000,1,1));
-        customer.setId(1);
-        customer.setAddresses(addresses);
+        Mockito.when(customer.getUsername()).thenReturn("pio@email.com");
+        Mockito.when(customer.getPassword()).thenReturn("PAEgtord123");
+        Mockito.when(customer.getFirstName()).thenReturn("Mario");
+        Mockito.when(customer.getLastName()).thenReturn("Rossi");
+        Mockito.when(customer.getDateOfBirth()).thenReturn(LocalDate.of(2000,1,1));
+        Mockito.when(customer.getId()).thenReturn(1);
+        Mockito.when(customer.getAddresses()).thenReturn(addresses);
+
         assertEquals(1, customerDAO.doSave(customer));
     }
 
