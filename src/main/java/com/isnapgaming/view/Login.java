@@ -39,11 +39,7 @@ public class Login extends HttpServlet {
         try {
             UserDAO userDAO = new UserDAO(dataSource);
             user = userDAO.getUserByUsernameAndPassword(email, password);
-        } catch (SQLException e) {
-            request.setAttribute("error", "Wrong username or password.");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-            dispatcher.forward(request, response);
-        }
+        } catch (SQLException e) {}
 
         if (user != null) {
             HttpSession session = request.getSession();
@@ -82,7 +78,7 @@ public class Login extends HttpServlet {
 
         } else {
             request.setAttribute("error", "Wrong username or password.");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/login.jsp?returnurl="+redirectUrl);
             dispatcher.forward(request, response);
         }
     }
