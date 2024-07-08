@@ -23,6 +23,8 @@ public class ProductDAOTest {
     private ProductDAO productDAO;
     private Connection conn;
     private DataSource ds;
+    private Product product;
+    private Product product2;
 
     @BeforeEach
     void setUp() throws ClassNotFoundException, SQLException, InvalidParameterException {
@@ -48,6 +50,18 @@ public class ProductDAOTest {
         };
         Mockito.when(ds.getConnection()).thenAnswer(getConnection);
 
+        product = Mockito.mock(Product.class);
+        Mockito.when(product.getProdCode()).thenReturn(252);
+        Mockito.when(product.getName()).thenReturn("Call of Duty WWII");
+        Mockito.when(product.getSoftwareHouse()).thenReturn("Activision");
+        Mockito.when(product.getPlatform()).thenReturn(Product.Platform.PC);
+        Mockito.when(product.getPrice()).thenReturn(50);
+        Mockito.when(product.getQuantity()).thenReturn(100);
+        Mockito.when(product.getCategory()).thenReturn(Product.Category.SHOOTER);
+        Mockito.when(product.getPegi()).thenReturn(Product.Pegi.PEGI18);
+        Mockito.when(product.getReleaseYear()).thenReturn(2017);
+        Mockito.when(product.isAvailable()).thenReturn(true);
+
         productDAO = new ProductDAO(ds);
     }
 
@@ -61,17 +75,6 @@ public class ProductDAOTest {
     void doSave_A1() throws SQLException, IllegalArgumentException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
 
-        Product product = new Product();
-        product.setProdCode(252);
-        product.setName("Call of Duty WWII");
-        product.setSoftwareHouse("Activision");
-        product.setPlatform(Product.Platform.PC);
-        product.setPrice(50);
-        product.setQuantity(100);
-        product.setCategory(Product.Category.SHOOTER);
-        product.setPegi(Product.Pegi.PEGI18);
-        product.setReleaseYear(2017);
-        product.setAvailable(true);
         assertEquals(1, productDAO.doSave(product));
     }
 
@@ -88,10 +91,10 @@ public class ProductDAOTest {
     void doUpdate_A1() throws SQLException, IllegalArgumentException {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/ProductDAO/doUpdate_A1.sql", conn);
-        Product product = productDAO.findByProdCode(252);
-        product.setQuantity(150);
+        product2 = productDAO.findByProdCode(252);
+        product2.setQuantity(150);
 
-        productDAO.doUpdate(product);
+        productDAO.doUpdate(product2);
         assertEquals(150, productDAO.findByProdCode(252).getQuantity());
     }
 
@@ -109,8 +112,8 @@ public class ProductDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByKey_P1_PD1.sql", conn);
 
-        Product product = productDAO.findByKey(1);
-        assertEquals(1, product.getId());
+        product2 = productDAO.findByKey(1);
+        assertEquals(1, product2.getId());
     }
 
     @Test
@@ -136,8 +139,8 @@ public class ProductDAOTest {
         executeSQLScript("src/test/db/createDbForTest.sql", conn);
         executeSQLScript("src/test/db/StorageManagement/ProductDAO/findByProdCode_P1_PD1.sql", conn);
 
-        Product product = productDAO.findByProdCode(252);
-        assertEquals("CoD WWII", product.getName());
+        product2 = productDAO.findByProdCode(252);
+        assertEquals("CoD WWII", product2.getName());
     }
 
     @Test
