@@ -56,11 +56,11 @@
                 </div>
                 <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
                 <%
-                    if(p.isAvailable()){
+                    if(p.isAvailable() && p.getQuantity() > 0){
                 %>
                 <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart </button><!--<a href="AddToCart?prodCode=" class="btn btn-primary"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a> -->
                 <%
-                }else{
+                }else if(!(p.isAvailable()) || p.getQuantity() == 0){
                 %>
                 <a class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true" style="background-color: #3498db;color: white;border: none; padding: 10px 20px;cursor: pointer;font-size: 16px;"><i class="fas fa-shopping-cart mr-1 icon-finder"></i> Add to cart</a>
                 <span style="color: red; text-align: center">Product temporarily unavailable</span>
