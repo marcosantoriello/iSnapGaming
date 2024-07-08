@@ -72,7 +72,7 @@ public class AddressDAOTest {
     }
 
     @Test
-    void doSave_VA2() throws SQLException {
+    void doSave_VA2() {
         Address address=null;
         try {
             assertThrows(Exception.class,()-> addressDAO.doSave(address));
