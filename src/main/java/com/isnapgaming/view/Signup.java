@@ -87,7 +87,7 @@ public class Signup extends HttpServlet {
             response.sendRedirect(redirectUrl);
         } else {
             request.setAttribute("error", "That user already exists.");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signup.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/signup.jsp?returnurl="+redirectUrl);
             dispatcher.forward(request, response);
         }
     }
