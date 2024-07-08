@@ -95,7 +95,7 @@ public class AddProduct extends HttpServlet {
                 exists = true;
             }
         } catch (SQLException e) {
-            // Do nothing
+            //DO-NOTHING
         }
 
 
