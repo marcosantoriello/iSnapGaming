@@ -39,7 +39,7 @@
                 <div class="order-info">
                     <h3 style="padding: 20px; width: 220px; text-align: center">Order #<%=co.getId()%></h3>
                 </div>
-                <a href="GetOrderDetails?orderId=<%=co.getId()%>" class="btn btn-primary"> Details </a>
+                <a href="GetOrderDetails?orderId=<%=co.getId()%>" class="btn btn-primary"> Select </a>
             </div>
             <%
                         }
