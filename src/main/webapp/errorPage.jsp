@@ -8,6 +8,10 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link rel="stylesheet" type="text/css" href="styles/errorPage.css">
         </head>
+
+        <%
+            String role = (String) session.getAttribute("role");
+        %>
     <body>
         <jsp:include page="fragments/header.jsp" />
             <div class="content">
@@ -16,8 +20,21 @@
                     <br>
                     <%= request.getAttribute("jakarta.servlet.error.message") %>
                     <br><br>
-                    <h6 class="mb-0"><a href="index.jsp" class="text-body"><i
-                            class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                    <%
+                        if("ProductManager".equals(role)){
+                    %>
+                        <h6 class="mb-0"><a href="productManagerDashboard.jsp" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to dashboard</a></h6>
+                    <%
+                             }else if("OrderManager".equals(role)){
+                    %>
+                         <h6 class="mb-0"><a href="orderManagerDashboard.jsp" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to dashboard</a></h6>
+                    <%
+                                 }else{
+                    %>
+                             <h6 class="mb-0"><a href="index.jsp" class="text-body"><i class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                           <%
+                               }
+                           %>
                 </div>
             </div>
         <jsp:include page="fragments/footer.jsp" />
