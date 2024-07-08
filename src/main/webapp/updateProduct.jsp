@@ -86,11 +86,6 @@
         <label for="priceProduct">Price</label>
         <input value="<%= p.getPrice()%>" id="priceProduct" type="number" min="1" name="priceProduct" class="form-control" required>
       </div>
-      <div class="form-group" style="margin: 15px 0;">
-        <label for="imageProduct">Image</label>
-        <input id="imageProduct" type="file" name="imageProduct" class="form-control" >
-        <input type="hidden" name="currentImage" value="<%=p.getImagePath()%>" />
-      </div>
       <div class="submit-button">
         <input type="submit" value="Update Product" class="btn btn-primary btn-block" style="width: 100%; margin: 20% 0"/>
       </div>

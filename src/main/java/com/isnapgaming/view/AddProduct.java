@@ -110,7 +110,7 @@ public class AddProduct extends HttpServlet {
 
             request.setAttribute("product", product);
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productDetailsPM.jsp");
             dispatcher.forward(request, response);
         }else {
             request.setAttribute("error", "That product with this code already exists.");

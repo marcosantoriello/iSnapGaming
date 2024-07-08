@@ -140,7 +140,6 @@ function checkLogin(obj) {
     let check = true;
 
     if (!validateEmail()) check = false;
-    if (!validatePassword()) check = false;
 
     return check;
 }

@@ -54,7 +54,7 @@
           <span id="errorEmail" style="max-width: 209px; font-size: 15px;"></span>
           <div class="form-group" style="margin: 15px 0;">
             <label for="password">Password</label>
-            <input id="password" type="password" name="password" class="form-control" required onChange="return validatePassword()">
+            <input id="password" type="password" name="password" class="form-control" required">
           </div>
           <span id="errorPassword" style="max-width: 209px; font-size: 15px;"></span>
           <div class="submit-button">

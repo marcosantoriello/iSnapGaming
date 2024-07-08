@@ -43,12 +43,6 @@
     <%
         if(!(currentPage.contains("login.jsp")) && !(currentPage.contains("roleSelection.jsp")) && !(currentPage.contains("signup.jsp"))){
     %>
-    <form class="form-inline  justify-content-center">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            <i class="fas fa-search icon-finder"></i>
-        </button>
-    </form>
     <div class="ml-auto">
         <%
             if(!("ProductManager".equals(role)) && !("OrderManager".equals(role)) && !(currentPage.contains("cart.jsp"))){
