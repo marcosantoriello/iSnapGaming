@@ -56,15 +56,14 @@ public class UpdateCart extends HttpServlet {
         }
 
 
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
+        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+        //dispatcher.forward(request, response);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+        doGet(request, response);
     }
 }
