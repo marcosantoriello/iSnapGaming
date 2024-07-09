@@ -19,7 +19,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <div class="content">
   <div class="col fixed-center d-flex justify-content-center align-items-center page" style="margin: 100px auto;">
-    <form action="ProductUpdater" method="POST" enctype="multipart/form-data">
+    <form action="ProductUpdater" method="POST">
       <input type="hidden" id="productId" name="productId" value="<%=p.getId()%>">
       <input type="hidden" id="isAvailable" name="isAvailable" value="true">
       <h2 class="mb-3" style="text-align: center;">UPDATE PRODUCT</h2>
