@@ -51,7 +51,7 @@
             <i class="fas fa-shopping-cart mr-1 icon-finder"></i> Cart
         </a>
         <%
-            }if("ProductManager".equals(role) || "OrderManager".equals(role) || (userRoles != null && userRoles.size() >= 2)){
+            }if((userRoles != null && userRoles.size() >= 2)){
         %>
         <a href="roleSelection.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-solid fa-bars"></i> Switch Role

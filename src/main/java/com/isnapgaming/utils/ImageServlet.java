@@ -1,4 +1,4 @@
-package com.isnapgaming.view;
+package com.isnapgaming.utils;
 
 import java.io.*;
 import jakarta.servlet.ServletException;

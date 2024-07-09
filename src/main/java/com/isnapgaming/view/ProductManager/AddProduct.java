@@ -1,4 +1,4 @@
-package com.isnapgaming.view;
+package com.isnapgaming.view.ProductManager;
 
 import java.io.*;
 import java.sql.SQLException;
