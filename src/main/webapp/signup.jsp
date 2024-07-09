@@ -52,8 +52,9 @@
                     <span id="errorLastName" style="max-width: 209px; font-size: 15px;"></span>
                     <div class="form-group" style="margin: 15px 0;">
                         <label for="dateOfBirth">Date Of Birth</label>
-                        <input id="dateOfBirth" type="date" name="dateOfBirth" class="form-control"  required>
+                        <input id="dateOfBirth" type="date" name="dateOfBirth" class="form-control"  required onChange="return validateDateOfBirth()">
                     </div>
+                    <span id="errorDateOfBirth" style="max-width: 209px; font-size: 15px;"></span>
                     <div class="form-group" style="margin: 15px 0;">
                         <label for="email">Email</label>
                         <input id="email" type="email" name="email" class="form-control" required onChange="return validateEmail()">

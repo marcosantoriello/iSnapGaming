@@ -2,7 +2,9 @@ package com.isnapgaming.view.Guest;
 
 import java.io.*;
 import java.sql.SQLException;
+import java.util.List;
 
+import com.isnapgaming.OrderManagement.ItemCart;
 import com.isnapgaming.StorageManagement.DAO.ProductDAO;
 import com.isnapgaming.OrderManagement.Cart;
 import jakarta.servlet.RequestDispatcher;
@@ -24,8 +26,15 @@ public class UpdateCart extends HttpServlet {
 
         String action = (String) request.getParameter("action");
         int prodCode = Integer.parseInt(request.getParameter("prodCode"));
-
+        ItemCart prod = null;
         Cart cart = (Cart) request.getSession().getAttribute("cart");
+        List<ItemCart> items = cart.getItems();
+        for (ItemCart item : items) {
+            if (item.getProduct().getProdCode() == prodCode) {
+                prod = item;
+            }
+        }
+
         Product product = null;
         ProductDAO pDAO = null;
 
@@ -42,10 +51,17 @@ public class UpdateCart extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        request.setAttribute("product", product);
 
         if("add".equals(action)){
+            if (prod.getQuantity() + 1 <= product.getQuantity()) {
+                cart.addToCart(product, 1);
+            } else {
+                request.setAttribute("error", "The selected quantity is not available");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+                dispatcher.forward(request, response);
+            }
 
-            cart.addToCart(product, 1);
 
         }else if("decrease".equals(action)){
             cart.decreaseQuantityCart(product, 1);

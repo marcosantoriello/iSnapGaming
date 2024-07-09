@@ -28,11 +28,9 @@ public class AddToCart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
-        User user = (User) request.getSession().getAttribute("user");
 
         int quantitySelected = 0;
         int prodCode = 0;
-
 
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         prodCode = Integer.parseInt(request.getParameter("prodCode"));
@@ -54,7 +52,16 @@ public class AddToCart extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        cart.addToCart(product, quantitySelected);
+        request.setAttribute("product", product);
+
+        if (quantitySelected <= product.getQuantity()) {
+            cart.addToCart(product, quantitySelected);
+        } else {
+            request.setAttribute("error", "The selected quantity is not available");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
+            dispatcher.forward(request, response);
+        }
+
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
         dispatcher.forward(request, response);

@@ -122,6 +122,27 @@ function passwordMatching() {
 
 }
 
+function validateDateOfBirth() {
+    let form = document.getElementById("signUpForm");
+    let span = document.getElementById("errorDateOfBirth");
+    let data = form.dateOfBirth.value;
+
+    const today = new Date();
+    const dataObj = new Date(data);
+
+    if (dataObj > today) {
+        span.classList.add("error");
+        span.innerHTML = "Wrong date format";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
 function checkSignUp(obj) {
     let check = true;
 
@@ -132,6 +153,7 @@ function checkSignUp(obj) {
     if (!passwordMatching()) check = false;
     if (!validatePostalCode()) check = false;
     if (!validateCity()) check = false;
+    if (!validateDateOfBirth()) check = false;
 
     return check;
 }
