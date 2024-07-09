@@ -68,9 +68,11 @@ public class Login extends HttpServlet {
             } else if (roles.get(0).equals("ProductManager")) {
                 session.setAttribute("role", "ProductManager");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
+                dispatcher.forward(request, response);
             } else if (roles.get(0).equals("OrderManager")) {
                 session.setAttribute("role", "OrderManager");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
+                dispatcher.forward(request, response);
             } else {
                 throw new ServletException("Unknown role");
             }

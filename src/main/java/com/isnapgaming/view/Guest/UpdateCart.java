@@ -57,9 +57,6 @@ public class UpdateCart extends HttpServlet {
 
 
         response.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
-        //RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
-        //dispatcher.forward(request, response);
-
     }
 
     @Override
