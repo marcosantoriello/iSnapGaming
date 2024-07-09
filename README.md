@@ -13,5 +13,13 @@ The main goal of this project is to design software focusing on software enginee
 - [Fabio Sessa](https://github.com/bafiuss)
 - [Marco Santoriello](https://github.com/marcosantoriello)
 
-  ## Documentation
-  All the documentation realized during all the development process is available under the [Deliverables](https://github.com/marcosantoriello/iSnapGaming/tree/main/Deliverables) folder.
+## Documentation and assets
+- All the documentation produced during all the development process is available under the [Deliverables](https://github.com/marcosantoriello/iSnapGaming/tree/main/Deliverables) folder.
+- All the assets produced during all the development process are available under the [Assets](https://github.com/marcosantoriello/iSnapGaming/tree/main/Assets) folder.
+## Requirements
+ - Java JDK 21
+ - Apache Tomcat 10
+## Cloning the repo
+In order to make the software up and running, you will have to create and populate the database. You can find the files in [this folder](https://github.com/marcosantoriello/iSnapGaming/tree/main/db). In here you will find two files:
+- [`createDb.sql`](https://github.com/marcosantoriello/iSnapGaming/blob/main/db/createDb.sql) that will set up the new database once executed;
+- [`populateDb.sql`](https://github.com/marcosantoriello/iSnapGaming/blob/main/db/populateDb.sql) that will populate the newly created database.
