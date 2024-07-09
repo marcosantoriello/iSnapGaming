@@ -1,11 +1,9 @@
-package com.isnapgaming.view;
+package com.isnapgaming.view.OrderManager;
 
 import java.io.*;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.isnapgaming.OrderManagement.CustomerOrder;
-import com.isnapgaming.StorageManagement.DAO.*;
 import com.isnapgaming.StorageManagement.DAO.UserDAO;
 import com.isnapgaming.UserManagement.User;
 import com.isnapgaming.OrderManagement.Cart;
@@ -14,35 +12,33 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
+import com.isnapgaming.StorageManagement.DAO.CustomerOrderDAO;
+import com.isnapgaming.OrderManagement.CustomerOrder;
+import com.isnapgaming.UserManagement.OrderManager;
+
 import javax.sql.DataSource;
 
-@WebServlet(name = "GetOrderDetails", value = "/GetOrderDetails")
-public class GetOrderDetails extends HttpServlet {
+@WebServlet(name = "GetOrdersList", value = "/GetOrdersList")
+public class GetOrdersList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         DataSource ds = (DataSource) request.getServletContext().getAttribute("DataSource");
-        CustomerOrderDAO coDAO = null;
+
+        OrderManager orderManager = new OrderManager();
+        List<CustomerOrder> orders = null;
 
         try {
-            coDAO = new CustomerOrderDAO(ds);
+             orders = orderManager.getAllCustomerOrders(ds);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        CustomerOrder customerOrder = null;
-        int orderId = Integer.parseInt(request.getParameter("orderId"));
+        request.setAttribute("orders", orders);
 
-        try {
-            customerOrder = coDAO.findByKey(orderId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
-        request.setAttribute("customerOrder", customerOrder);
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateStatus.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/customerOrdersList.jsp");
         dispatcher.forward(request, response);
+
     }
 
     @Override

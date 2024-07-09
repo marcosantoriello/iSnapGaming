@@ -1,4 +1,4 @@
-package com.isnapgaming.view;
+package com.isnapgaming.view.Manager;
 
 import java.io.*;
 

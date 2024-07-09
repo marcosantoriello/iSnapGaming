@@ -1,4 +1,4 @@
-package com.isnapgaming.view;
+package com.isnapgaming.utils;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
