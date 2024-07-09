@@ -51,12 +51,15 @@ public class UpdateCart extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+        request.setAttribute("product", product);
 
         if("add".equals(action)){
             if (prod.getQuantity() + 1 <= product.getQuantity()) {
                 cart.addToCart(product, 1);
             } else {
-                // error message
+                request.setAttribute("error", "The selected quantity is not available");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+                dispatcher.forward(request, response);
             }
 
 

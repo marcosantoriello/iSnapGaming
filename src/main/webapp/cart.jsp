@@ -17,12 +17,21 @@
     }
 
     Cart cart = (Cart) session.getAttribute("cart");
-
+    String error = (String) request.getAttribute("error");
   %>
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
 <div class="content" style="background-color: rgb(207, 222, 236);">
+  <%
+    if(error != null){
+  %>
+  <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+    <%=error%>
+  </div>
+  <%
+    }
+  %>
   <section class="h-100 h-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">

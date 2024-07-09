@@ -30,11 +30,21 @@
     </script>
     <%
         Product p = (Product) request.getAttribute("product");
+        String error = (String) request.getAttribute("error");
     %>
 </head>
 <body>
 <jsp:include page="fragments/header.jsp" />
 <div class="content">
+    <%
+        if(error != null){
+    %>
+    <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+        <%=error%>
+    </div>
+    <%
+        }
+    %>
     <div class="product">
         <div class="product-left-side">
             <img src="ImageServlet?image=<%=p.getProdCode()%>_1.jpg" alt="Product Image" class="product-img">
@@ -52,7 +62,7 @@
                 <div class="product-title" style="font-size: 40px;"><%= p.getName()%></div>
                 <div class="product-quantity" style="text-align: center">
                     <label for="quantitySelected">Quantity: </label>
-                    <input type="number" id="quantitySelected" name="quantitySelected" min="1" max="<%= p.getQuantity() %>" value="1" style="width: 50px;">
+                    <input type="number" id="quantitySelected" name="quantitySelected" min="1" value="1" style="width: 50px;">
                 </div>
                 <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
                 <%
