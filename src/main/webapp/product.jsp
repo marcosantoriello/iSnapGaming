@@ -62,7 +62,7 @@
                 <div class="product-title" style="font-size: 40px;"><%= p.getName()%></div>
                 <div class="product-quantity" style="text-align: center">
                     <label for="quantitySelected">Quantity: </label>
-                    <input type="number" id="quantitySelected" name="quantitySelected" min="1" value="1" style="width: 50px;">
+                    <input type="number" id="quantitySelected" name="quantitySelected" min="1" value="1" style="width: 55px;">
                 </div>
                 <div class="product-price" style="color: black"><b><%= p.getPrice()%>.00 €</b></div>
                 <%

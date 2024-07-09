@@ -26,14 +26,14 @@
   <%
     if(error != null){
   %>
-  <div class="alert alert-danger" role="alert" style="margin: 5% auto; width: 300px; text-align: center;">
+  <div class="alert alert-danger" role="alert" style="margin: 5% auto 0; width: 500px; text-align: center;">
     <%=error%>
   </div>
   <%
     }
   %>
   <section class="h-100 h-custom">
-    <div class="container py-5 h-100">
+    <div class="container py-5 h-100" style="padding: 10rem 5rem !important;">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
           <div class="card card-registration card-registration-2" style="border-radius: 15px;">
