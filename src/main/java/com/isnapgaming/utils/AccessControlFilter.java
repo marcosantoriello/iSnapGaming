@@ -38,7 +38,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
             isLogged = true;
             roles = (List<String>) httpServletRequest.getSession().getAttribute("roles");
 
-            if(roles.size() >= 2)
+            if("ProductManager".equals(role) || "OrderManager".equals(role))
                 isManager = true;
 
             if(roles.size() == 1 && !("ProductManager".equals(role)) && !("OrderManager".equals(role)))
@@ -93,6 +93,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                         //Checks for OrderManager jsp pages
                         path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
         )) {
+            System.out.println("SEI SOLO UN CUSTOMER");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
             return;
         }
@@ -139,7 +140,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
             return;
         }
 
-        if( (isManager && isCustomer)  && (
+        if( (isCustomer)  && (
                 //Checks for general servlet
                 path.contains("/Login") || path.contains("/Signup") ||
                         //Checks for ProductManager servlet
