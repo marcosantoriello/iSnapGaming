@@ -155,6 +155,9 @@ function checkSignUp(obj) {
     if (!validateCity()) check = false;
     if (!validateDateOfBirth()) check = false;
 
+    if(check)
+        alert("Success");
+
     return check;
 }
 
