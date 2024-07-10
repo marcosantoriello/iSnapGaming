@@ -3578,6 +3578,231 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "7ed209c5-8e69-4acc-acaf-7f86c1a43c20",
+    "name": "AggiuntaProdottoCarrello_P1_Q1",
+    "commands": [{
+      "id": "746c7880-93bb-4adc-9ebc-2f608c191145",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/ProductDetails?prodCode=331",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e5f3de27-007a-43d6-bdc7-87c3f44aa1b9",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3a4f7de-f665-4619-b316-c6e5ed98814c",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "f51380f3-d497-4aac-836d-97f3cd03edbf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Add to cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bc280b96-5737-4d63-93b3-5563f4bbf0be",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.d-flex > .fw-bold",
+      "targets": [
+        ["css=.d-flex > .fw-bold", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Shopping Cart')]", "xpath:innerText"]
+      ],
+      "value": "Shopping Cart"
+    }, {
+      "id": "bc655b14-71da-41fd-bf72-2dd3ed726cd7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0da158ca-bbab-4d27-8c88-89fa82bb48d9",
+    "name": "AggiuntaProdottoCarrello_P1_Q2",
+    "commands": [{
+      "id": "7ed5a18c-a9cb-4b29-a500-fab45b98030d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/ProductDetails?prodCode=331",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74048e58-f3b7-429b-8572-8ecda11fba1d",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "810b25d7-05cd-417a-abb5-1dae64246f32",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "35"
+    }, {
+      "id": "d1d3964f-0b80-475c-a62d-6d7f9a914320",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Add to cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "31c71884-83ea-43d1-9b61-94c07fb9363f",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "The selected quantity is not available "
+    }, {
+      "id": "17613c85-ef52-494f-92ff-09b19a127fc9",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7a7c463c-3039-4e93-863b-2c8463422752",
+    "name": "AggiuntaProdottoCarrello_P2_Q1",
+    "commands": [{
+      "id": "5baff95d-2c7d-4e9b-8aa2-a0b94700bc25",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/ProductDetails?prodCode=652",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "710a21a8-d402-4291-b581-3b52d4c580cb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=span:nth-child(6)",
+      "targets": [
+        ["css=span:nth-child(6)", "css:finder"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Product temporarily unavailable')]", "xpath:innerText"]
+      ],
+      "value": "Product temporarily unavailable"
+    }, {
+      "id": "196baa7b-ce10-4620-975d-1b71ad885967",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a18445f-cd79-42fd-8989-a68de2a6230f",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "87f417ba-547b-405b-892e-cc13789d521b",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4157cb6-9a0f-4e0d-b505-e105fa3a6359",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "68204df4-5985-449b-819c-08f2f66e9438",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=span:nth-child(6)",
+      "targets": [
+        ["css=span:nth-child(6)", "css:finder"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Product temporarily unavailable')]", "xpath:innerText"]
+      ],
+      "value": "Product temporarily unavailable"
+    }, {
+      "id": "c3bec609-3321-4f9d-b312-57578c7ae998",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "de2c5b4b-8d07-4613-b9a6-ccbf851aa900",
