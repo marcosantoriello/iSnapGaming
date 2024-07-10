@@ -2,7 +2,7 @@ const onlyLettersPattern = /^[A-Za-z]+$/;
 const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 const postalCodePattern = /^\d{5}$/;
-const cityPattern = /^[A-Za-z\s]+$/;
+const cityPattern = /^[A-Za-z]+$/;
 
 const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
 const securityNumberPattern = /^\d{3}$/;
@@ -13,7 +13,7 @@ const passwordError = "Password must contain at least one number, one uppercase 
 const confirmPasswordError = "Passwords do not match";
 const emailError = "Email entered not in correct format ";
 const postalCodeError = "Postal code must be composed of exactly 5 numbers";
-const cityError = "The name of the city must be composed of letters and any spaces";
+const cityError = "The name of the city must be composed of only letters.";
 
 const cardNumberError = "The card format must contain only numbers and in NNNN-NNNN-NNNN-NNNN format";
 const securityNumberError = "The security number must contain only numbers and in NNN format";
