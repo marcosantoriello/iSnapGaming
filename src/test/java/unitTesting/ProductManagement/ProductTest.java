@@ -41,7 +41,22 @@ public class ProductTest {
         assertEquals(available,product.isAvailable());
     }
 
+    @Test
+    void makeProduct_P1_N1_SH1_PL1_PR1_Q1_C1_PE1_RY2_IP2()throws IllegalArgumentException  {
+        int prodCode=1001;
+        String name= "The Witcher 3: Wild Hunt";
+        String softwareHouse= "CD";
+        Product.Platform platform= PC;
+        int price  = 50;
+        int quantity  = 10;
+        Product.Category category =RPG;
+        Product.Pegi pegi=PEGI18;
+        int releaseYear=-1;
+        String imagePath=null;
+        boolean available=true;
+        assertThrows(Exception.class,()->Product.makeProduct(prodCode,name,softwareHouse,platform,price,quantity,category,pegi,releaseYear,imagePath,available));
 
+    }
     @Test
     void makeProduct_P1_N1_SH1_PL1_PR1_Q1_C1_PE1_RY2_IP1()throws IllegalArgumentException  {
         int prodCode=1001;
@@ -143,8 +158,8 @@ public class ProductTest {
     void makeProduct_P1_N1_SH2_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
         int prodCode=1001;
         String name= "The Witcher 3: Wild Hunt";
-        String softwareHouse= "";
-        Product.Platform platform= null;
+        String softwareHouse= null;
+        Product.Platform platform= PC;
         int price  = 50;
         int quantity  =10 ;
         Product.Category category =RPG;
@@ -158,9 +173,9 @@ public class ProductTest {
     @Test
     void makeProduct_P1_N2_SH1_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
         int prodCode=1001;
-        String name= "";
+        String name= null;
         String softwareHouse= "CD";
-        Product.Platform platform= null;
+        Product.Platform platform= PC;
         int price  = 50;
         int quantity  =10 ;
         Product.Category category =RPG;
@@ -174,9 +189,9 @@ public class ProductTest {
     @Test
     void makeProduct_P2_N1_SH1_PL1_PR1_Q1_C1_PE1_RY1_IP1()throws IllegalArgumentException  {
         int prodCode=0;
-        String name= "";
+        String name= "The Witcher 3: Wild Hunt";
         String softwareHouse= "CD";
-        Product.Platform platform= null;
+        Product.Platform platform= PC;
         int price  = 50;
         int quantity  =10 ;
         Product.Category category =RPG;
