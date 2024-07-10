@@ -1,0 +1,364 @@
+{
+  "id": "1a9232de-860a-4b8c-a090-1c8ca6810e88",
+  "version": "2.0",
+  "name": "iSnapGaming",
+  "url": "http://localhost:8080/iSnapGaming_war/",
+  "tests": [{
+    "id": "69fee58c-a5c3-4f4f-8305-3f3d9c33583f",
+    "name": "Autenticazione UP1-PP1",
+    "commands": [{
+      "id": "380acadd-c057-49a6-8580-bc4c262f7893",
+      "comment": "",
+      "command": "open",
+      "target": "/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "752ff2fc-7cf8-4a53-9c9c-f41e1ec58e40",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1572x937",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef90cfb8-d6da-4350-948a-f11b608bf1cd",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "088ca455-f197-47b8-9f95-9a66b28dfab7",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd05a3b1-93ef-4cd0-954d-2bb4c4c4f6aa",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pippo@gmail.com"
+    }, {
+      "id": "fcbe31a7-72e3-43bd-8741-68afb82bd7a7",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "288be8f5-02c0-489a-8d3c-22d3fd642b29",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "SuperSafePassword1"
+    }, {
+      "id": "50845db5-557d-4d1f-a719-73e9b76085c2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e27249fb-1d1e-44e8-bf6a-d28f9492a63b",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@name='role'])[2]", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f81b7ba2-777a-42f8-86e3-13314ff13d9f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1298b4fe-e824-4f5b-a351-fb2b70b1d2a9",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "linkText=Add Product",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a363f2c0-b8b2-444a-9597-90768b228bb2",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "772290fc-f95d-4f3c-b950-e6cfedc83fe6",
+    "name": "Autenticazione UP2-PP1",
+    "commands": [{
+      "id": "cf7b174d-1256-4630-baf1-0bc1630d1a5d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4069f946-5366-4db1-a7b3-bf48487dced5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1788x990",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9601ac38-af99-4efd-9ca5-17b356d89252",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-sign-in-alt",
+      "targets": [
+        ["css=.fa-sign-in-alt", "css:finder"],
+        ["xpath=//a[@id='login']/i", "xpath:idRelative"],
+        ["xpath=//a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9dd592c6-9002-4b10-8fb2-2bb12fafd8e5",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dd6b6c99-db71-4cb6-93f6-d539e8233570",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pluto@gmail.com"
+    }, {
+      "id": "e9c851a5-a53b-4499-b2c0-e287a814bd09",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "SuperSafePassword1"
+    }, {
+      "id": "b97bd228-6224-4158-bf91-dc33e27fea99",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f01e2cfd-68c2-48ad-9b27-bbb7eeb7c497",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "Wrong username or password."
+    }, {
+      "id": "3226478d-ad00-4fbf-af54-d6a57f4fef12",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "cf59f339-81a9-4f86-97a8-cd6def4613bc",
+    "name": "Autenticazione UP1-PP2",
+    "commands": [{
+      "id": "69a8d108-6691-4729-9d1f-b7857fceb345",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "36357b46-3578-468d-a01f-86f583264cc9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1788x990",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4f22cbb4-b430-44a5-8bb9-ecb68093dc7a",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ff0f4001-16dc-429d-afb2-58d980b2dd2b",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f16e54a9-4a8b-49c6-b3a3-bbfd8b882561",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "pippo@gmail.com"
+    }, {
+      "id": "041b7352-f55d-4d5b-a27b-9c9292171154",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "UnsafePwd1"
+    }, {
+      "id": "d5a82e0b-ae6f-4b88-a438-9ff3070cf052",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd072584-5629-4079-9b9a-2a053e7bb995",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[4]/div", "xpath:position"]
+      ],
+      "value": "Wrong username or password."
+    }, {
+      "id": "33e014ba-edcf-4fb3-a8f8-976a1bb367a3",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "de2c5b4b-8d07-4613-b9a6-ccbf851aa900",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["69fee58c-a5c3-4f4f-8305-3f3d9c33583f"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/iSnapGaming_war/"],
+  "plugins": []
+}

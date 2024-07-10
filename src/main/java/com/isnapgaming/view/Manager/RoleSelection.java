@@ -29,13 +29,11 @@ public class RoleSelection extends HttpServlet {
             session.setAttribute("role", "Customer");
             response.sendRedirect(redirectUrl);
         } else if (roleSelected.equals("ProductManager")){
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/productManagerDashboard.jsp");
             session.setAttribute("role", "ProductManager");
-            dispatcher.forward(request, response);
+            response.sendRedirect(getServletContext().getContextPath() + "/productManagerDashboard.jsp");
         } else if (roleSelected.equals("OrderManager")){
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/orderManagerDashboard.jsp");
             session.setAttribute("role", "OrderManager");
-            dispatcher.forward(request, response);
+            response.sendRedirect(getServletContext().getContextPath() + "/orderManagerDashboard.jsp");
         } else {
             throw new ServletException("Unknown role");
         }

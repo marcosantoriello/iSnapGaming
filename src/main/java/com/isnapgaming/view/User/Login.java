@@ -1,4 +1,4 @@
-package com.isnapgaming.view.Guest;
+package com.isnapgaming.view.User;
 
 import java.io.*;
 import java.sql.SQLException;
