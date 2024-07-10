@@ -2,7 +2,7 @@ const onlyLettersPattern = /^[A-Za-z]+$/;
 const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const passwordPattern = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
 const postalCodePattern = /^\d{5}$/;
-const cityPattern = /^[A-Za-z]+$/;
+const cityPattern = /^[A-Za-z ]+$/;
 
 const cardNumberPattern = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
 const securityNumberPattern = /^\d{3}$/;
