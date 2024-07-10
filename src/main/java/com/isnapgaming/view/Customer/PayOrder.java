@@ -42,7 +42,7 @@ public class PayOrder extends HttpServlet {
         }
 
         if (cvv == null ||cvv.isEmpty()) {
-            throw new ServletException("Please, insert a valid expiration date");
+            throw new ServletException("Please, insert a valid CVV");
         }
 
         HttpSession session = request.getSession();

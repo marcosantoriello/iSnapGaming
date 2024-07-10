@@ -3803,6 +3803,385 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "f3734a61-2a2f-449b-bb7e-ce7a08d3c70b",
+    "name": "ModificaQuantitàProdottoNelCarrello_P1_Q1",
+    "commands": [{
+      "id": "9fd89e6f-2005-4d37-8bf2-22de3566260a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/ProductDetails?prodCode=331",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d0dfb27-3b3d-4fc8-8702-c5cc419017af",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6eb476ec-c591-472c-ac33-1aa35c62f2ec",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "201ea09f-39fe-448d-b27b-0e2fd96fe81a",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b1286a4d-7478-498c-9037-c58a22f08094",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "b427b8c4-718c-42f0-819a-c2bbb860ebfd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Add to cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0749f1d6-19b3-475c-be62-53ef1aae4178",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-minus",
+      "targets": [
+        ["css=.fa-minus", "css:finder"],
+        ["xpath=//div[3]/a/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b570dc33-d0f0-4e02-a639-04dbfed118d9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h5:nth-child(2)",
+      "targets": [
+        ["css=h5:nth-child(2)", "css:finder"],
+        ["xpath=//h5[2]", "xpath:position"],
+        ["xpath=//h5[contains(.,'360.00 €')]", "xpath:innerText"]
+      ],
+      "value": "120.00 €"
+    }, {
+      "id": "407594dc-a0fa-4eb6-a469-c9d865026337",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bd0b7775-f9fc-4433-8005-935d46e11bb1",
+    "name": "ModificaQuantitàProdottoNelCarrello_P1_Q2",
+    "commands": [{
+      "id": "ad2542b9-f696-4153-9b08-d5f8e11d9575",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/ProductDetails?prodCode=331",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f27ec2d-43ce-4a05-8e00-197b8def4184",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2711da7f-b379-4084-9d59-72897d8fc42a",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantitySelected",
+      "targets": [
+        ["id=quantitySelected", "id"],
+        ["name=quantitySelected", "name"],
+        ["css=#quantitySelected", "css:finder"],
+        ["xpath=//input[@id='quantitySelected']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "3"
+    }, {
+      "id": "c4f0c95e-3960-4c59-bd7a-f2e47821628c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,' Add to cart')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8abb552a-b18b-4050-a315-dfe90a841849",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba08c55b-a953-412a-808f-0a96cc391618",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fc982e2-7320-4b94-bf33-ae02ee53ca61",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "61d58e9c-097f-4f27-9f6c-5e7b238b1a7b",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e146708-52e8-4647-b4ea-f2077ff3261e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97db8d07-acf3-4f33-80f0-fcc53c538827",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "928159f7-e7f0-4013-84a7-bd52b2616643",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c3d254d4-b661-41e5-8c97-d4ce166b7f1d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d03bdf6-525b-483c-ad80-265ee8ec5e41",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b489f37e-1c99-46b3-b31e-813de18a6e45",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e1992d3-fb0c-426b-aec4-276b4e0dba72",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef7d2fd7-2c9b-4af4-b298-bdffed6d8534",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4243df81-223e-49fe-be9d-d8a5f41c0dbe",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a308cfb-9aa0-4d8a-844c-a04f4cd65a9a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8cf57499-4010-45e9-94ef-38b769a5d453",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc773f05-7b55-4f0e-8622-02461a625ec2",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e657fd55-f720-4604-9220-d9478ae6240c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34ce0ab6-a6bd-42a2-97bd-ffd25c4d18a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64305548-59b0-4383-8df5-48cd791511da",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c88b3146-4473-43f1-b779-c4925a315f2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d870290-13bb-4f62-a688-c0e8b3b3e99a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5808883-f447-47c2-8430-ef956b4ff354",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-plus",
+      "targets": [
+        ["css=.fa-plus", "css:finder"],
+        ["xpath=//div[3]/a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5bf211fb-07a9-49b2-a732-8f2b1da30228",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "de2c5b4b-8d07-4613-b9a6-ccbf851aa900",
