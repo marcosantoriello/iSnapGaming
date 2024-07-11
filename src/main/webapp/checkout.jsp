@@ -46,21 +46,21 @@
 
             <div class="form-group" style="margin: 15px 0;">
                 <label for="cardNumber">Card Number</label>
-                <input id="cardNumber" type="text" name="cardNumber" class="form-control" required onChange="return validateCard()">
+                <input id="cardNumber" type="text" name="cardNumber" class="form-control" onChange="return validateCard()">
             </div>
 
             <span id="cardNumberError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
                 <label for="expirationDate">Expiry Date</label>
-                <input id="expirationDate" type="date" name="expirationDate" class="form-control" required onChange="return validateExpiredCard()">
+                <input id="expirationDate" type="date" name="expirationDate" class="form-control" onChange="return validateExpiredCard()">
             </div>
 
             <span id="expirationDateError" style="max-width: 209px; font-size: 15px;"></span>
 
             <div class="form-group" style="margin: 15px 0;">
                 <label for="cvv">Security Number</label>
-                <input id="cvv" type="text" name="cvv" class="form-control" required onChange="return validateSecurityNumber()">
+                <input id="cvv" type="text" name="cvv" class="form-control" onChange="return validateSecurityNumber()">
             </div>
 
             <span id="securityNumberError" style="max-width: 209px; font-size: 15px;"></span>
