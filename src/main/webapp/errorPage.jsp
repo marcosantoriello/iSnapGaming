@@ -24,7 +24,7 @@
                     %>
                     <%=request.getParameter("errorMessage")%>
                     <%
-                        {
+                        }
                     %>
                     <br><br>
                     <%
