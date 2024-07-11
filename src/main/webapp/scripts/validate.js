@@ -224,14 +224,250 @@ function validateSecurityNumber() {
     }
 }
 
+
+
+function validateAddress() {
+    let form = document.getElementById("checkoutForm");
+    let span = document.getElementById("addressError");
+    let streetCustomer = form.streetCustomer.value;
+
+    if (streetCustomer.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "The address cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
 function checkCheckout(obj) {
     let check = true;
 
+    if (!validateAddress()) check = false;
     if (!validateCard()) check = false;
     if (!validateExpiredCard()) check = false;
     if (!validateSecurityNumber()) check = false;
 
-    console.log("Result of checkCheckout: ", check);
+    return check;
+}
+
+
+function validateProductCode() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productCodeError");
+    let productCode = form.productCode.value;
+
+    if (productCode.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Product code cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateNameProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("nameProductError");
+    let nameProduct = form.nameProduct.value;
+
+    if (nameProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Product name cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateSoftwareHouseProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productSoftwareHouseError");
+    let softwareHouseProduct = form.softwareHouseProduct.value;
+
+    if (softwareHouseProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Software house cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validatePlatformProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productPlatformError");
+    let platformProduct = form.platformProduct.value;
+
+    if (platformProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Platform cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateCategoryProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productCategoryError");
+    let categoryProduct = form.categoryProduct.value;
+
+    if (categoryProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Category cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validatePegiProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productPegiError");
+    let pegiProduct = form.pegiProduct.value;
+
+    if (pegiProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "PEGI cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateQuantityProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productQuantityError");
+    let quantityProduct = form.quantityProduct.value;
+
+    if (quantityProduct.trim() === "" || isNaN(quantityProduct) || quantityProduct <= 0) {
+        span.classList.add("error");
+        span.innerHTML = "Quantity must be greater than 0";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validatePriceProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productPriceError");
+    let priceProduct = form.priceProduct.value;
+
+    if (priceProduct.trim() === "" || isNaN(priceProduct) || priceProduct <= 0) {
+        span.classList.add("error");
+        span.innerHTML = "Price must be greater than 0";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateImageProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productImageError");
+    let imageProduct = form.imageProduct.value;
+
+    if (imageProduct.trim() === "") {
+        span.classList.add("error");
+        span.innerHTML = "Image cannot be null";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+function validateYearReleaseProduct() {
+    let form = document.getElementById("productForm");
+    let span = document.getElementById("productYearReleaseError");
+    let releaseYearProduct = form.releaseYearProduct.value;
+
+    if (releaseYearProduct.trim() === "" || isNaN(releaseYearProduct) || releaseYearProduct > 2024) {
+        span.classList.add("error");
+        span.innerHTML = "The year release does not have to be in the future ";
+        span.style.color = "red";
+        return false;
+    } else {
+        span.classList.remove("error");
+        span.style.color = "black";
+        span.innerHTML = "";
+        return true;
+    }
+}
+
+
+function checkAddProduct(obj) {
+    let check = true;
+
+    if (!validateProductCode()) check = false;
+    if (!validateNameProduct()) check = false;
+    if (!validateSoftwareHouseProduct()) check = false;
+    if (!validatePlatformProduct()) check = false;
+    if (!validateCategoryProduct()) check = false;
+    if (!validatePegiProduct()) check = false;
+    if (!validateQuantityProduct()) check = false;
+    if (!validatePriceProduct()) check = false;
+    if (!validateImageProduct()) check = false;
+    if (!validateYearReleaseProduct()) check = false;
+
+
+    return check;
+}
+
+function checkUpdateProduct(obj) {
+    let check = true;
+
+    if (!validateProductCode()) check = false;
+    if (!validateNameProduct()) check = false;
+    if (!validateSoftwareHouseProduct()) check = false;
+    if (!validatePlatformProduct()) check = false;
+    if (!validateCategoryProduct()) check = false;
+    if (!validatePegiProduct()) check = false;
+    if (!validateQuantityProduct()) check = false;
+    if (!validatePriceProduct()) check = false;
+    if (!validateYearReleaseProduct()) check = false;
+
 
     return check;
 }
