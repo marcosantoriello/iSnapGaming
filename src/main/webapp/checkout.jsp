@@ -35,8 +35,11 @@
             <h2 class="mb-3" style="text-align: center;">SHIPPING ADDRESS</h2>
             <div class="form-group" style="margin: 15px 0;">
                 <label for="streetCustomer">Address</label>
-                <input id="streetCustomer" type="text" name="streetCustomer" class="form-control" required>
+                <input id="streetCustomer" type="text" name="streetCustomer" class="form-control"  onChange="return validateAddress()">
             </div>
+
+            <span id="addressError" style="max-width: 209px; font-size: 15px;"></span>
+
             <br/><br/><br/>
 
             <h2 class="mb-3" style="text-align: center;">PAYMENT DATA</h2>
