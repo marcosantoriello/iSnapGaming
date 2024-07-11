@@ -19,13 +19,15 @@
                 <div class="alert alert-danger" role="alert" style="margin: 11% 25%;text-align: center;">
                     <h2>Ops, something went wrong</h2>
                     <br>
-                    <%
-                        if (request.getParameter("errorMessage") != null) {
-                    %>
-                    <%=request.getParameter("errorMessage")%>
-                    <%
-                        }
-                    %>
+                    <p>
+                        <%
+                            if (request.getParameter("errorMessage") != null) {
+                        %>
+                        <%=request.getParameter("errorMessage")%>
+                        <%
+                            }
+                        %>
+                        </p>
                     <br><br>
                     <%
                         if("ProductManager".equals(role)){
