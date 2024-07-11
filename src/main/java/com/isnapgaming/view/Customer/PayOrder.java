@@ -58,8 +58,6 @@ public class PayOrder extends HttpServlet {
         try {
              res = OrderCreation.pay(order, address, cardNumber, expirationDate, cvv);
         } catch (ServletException e) {
-            //response.setAttribute("error", e.getMessage());
-            //response.sendRedirect("/errorPage.jsp");
             response.sendRedirect(getServletContext().getContextPath()+"/errorPage.jsp?errorMessage="+e.getMessage());
         }
         int orderId = 0;
