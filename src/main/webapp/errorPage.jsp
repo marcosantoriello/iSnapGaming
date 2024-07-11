@@ -19,7 +19,13 @@
                 <div class="alert alert-danger" role="alert" style="margin: 11% 25%;text-align: center;">
                     <h2>Ops, something went wrong</h2>
                     <br>
-                    <%= request.getAttribute("jakarta.servlet.error.message") %>
+                    <%
+                        if (request.getParameter("errorMessage") != null) {
+                    %>
+                    <%=request.getParameter("errorMessage")%>
+                    <%
+                        {
+                    %>
                     <br><br>
                     <%
                         if("ProductManager".equals(role)){
