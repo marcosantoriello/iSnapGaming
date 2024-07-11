@@ -60,9 +60,8 @@ public class UpdateCart extends HttpServlet {
                 request.setAttribute("error", "The selected quantity is not available");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
                 dispatcher.forward(request, response);
+                return;
             }
-
-
         }else if("decrease".equals(action)){
             cart.decreaseQuantityCart(product, 1);
 
@@ -70,8 +69,6 @@ public class UpdateCart extends HttpServlet {
 
             cart.removeFromCart(product);
         }
-
-
         response.sendRedirect(getServletContext().getContextPath() + "/cart.jsp");
     }
 

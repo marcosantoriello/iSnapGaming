@@ -56,14 +56,12 @@ public class AddToCart extends HttpServlet {
 
         if (quantitySelected <= product.getQuantity()) {
             cart.addToCart(product, quantitySelected);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
+            dispatcher.forward(request, response);
         } else {
             request.setAttribute("error", "The selected quantity is not available");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/product.jsp");
             dispatcher.forward(request, response);
         }
-
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/cart.jsp");
-        dispatcher.forward(request, response);
     }
 }

@@ -21,21 +21,18 @@ public class RoleSelection extends HttpServlet {
             request.setAttribute("error", "Please select a role");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/roleSelection.jsp");
             dispatcher.forward(request, response);
-            throw new ServletException("Unknown role");
-        }
-
-        if (roleSelected.equals("Customer")){
-            // If the user is a customer, then I take him back to where he was before the login
-            session.setAttribute("role", "Customer");
-            response.sendRedirect(redirectUrl);
-        } else if (roleSelected.equals("ProductManager")){
-            session.setAttribute("role", "ProductManager");
-            response.sendRedirect(getServletContext().getContextPath() + "/productManagerDashboard.jsp");
-        } else if (roleSelected.equals("OrderManager")){
-            session.setAttribute("role", "OrderManager");
-            response.sendRedirect(getServletContext().getContextPath() + "/orderManagerDashboard.jsp");
         } else {
-            throw new ServletException("Unknown role");
+            if (roleSelected.equals("Customer")){
+                // If the user is a customer, then I take him back to where he was before the login
+                session.setAttribute("role", "Customer");
+                response.sendRedirect(redirectUrl);
+            } else if (roleSelected.equals("ProductManager")){
+                session.setAttribute("role", "ProductManager");
+                response.sendRedirect(getServletContext().getContextPath() + "/productManagerDashboard.jsp");
+            } else if (roleSelected.equals("OrderManager")){
+                session.setAttribute("role", "OrderManager");
+                response.sendRedirect(getServletContext().getContextPath() + "/orderManagerDashboard.jsp");
+            }
         }
     }
 }
