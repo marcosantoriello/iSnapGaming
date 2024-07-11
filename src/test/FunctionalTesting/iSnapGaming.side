@@ -6098,6 +6098,407 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "a66c275c-19b3-4bb8-8d97-d7ac15b76c97",
+    "name": "CambioRuolo_R1",
+    "commands": [{
+      "id": "dbbb4f33-e23c-42e6-9a3e-f2ee59362318",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96496188-1767-4806-93ba-37b07df35842",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "520e1b88-e1ca-4639-b849-5e6de6182e9d",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9a184861-c8a3-43dd-bc17-c76a17b6dc77",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c294cfe-271a-4d1a-bc9a-dea900a22a90",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "18bfee17-3b4f-4901-ac64-5ac9b538d049",
+      "comment": "",
+      "command": "click",
+      "target": "id=signUpForm",
+      "targets": [
+        ["id=signUpForm", "id"],
+        ["css=#signUpForm", "css:finder"],
+        ["xpath=//form[@id='signUpForm']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "76cbcfaf-9808-475c-960f-521271453b99",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c1943ee-cc34-4d78-9bd0-ba1b46155530",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "7e1b545f-a69c-409b-ba50-407a9a58cdff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e42fe8af-0347-4dc2-b407-ff475ed4ab7a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7fc0771d-767f-4cc5-8429-8c631c10f8c9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed45798f-fe88-45f7-b124-6d5d2c13f00c",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Switch Role",
+      "targets": [
+        ["linkText=Switch Role", "linkText"],
+        ["css=.btn-outline-info", "css:finder"],
+        ["xpath=//a[contains(@href, 'roleSelection.jsp')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Switch Role')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e82eaefb-9db0-4f63-af61-87eeed1d08af",
+      "comment": "",
+      "command": "click",
+      "target": "name=role",
+      "targets": [
+        ["name=role", "name"],
+        ["css=.radio-buttons > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='role']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7707d970-2df1-45c6-8f20-b964daadd085",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5057d64d-0529-49be-8a07-170120016634",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.card:nth-child(2) .card-title:nth-child(1)",
+      "targets": [
+        ["css=.card:nth-child(2) .card-title:nth-child(1)", "css:finder"],
+        ["xpath=//div[2]/div/h5", "xpath:position"],
+        ["xpath=//h5[contains(.,'Hell Let Loose')]", "xpath:innerText"]
+      ],
+      "value": "Hell Let Loose"
+    }, {
+      "id": "ca6d0ba7-014a-49af-b0f9-2d6b5610850d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "134d4354-8ea1-4bc3-bd7c-4d8ba3327b46",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f827691f-5214-470d-a211-0625d9b5b182",
+    "name": "CambioRuolo_R2",
+    "commands": [{
+      "id": "2bc393eb-4970-4bd6-835b-2dac428e2cdc",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5604f8fb-c81c-44dd-b600-4f0be632d58b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2501f3c8-c1fc-4c4c-ae33-25863f70297e",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a8648a0-2b17-4cbf-a3e8-6b3a9ec3df32",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c34c349-9177-411e-917e-93241fd242c8",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "2bd8563e-af1d-42ad-a012-966030f5328f",
+      "comment": "",
+      "command": "click",
+      "target": "id=signUpForm",
+      "targets": [
+        ["id=signUpForm", "id"],
+        ["css=#signUpForm", "css:finder"],
+        ["xpath=//form[@id='signUpForm']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ca94b49-df96-46e7-bdcd-0d380b508184",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5dcb9d9b-c386-404b-845c-cc4e26a7de02",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "ddc96fe9-541a-4f7d-ac5a-05879b215613",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f7bae233-9665-4ed6-87b0-4019d3e744c5",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ba0c8ab-ed4b-4ef1-9e3a-8c763d12561b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2becb7a0-1996-443c-9517-ef4ded26ff6d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Switch Role",
+      "targets": [
+        ["linkText=Switch Role", "linkText"],
+        ["css=.btn-outline-info", "css:finder"],
+        ["xpath=//a[contains(@href, 'roleSelection.jsp')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Switch Role')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fdc56b64-def4-4ffc-a132-b851f88e724e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "298046a6-4a68-47d4-9f18-ad89e157c170",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.alert",
+      "targets": [
+        ["css=.alert", "css:finder"],
+        ["xpath=//div[3]/div", "xpath:position"]
+      ],
+      "value": "Please select a role "
+    }, {
+      "id": "1791fc94-1d18-4374-8dfd-5139280ed408",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar-brand > img",
+      "targets": [
+        ["css=.navbar-brand > img", "css:finder"],
+        ["xpath=//a/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "40eefb65-17df-41f8-8dc9-3c5e268963bc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42360fa3-dc78-4e4b-a0d4-5e8b9efd01a7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "de2c5b4b-8d07-4613-b9a6-ccbf851aa900",
