@@ -44,7 +44,7 @@
     %>
     <div class="ml-auto">
         <%
-            if(!("ProductManager".equals(role)) && !("OrderManager".equals(role)) && !(currentPage.contains("cart.jsp")) && ){
+            if(!("ProductManager".equals(role)) && !("OrderManager".equals(role)) && !(currentPage.contains("cart.jsp")) ){
         %>
         <a href="cart.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-shopping-cart mr-1 icon-finder"></i> Cart
