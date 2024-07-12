@@ -425,7 +425,7 @@ function validateYearReleaseProduct() {
 
     if (releaseYearProduct.trim() === "" || isNaN(releaseYearProduct) || releaseYearProduct > 2024) {
         span.classList.add("error");
-        span.innerHTML = "The year release does not have to be in the future ";
+        span.innerHTML = "Release year cannot be in the future ";
         span.style.color = "red";
         return false;
     } else {
@@ -448,7 +448,7 @@ function checkAddProduct(obj) {
     if (!validatePegiProduct()) check = false;
     if (!validateQuantityProduct()) check = false;
     if (!validatePriceProduct()) check = false;
-    if (!validateImageProduct()) check = false;
+    //if (!validateImageProduct()) check = false;
     if (!validateYearReleaseProduct()) check = false;
 
 

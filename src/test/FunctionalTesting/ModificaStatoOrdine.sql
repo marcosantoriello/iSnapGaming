@@ -1,0 +1,2 @@
+INSERT INTO customerorder(customerId, status, address, orderDate, totalAmount) VALUES (3, "SHIPPED", "Via Roma", '2024-01-01', 60);
+INSERT INTO orderproduct(orderId, productId, quantity, price) VALUES (3, 2, 3, 50);

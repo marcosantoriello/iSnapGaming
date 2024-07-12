@@ -30,7 +30,6 @@ INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, ca
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) values(987, "Uncharted 4: A Thief's End", "Naughty Dog", "PS4", 20, 100, "ACTION", "PEGI16", 2016, "products\\987_1.jpg", true);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) values(268, "Euro Truck Simulator 2", "SCS Software", "PS4", 15 , 100, "SIMULATION", "PEGI3", 2012, "products\\268_1.jpg", true);
 INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) values(556, "Death Stranding", "Sony Interactive Entertainment", "PS5", 55 , 100, "ACTION", "PEGI18", 2019, "products\\556_1.jpg", true);
-INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, imagePath, available) values(395, "Resident Evil Village", "Capcom", "PS5", 40 , 100, "HORROR", "PEGI18", 2021, "products\\395_1.jpg", true);
 
 INSERT INTO customerorder(customerId, status, address, orderDate, totalAmount) VALUES (3, "TO_BE_MANAGED", "Via Roma", '2024-01-01', 60);
 INSERT INTO orderproduct(orderId, productId, quantity, price) VALUES (1, 1, 3, 20);

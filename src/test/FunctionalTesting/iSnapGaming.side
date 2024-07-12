@@ -6499,6 +6499,4548 @@
       "targets": [],
       "value": ""
     }]
+  }, {
+    "id": "aa1c4f51-f511-4ebc-ad8a-c4f7593698af",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR1-Q1-C1-PG1-R1",
+    "commands": [{
+      "id": "d5f75d14-9489-4f26-b4b8-64f02bf09e0f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b6e4b79-ae9a-4a26-a608-d48aa932eac3",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e9fdd795-3449-4bdb-8435-6a48f9875f8b",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "726c6f21-f842-4c6e-ad4e-cec16696bd8b",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e240308-7557-4f85-8c2d-01011752cd4b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "512cd34e-5b83-427e-8e1e-2f8692731aa0",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58d3d30d-8041-4ebc-818d-0dd8b2043c3a",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "5ef818f6-400c-4424-a183-d061657db1a1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a2113c3-73db-4bbe-807f-a49b97b3c9a4",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d9d57c2-a072-4013-9819-944a57e63a5f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2cce27d4-7f73-487b-a540-bc1e30ff5e42",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38b8db88-b24f-4158-9701-12eb5c04114d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9274743f-5154-4758-ab94-5cd79c65dff2",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "288491ad-9813-433a-8549-71f9ca14c876",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "b25d05a1-a557-47e8-82f4-09c049c223b5",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "9225c9d1-8d29-4af2-b64d-c13d2613feb8",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "36161608-2422-4c83-aef9-aa65b5d9f078",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b04f5f0-dfb7-4bef-8590-23908098b6ed",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "ef85b091-3fde-45ee-98a8-3b918a4dc6e5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8abb9927-c50d-4892-b5d0-7254ad21f9c0",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cabf349-619b-44aa-b5fe-5a0492bcb200",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "5a4c4040-0c30-40c5-9497-f00131deb824",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ab20d76-3d24-4743-ab07-25bd7ca05f5b",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cf3be2b9-c5a3-4e3a-9bcc-588ea186d397",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "75334e9b-460b-4fc3-a506-93430de89964",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ee236e9-6219-410b-8330-730fdfc49c1f",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e48e94f-31a0-47d2-8202-23e10ef1b07b",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "60bd72f0-f54f-4c5e-af45-863650163a73",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b821eaf-4b6e-4289-ac04-e83f97c326f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "55bd9652-b27f-497e-8caf-b75c2ddccaf6",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "135b968d-84b1-4b10-9822-73ee730cdcfc",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageProduct",
+      "targets": [
+        ["id=imageProduct", "id"],
+        ["name=imageProduct", "name"],
+        ["css=#imageProduct", "css:finder"],
+        ["xpath=//input[@id='imageProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[10]/input", "xpath:idRelative"],
+        ["xpath=//div[10]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bdb11fa7-f2a0-4fdc-8083-54c873d1e8e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf8bfbed-01c1-44af-bf63-b7b8a57a3513",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.product-title",
+      "targets": [
+        ["css=.product-title", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "f5f26cf8-5294-4224-970f-eaea52d91c62",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebd6979b-4cbc-4d9b-bd8b-da1ffbee424b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "46115a0f-27a0-4f77-b0be-d86ad986aefc",
+    "name": "AggiuntaProdotto_PC2-N1-S1-P1-PR1-Q1-C1-PG1-R1",
+    "commands": [{
+      "id": "dd5ee4e1-1b60-41bc-bdb2-835323026df3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9fda98c7-26e7-428b-abbf-cf27949a0d98",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ed0ae43-8bb5-437e-9b0e-b2f5ff6df61d",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a97f94c-8313-4bfc-96e3-bb54fadbd46e",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "881ad94b-b78a-4928-975a-db8d95491c95",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "61e51dbe-f4fe-42d4-b43b-22e6c34586ea",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bde45a7-38f1-454e-9126-0015cb4bb0ee",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "b8ad52b6-c306-476c-87d4-e4de921ce372",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b9b45d4-4f9f-499f-83c7-2cf0a4d9b00e",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "061e2558-88a5-4624-970a-7fe956599525",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7e8235ef-a456-43eb-9342-e659d3ff4443",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a6ebcc1-2411-4625-a956-3b403dd648db",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "da062d14-7f27-4c23-98cb-005e30552dc2",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33a68330-6d78-49e0-ac61-ed52f05a916a",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7706bf3c-a63c-40f4-a5f3-7421031d1c55",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "249f7173-a263-4681-80e5-7b9ba4d44458",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "8eb115f2-3a3e-45e7-a1cb-c7f1fe659dee",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3337dda-c09f-44ea-90f1-957adf2af699",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "df666621-161e-4caf-981d-518669244eee",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c67a027-9f3e-4920-9216-2416db36ec37",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fca0d565-10fb-4806-9ff7-1ffb26a735ef",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "2eecfdc7-0cde-4836-a8dc-15eea69c976c",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "10e8a0db-8327-41b0-80ba-f5431fd4e376",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f409350b-523b-4b85-802e-ca949ddb84fc",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "48f717ab-35af-4290-88df-b0aa737c69c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc78995d-7461-4362-a3e9-9790728b5679",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26d60e4f-efb0-437e-9a5d-1eb5c881dfa0",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "c4b67d26-528b-49c9-8baa-00a7ac57963c",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a18b1223-8de5-45cd-b286-98e36f063a37",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "52ac0264-1293-46ac-aaa4-ba129a306510",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "3a26adca-6925-485d-8b5e-57c7a5b67c1c",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageProduct",
+      "targets": [
+        ["id=imageProduct", "id"],
+        ["name=imageProduct", "name"],
+        ["css=#imageProduct", "css:finder"],
+        ["xpath=//input[@id='imageProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[10]/input", "xpath:idRelative"],
+        ["xpath=//div[10]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4edf84bf-cd97-41d0-8f35-2009e36d1632",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f6d7ae3-9265-49ba-a261-2f6875af80f4",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productCodeError",
+      "targets": [
+        ["id=productCodeError", "id"],
+        ["css=#productCodeError", "css:finder"],
+        ["xpath=//span[@id='productCodeError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span", "xpath:idRelative"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Product code cannot be null')]", "xpath:innerText"]
+      ],
+      "value": "Product code cannot be null"
+    }, {
+      "id": "49785e68-a6c4-4100-adb9-99ce2ca09b31",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b532d7b4-6048-4354-80c6-a10f9a7b8090",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "f9d773bd-74a3-4548-9bab-96af61fc436c",
+    "name": "AggiuntaProdotto_PC1-N2-S1-P1-PR1-Q1-C1-PG1-R1 (1)",
+    "commands": [{
+      "id": "ceb6c1af-c90b-4c3a-8a04-a48c0e59ed2b",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "850494a9-b024-472e-975b-874a42a95920",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e25644e-c64d-4342-9603-3369b6835ff4",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e43d9aa-9ac0-446f-b40a-b91540e6a7c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "24b28031-8291-447e-92b0-47f418dfaaec",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "3a22fd05-f212-415d-9198-944f877be431",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a33a06bd-9d61-4739-b126-26063cf7b06b",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "f5d08d5c-2b23-4fab-9859-b19dfbc4d402",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "659bf99f-1648-4905-8919-e7c5df08ad4a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3d94d3d-594d-4058-a2a7-20d1988559b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc525cd6-7eac-4371-9c74-a1ddab597f80",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb63dd50-2b04-46f2-b6d1-57443682b988",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c425abd8-4075-4a03-b687-b1adbc57860c",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bccc5fa3-8940-4b09-820b-3b96e6bf8d65",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "d0e3bd5f-51a5-4046-8a27-ffbdd050369b",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "66a9ee35-17a2-4d73-9dd4-f1590611d025",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "4fea87ae-2569-4914-86d2-ebe0b487d451",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "69dd70a8-a96d-46be-8b8f-1e987f25f7b5",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "722e26eb-9e24-4adf-b042-4d13d9307922",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fcc8263-d7a1-43f6-b731-263918838a1d",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "478b30ee-cc82-4c19-af4c-2c84f3d477bd",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "3c836f5b-cf5a-4111-a429-d0b4887dbc1f",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d413ff51-9263-4352-bdbc-deb81b292211",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a4e8a9f-1447-4728-a83b-f840a83a706f",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "f8c9d7e1-b563-45dc-97ba-200fe9e8916b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "884acf4e-dc5f-43f4-a87a-eaa702bbfcfd",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3e30493c-fdbc-4aa6-aee9-67b9c032a131",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "33c6ed85-3184-42ad-9d0a-9fef61da364a",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "408d0c2d-9419-4f87-94f2-a1c6c1eeb368",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "d189b3da-6bcd-4552-a649-955bf12fb4b6",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "c3dd396a-47c0-46c5-b065-853d9ba8adff",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageProduct",
+      "targets": [
+        ["id=imageProduct", "id"],
+        ["name=imageProduct", "name"],
+        ["css=#imageProduct", "css:finder"],
+        ["xpath=//input[@id='imageProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[10]/input", "xpath:idRelative"],
+        ["xpath=//div[10]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "892f82ca-3493-447f-8165-d7aba7196cd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5afe5922-7c34-4701-bdff-aca988205ed3",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=nameProductError",
+      "targets": [
+        ["id=nameProductError", "id"],
+        ["css=#nameProductError", "css:finder"],
+        ["xpath=//span[@id='nameProductError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[2]", "xpath:idRelative"],
+        ["xpath=//span[2]", "xpath:position"],
+        ["xpath=//span[contains(.,'Product name cannot be null')]", "xpath:innerText"]
+      ],
+      "value": "Product name cannot be null"
+    }, {
+      "id": "bec1bddc-0a8b-4108-992d-2f7249911245",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09fbc290-a2e9-47e0-acf9-45c1a117591b",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "715c0667-e40b-459d-8694-37976f4c1ac6",
+    "name": "AggiuntaProdotto_PC1-N1-S2-P1-PR1-Q1-C1-PG1-R1",
+    "commands": [{
+      "id": "81c614ab-f83f-4713-9aaf-c517bca8c157",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23881097-d7c6-4887-aac0-2ffac350ba8d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1024",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc7f7d00-abb0-4913-8f2a-eeb717e3e10c",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dfb32c5a-e31c-4912-aa62-cc9138d45566",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ae7d9562-567e-46fe-ad33-984589f67fea",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "03dd9b20-f691-4cfc-ae5f-6d2407c47799",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d4aeac6-d289-4631-a52b-7c1cf7770b5c",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "bfe28e6c-6dee-45cd-8bcb-4f347b3a174b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e3c10ce-43d1-45e5-8c83-bf9d91532593",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbd2d5de-aa05-467a-8595-3e50be0e570d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a583aee8-cd9e-4fcc-9f09-9bafdf84a7cb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb828718-09e2-468d-b27b-e8c60c76174e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f1e4574-0895-4238-ba1f-05a395c2c6af",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ae54a91-0cd9-481e-98cf-e30ca74a380f",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "4de4fc39-5f5f-47a0-9714-cc51e274465a",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "3aebd622-cc81-4425-bd40-e4e531cbaf4c",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38fc0529-da30-456b-a770-660b21cc9cfc",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e0c15c6e-b9ba-4f2d-a345-043f05c55432",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "fa982bc6-419e-488e-8af4-2946a3c20170",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "34d6b588-fa71-4600-9106-50d9696ac02a",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a62d9ae-975e-42d3-894e-71cc08d1473a",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "9755992b-5ade-425b-b374-8d1407fdc97b",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbd3d840-d391-44ea-a574-d3512f496b82",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bd5855af-3d8b-4bcc-bd38-5861dfe9bfab",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "dce360f1-a6f6-4347-8770-5e08923e04e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62dbc7ce-2cad-4c98-8998-6a6d3c3cfbee",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1124a990-049f-4c63-92c7-3be0f3fe41fc",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "36550d69-0ce2-4c5e-a235-78797761c8da",
+      "comment": "",
+      "command": "click",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c8c1050-ba73-4095-842b-bd0c0e055f2e",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "36813528-3a90-4462-a635-f60e6f370824",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "7f5f9138-90fa-4142-9784-d8e3647d4cbd",
+      "comment": "",
+      "command": "click",
+      "target": "id=imageProduct",
+      "targets": [
+        ["id=imageProduct", "id"],
+        ["name=imageProduct", "name"],
+        ["css=#imageProduct", "css:finder"],
+        ["xpath=//input[@id='imageProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[10]/input", "xpath:idRelative"],
+        ["xpath=//div[10]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "77cb071a-2d2e-41d7-a7ad-70abe62c264b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ed45769-503c-4446-a4c0-8f0dca842faf",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productSoftwareHouseError",
+      "targets": [
+        ["id=productSoftwareHouseError", "id"],
+        ["css=#productSoftwareHouseError", "css:finder"],
+        ["xpath=//span[@id='productSoftwareHouseError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[3]", "xpath:idRelative"],
+        ["xpath=//span[3]", "xpath:position"],
+        ["xpath=//span[contains(.,'Software house cannot be null')]", "xpath:innerText"]
+      ],
+      "value": "Software house cannot be null"
+    }, {
+      "id": "9759ed56-484e-427d-afaf-9c6c040eae2e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f271b80-5a45-4856-b981-b4ce86fc7ee8",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "91974e8f-8b68-4149-910f-917adbd126f0",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P2-PR1-Q1-C1-PG1-R1",
+    "commands": [{
+      "id": "d5d70777-caa2-41d1-a1d6-a296d793a37d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "00a77eb0-6f60-4676-91f8-578f423dcf31",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0c3d2cb-5594-4c76-87b0-a93535f3a954",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85039b7f-c881-488d-8f91-d17414236025",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab80ac0f-9f0b-4f1f-a89a-22b37f4e6c53",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "65e0c81a-e47b-406b-b5f0-a5eb8a24ae62",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "91ceddbf-a61a-4243-ac77-6235f881f4e0",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "14ec4f97-7c5f-4583-9e63-858f7fdd8ae1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89fce97a-d8b7-4ea2-8b1c-507efe160c72",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9cc039a3-47bc-460e-9b3c-8bb8ad6575d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bace2023-a383-4409-beeb-f3018d995352",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b961c7a-2207-468e-86ea-59dff6b827b3",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "07ea41dd-936e-40be-a60e-58e82cd7be57",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "2c8905f9-9c3e-42e3-9958-dcbb20cdf9e5",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "5b90cdb7-9232-487a-a71b-bbf8c04a8953",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "86786716-de8d-41f5-abd3-d35e930e64e5",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "621d394d-4124-4827-a901-81158e5ad4a8",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=SIMULATION"
+    }, {
+      "id": "86a0eddd-8e36-485b-aadc-e731b49ad2aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(11) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(11) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='SIMULATION']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[5]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'SIMULATION')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "79c4a5da-0bd5-4eb6-ba83-eadd681459e0",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5f02c7f9-5b3c-4435-bee4-b05c819f53e2",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "b4a59b63-00f2-4673-93b1-2056242b2c75",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1965306-372e-487e-a23b-4e1661d0bdb1",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0842dc61-da63-41e5-894c-95afe8517b23",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "a2e7ce5e-5d66-4631-aac3-2b0a0a30330b",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3713beb8-ddcf-477e-b9e8-b390fc827d5b",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfe86eba-4eef-4f8f-9dc8-f2e2e20f871c",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "a7ad947c-0412-4607-a38a-e7b2a553c50e",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "4018c543-b46d-4b28-bde5-91424c34c19c",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "c14d9a7a-55f7-47cf-b1ba-b6a22032abf4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e494a5b1-aae8-49be-a8de-4167a1443277",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productPlatformError",
+      "targets": [
+        ["id=productPlatformError", "id"],
+        ["css=#productPlatformError", "css:finder"],
+        ["xpath=//span[@id='productPlatformError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[4]", "xpath:idRelative"],
+        ["xpath=//span[4]", "xpath:position"],
+        ["xpath=//span[contains(.,'Platform cannot be null')]", "xpath:innerText"]
+      ],
+      "value": " Platform cannot be null "
+    }, {
+      "id": "8c145c71-3f48-49e1-902b-a4872a9d1938",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "830277ca-661d-4ae3-a57f-a9ceb09575d0",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "80db6bd2-f82b-49de-8888-84b8d5924ac2",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR1-Q1-C2-PG1-R1",
+    "commands": [{
+      "id": "388d823e-b5fc-4f5c-8fb1-05e918959c5f",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1e01ad1-5550-42f0-9546-e68a6bd73f3a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "525b4aec-654f-47f7-932a-ed66e059b26a",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1f668cf-6bab-4eed-8736-65a3bf1268e1",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fe037e9-ad5a-4e5f-9bd8-9326c6bd1508",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "0b449e02-427a-48bc-b186-2146b453f180",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "38aef994-9688-4eec-89cf-e58fffde4477",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "aa09b2c6-882c-41fb-8fc8-01ae956c279e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4f63cd5-d230-4b01-8346-9852a177934d",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9fc57f4-0275-4717-84b9-6aea0028e94a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a25d6436-5a67-4958-a3f3-f1e8e320d194",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "85ba54a5-bb24-4874-a412-fbf2238ab376",
+      "comment": "",
+      "command": "click",
+      "target": "id=productForm",
+      "targets": [
+        ["id=productForm", "id"],
+        ["css=#productForm", "css:finder"],
+        ["xpath=//form[@id='productForm']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f5d39e4-4649-4e50-828f-07aff2c90ffb",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "885bf50c-7fae-4557-ae27-2788522d707a",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "30733d38-65fc-4b0d-aa58-d024f3286544",
+      "comment": "",
+      "command": "click",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb821471-b415-4c04-88d1-ad88fecf0ada",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "bf63e590-e572-427f-a26b-cedf08a9c0e2",
+      "comment": "",
+      "command": "click",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9c2467fd-a8e5-44fe-b8ad-7b5e727dc44d",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "72805e9f-84bf-4da6-81e5-deac4abd9793",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4fad6dd5-9cad-4e53-845d-32249e94e73d",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "fd1ebf68-ec55-4773-8b33-70ff71394e8e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88342911-0958-4afc-a188-0111bfffe786",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6c27b11e-a623-45a8-98f6-cd5beb427a91",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "91fc8a25-6f98-4b1a-8ae5-4d928d710022",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab005b32-08f9-45c8-a300-c665926f4e80",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ad950b4-16bf-452e-838b-220a0e848cc6",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "18bb1783-da04-4096-a9d9-89d396914069",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "e1a89945-55fb-401c-8da7-70d3e86b08e6",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "5b426b8a-31fd-4688-a297-c6e845c0a6b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "97822ea9-cc33-4895-a4b6-d40c10a7f845",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productCategoryError",
+      "targets": [
+        ["id=productCategoryError", "id"],
+        ["css=#productCategoryError", "css:finder"],
+        ["xpath=//span[@id='productCategoryError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[5]", "xpath:idRelative"],
+        ["xpath=//span[5]", "xpath:position"],
+        ["xpath=//span[contains(.,'Category cannot be null')]", "xpath:innerText"]
+      ],
+      "value": " Category cannot be null "
+    }, {
+      "id": "fbf36475-4e1b-4fbe-966f-597d60e7a26a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "2ac1ef84-12aa-487a-af92-0e520e53b1dd",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR2-Q1-C1-PG1-R1",
+    "commands": [{
+      "id": "4a05ed67-29c9-4b53-a229-bc28814681a3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/productManagerDashboard.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b95ccae3-40eb-43de-8990-e49fde0ffc8d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a3b43911-7520-4873-96f8-3cdff141c33e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7ca2df1c-f6be-472d-bdba-d4f0718067bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2Findex.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "48d1c2cb-75ca-4d6e-874c-2fcb2349437f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(3)",
+      "targets": [
+        ["css=.form-group:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='signUpForm']/div", "xpath:idRelative"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "875ec9df-7c75-4a6c-8ad7-ced22d000b88",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "82dc5d82-7e0e-448c-b849-ec88b68040fd",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "749c4fa8-22e8-47a8-997d-f116084313a0",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a866b5d8-3e3c-46b6-a8a4-08605a2a92f8",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "eb6cb2da-76ee-4d90-8eea-fe4c498a10a2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d8be2d8-bab6-4264-91ef-a4327e262db9",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0ee9863b-ce3e-4145-bfbd-46713345b225",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e42bd05e-70ae-49e4-9caa-1e0a6d232681",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b6f5d64-5e17-4b47-9359-192d1d84d14d",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9ad0fd6-cf84-4f84-bd1e-e31eac3f7a95",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "e96f6b98-5b72-4c26-bc0e-e2bafbb3b7ea",
+      "comment": "",
+      "command": "click",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6212b2f8-d4e2-49d1-9f64-da8789f0905a",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "77fbbc54-b006-4ee4-8450-c143af60f387",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "7c2eb441-6652-4e49-9ff3-54c524de25e4",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb0c019c-d636-4f11-a50b-7351cae52755",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "9331ae19-c54e-42c9-be6d-4a552f937d7e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "09423459-1e6c-47f1-93f4-1086308a6fbd",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aba23689-fc74-41f3-a0ed-14abf73b8afd",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "1ff2e760-2d16-41f9-935f-48b5dd83c02a",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7f0c9c1-5563-47ee-8354-ee1fff3b6d55",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3c1da77-c55d-4d24-a15e-83401692f981",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "cb3f46f8-e44b-4c5c-a002-284df33fed5a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76c7a500-fd31-4894-bc08-f85cef123a4f",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11bfc035-79f7-4246-ac7f-ac1c79ecea0b",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "64faa2d7-6bc5-4aa0-a5a0-d40926a9e885",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "8fcae5cb-a350-4973-b89e-3d8cb29e8286",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "-3"
+    }, {
+      "id": "53ca6ddb-53ff-487a-8795-422ac3e1b502",
+      "comment": "",
+      "command": "mouseDown",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df6dd8e4-56d4-4413-bdef-072ee5e03c92",
+      "comment": "",
+      "command": "mouseUp",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//form[@id='productForm']/div[11]", "xpath:idRelative"],
+        ["xpath=//div[11]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "257de332-dd5c-4ea8-979b-469e2e778781",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//form[@id='productForm']/div[11]", "xpath:idRelative"],
+        ["xpath=//div[11]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "49942b2e-cd35-49ec-8440-9f0b08f939ad",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productPriceError",
+      "targets": [
+        ["id=productPriceError", "id"],
+        ["css=#productPriceError", "css:finder"],
+        ["xpath=//span[@id='productPriceError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[9]", "xpath:idRelative"],
+        ["xpath=//span[9]", "xpath:position"],
+        ["xpath=//span[contains(.,'Price must be greater than 0')]", "xpath:innerText"]
+      ],
+      "value": " Price must be greater than 0 "
+    }, {
+      "id": "c00b4c2c-1d97-4980-9257-d9e67e686b9e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "25d60c3e-cf07-4cc9-8c3e-78884ad0e936",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "e9d39c5a-a31c-421d-8142-561b182e8b17",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR1-Q2-C1-PG1-R1",
+    "commands": [{
+      "id": "6595af21-3b0c-4fa2-836d-35a67a8d501d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16846322-4e5f-4102-84ec-947b14937abc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da6984e6-6667-46d3-ab2b-7df44391218e",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9510f66-3bef-4dd3-8e3d-942e03aaa6c4",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "009117b8-8c60-46f7-8e1b-80bbde44994b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "d2f5545b-78c4-405e-a834-ab233aefc0bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7610ca8a-2c54-4d48-9516-626b3ab1febd",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "59a98d21-ea5e-4b31-b257-43da54592b58",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d196b02-9d7c-42a7-9030-c4f4c0f0b22e",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67c4facb-e89a-458a-aa28-16bbc8fd50f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.submit-button",
+      "targets": [
+        ["css=.submit-button", "css:finder"],
+        ["xpath=//div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc241b5c-6415-4f36-a6ff-aead7cf60715",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8a4c675-051d-40bb-9b27-2bf846388a25",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "638ec1d2-d1b2-4f0a-9f52-4b20d57c5bea",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c4b1d3ab-5aea-4157-9226-a4881d1d77fa",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "18e182bc-57ce-4215-8e2a-b7ea933ff630",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "c21f0e62-b6a0-4c1b-baa3-d9f5b7d80c47",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "197e2759-1941-4256-8eb9-d920e569c026",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0e279a5-73ca-42e9-a0dc-029ee5618369",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "d59c4121-1e8e-4828-9489-0cdc8f1fb87d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1dd7c06-3779-42bc-ad83-480508024635",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a3a1a749-a5bc-4e08-9cc8-b679da91aaaa",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "824abe0c-da1f-40b6-a555-8c4bfbb5a07a",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "96f6c80f-0b42-425d-9067-7478347adaee",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "834d4c18-ae9c-4859-a3c6-238ea27c56a9",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "3e6346b6-70b0-4e12-bae8-3f01d8070d16",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "84981acc-4b95-4e86-8170-465fdddff8c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "874c9f75-a60c-4377-9823-39575bdaa7db",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "3dfef044-3ecc-4774-81b3-e07844d4a4ef",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "-4"
+    }, {
+      "id": "af18f188-9019-4049-aa14-9cbe11b3d9d3",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "300cb655-bb07-41af-a60d-17037815e292",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c8132014-50c4-4198-82f3-a42aea471f09",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productQuantityError",
+      "targets": [
+        ["id=productQuantityError", "id"],
+        ["css=#productQuantityError", "css:finder"],
+        ["xpath=//span[@id='productQuantityError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[8]", "xpath:idRelative"],
+        ["xpath=//span[8]", "xpath:position"],
+        ["xpath=//span[contains(.,'Quantity must be greater than 0')]", "xpath:innerText"]
+      ],
+      "value": " Quantity must be greater than 0 "
+    }, {
+      "id": "078adcbd-ead5-40e4-9c5d-5ff03775e35b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb6d88f2-f620-4008-824d-0a4d1a7a4b67",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d401235d-8f79-4375-a81c-a8b9c3146e52",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR1-Q1-C1-PG2-R1",
+    "commands": [{
+      "id": "bed67b03-1e07-49dd-b512-56adba2a5ac0",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fb331d40-c40e-4377-9b23-379a30327833",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "454f25e6-45f0-4d5d-b881-1351b85572b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42b084a6-d4ca-4833-ad95-917395d4e091",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b4dad4a-d4a6-43c2-9ac9-66ecb785161b",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "738d0db4-109e-4d06-a1e4-251bfa745a06",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "73832811-c898-4b64-80c3-c9afc946274e",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "43e37fb7-60ae-4581-8aa1-947371271e3f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9edb7179-5ecf-43c6-a843-092e1b2141c7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.radio-buttons",
+      "targets": [
+        ["css=.radio-buttons", "css:finder"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64a6112b-11a3-4130-b8c4-01e3e9523365",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3335245b-74bc-43b9-b37a-b424cc48f1e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b95cc8e2-314c-418b-a20a-2b7768e05b65",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63b61ab8-4d3b-467e-b28a-c5a916c6e0ff",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "12e90e63-45fe-4b26-a785-67dea5ae6f6c",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "38121483-b412-4b95-bdb8-54e090f246f5",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "ac916c93-8bc1-4b34-8448-b3e821e96cb8",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "191a4b95-523c-4618-95cc-8e1ee234aa7e",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f123b695-9a62-430a-ba8b-167a36f31a0f",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "d99b285c-e329-47a3-8c1a-127c2c203841",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "07d08c66-9ade-40e8-9887-21a0661a4753",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e1acc7c-232c-4e39-b38e-8da8160a89aa",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "49e1861d-ec4f-4197-bc68-e84c7ea11e98",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f04ede27-8a3e-4a76-8e37-9a0b28c4e391",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5530072-95f5-4ec3-80e2-820c40b484d7",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2021"
+    }, {
+      "id": "075c916c-5dc8-493b-b2d5-a3452eb70b25",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "776d7ae0-7d66-451e-a113-7a264b5791e3",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "5f06b59c-35c5-42cc-aadb-29348993f1b5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "077e4e98-41ab-43ae-8085-bfff47408466",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productPegiError",
+      "targets": [
+        ["id=productPegiError", "id"],
+        ["css=#productPegiError", "css:finder"],
+        ["xpath=//span[@id='productPegiError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[6]", "xpath:idRelative"],
+        ["xpath=//span[6]", "xpath:position"],
+        ["xpath=//span[contains(.,'PEGI cannot be null')]", "xpath:innerText"]
+      ],
+      "value": " PEGI cannot be null "
+    }, {
+      "id": "2d960198-513c-4a4b-b6f2-c4ae2d9627a0",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7dddf7fc-6259-4c8b-b764-bfdb4faa8ffe",
+    "name": "AggiuntaProdotto_PC1-N1-S1-P1-PR1-Q1-C1-PG1-R2",
+    "commands": [{
+      "id": "922bda24-f0fc-4e45-80be-8d0694c5e3e6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "079528b0-97f7-4cfe-86bf-1f919e5d97f1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cd4ca4c9-33c3-460d-a673-56dd6c4a9d35",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2F')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "01548370-6086-443a-9547-c354bdcd217a",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b3ffe1e-9ce4-46a5-a27d-ae4551594fd4",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "fb93c656-4644-472d-8a92-b130a9e7c776",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d7413f00-99a9-497c-97f1-5f861c77c5f6",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "bac77816-4139-4dc5-9975-1eeef74b7c03",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "852e8e77-6d61-4858-a486-1187272cfeb4",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "deae0362-a00b-4e1a-9b00-c517e9be1994",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "436d65bb-5005-4ad5-a7d4-040f65335bd9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Add Product",
+      "targets": [
+        ["linkText=Add Product", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Add Product')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'addProduct.jsp')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Add Product')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0fa4e77-2b94-4dfe-acea-5184c3ac52da",
+      "comment": "",
+      "command": "click",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c40cc0f-0f8a-4ebb-a384-8de96c48ebe8",
+      "comment": "",
+      "command": "type",
+      "target": "id=productCode",
+      "targets": [
+        ["id=productCode", "id"],
+        ["name=productCode", "name"],
+        ["css=#productCode", "css:finder"],
+        ["xpath=//input[@id='productCode']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "395"
+    }, {
+      "id": "d7d5c457-1331-4c20-b38a-5f2dd01e54f2",
+      "comment": "",
+      "command": "type",
+      "target": "id=nameProduct",
+      "targets": [
+        ["id=nameProduct", "id"],
+        ["name=nameProduct", "name"],
+        ["css=#nameProduct", "css:finder"],
+        ["xpath=//input[@id='nameProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "Resident Evil Village"
+    }, {
+      "id": "6d99bd6b-e07f-446f-b793-1d483c35ee08",
+      "comment": "",
+      "command": "type",
+      "target": "id=softwareHouseProduct",
+      "targets": [
+        ["id=softwareHouseProduct", "id"],
+        ["name=softwareHouseProduct", "name"],
+        ["css=#softwareHouseProduct", "css:finder"],
+        ["xpath=//input[@id='softwareHouseProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "Capcom"
+    }, {
+      "id": "778a3729-eaa7-4daf-b3b0-dda8f23c1634",
+      "comment": "",
+      "command": "click",
+      "target": "name=platformProduct",
+      "targets": [
+        ["name=platformProduct", "name"],
+        ["css=.form-group:nth-child(9) > .form-select", "css:finder"],
+        ["xpath=//select[@name='platformProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7339151e-24b1-4d18-a743-cce4fef3c838",
+      "comment": "",
+      "command": "select",
+      "target": "name=platformProduct",
+      "targets": [],
+      "value": "label=PS5"
+    }, {
+      "id": "6b50ba5d-c063-4aae-922e-08a5d96df14f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(9) option:nth-child(4)",
+      "targets": [
+        ["css=.form-group:nth-child(9) option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='PS5']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[4]/select/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'PS5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b6d56daa-9462-4302-9cab-03c07b2413b6",
+      "comment": "",
+      "command": "click",
+      "target": "name=categoryProduct",
+      "targets": [
+        ["name=categoryProduct", "name"],
+        ["css=.form-group:nth-child(11) > .form-select", "css:finder"],
+        ["xpath=//select[@name='categoryProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select", "xpath:idRelative"],
+        ["xpath=//div[5]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3eaae7b1-2068-4609-978e-e38d9c097919",
+      "comment": "",
+      "command": "select",
+      "target": "name=categoryProduct",
+      "targets": [],
+      "value": "label=HORROR"
+    }, {
+      "id": "f2d2a814-e89e-4648-9832-163d5fdb1b0a",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(9)",
+      "targets": [
+        ["css=option:nth-child(9)", "css:finder"],
+        ["xpath=//option[@value='HORROR']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[5]/select/option[9]", "xpath:idRelative"],
+        ["xpath=//option[9]", "xpath:position"],
+        ["xpath=//option[contains(.,'HORROR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c14d793-775f-452b-ad8b-0b729cb89ac3",
+      "comment": "",
+      "command": "click",
+      "target": "name=pegiProduct",
+      "targets": [
+        ["name=pegiProduct", "name"],
+        ["css=.form-group:nth-child(13) > .form-select", "css:finder"],
+        ["xpath=//select[@name='pegiProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select", "xpath:idRelative"],
+        ["xpath=//div[6]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fff9b8a0-638b-4c72-b625-c16b75c860e7",
+      "comment": "",
+      "command": "select",
+      "target": "name=pegiProduct",
+      "targets": [],
+      "value": "label=PEGI18"
+    }, {
+      "id": "775c08dd-c2a2-4a4f-98cf-3f5fc3c92f2b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.form-group:nth-child(13) option:nth-child(6)",
+      "targets": [
+        ["css=.form-group:nth-child(13) option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='PEGI18']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[6]/select/option[6]", "xpath:idRelative"],
+        ["xpath=//div[6]/select/option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'PEGI18')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2040853-8ecd-4ac1-95e1-770edb734791",
+      "comment": "",
+      "command": "click",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fca52d95-6e3d-41e9-b4df-85f5af52a42d",
+      "comment": "",
+      "command": "type",
+      "target": "id=releaseYearProduct",
+      "targets": [
+        ["id=releaseYearProduct", "id"],
+        ["name=releaseYearProduct", "name"],
+        ["css=#releaseYearProduct", "css:finder"],
+        ["xpath=//input[@id='releaseYearProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[7]/input", "xpath:idRelative"],
+        ["xpath=//div[7]/input", "xpath:position"]
+      ],
+      "value": "2028"
+    }, {
+      "id": "d29a2ff7-ab04-454f-bfb9-68a87e65fcab",
+      "comment": "",
+      "command": "type",
+      "target": "id=quantityProduct",
+      "targets": [
+        ["id=quantityProduct", "id"],
+        ["name=quantityProduct", "name"],
+        ["css=#quantityProduct", "css:finder"],
+        ["xpath=//input[@id='quantityProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[8]/input", "xpath:idRelative"],
+        ["xpath=//div[8]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "a05f7d3c-e18d-4784-944c-c8ba697dc5d0",
+      "comment": "",
+      "command": "type",
+      "target": "id=priceProduct",
+      "targets": [
+        ["id=priceProduct", "id"],
+        ["name=priceProduct", "name"],
+        ["css=#priceProduct", "css:finder"],
+        ["xpath=//input[@id='priceProduct']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[9]/input", "xpath:idRelative"],
+        ["xpath=//div[9]/input", "xpath:position"]
+      ],
+      "value": "40"
+    }, {
+      "id": "f382f012-9a2b-4312-a37b-0306ef6d689c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Add Product']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/div[11]/input", "xpath:idRelative"],
+        ["xpath=//div[11]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac1ee8a3-673c-4a50-b34e-eee26ab5db5d",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=productYearReleaseError",
+      "targets": [
+        ["id=productYearReleaseError", "id"],
+        ["css=#productYearReleaseError", "css:finder"],
+        ["xpath=//span[@id='productYearReleaseError']", "xpath:attributes"],
+        ["xpath=//form[@id='productForm']/span[7]", "xpath:idRelative"],
+        ["xpath=//span[7]", "xpath:position"],
+        ["xpath=//span[contains(.,'Release year cannot be in the future')]", "xpath:innerText"]
+      ],
+      "value": " Release year cannot be in the future "
+    }, {
+      "id": "b8b73e10-ecba-40b8-a600-3cc1a1a36767",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec379bbe-0deb-4f78-b2ae-ff509b27afad",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "0362c851-646f-453f-b9f8-73e2bf192f37",
+    "name": "ModificaStatoOrdine",
+    "commands": [{
+      "id": "6032d29e-5a83-4a22-a8bc-90f3dcef0dc6",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/index.jsp",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e756081a-51c2-4ed3-a0e7-ef006741b4db",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bbc1134b-3c70-4daa-97aa-04a16c6b79d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["linkText=Login", "linkText"],
+        ["css=#login", "css:finder"],
+        ["xpath=//a[@id='login']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, 'login.jsp?returnurl=http%3A%2F%2Flocalhost%3A8080%2FiSnapGaming_war%2Findex.jsp')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "70461966-0e96-4ce4-b081-c28fb17947e9",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "df33acfb-584d-406a-9057-04e0db02d8df",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "86e38372-4fa5-43f9-a125-4ae923afb64a",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c708d68c-f13c-4426-8740-2c6d7f41e263",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "e779e045-3f97-4478-ab3f-05e93268bef6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "60df277f-6b96-44d2-9ef7-472487ea2720",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(3)",
+      "targets": [
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=(//input[@name='role'])[2]", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29130d3e-923c-4587-86c9-d3091e6617aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c2d09c7-4b4e-4697-8075-aba122621e8e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Show Orders",
+      "targets": [
+        ["linkText=Show Orders", "linkText"],
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//a[contains(text(),'Show Orders')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'GetOrdersList')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Show Orders')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "88d120d5-4b5d-4fa7-a923-adcf95ccce16",
+      "comment": "",
+      "command": "click",
+      "target": "css=.order-item:nth-child(3) > .btn",
+      "targets": [
+        ["css=.order-item:nth-child(3) > .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Select')])[3]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'GetOrderDetails?orderId=3')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b5c4004-d1d1-409c-94de-d34229bcf117",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Update Status']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3f74583-9ea4-4962-bd3f-b076794c7590",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h4:nth-child(6)",
+      "targets": [
+        ["css=h4:nth-child(6)", "css:finder"],
+        ["xpath=//h4", "xpath:position"],
+        ["xpath=//h4[contains(.,'The order was delivered successfully!')]", "xpath:innerText"]
+      ],
+      "value": "The order was delivered successfully!"
+    }, {
+      "id": "85faae22-3ede-4305-b2b5-a144c2d2a8a9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.btn-danger", "css:finder"],
+        ["xpath=//a[contains(@href, 'Logout')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,' Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "65985f88-25c6-4bdd-b05d-c440a2f96b45",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "fbe9e7df-906f-4a51-8262-5448ce26f7cb",
+    "name": "RimozioneProdotto",
+    "commands": [{
+      "id": "be4c271e-3d61-4c92-aac6-f3e002a024f3",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/iSnapGaming_war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d086b521-f67e-4624-8651-696ed206ad37",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1820x1031",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6db7d37-0f14-4d2f-9c18-781b8f6e23f0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-sign-in-alt",
+      "targets": [
+        ["css=.fa-sign-in-alt", "css:finder"],
+        ["xpath=//a[@id='login']/i", "xpath:idRelative"],
+        ["xpath=//a[2]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "55f924fc-4b28-4770-9146-fc946ce7e2f0",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec0e214c-16a3-4488-b4d1-af59651a91dd",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "mrossi@isnapgaming.com"
+    }, {
+      "id": "9b0d313e-d87f-4a06-95f5-64e6635b4e15",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c37ec1bc-b62f-4302-abf4-fb8b51e7baba",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "hvweU48gkereflsll3"
+    }, {
+      "id": "666a82e2-bb9d-4399-881d-8e6ecaa9af9d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Login']", "xpath:attributes"],
+        ["xpath=//form[@id='signUpForm']/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "375ad7c4-c252-4243-ae71-fe007457438e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.radio-buttons",
+      "targets": [
+        ["css=.radio-buttons", "css:finder"],
+        ["xpath=//form/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e18863cd-b206-4e03-bc28-171e102ba1b3",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=(//input[@name='role'])[3]", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "34327950-6903-4e96-b8a3-d46790f144a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "08fa084a-955e-40c7-80e5-729cd4a821ca",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Select",
+      "targets": [
+        ["linkText=Select", "linkText"],
+        ["css=.product-item:nth-child(1) > .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'Select')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ProductDetails?prodCode=751')]", "xpath:href"],
+        ["xpath=//div[2]/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Select')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d828b5ec-754c-4b47-bcd8-bf4e0d913187",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Make unavailable",
+      "targets": [
+        ["linkText=Make unavailable", "linkText"],
+        ["css=.btn:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Make unavailable')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ProductAvailability?action=makeUnavailable&prodCode=751')]", "xpath:href"],
+        ["xpath=//div[2]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Make unavailable')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5aab84e4-951e-43c1-ac04-f88b0a27b982",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Switch Role",
+      "targets": [
+        ["linkText=Switch Role", "linkText"],
+        ["css=.btn-outline-info", "css:finder"],
+        ["xpath=//a[contains(@href, 'roleSelection.jsp')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,' Switch Role')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ed41452f-46ec-4751-addc-85b0e925443b",
+      "comment": "",
+      "command": "click",
+      "target": "name=role",
+      "targets": [
+        ["name=role", "name"],
+        ["css=.radio-buttons > input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='role']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e9e7b58f-216e-46a5-a082-3e2a64f596e7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn",
+      "targets": [
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Submit']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a95652af-97c3-4521-ac6e-549cc9e20658",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=View details",
+      "targets": [
+        ["linkText=View details", "linkText"],
+        ["css=.card:nth-child(1) .btn", "css:finder"],
+        ["xpath=//a[contains(text(),'View details')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ProductDetails?prodCode=751')]", "xpath:href"],
+        ["xpath=//div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'View details')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "22bd4bbb-39d4-46b1-949f-a69d1ad46447",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=span:nth-child(6)",
+      "targets": [
+        ["css=span:nth-child(6)", "css:finder"],
+        ["xpath=//form/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Product temporarily unavailable')]", "xpath:innerText"]
+      ],
+      "value": "Product temporarily unavailable"
+    }, {
+      "id": "9d89cad6-5c80-4f61-ac57-61929d6249fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-light",
+      "targets": [
+        ["css=.fa-light", "css:finder"],
+        ["xpath=//a[3]/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "766d3d31-5e60-411c-9190-e3006d8ad837",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
   }],
   "suites": [{
     "id": "de2c5b4b-8d07-4613-b9a6-ccbf851aa900",

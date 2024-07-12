@@ -45,11 +45,11 @@ public class AddProduct extends HttpServlet {
         int priceProduct = Integer.parseInt(request.getParameter("priceProduct"));
 
         Part filePart = request.getPart("imageProduct");
-        if (filePart == null || !isImageFile(filePart)) {
+        /*if (filePart == null || !isImageFile(filePart)) {
             request.setAttribute("error", "Please upload a valid image file (jpg, jpeg, png, gif)");
             request.getRequestDispatcher("/addProduct.jsp").forward(request, response);
             return;
-        }
+        }*/
 
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String applicationPath = getServletContext().getRealPath("");
