@@ -11,7 +11,6 @@
     <%
         String role = (String) session.getAttribute("role");
         List<String> userRoles = (List<String>) session.getAttribute("roles");
-        System.out.println("User role " + role);
 
         String currentPage = request.getRequestURI();
     %>
@@ -45,13 +44,13 @@
     %>
     <div class="ml-auto">
         <%
-            if(!("ProductManager".equals(role)) && !("OrderManager".equals(role)) && !(currentPage.contains("cart.jsp"))){
+            if(!("ProductManager".equals(role)) && !("OrderManager".equals(role)) && !(currentPage.contains("cart.jsp")) && ){
         %>
         <a href="cart.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-shopping-cart mr-1 icon-finder"></i> Cart
         </a>
         <%
-            }if((userRoles != null && userRoles.size() >= 2)){
+            }if((role!= null && userRoles != null && userRoles.size() >= 2)){
         %>
         <a href="roleSelection.jsp" class="btn btn-outline-info mr-2 button-hover-effect">
             <i class="fas fa-solid fa-bars"></i> Switch Role

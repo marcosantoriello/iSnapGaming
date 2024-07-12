@@ -73,6 +73,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                 //Checks for OrderManager jsp pages
                 path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
                 )) {
+            System.out.println("NON SEI LOGGATO");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
             return;
         }
@@ -93,7 +94,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                         //Checks for OrderManager jsp pages
                         path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
         )) {
-            System.out.println("SEI SOLO UN CUSTOMER");
+            System.out.println("SEI SOLO CUSTOMER");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
             return;
         }
@@ -115,6 +116,7 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                          //Checks for OrderManager jsp pages
                         path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
         )) {
+            System.out.println("SEI PRODUCT MANAGER");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/productManagerDashboard.jsp");
             return;
         }
@@ -129,13 +131,14 @@ public class AccessControlFilter extends HttpFilter implements Filter {
 
 
                         //Checks for general jsp pages
-                        path.contains("/checkout.jsp") || path.contains("/confirmationPage.jsp") || path.contains("/index.jsp") ||
+                        path.contains("/checkout.jsp") || path.contains("/confirmationPage.jsp") || path.contains("/index.jsp") || path.contains("/product.jsp") ||
                         path.contains("/login.jsp") || path.contains("/signup.jsp") || path.contains("/cart.jsp") ||
                         //Checks for ProductManager jsp pages
                         path.contains("/addProduct.jsp") || path.contains("/productManagerDashboard.jsp") || path.contains("/productDetailsPM.jsp") || path.contains("/updateProduct.jsp")
                         //Checks for OrderManager jsp pages
 
         )) {
+            System.out.println("SEI ORDER MANAGER");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/orderManagerDashboard.jsp");
             return;
         }
@@ -156,7 +159,33 @@ public class AccessControlFilter extends HttpFilter implements Filter {
                         //Checks for OrderManager jsp pages
                         path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
         )) {
+            System.out.println("SEI CUSTOMER");
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
+            return;
+        }
+
+        if( (isLogged && role == null)  && (
+                //Checks for general servlet
+                path.contains("/Logout")  || path.contains("/PayOrder") || path.contains("/Login") || path.contains("/Signup") || path.contains("/ProductDetails") ||
+                        path.contains("/AddToCart") || path.contains("/UpdateCart") ||
+                        //Checks for ProductManager servlet
+                        path.contains("/AddProduct") || path.contains("/ManageProduct") || path.contains("/ProductUpdater") || path.contains("/ProductAvailability") ||
+                        //Checks for OrderManager servlet
+                        path.contains("/GetOrderDetails") || path.contains("GetOrdersList") || path.contains("/UpdateStatus") ||
+
+
+                        //Checks for general jsp pages
+                        path.contains("/checkout.jsp") || path.contains("/confirmationPage.jsp") || path.contains("/index.jsp") || path.contains("/login.jsp") ||
+                        path.contains("/signup.jsp") || path.contains("/product.jsp") || path.contains("/cart.jsp") ||
+                        //Checks for ProductManager jsp pages
+                        path.contains("/addProduct.jsp") || path.contains("/productManagerDashboard.jsp") || path.contains("/productDetailsPM") || path.contains("/updateProduct") ||
+                        //Checks for OrderManager jsp pages
+                        path.contains("/orderManagerDashboard.jsp") || path.contains("/updateStatus.jsp") || path.contains("/customerOrdersList.jsp")
+
+
+        )){
+            System.out.println("SEI LOGGATO MA SENZA RUOLO");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/roleSelection.jsp");
             return;
         }
 
