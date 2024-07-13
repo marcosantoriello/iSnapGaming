@@ -1,0 +1,80 @@
+.content {
+    background-color: rgb(207, 222, 236);
+    min-height: 100vh;
+    width: 100%;
+}
+
+.dashboard-product-manager {
+    display: flex;
+    background-color: white;
+    margin: 10% 20% 20% 20%;
+}
+
+.right-dashboard-product-manager {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px); /* Esempio di altezza massima */
+}
+
+.left-dashboard-product-manager {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; / Spaziatura tra i bottoni */
+}
+
+.left-dashboard-product-manager button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+.right-dashboard-product-manager {
+    flex: 2;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.product-list {
+    display: grid;
+    gap: 20px;
+}
+
+.product-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
+}
+
+.product-info img {
+    max-width: 100px;
+    height: auto;
+}
+
+.product-info h3 {
+    margin: 0;
+}
+
+.product-item .btn {
+    padding: 8px 16px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-item .btn:hover {
+    background-color: #0056b3;
+}

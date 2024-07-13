@@ -1,0 +1,10 @@
+.content{
+    background-color: rgb(207, 222, 236);
+    min-height: 100vh;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

@@ -1,0 +1,3 @@
+INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(252, "CoD WWII", "Activisoin", "PC", 55, 100, "SHOOTER", "PEGI18", 2017, false);
+INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(331, "Hell Let Loose", "Team17 Digital Ltd", "PC", 60, 30, "ACTION", "PEGI16", 2019, true);
+INSERT INTO product(prodCode, name, softwareHouse, platform, price, quantity, category, pegi, releaseYear, available) values(652, "Fortnite", "Epic Games", "PS4", 15, 100, "ACTION", "PEGI12", 2017, true);

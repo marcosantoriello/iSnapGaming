@@ -1,0 +1,16 @@
+.content{
+    background-color: rgb(207, 222, 236);
+    min-height: 100%;
+}
+
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 5% 5%;
+}
+
+.card{
+    margin: 2% 2%;
+}
