@@ -23,3 +23,7 @@ The main goal of this project is to design software focusing on software enginee
 In order to make the software up and running, you will have to create and populate the database. You can find the files in [this folder](https://github.com/marcosantoriello/iSnapGaming/tree/main/db). In here you will find two files:
 - [`createDb.sql`](https://github.com/marcosantoriello/iSnapGaming/blob/main/db/createDb.sql) that will set up the new database once executed;
 - [`populateDb.sql`](https://github.com/marcosantoriello/iSnapGaming/blob/main/db/populateDb.sql) that will populate the newly created database.
+## Functional Testing
+In order to execute the Functional Testing with Selenium, you will need to execute the following scripts:
+- [`Autenticazione_UP1-PP1.sql`](src/test/FunctionalTesting/Autenticazione_UP1-PP1.sql)
+- [`ModificaStatoOrdine.sql`](src/test/FunctionalTesting/ModificaStatoOrdine.sql)
